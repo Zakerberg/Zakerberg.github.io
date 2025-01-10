@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Cherry">
+    <meta name="keywords" content="分类: G81, Cherry">
     <meta name="description" content="Cherry">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,53 +17,12 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Cherry</title>
+    <title>分类: G81 | Cherry</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
 
-    <!-- index cover -->
-    <!-- <link rel="stylesheet preload" type="text/css" href="/css/indexcover.css"> -->
-    <style>
-        .carousel-control {
-            width: 45px;
-            height: 45px;
-            line-height: 55px;
-            border-radius: 45px;
-            background: transparent;
-            cursor: pointer;
-            z-index: 100;
-        }
-        
-        #prev-cover {
-            position: absolute;
-            top: 48%;
-            left: 8px;
-        }
-        
-        #next-cover {
-            position: absolute;
-            top: 48%;
-            right: 8px;;
-        }
-        
-        #prev-cover i {
-            margin-right: 3px;
-        }
-        
-        #next-cover i {
-            margin-left: 3px;
-        }
-        
-        .carousel-control:hover {
-            background-color: rgba(0, 0, 0, .4);
-        }
-        
-        .carousel-control i {
-            color: #fff;
-            font-size: 2.4rem;
-        }
-    </style>
+    <!-- bg-cover style     -->
 
 
 
@@ -84,6 +43,10 @@
 
 
 
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
 
 
 
@@ -369,15 +332,9 @@
 
 </header>
 
-    
-
-
-<div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
-    
-
-    <div class="carousel-item  white-text bg-cover about-cover">
-        <div class="container">
-            <div class="row">
+    <div class="bg-cover pd-header about-cover">
+    <div class="container">
+    <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
         <div class="brand">
             <div class="title center-align">
@@ -401,193 +358,65 @@
 </script>
 
 
-
-            <div class="cover-btns">
-                <a href="#indexCard" class="waves-effect waves-light btn">
-                    <i class="fa fa-angle-double-down"></i>开始阅读
-                </a>
-
-                
-                    <a href="https://github.com/Zakerberg" class="waves-effect waves-light btn" target="_blank">
-                        <i class="fab fa-github-alt"></i>Github
-                    </a>
-                
-            </div>
-            <div class="cover-social-link">
-    <a href="https://github.com/Zakerberg" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:blmichael1129@icloud.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-    <a href="https://www.facebook.com/Zakerberg" class="tooltipped" target="_blank" data-tooltip="关注我的Facebook: https://www.facebook.com/Zakerberg" data-position="top" data-delay="50">
-        <i class="fab fa-facebook-f"></i>
-    </a>
-
-
-
-    <a href="https://twitter.com/Zakerberg" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/Zakerberg" data-position="top" data-delay="50">
-        <i class="fab fa-twitter"></i>
-    </a>
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1612372046" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1612372046" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
-
-
-
-
-
-
-</div>
-        </div>
     </div>
-
-    
 </div>
-
-<script>
-    $(function () {
-        let coverSlider = $('.carousel');
-
-        //用户触摸轮播自动 restartPlay 是否生效
-        let initUserPressedOrDraggedActive = false
-
-        //用户触摸轮播自动 restartPlay
-        function initUserPressedOrDragged(instance) {
-            setInterval(() => {
-                if (instance.pressed || instance.dragged) {
-                    // console.log('initUserPressedOrDragged: ',instance.pressed,instance.dragged)
-                    restartPlay()
-                }
-            }, 1000)
-        }
-
-        coverSlider.carousel({
-            duration: Number('120'),
-            fullWidth: true,
-            indicators: 'true' === 'true',
-            onCycleTo() {
-                if (!initUserPressedOrDraggedActive) {
-                    // console.log('initUserPressedOrDraggedActive')
-                    initUserPressedOrDragged(this)
-                    initUserPressedOrDraggedActive = true
-                }
-            },
-        })
-
-        let carouselIntervalId;
-        
-
-        function restartPlay() {
-            
-        };
-
-        
-    });
-</script>
-
-
 
 <main class="content">
 
     
-    <div id="indexCard" class="index-card">
-        <div class="container ">
-            <div class="card">
-                <div class="card-content">
-                    
-                        <div class="dream">
-    
-    <div class="title center-align">
-        <i class="far fa-lightbulb"></i>&nbsp;&nbsp;CHERRY 品牌介绍
-    </div>
-    
-    <div class="row">
-        <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
-            CHERRY公司由Walter L. Cherry于1953年创立。第一批微动开关是在伊利诺伊州高地公园一家餐馆的地下室里生产的。在进入美国汽车市场后，CHERRY的规模和声誉迅速增长，一直到20世纪60年代初，Walter L. Cherry将公司飘洋过海迁移到了欧洲，美国企业家精神与德国工匠精神相结合，创造了CHERRY的历史和未来。今天，CHERRY被视为质量、创新、设计和可持续性的缩影。
-        </div>
-    </div>
-</div>
 
-                    
-
-                    
-
-                    
-                        <link rel="stylesheet" href="/libs/dplayer/DPlayer.min.css">
-<div class="video-player">
-    
-    <div class="title center-align">
-        <i class="fas fa-video-camera"></i>&nbsp;&nbsp;Cherry键盘广告
-    </div>
-    
-    <div class="row">
-		
-        <div class="col l8 offset-l2 m10 offset-m1 s12">
-            <div id="dplayer" class="dplayer-video"
-                     style="height: 400px;"></div>
-        </div>
-		
-    </div>
-</div>
-
-<script src="/libs/dplayer/DPlayer.min.js"></script>
-<script>
-    $(function () {
-        new DPlayer({
-            container: document.getElementById('dplayer'),
-            autoplay: 'false' === 'true',
-            theme: '#42b983',
-            loop: 'false' === 'true',
-            lang: 'zh-CN' === 'zh-CN' ? 'zh-cn' : 'en',
-            preload: 'auto',
-            volume: Number('0.7'),
-            video: {
-                url: 'https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/CHERRY%E9%94%AE%E7%9B%98%E5%B9%BF%E5%91%8A.mp4',
-                pic: '',
-                thumbnails: ''
-            }
-        });
-    });
-</script>
-
-                    
-
-                    
-                    <div id="recommend-sections" class="recommend">
-                        
-
-
-
-                    </div>
-                    
-                </div>
+<div id="category-cloud" class="container chip-container">
+    <div class="card">
+        <div class="card-content">
+            <div class="tag-title center-align">
+                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
+            </div>
+            <div class="tag-chips">
+                
+                
+                
+                <a href="/categories/G81/" title="G81: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            style="background-color: #F9EBEA;">G81
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/G80/" title="G80: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F5EEF8;">G80
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/G80/M7/" title="M7: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D5F5E3;">M7
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
             </div>
         </div>
     </div>
-    
+</div>
+
 
     
 
-    <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
-        <div class="row article-row">
+        <div class="row tags-posts">
             
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2025/01/10/g81/g81-1000/">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             
                             <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="G81-1000">
@@ -595,9 +424,10 @@
                             <span class="card-title">G81-1000</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
+                            
+                                
                             
                         </div>
                         <div class="publish-info">
@@ -628,73 +458,9 @@
                     
                 </div>
             </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/01/10/g80/g80-0075/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="G80-0075 (M7)">
-                            
-                            <span class="card-title">G80-0075 (M7)</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                Quick StartCreate a new postqqqq1$ hexo new "My New Post"
-
-More info: Writing
-Run serverq1$ hexo server
-
-More info: Serv
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-01-10
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/G80/" class="post-category">
-                                    G80
-                                </a>
-                                
-                                <a href="/categories/G80/M7/" class="post-category">
-                                    M7
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/G80/">
-                            <span class="chip bg-color">G80</span>
-                        </a>
-                        
-                        <a href="/tags/M7/">
-                            <span class="chip bg-color">M7</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
             
         </div>
     </article>
-
 </main>
 
 
