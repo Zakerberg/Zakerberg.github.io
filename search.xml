@@ -4,36 +4,11 @@
   
     
     <entry>
-      <title>G81-1000</title>
-      <link href="/2025/01/10/g81/g81-1000/"/>
-      <url>/2025/01/10/g81/g81-1000/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> G81 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> G81 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>G80-0075 (M7)</title>
+      <title>G80-0075</title>
       <link href="/2025/01/10/g80/g80-0075/"/>
       <url>/2025/01/10/g80/g80-0075/</url>
       
-        <content type="html"><![CDATA[<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-postqqqq"><a href="#Create-a-new-postqqqq" class="headerlink" title="Create a new postqqqq"></a>Create a new postqqqq</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-serverq"><a href="#Run-serverq" class="headerlink" title="Run serverq"></a>Run serverq</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generateaaaaa</span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a>1</p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><p>qq1111</p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a>11</p>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>G80-0075 </p></blockquote><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/0.jpeg"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/1.jpeg"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/2.jpeg"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/3.jpeg"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/4.jpeg"></p><blockquote><p>PDF</p></blockquote><p><a href="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/Cherry_Keyboards_and_Switches_Catalogue_1982.pdf">Cherry_Keyboards_and_Switches_Catalogue_1982.pdf</a></p>]]></content>
       
       
       <categories>
@@ -50,6 +25,35 @@
             <tag> G80 </tag>
             
             <tag> M7 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>G80-0077</title>
+      <link href="/2025/01/10/g80/g80-0077/"/>
+      <url>/2025/01/10/g80/g80-0077/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>G80-0077 (暂无图片)</p></blockquote><blockquote><p>PDF</p></blockquote><p><a href="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/Cherry_Keyboards_and_Switches_Catalogue_1982.pdf">Cherry_Keyboards_and_Switches_Catalogue_1982.pdf</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> G80 </category>
+          
+          <category> M8 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> G80 </tag>
+            
+            <tag> M8 </tag>
             
         </tags>
       
