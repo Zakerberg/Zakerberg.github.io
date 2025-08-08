@@ -241,7 +241,7 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background-image: linear-gradient(to right, #EEC789 0%, #EEC789 100%);
 }
 
 .text-color {
@@ -2293,4 +2293,35 @@ body.DarkMode .theme-btn:hover {
     font-family:'Font Awesome 5 Free';
     font-weight: 900;
     color: #d9534f;
+}
+
+/* 添加在文件末尾或合适的位置 */
+/* 2025.8.8新增目录滑动 */
+
+/* 目录滚动样式 */
+.toc-widget {
+    max-height: 70vh; /* 设置目录最大高度为视口的70% */
+    overflow-y: auto; /* 添加垂直滚动条 */
+    position: sticky;
+    top: 20px;
+    padding-right: 10px; /* 为滚动条留出空间 */
+}
+
+/* 美化滚动条 */
+.toc-widget::-webkit-scrollbar {
+    width: 6px;
+}
+.toc-widget::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.2);
+    border-radius: 3px;
+}
+.toc-widget::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.05);
+}
+
+/* 移动端适配 */
+@media only screen and (max-width: 992px) {
+    .toc-widget {
+        max-height: 50vh; /* 移动设备上高度小一些 */
+    }
 }
