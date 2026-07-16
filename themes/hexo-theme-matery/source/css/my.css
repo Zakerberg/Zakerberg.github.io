@@ -1,0 +1,179 @@
+/* Here is your custom css styles. */
+
+.home-hero-title {
+    margin: 0;
+    font-size: clamp(2.4rem, 6vw, 4.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.home-hero-subtitle {
+    margin: 1rem 0 0.75rem;
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.home-hero-description {
+    display: inline-block;
+    max-width: 42rem;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.post-spec-card {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(66, 185, 131, 0.18);
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(66, 185, 131, 0.06), rgba(255, 255, 255, 0.96));
+}
+
+.post-spec-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #34495e;
+}
+
+.post-spec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem 1.25rem;
+}
+
+.post-spec-item {
+    min-width: 0;
+}
+
+.post-spec-item--wide {
+    grid-column: 1 / -1;
+}
+
+.post-spec-label {
+    margin-bottom: 0.35rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #42b983;
+    letter-spacing: 0.04em;
+}
+
+.post-spec-value {
+    color: #4f5b66;
+    line-height: 1.8;
+    word-break: break-word;
+}
+
+.post-spec-list {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.post-spec-list li + li {
+    margin-top: 0.35rem;
+}
+
+.article-share-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.article-share-copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    color: #fff;
+    background: linear-gradient(135deg, #42b983, #2f8f67);
+}
+
+.article-share-copy:hover {
+    color: #fff;
+    opacity: 0.92;
+}
+
+.media-lazy-shell {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #0f172a;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+}
+
+.media-lazy-poster {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    opacity: 0.78;
+}
+
+.media-lazy-poster--empty {
+    background: linear-gradient(135deg, rgba(66, 185, 131, 0.3), rgba(15, 23, 42, 0.9));
+}
+
+.media-lazy-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.media-lazy-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 1.4rem;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.62);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.music-lazy-trigger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.music-lazy-trigger--fixed {
+    position: fixed;
+    left: 16px;
+    bottom: 16px;
+    z-index: 996;
+    align-items: flex-start;
+}
+
+.music-lazy-trigger--fixed .btn {
+    border-radius: 999px;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.18);
+}
+
+.music-lazy-trigger--loaded {
+    gap: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .home-hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .home-hero-description {
+        font-size: 0.92rem;
+        line-height: 1.7;
+    }
+
+    .post-spec-card {
+        padding: 1.15rem;
+    }
+}

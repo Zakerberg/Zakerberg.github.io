@@ -1,0 +1,159 @@
+<%
+    var lazyLoadMusic = Boolean(theme.music.lazyLoad);
+    var musicShellId = theme.music.fixed ? 'music-player-fixed-shell' : 'music-player-inline-shell';
+    var musicTargetId = theme.music.fixed ? 'music-player-fixed-target' : 'music-player-inline-target';
+%>
+<% if (!lazyLoadMusic) { %>
+<link rel="stylesheet" href="<%- theme.jsDelivr.url %><%- url_for(theme.libs.css.aplayer) %>">
+<% } %>
+<style>
+    .aplayer .aplayer-lrc p {
+        <%if(theme.music.hideLrc){%>
+        display: none;
+        <%}%>
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        <%if(theme.music.hideLrc){%>
+        display: none;
+        <%}%>
+        font-size: 15px;
+        color: <%- theme.music.theme %>;
+    }
+
+    <%if(theme.music.autoHide){%>
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    <%}%>
+</style>
+<div class="<% if(!theme.music.fixed) { %>music-player<% } %>">
+    <% if (!theme.music.fixed && theme.music.title.enable && !lazyLoadMusic) { %>
+        <div class="title center-align">
+            <i class="fas fa-music"></i>&nbsp;&nbsp;<%- theme.music.title.show %>
+        </div>
+    <% } %>
+    <% if (lazyLoadMusic) { %>
+    <div id="<%- musicShellId %>" class="music-lazy-trigger<% if (theme.music.fixed) { %> music-lazy-trigger--fixed<% } %>">
+        <% if (!theme.music.fixed && theme.music.title.enable) { %>
+        <div class="title center-align">
+            <i class="fas fa-music"></i>&nbsp;&nbsp;<%- theme.music.title.show %>
+        </div>
+        <% } %>
+        <button type="button" class="btn waves-effect waves-light">
+            <i class="fas fa-music"></i><span><%- theme.music.loadButtonText || '打开音乐播放器' %></span>
+        </button>
+        <div id="<%- musicTargetId %>"></div>
+    </div>
+    <% } else { %>
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="<%- theme.music.server %>"
+                   type="<%- theme.music.type %>"
+                   id="<%- theme.music.id %>"
+                   fixed='<%- theme.music.fixed ? 'true' : 'false' %>'
+                   autoplay='<%- theme.music.autoplay === true %>'
+                   theme='<%- theme.music.theme %>'
+                   loop='<%- theme.music.loop %>'
+                   order='<%- theme.music.order %>'
+                   preload='<%- theme.music.preload %>'
+                   volume='<%- Number(theme.music.volume) %>'
+                   list-folded='<%- theme.music.listFolded ? 'true' : 'false' %>'
+        >
+        </meting-js>
+    </div>
+    <% } %>
+</div>
+
+<% if (!lazyLoadMusic) { %>
+<script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.aplayer) %>"></script>
+<script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.meting) %>"></script>
+<% } else { %>
+<script>
+    (function () {
+        const shell = document.getElementById('<%- musicShellId %>');
+        if (!shell) return;
+
+        const target = document.getElementById('<%- musicTargetId %>');
+        const trigger = shell.querySelector('button');
+        const cssHref = '<%- theme.jsDelivr.url %><%- url_for(theme.libs.css.aplayer) %>';
+        const scriptSources = [
+            '<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.aplayer) %>',
+            '<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.meting) %>'
+        ];
+
+        const ensureCss = function () {
+            if (document.querySelector('link[data-aplayer-css="true"]')) return;
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = cssHref;
+            link.setAttribute('data-aplayer-css', 'true');
+            document.head.appendChild(link);
+        };
+
+        const ensureScript = function (src, marker) {
+            if (window[marker]) return Promise.resolve();
+            return new Promise(function (resolve, reject) {
+                const existing = document.querySelector('script[data-loader="' + marker + '"]');
+                if (existing) {
+                    existing.addEventListener('load', function () { resolve(); }, { once: true });
+                    existing.addEventListener('error', reject, { once: true });
+                    return;
+                }
+
+                const script = document.createElement('script');
+                script.src = src;
+                script.async = true;
+                script.setAttribute('data-loader', marker);
+                script.onload = function () {
+                    window[marker] = true;
+                    resolve();
+                };
+                script.onerror = reject;
+                document.body.appendChild(script);
+            });
+        };
+
+        trigger.addEventListener('click', async function () {
+            trigger.disabled = true;
+            trigger.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>加载中...</span>';
+
+            try {
+                ensureCss();
+                await ensureScript(scriptSources[0], '__aplayerLoaded');
+                await ensureScript(scriptSources[1], '__metingLoaded');
+
+                const player = document.createElement('meting-js');
+                player.className = 'col l8 offset-l2 m10 offset-m1 s12';
+                player.setAttribute('server', '<%- theme.music.server %>');
+                player.setAttribute('type', '<%- theme.music.type %>');
+                player.setAttribute('id', '<%- theme.music.id %>');
+                player.setAttribute('fixed', '<%- theme.music.fixed ? 'true' : 'false' %>');
+                player.setAttribute('autoplay', '<%- theme.music.autoplay === true %>');
+                player.setAttribute('theme', '<%- theme.music.theme %>');
+                player.setAttribute('loop', '<%- theme.music.loop %>');
+                player.setAttribute('order', '<%- theme.music.order %>');
+                player.setAttribute('preload', '<%- theme.music.preload %>');
+                player.setAttribute('volume', '<%- Number(theme.music.volume) %>');
+                player.setAttribute('list-folded', '<%- theme.music.listFolded ? 'true' : 'false' %>');
+
+                target.appendChild(player);
+                shell.classList.add('music-lazy-trigger--loaded');
+                trigger.remove();
+            } catch (error) {
+                trigger.disabled = false;
+                trigger.innerHTML = '<i class="fas fa-music"></i><span><%- theme.music.loadButtonText || '打开音乐播放器' %></span>';
+                M.toast({html: '音乐播放器加载失败，请稍后重试'});
+            }
+        }, { once: true });
+    })();
+</script>
+<% } %>

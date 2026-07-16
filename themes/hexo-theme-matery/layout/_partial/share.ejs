@@ -1,0 +1,47 @@
+<link rel="stylesheet" type="text/css" href="<%- theme.jsDelivr.url %><%- url_for('/libs/share/css/share.min.css') %>">
+<div id="article-share">
+    <div class="article-share-actions">
+        <a class="article-share-copy waves-effect waves-light" href="javascript:;" data-share-url="<%- absolute_url_for(page.path || '/') %>">
+            <i class="fas fa-link"></i>复制链接
+        </a>
+
+        <% if (theme.sharejs.enable) { %>
+        <div class="social-share" data-sites="<%- theme.sharejs.sites %>" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+        <script src="<%- theme.jsDelivr.url %><%- url_for('/libs/share/js/social-share.min.js') %>"></script>
+        <% } %>
+    </div>
+
+    <% if (theme.addthis.enable) { %>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<%- theme.addthis.pubid %>"></script>
+    <div class="addthis_inline_share_toolbox"></div>
+    <% } %>
+
+</div>
+<script>
+    (function () {
+        const copyTrigger = document.querySelector('#article-share .article-share-copy');
+        if (!copyTrigger) return;
+
+        copyTrigger.addEventListener('click', async function () {
+            const shareUrl = copyTrigger.getAttribute('data-share-url');
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(shareUrl);
+                } else {
+                    const fallback = document.createElement('textarea');
+                    fallback.value = shareUrl;
+                    fallback.setAttribute('readonly', 'readonly');
+                    fallback.style.position = 'absolute';
+                    fallback.style.left = '-9999px';
+                    document.body.appendChild(fallback);
+                    fallback.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(fallback);
+                }
+                M.toast({html: '文章链接已复制'});
+            } catch (error) {
+                M.toast({html: '复制失败，请手动复制当前链接'});
+            }
+        });
+    })();
+</script>

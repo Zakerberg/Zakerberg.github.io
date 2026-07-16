@@ -1,0 +1,132 @@
+<%
+    var lazyLoadVideo = Boolean(theme.video.lazyLoad && theme.video.url);
+    var videoPoster = theme.video.pic || (config.seo && config.seo.default_og_image) || '/medias/banner/0.jpg';
+%>
+<% if (!lazyLoadVideo) { %>
+<link rel="stylesheet" href="<%- theme.jsDelivr.url %><%- url_for(theme.libs.css.dplayer) %>">
+<% } %>
+<div class="video-player">
+    <% if (theme.video.showTitle) { %>
+    <div class="title center-align">
+        <i class="fas fa-video-camera"></i>&nbsp;&nbsp;<%= theme.video.title %>
+    </div>
+    <% } %>
+    <div class="row">
+		<% if (theme.video.url) { %>
+        <div class="col l8 offset-l2 m10 offset-m1 s12">
+            <% if (lazyLoadVideo) { %>
+            <div class="media-lazy-shell">
+                <% if (videoPoster) { %>
+                <img class="media-lazy-poster" src="<%- url_for(videoPoster) %>" alt="<%= theme.video.title %>">
+                <% } else { %>
+                <div class="media-lazy-poster media-lazy-poster--empty"></div>
+                <% } %>
+                <div class="media-lazy-overlay">
+                    <button id="dplayer-trigger" type="button" class="media-lazy-button waves-effect waves-light">
+                        <i class="fas fa-play"></i><span><%= theme.video.loadButtonText || '点击加载视频' %></span>
+                    </button>
+                </div>
+                <div id="dplayer" class="dplayer-video" style="display: none;<% if (theme.video.height) { %> height: <%- theme.video.height %>px;<% } %>"></div>
+            </div>
+            <% } else { %>
+            <div id="dplayer" class="dplayer-video"
+                    <% if (theme.video.height) { %> style="height: <%- theme.video.height %>px;"<% } %>></div>
+            <% } %>
+        </div>
+		<% }else{ %>
+			<iframe src='<% if (theme.video.iframeUrl) { %><%- url_for(theme.video.iframeUrl) %><% } %>' scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" align="middle" <% if (theme.video.height) { %> style="height: <%- theme.video.height %>px;"<% } %> width="100%"> </iframe>
+		<% } %>
+    </div>
+</div>
+
+<% if (!lazyLoadVideo) { %>
+<script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.dplayer) %>"></script>
+<script>
+    $(function () {
+        new DPlayer({
+            container: document.getElementById('dplayer'),
+            autoplay: '<%- theme.video.autoplay %>' === 'true',
+            theme: '<%- theme.video.theme %>',
+            loop: '<%- theme.video.loop %>' === 'true',
+            lang: '<%- config.language %>' === 'zh-CN' ? 'zh-cn' : 'en',
+            preload: '<%- theme.video.preload %>',
+            volume: Number('<%- theme.video.volume %>'),
+            video: {
+                url: '<% if (theme.video.url) { %><%- url_for(theme.video.url) %><% } %>',
+                pic: '<% if (theme.video.pic) { %><%- url_for(theme.video.pic) %><% } %>',
+                thumbnails: '<% if (theme.video.thumbnails) { %><%- url_for(theme.video.thumbnails) %><% } %>'
+            }
+        });
+    });
+</script>
+<% } else { %>
+<script>
+    (function () {
+        const trigger = document.getElementById('dplayer-trigger');
+        const playerNode = document.getElementById('dplayer');
+        if (!trigger || !playerNode) return;
+
+        const cssHref = '<%- theme.jsDelivr.url %><%- url_for(theme.libs.css.dplayer) %>';
+        const scriptSrc = '<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.dplayer) %>';
+
+        const ensureCss = function () {
+            if (document.querySelector('link[data-dplayer-css="true"]')) return;
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = cssHref;
+            link.setAttribute('data-dplayer-css', 'true');
+            document.head.appendChild(link);
+        };
+
+        const ensureScript = function () {
+            if (window.DPlayer) return Promise.resolve(window.DPlayer);
+            return new Promise(function (resolve, reject) {
+                const existing = document.querySelector('script[data-dplayer-script="true"]');
+                if (existing) {
+                    existing.addEventListener('load', function () { resolve(window.DPlayer); }, { once: true });
+                    existing.addEventListener('error', reject, { once: true });
+                    return;
+                }
+
+                const script = document.createElement('script');
+                script.src = scriptSrc;
+                script.async = true;
+                script.setAttribute('data-dplayer-script', 'true');
+                script.onload = function () { resolve(window.DPlayer); };
+                script.onerror = reject;
+                document.body.appendChild(script);
+            });
+        };
+
+        trigger.addEventListener('click', async function () {
+            trigger.disabled = true;
+            trigger.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>加载中...</span>';
+
+            try {
+                ensureCss();
+                await ensureScript();
+                playerNode.style.display = 'block';
+                trigger.closest('.media-lazy-overlay').style.display = 'none';
+                new DPlayer({
+                    container: playerNode,
+                    autoplay: '<%- theme.video.autoplay %>' === 'true',
+                    theme: '<%- theme.video.theme %>',
+                    loop: '<%- theme.video.loop %>' === 'true',
+                    lang: '<%- config.language %>' === 'zh-CN' ? 'zh-cn' : 'en',
+                    preload: '<%- theme.video.preload %>',
+                    volume: Number('<%- theme.video.volume %>'),
+                    video: {
+                        url: '<% if (theme.video.url) { %><%- url_for(theme.video.url) %><% } %>',
+                        pic: '<% if (theme.video.pic) { %><%- url_for(theme.video.pic) %><% } %>',
+                        thumbnails: '<% if (theme.video.thumbnails) { %><%- url_for(theme.video.thumbnails) %><% } %>'
+                    }
+                });
+            } catch (error) {
+                trigger.disabled = false;
+                trigger.innerHTML = '<i class="fas fa-play"></i><span><%= theme.video.loadButtonText || '点击加载视频' %></span>';
+                M.toast({html: '视频加载失败，请稍后重试'});
+            }
+        }, { once: true });
+    })();
+</script>
+<% } %>

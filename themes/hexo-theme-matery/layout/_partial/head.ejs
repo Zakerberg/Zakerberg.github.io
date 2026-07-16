@@ -1,0 +1,174 @@
+<%
+    var title = page.title;
+    var homeHeading = config.seo && config.seo.home_h1 ? config.seo.home_h1 : config.title;
+    var isPostPage = is_post();
+
+    // tags, categories, about pages title
+    if (title == 'tags') {
+        title = __('tags');
+    } else if (title == 'categories') {
+        title = __('categories');
+    } else if (title == 'about') {
+        title = __('about');
+    }
+
+    // archives, category, tag pages title
+    if (is_archive()) {
+        title = __('archives');
+        if (is_month()) {
+            title += ': ' + page.year + '/' + page.month;
+        } else if (is_year()) {
+            title += ': ' + page.year;
+        }
+    } else if (is_category()) {
+        title = __('category') + ': ' + page.category;
+    } else if (is_tag()) {
+        title = __('tag') + ': ' + page.tag;
+    }
+
+    // final page title.
+    var pageTitle = title ? title + ' | ' + config.title : config.title;
+    if (is_home() && (!page.current || page.current === 1) && homeHeading) {
+        pageTitle = homeHeading === config.title ? config.title : homeHeading + ' | ' + config.title;
+    }
+
+    // keywords.
+    var keyWords = typeof page_keywords === 'function' ? page_keywords(page) : (config.keywords ? config.keywords : config.title);
+
+    // description.
+    var description = typeof page_description === 'function' ? page_description(page) : (config.description ? config.description : config.title);
+
+    var canonicalPath = (is_home() && (!page.current || page.current === 1)) ? '/' : (page.path || '/');
+    var canonicalUrl = typeof absolute_url_for === 'function' ? absolute_url_for(canonicalPath) : (config.url + url_for(canonicalPath));
+    var ogImage = typeof page_cover_image === 'function' ? page_cover_image(page) : '';
+    var ogType = isPostPage ? 'article' : 'website';
+    var locale = (config.language || 'en').replace('-', '_');
+    var pageTags = [];
+    var pageCategories = [];
+
+    if (page.tags && typeof page.tags.forEach === 'function') {
+        page.tags.forEach(function(tag) {
+            pageTags.push(tag.name || tag);
+        });
+    }
+
+    if (page.categories && typeof page.categories.forEach === 'function') {
+        page.categories.forEach(function(category) {
+            pageCategories.push(category.name || category);
+        });
+    }
+
+    var structuredData = {
+        "@context": "https://schema.org",
+        "@type": is_home() ? "WebSite" : "WebPage",
+        "name": is_home() && (!page.current || page.current === 1) ? homeHeading : pageTitle,
+        "headline": pageTitle,
+        "description": description,
+        "url": canonicalUrl,
+        "inLanguage": config.language || 'zh-CN'
+    };
+
+    if (ogImage) {
+        structuredData.image = ogImage;
+    }
+
+    if (isPostPage) {
+        structuredData = {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": page.title,
+            "description": description,
+            "url": canonicalUrl,
+            "mainEntityOfPage": canonicalUrl,
+            "datePublished": date_xml(page.date),
+            "dateModified": date_xml(page.updated || page.date),
+            "inLanguage": config.language || 'zh-CN',
+            "author": {
+                "@type": "Person",
+                "name": page.author || config.author
+            },
+            "publisher": {
+                "@type": "Person",
+                "name": config.author
+            }
+        };
+
+        if (ogImage) {
+            structuredData.image = [ogImage];
+        }
+
+        if (pageCategories.length > 0) {
+            structuredData.articleSection = pageCategories[0];
+        }
+
+        if (pageTags.length > 0) {
+            structuredData.keywords = pageTags.join(', ');
+        }
+    }
+
+    let iconType = 'image/png'
+    let faviconExt = theme.favicon.substr(theme.favicon.lastIndexOf('.') + 1, theme.favicon.length)
+    if (faviconExt === 'png') {
+        iconType = 'image/png'
+    } else if (faviconExt === 'svg') {
+        iconType = 'image/svg+xml'
+    } else if (faviconExt === 'gif') {
+        iconType = 'image/gif'
+    } else if (faviconExt === 'jpeg') {
+        iconType = 'image/jpeg'
+    } else if (faviconExt === 'jpg') {
+        iconType = 'image/jpeg'
+    } else if (faviconExt === 'ico') {
+        iconType = 'image/x-icon, image/vnd.microsoft.icon'
+    }
+%>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="<%= keyWords %>">
+    <meta name="description" content="<%= description %>">
+    <link rel="canonical" href="<%= canonicalUrl %>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta property="og:locale" content="<%= locale %>">
+    <meta property="og:type" content="<%= ogType %>">
+    <meta property="og:title" content="<%= pageTitle %>">
+    <meta property="og:description" content="<%= description %>">
+    <meta property="og:url" content="<%= canonicalUrl %>">
+    <meta property="og:site_name" content="<%= config.title %>">
+    <% if (ogImage) { %>
+    <meta property="og:image" content="<%= ogImage %>">
+    <% } %>
+    <meta name="twitter:card" content="<%= ogImage ? 'summary_large_image' : 'summary' %>">
+    <meta name="twitter:title" content="<%= pageTitle %>">
+    <meta name="twitter:description" content="<%= description %>">
+    <% if (ogImage) { %>
+    <meta name="twitter:image" content="<%= ogImage %>">
+    <% } %>
+    <% if (isPostPage) { %>
+    <meta property="article:published_time" content="<%= date_xml(page.date) %>">
+    <meta property="article:modified_time" content="<%= date_xml(page.updated || page.date) %>">
+    <% if (pageCategories.length > 0) { %>
+    <meta property="article:section" content="<%= pageCategories[0] %>">
+    <% } %>
+    <% pageTags.forEach(function(tag) { %>
+    <meta property="article:tag" content="<%= tag %>">
+    <% }) %>
+    <% } %>
+    <script type="application/ld+json"><%- JSON.stringify(structuredData) %></script>
+    <%- partial('_partial/google-analytics') %>
+    <title><%= pageTitle %></title>
+    <link rel="icon" type="<%= iconType %>" href="<%- theme.jsDelivr.url %><%- url_for(theme.favicon) %>">
+    <%- partial('_partial/main-style') %>
+
+    <script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.jquery) %>"></script>
+     <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2522521814859993"
+     crossorigin="anonymous"></script>
+</head>
