@@ -6,15 +6,30 @@ summary:
 img:
 tags:
 categories:
-model:
+article_number:
 series:
-era:
-layout:
-switch_interface:
-region_client:
-source:
-source_url:
+production_period:
+keyboard_layout:
+layout_standard:
+switch_type:
+interface:
+made_in:
+customer:
+region:
+keycap_material:
+keycap_thickness:
+legend_process:
+keycap_secondary_process:
+keycap_scheme:
+kro:
+switch_plate:
+case_style:
+case_color:
+features:
 notes:
+references:
+  - title:
+    url:
 related_pdfs:
   - title:
     url:
@@ -26,9 +41,13 @@ related_pdfs:
 - 系列：
 - 年代：
 - 布局：
-- 轴体/接口：
-- 地区/客户：
-- 来源：
+- 开关类型：
+- 接口：
+- 产地：
+- 键帽材质：
+- 键帽工艺：
+- 客户 / 地区：
+- 资料来源：
 - 备注：
 
 ## 图片

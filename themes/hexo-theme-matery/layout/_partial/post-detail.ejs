@@ -1,10 +1,9 @@
 <!-- 文章内容详情 -->
 <div id="artDetail">
     <%
-        var specRows = typeof post_spec_rows === 'function' ? post_spec_rows(page) : [];
-        var sourceMeta = typeof post_source_meta === 'function' ? post_source_meta(page) : null;
-        var relatedPdfs = typeof post_related_pdfs === 'function' ? post_related_pdfs(page) : [];
-        var hasPostSpecCard = specRows.length > 0 || sourceMeta || (page.notes && String(page.notes).trim()) || relatedPdfs.length > 0;
+        var archiveData = typeof site !== 'undefined' && site.data ? site.data.cherry_archive : {};
+        var keyboardCard = typeof post_keyboard_card === 'function' ? post_keyboard_card(page, archiveData) : null;
+        var hasPostSpecCard = keyboardCard && keyboardCard.hasContent;
     %>
     <div class="card">
         <div class="card-content article-info">
@@ -93,49 +92,70 @@
             <% if (hasPostSpecCard) { %>
             <div class="post-spec-card">
                 <div class="post-spec-header">
-                    <i class="fas fa-layer-group"></i><span>资料卡片</span>
+                    <div class="post-spec-title"><i class="fas fa-layer-group"></i><span>键盘资料</span></div>
+                    <% if (keyboardCard.badges.length > 0) { %>
+                    <div class="post-spec-badges">
+                        <% keyboardCard.badges.forEach(function (badge) { %>
+                        <span class="post-spec-badge"><%= badge %></span>
+                        <% }) %>
+                    </div>
+                    <% } %>
                 </div>
-                <div class="post-spec-grid">
-                    <% specRows.forEach(function (row) { %>
-                    <div class="post-spec-item">
-                        <div class="post-spec-label"><%= row.label %></div>
-                        <div class="post-spec-value"><%= row.value %></div>
-                    </div>
-                    <% }) %>
-
-                    <% if (sourceMeta) { %>
-                    <div class="post-spec-item">
-                        <div class="post-spec-label">来源</div>
-                        <div class="post-spec-value">
-                            <% if (sourceMeta.url) { %>
-                            <a href="<%- sourceMeta.url %>" target="_blank" rel="noopener noreferrer"><%= sourceMeta.text %></a>
-                            <% } else { %>
-                            <%= sourceMeta.text %>
-                            <% } %>
+                <% if (keyboardCard.notice) { %>
+                <div class="post-spec-notice">
+                    <i class="fas fa-info-circle"></i><span><%= keyboardCard.notice %></span>
+                </div>
+                <% } %>
+                <div class="post-spec-sections">
+                    <% keyboardCard.groups.forEach(function (group) { %>
+                    <section class="post-spec-section">
+                        <h3 class="post-spec-section-title"><i class="<%= group.icon %>"></i><%= group.title %></h3>
+                        <div class="post-spec-grid">
+                            <% group.rows.forEach(function (row) { %>
+                            <div class="post-spec-item">
+                                <div class="post-spec-label"><%= row.label %></div>
+                                <div class="post-spec-value"><%= row.value %></div>
+                            </div>
+                            <% }) %>
                         </div>
-                    </div>
-                    <% } %>
+                    </section>
+                    <% }) %>
+                </div>
 
-                    <% if (page.notes && String(page.notes).trim()) { %>
-                    <div class="post-spec-item post-spec-item--wide">
+                <% if (keyboardCard.notes) { %>
+                    <div class="post-spec-footer-row">
                         <div class="post-spec-label">备注</div>
-                        <div class="post-spec-value"><%= page.notes %></div>
+                        <div class="post-spec-value"><%= keyboardCard.notes %></div>
                     </div>
-                    <% } %>
+                <% } %>
 
-                    <% if (relatedPdfs.length > 0) { %>
-                    <div class="post-spec-item post-spec-item--wide">
+                <% if (keyboardCard.relatedPdfs.length > 0) { %>
+                    <div class="post-spec-footer-row">
                         <div class="post-spec-label">相关 PDF</div>
                         <div class="post-spec-value">
                             <ul class="post-spec-list">
-                                <% relatedPdfs.forEach(function (pdf) { %>
-                                <li><a href="<%- pdf.url %>" target="_blank" rel="noopener noreferrer"><%= pdf.title || pdf.url %></a></li>
+                                <% keyboardCard.relatedPdfs.forEach(function (pdf) { %>
+                                <li><a href="<%= pdf.url %>" target="_blank" rel="noopener noreferrer"><%= pdf.title || pdf.url %></a></li>
                                 <% }) %>
                             </ul>
                         </div>
                     </div>
-                    <% } %>
-                </div>
+                <% } %>
+
+                <% if (keyboardCard.sources.length > 0) { %>
+                    <div class="post-spec-footer-row post-spec-sources">
+                        <div class="post-spec-label">资料来源</div>
+                        <div class="post-spec-source-links">
+                            <% keyboardCard.sources.forEach(function (source) { %>
+                                <% if (source.url) { %>
+                                <a href="<%= source.url %>" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i><%= source.title %></a>
+                                <% } else { %>
+                                <span><%= source.title %></span>
+                                <% } %>
+                            <% }) %>
+                        </div>
+                    </div>
+                <% } %>
             </div>
             <% } %>
             <div id="articleContent">

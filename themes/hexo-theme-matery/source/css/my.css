@@ -23,48 +23,131 @@
 
 .post-spec-card {
     margin-bottom: 2rem;
-    padding: 1.5rem;
-    border: 1px solid rgba(66, 185, 131, 0.18);
-    border-radius: 18px;
-    background: linear-gradient(180deg, rgba(66, 185, 131, 0.06), rgba(255, 255, 255, 0.96));
+    padding: 1.6rem;
+    border: 1px solid rgba(42, 126, 91, 0.18);
+    border-radius: 20px;
+    background:
+        radial-gradient(circle at 100% 0, rgba(66, 185, 131, 0.13), transparent 34%),
+        linear-gradient(180deg, #fbfefc, #f6faf8);
+    box-shadow: 0 16px 36px rgba(36, 83, 63, 0.08);
 }
 
 .post-spec-header {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.post-spec-title {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
     font-size: 1.15rem;
     font-weight: 700;
-    color: #34495e;
+    color: #29483b;
+}
+
+.post-spec-title i {
+    color: #2f9a6c;
+}
+
+.post-spec-badges {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+}
+
+.post-spec-badge {
+    padding: 0.24rem 0.65rem;
+    border: 1px solid rgba(47, 154, 108, 0.2);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.72);
+    color: #327b5c;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.post-spec-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    margin-bottom: 1.2rem;
+    padding: 0.8rem 1rem;
+    border-left: 3px solid #d79b33;
+    border-radius: 8px;
+    background: rgba(247, 190, 78, 0.12);
+    color: #715628;
+    font-size: 0.88rem;
+    line-height: 1.7;
+}
+
+.post-spec-notice i {
+    margin-top: 0.25rem;
+    color: #c88921;
+}
+
+.post-spec-sections {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.9rem;
+}
+
+.post-spec-section {
+    min-width: 0;
+    padding: 1rem;
+    border: 1px solid rgba(42, 126, 91, 0.12);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.68);
+}
+
+.post-spec-section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0 0 0.9rem;
+    color: #315848;
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.post-spec-section-title i {
+    color: #42b983;
+    font-size: 0.82rem;
 }
 
 .post-spec-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1rem 1.25rem;
+    grid-template-columns: 1fr;
+    gap: 0.78rem;
 }
 
 .post-spec-item {
     min-width: 0;
 }
 
-.post-spec-item--wide {
-    grid-column: 1 / -1;
-}
-
 .post-spec-label {
-    margin-bottom: 0.35rem;
-    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
+    font-size: 0.75rem;
     font-weight: 700;
-    color: #42b983;
+    color: #318560;
     letter-spacing: 0.04em;
 }
 
 .post-spec-value {
-    color: #4f5b66;
-    line-height: 1.8;
+    color: #43544d;
+    font-size: 0.92rem;
+    line-height: 1.65;
     word-break: break-word;
+}
+
+.post-spec-footer-row {
+    margin-top: 1rem;
+    padding: 0.9rem 1rem 0;
+    border-top: 1px dashed rgba(42, 126, 91, 0.18);
 }
 
 .post-spec-list {
@@ -74,6 +157,29 @@
 
 .post-spec-list li + li {
     margin-top: 0.35rem;
+}
+
+.post-spec-source-links {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.post-spec-source-links a,
+.post-spec-source-links span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.65rem;
+    border-radius: 7px;
+    background: rgba(66, 185, 131, 0.1);
+    color: #2e7658;
+    font-size: 0.8rem;
+}
+
+.post-spec-source-links a:hover {
+    background: rgba(66, 185, 131, 0.18);
+    color: #235e45;
 }
 
 .article-share-actions {
@@ -174,6 +280,26 @@
     }
 
     .post-spec-card {
-        padding: 1.15rem;
+        padding: 1.05rem;
+        border-radius: 16px;
+    }
+
+    .post-spec-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .post-spec-badges {
+        justify-content: flex-start;
+    }
+
+    .post-spec-sections {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1100px) {
+    .post-spec-sections {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
