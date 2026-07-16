@@ -33,6 +33,12 @@
                     <span id="busuanzi_value_site_pv" class="white-color"></span>
             </span>
             <% } %>
+            <% if (theme.busuanziStatistics && theme.busuanziStatistics.todayTraffic) { %>
+                <span id="busuanzi_container_today_pv">
+                &nbsp;|&nbsp;<i class="far fa-calendar-check"></i>&nbsp;<%- __('siteTodayVisits') %>:&nbsp;
+                    <span id="busuanzi_today_pv" class="white-color">加载中...</span>
+            </span>
+            <% } %>
             <% if (theme.busuanziStatistics && theme.busuanziStatistics.totalNumberOfvisitors) { %>
                 <span id="busuanzi_container_site_uv">
                 &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;<%- __('siteTotalVisitors') %>:&nbsp;

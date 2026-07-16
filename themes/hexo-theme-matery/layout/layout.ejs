@@ -88,6 +88,9 @@
     <% } %>
     <% if (theme.busuanziStatistics && theme.busuanziStatistics.enable) { %>
     <script async src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.busuanzi) %>"></script>
+        <% if (theme.busuanziStatistics.todayTraffic) { %>
+    <script defer src="https://cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.min.js"></script>
+        <% } %>
     <% } %>
 
     <% if (theme.tidio.enable) { %>
