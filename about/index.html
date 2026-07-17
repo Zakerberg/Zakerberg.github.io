@@ -86,7 +86,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/favicon.png" class="logo-img" alt="LOGO">
+                    <img src="/header-logo-transparent.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">Cherry</span>
                 </a>
@@ -190,7 +190,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/favicon.png" class="logo-img circle responsive-img">
+        <img src="/header-logo-transparent.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">Cherry</div>
         <div class="logo-desc">
@@ -576,7 +576,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"Cherry","value":1},{"name":"M7","value":2},{"name":"B4TE","value":1},{"name":"B4VB","value":2},{"name":"0B70","value":1},{"name":"B4VE","value":1},{"name":"B65","value":4},{"name":"B80","value":2},{"name":"BCZN","value":1},{"name":"BFN3","value":1},{"name":"BX1A","value":1},{"name":"BXNA","value":1},{"name":"BXNZ","value":1},{"name":"CB80","value":1},{"name":"DCA","value":1},{"name":"DW 9000","value":1},{"name":"M7","value":1},{"name":"BXN5","value":1},{"name":"ESA-3000","value":1},{"name":"G83","value":21},{"name":"G82","value":2},{"name":"G81","value":107},{"name":"G84","value":15},{"name":"G87","value":2},{"name":"G86","value":12},{"name":"G85","value":5},{"name":"G8A","value":1},{"name":"G99","value":2},{"name":"JK","value":1},{"name":"G80","value":314},{"name":"M7","value":8},{"name":"M8","value":13},{"name":"M9","value":3},{"name":"KC","value":1},{"name":"KFN3","value":1},{"name":"K3000 Plus","value":1},{"name":"M11","value":1},{"name":"KU","value":1},{"name":"M82","value":1},{"name":"RC","value":1},{"name":"PDF","value":1},{"name":"STARIT","value":1},{"name":"Stream keyboard","value":1},{"name":"V80","value":2},{"name":"UB88","value":1},{"name":"V81","value":2},{"name":"Xerox Star low-profile keyboard","value":1}],
+                data: [{"name":"B4TE","value":1},{"name":"Cherry","value":1},{"name":"M7","value":2},{"name":"B4VB","value":2},{"name":"B65","value":4},{"name":"0B70","value":1},{"name":"B80","value":2},{"name":"M7","value":1},{"name":"BCZN","value":1},{"name":"BFN3","value":1},{"name":"BXN5","value":1},{"name":"B4VE","value":1},{"name":"BX1A","value":1},{"name":"BXNA","value":1},{"name":"BXNZ","value":1},{"name":"CB80","value":1},{"name":"DCA","value":1},{"name":"DW 9000","value":1},{"name":"G82","value":2},{"name":"ESA-3000","value":1},{"name":"G83","value":21},{"name":"G85","value":5},{"name":"G81","value":107},{"name":"G84","value":15},{"name":"G86","value":12},{"name":"G87","value":2},{"name":"G99","value":2},{"name":"JK","value":1},{"name":"KC","value":1},{"name":"G8A","value":1},{"name":"G80","value":314},{"name":"KFN3","value":1},{"name":"K3000 Plus","value":1},{"name":"M7","value":8},{"name":"M8","value":13},{"name":"M9","value":3},{"name":"KU","value":1},{"name":"M82","value":1},{"name":"M11","value":1},{"name":"PDF","value":1},{"name":"Stream keyboard","value":1},{"name":"UB88","value":1},{"name":"RC","value":1},{"name":"V80","value":2},{"name":"STARIT","value":1},{"name":"V81","value":2},{"name":"Xerox Star low-profile keyboard","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -762,7 +762,7 @@
     <div id="music-player-fixed-shell" class="music-lazy-trigger music-lazy-trigger--fixed">
         
         <button type="button" class="btn waves-effect waves-light">
-            <i class="fas fa-music"></i><span>嗨~Music</span>
+            <span>嗨~Music</span>
         </button>
         <div id="music-player-fixed-target"></div>
     </div>
@@ -843,7 +843,7 @@
                 trigger.remove();
             } catch (error) {
                 trigger.disabled = false;
-                trigger.innerHTML = '<i class="fas fa-music"></i><span>嗨~Music</span>';
+                trigger.innerHTML = '<span>嗨~Music</span>';
                 M.toast({html: '音乐播放器加载失败，请稍后重试'});
             }
         }, { once: true });
