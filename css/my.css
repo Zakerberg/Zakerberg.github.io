@@ -35,39 +35,20 @@
 .post-spec-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
     margin-bottom: 1.25rem;
 }
 
 .post-spec-title {
     display: flex;
     align-items: center;
-    gap: 0.55rem;
     font-size: 1.15rem;
     font-weight: 700;
     color: #29483b;
 }
 
 .post-spec-title i {
+    margin-right: 0.55rem;
     color: #2f9a6c;
-}
-
-.post-spec-badges {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.45rem;
-    flex-wrap: wrap;
-}
-
-.post-spec-badge {
-    padding: 0.24rem 0.65rem;
-    border: 1px solid rgba(47, 154, 108, 0.2);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.72);
-    color: #327b5c;
-    font-size: 0.72rem;
-    font-weight: 700;
 }
 
 .post-spec-notice {
@@ -106,7 +87,6 @@
 .post-spec-section-title {
     display: flex;
     align-items: center;
-    gap: 0.45rem;
     margin: 0 0 0.9rem;
     color: #315848;
     font-size: 0.92rem;
@@ -115,6 +95,7 @@
 }
 
 .post-spec-section-title i {
+    margin-right: 0.45rem;
     color: #42b983;
     font-size: 0.82rem;
 }
@@ -282,15 +263,6 @@
     .post-spec-card {
         padding: 1.05rem;
         border-radius: 16px;
-    }
-
-    .post-spec-header {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .post-spec-badges {
-        justify-content: flex-start;
     }
 
     .post-spec-sections {
