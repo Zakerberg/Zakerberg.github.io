@@ -4,7 +4,7 @@
 
 # Site
 title: Cherry
-subtitle: "向 Walter·L·Cherry 先生致敬"
+subtitle: ""
 description: "Cherry 键盘资料库，整理 Cherry 古董键盘型号、图册、PDF 资料与收藏记录。"
 keywords: "Cherry, CHERRY Keyboard, 樱桃键盘, 古董键盘, 机械键盘, 型号图鉴, PDF资料"
 author: Michael Bai
@@ -73,7 +73,8 @@ tag_map:
 meta_generator: true
 
 seo:
-  home_h1: Cherry 键盘资料库
+  home_h1: 向 Walter·L·Cherry 先生致敬
+  cover_h1: Cherry 键盘资料库
   default_og_image: /medias/banner/0.jpg
 
 # Date / Time format

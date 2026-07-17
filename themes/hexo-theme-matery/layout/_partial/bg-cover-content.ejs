@@ -1,10 +1,16 @@
 <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
         <div class="brand">
+            <% var isHomeHero = typeof homeHero !== 'undefined' && homeHero; %>
             <h1 class="title center-align home-hero-title">
+                <% if (isHomeHero) { %>
                 <%= config.seo && config.seo.home_h1 ? config.seo.home_h1 : config.title %>
+                <% } else { %>
+                <%= config.seo && config.seo.cover_h1 ? config.seo.cover_h1 : config.title %>
+                <% } %>
             </h1>
 
+            <% if (!isHomeHero) { %>
             <div class="description center-align">
                 <% if (config.subtitle && config.subtitle.length > 0) { %>
                 <p class="home-hero-subtitle"><%= config.subtitle %></p>
@@ -30,6 +36,7 @@
                 <span class="home-hero-description"><%= config.description %></span>
                 <% } %>
             </div>
+            <% } %>
         </div>
     </div>
 </div>

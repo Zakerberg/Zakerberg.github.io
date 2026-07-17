@@ -700,17 +700,11 @@ function buildKeyboardCard(page = {}, archiveData = {}) {
     const notes = collapseWhitespace(page.notes || '');
     const hasContent = hasLocalDetail || hasArchiveDetail || Boolean(notes)
         || relatedPdfs.length > 0 || sources.length > 0;
-    const badges = [];
-    if (hasLocalDetail) badges.push('本地实物资料');
-    if (records.length > 0) badges.push('Cherry Archive 数据补全');
-    if (isVariantAggregate) badges.push('多版本汇总');
-
     return {
         groups: groups.filter((group) => group.rows.length > 0),
         sources,
         relatedPdfs,
         notes,
-        badges,
         hasContent,
         isVariantAggregate,
         notice: isVariantAggregate
