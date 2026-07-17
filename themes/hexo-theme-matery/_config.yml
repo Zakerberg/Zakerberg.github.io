@@ -15,6 +15,9 @@ menu:
   About:
     url: /about
     icon: fas fa-user-circle
+  Copyright:
+    url: /copyright
+    icon: fas fa-copyright
   # Contact:
   #   url: /contact
   #   icon: fas fa-comments
@@ -233,7 +236,7 @@ snowdown:
 profile:
   avatar: /medias/avatar.jpg
   career: 
-  introduction: 闲鱼@扎克博格  感谢各位大佬!!! => 闲鱼@玖释阝気, 微博@我可以闪现来抱你, 闲鱼@sunmannan, 闲鱼@水煮榴弹炮, 闲鱼@忘掉了的人只是泡沫, 闲鱼@laml, 闲鱼@[SpearofAdun]......
+  introduction: 一位逐渐退坑、仍然珍惜 Cherry 老键盘与相关资料的收藏者。
 
 # 在“关于”页面配置"我的项目"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
 myProjects:

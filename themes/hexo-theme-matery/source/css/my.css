@@ -250,6 +250,85 @@
     gap: 0;
 }
 
+.about-story,
+.rights-content {
+    color: #3f4f49;
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.about-story {
+    max-width: 900px;
+    margin: 2.2rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(42, 126, 91, 0.16);
+}
+
+.rights-container {
+    width: 90%;
+    max-width: 1000px;
+    margin-top: -60px;
+}
+
+.rights-content {
+    padding: 2.2rem 3rem !important;
+}
+
+.rights-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    color: #31473f;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.rights-title i {
+    color: #42b983;
+}
+
+.about-story h2,
+.rights-content h2 {
+    margin: 2rem 0 0.85rem;
+    padding-left: 0.8rem;
+    border-left: 4px solid #42b983;
+    color: #2f433c;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.about-story h2:first-child,
+.rights-content h2:first-of-type {
+    margin-top: 0;
+}
+
+.about-story a,
+.rights-content a {
+    color: #27855d;
+    border-bottom: 1px solid rgba(39, 133, 93, 0.35);
+}
+
+.rights-content li {
+    margin-bottom: 0.45rem;
+}
+
+body.DarkMode .about-story,
+body.DarkMode .rights-content {
+    color: #c7d2ce;
+}
+
+body.DarkMode .about-story {
+    border-top-color: rgba(112, 214, 166, 0.2);
+}
+
+body.DarkMode .about-story h2,
+body.DarkMode .rights-content h2,
+body.DarkMode .rights-title {
+    color: #e0ebe7;
+}
+
 @media only screen and (max-width: 600px) {
     .home-hero-subtitle {
         font-size: 1rem;
@@ -267,6 +346,25 @@
 
     .post-spec-sections {
         grid-template-columns: 1fr;
+    }
+
+    .rights-container {
+        width: 95%;
+    }
+
+    .rights-content {
+        padding: 1.4rem 1.15rem !important;
+    }
+
+    .rights-title {
+        gap: 0.55rem;
+        font-size: 1.45rem;
+    }
+
+    .about-story,
+    .rights-content {
+        font-size: 0.95rem;
+        line-height: 1.8;
     }
 }
 

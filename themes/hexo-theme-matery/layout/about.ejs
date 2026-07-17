@@ -43,6 +43,12 @@
 
                 <div class="introduction center-align" data-aos="fade-up"><%= theme.profile.introduction %></div>
 
+                <% if (page.content && page.content.trim().length > 0) { %>
+                <div class="about-story" data-aos="fade-up">
+                    <%- page.content %>
+                </div>
+                <% } %>
+
                 <%- partial('_widget/post-charts') %>
 
                 <% if (theme.myProjects && theme.myProjects.enable) { %>

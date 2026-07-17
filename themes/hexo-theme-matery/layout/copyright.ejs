@@ -1,0 +1,21 @@
+<style type="text/css">
+    .about-cover {
+        height: 55vh;
+    }
+</style>
+
+<%- partial('_partial/bg-cover') %>
+
+<main class="content">
+    <div id="copyright-page" class="container rights-container">
+        <div class="card">
+            <div class="card-content rights-content">
+                <div class="rights-title center-align">
+                    <i class="fas fa-copyright" aria-hidden="true"></i>
+                    <span><%= page.title %></span>
+                </div>
+                <%- page.content %>
+            </div>
+        </div>
+    </div>
+</main>
