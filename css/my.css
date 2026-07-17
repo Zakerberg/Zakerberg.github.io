@@ -159,7 +159,8 @@ article .card-image.image-load-shell.is-loaded .site-progressive-image {
     padding: 0.34rem 0.72rem;
     border-radius: 999px;
     color: #fff;
-    background: linear-gradient(110deg, #397b5b 0%, #4f9f76 55%, #70b68f 100%);
+    background-color: #0f9d58;
+    background-image: var(--cherry-action-gradient);
     box-shadow: 0 5px 14px rgba(27, 91, 60, 0.24);
     font-size: 0.78rem;
     font-weight: 700;
@@ -372,7 +373,8 @@ article .card-image.image-load-shell.is-loaded .site-progressive-image {
     padding: 0.35rem 0.9rem;
     border-radius: 999px;
     color: #fff;
-    background: linear-gradient(135deg, #42b983, #2f8f67);
+    background-color: #0f9d58;
+    background-image: var(--cherry-action-gradient);
 }
 
 .article-share-copy:hover {
@@ -458,6 +460,21 @@ article .article-tags .chip.bg-color,
     background-color: #0f9d58 !important;
     background-image: var(--cherry-action-gradient) !important;
     opacity: 1 !important;
+}
+
+#backTop .btn-floating,
+#floating-toc-btn .btn-floating,
+#friends-link .friend-button .button,
+#article-share .article-share-copy {
+    color: #fff !important;
+    background-color: #0f9d58 !important;
+    background-image: var(--cherry-action-gradient) !important;
+}
+
+#backTop .btn-floating,
+#floating-toc-btn .btn-floating,
+#friends-link .friend-button .button {
+    box-shadow: 0 6px 18px rgba(15, 157, 88, 0.24) !important;
 }
 
 .paging a.bg-color,
@@ -573,6 +590,17 @@ body.DarkMode .page-footer .white-color {
 body.DarkMode .footer-contact-item {
     border-color: rgba(215, 234, 223, 0.2);
     background: rgba(255, 255, 255, 0.08);
+}
+
+html body.DarkMode #backTop.top-scroll,
+html body.DarkMode #floating-toc-btn .btn-floating {
+    -webkit-filter: none !important;
+    filter: none !important;
+}
+
+html body.DarkMode #floating-toc-btn .btn-floating {
+    background-color: #0f9d58 !important;
+    background-image: var(--cherry-action-gradient) !important;
 }
 
 body.DarkMode .image-load-shell {
