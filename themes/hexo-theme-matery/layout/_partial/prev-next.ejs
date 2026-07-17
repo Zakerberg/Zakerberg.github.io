@@ -39,13 +39,6 @@ var featureImages = theme.featureImages;
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        <% if (page.prev.summary && page.prev.summary.length > 0) { %>
-                            <%- page.prev.summary %>
-                        <% } else { %>
-                            <%- strip_html(page.prev.excerpt).substring(0, 120) %>
-                        <% } %>
-                    </div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i><%= date(page.prev.date, config.date_format) %>
@@ -99,13 +92,6 @@ var featureImages = theme.featureImages;
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        <% if (page.summary && page.summary.length > 0) { %>
-                            <%- page.summary %>
-                        <% } else { %>
-                            <%- strip_html(page.excerpt).substring(0, 120) %>
-                        <% } %>
-                    </div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i><%= date(page.date, config.date_format) %>
@@ -161,13 +147,6 @@ var featureImages = theme.featureImages;
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        <% if (page.next.summary && page.next.summary.length > 0) { %>
-                            <%- page.next.summary %>
-                        <% } else { %>
-                            <%- strip_html(page.next.excerpt).substring(0, 120) %>
-                        <% } %>
-                    </div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i><%= date(page.next.date, config.date_format) %>
@@ -221,13 +200,6 @@ var featureImages = theme.featureImages;
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        <% if (page.summary && page.summary.length > 0) { %>
-                            <%- page.summary %>
-                        <% } else { %>
-                            <%- strip_html(page.excerpt).substring(0, 120) %>
-                        <% } %>
-                    </div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i><%= date(page.date, config.date_format) %>
