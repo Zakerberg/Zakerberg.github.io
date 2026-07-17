@@ -1,5 +1,9 @@
 /* Here is your custom css styles. */
 
+:root {
+    --cherry-action-gradient: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+}
+
 .home-hero-title {
     margin: 0;
     font-size: clamp(2.4rem, 6vw, 4.6rem);
@@ -18,33 +22,36 @@
 }
 
 #headNav.bg-color {
-    background-color: #4f9f76 !important;
-    background-image: linear-gradient(110deg, #397b5b 0%, #4f9f76 52%, #70b68f 100%) !important;
-    box-shadow: 0 6px 22px rgba(24, 78, 53, 0.2);
+    background-color: #0f9d58 !important;
+    background-image: var(--cherry-action-gradient) !important;
+    box-shadow: 0 6px 22px rgba(15, 157, 88, 0.24);
+    opacity: 1 !important;
 }
 
-header #headNav.nav-transparent {
-    background: linear-gradient(110deg, rgba(45, 111, 79, 0.9), rgba(94, 169, 126, 0.86)) !important;
+header #headNav.nav-transparent,
+header .side-nav .mobile-head.bg-color {
+    background-color: #0f9d58 !important;
+    background-image: var(--cherry-action-gradient) !important;
     box-shadow: 0 5px 20px rgba(20, 66, 45, 0.16);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    opacity: 1 !important;
 }
 
 .page-footer.bg-color {
-    color: #244b39;
-    background-color: #a9d8bc !important;
-    background-image: linear-gradient(135deg, #c7e8d3 0%, #a9d8bc 50%, #91c8aa 100%) !important;
+    color: #fff;
+    background-color: #0f9d58 !important;
+    background-image: var(--cherry-action-gradient) !important;
     box-shadow: inset 0 1px rgba(255, 255, 255, 0.45);
+    opacity: 1 !important;
 }
 
 .page-footer .copy-right,
 .page-footer a,
 .page-footer .white-color {
-    color: #244b39 !important;
+    color: #fff !important;
 }
 
 .page-footer a:hover {
-    color: #0d6b43 !important;
+    color: #e8fff0 !important;
 }
 
 .footer-contact {
@@ -61,9 +68,9 @@ header #headNav.nav-transparent {
     align-items: center;
     gap: 0.4rem;
     padding: 0.38rem 0.7rem;
-    border: 1px solid rgba(36, 75, 57, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.28);
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.14);
 }
 
 .image-load-shell {
@@ -74,18 +81,16 @@ header #headNav.nav-transparent {
 }
 
 .image-load-shell::before {
-    content: "CHERRY";
+    content: "";
     position: absolute;
-    inset: 0;
+    inset: clamp(14px, 8%, 34px) clamp(16px, 9%, 42px);
     z-index: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-left: 0.28em;
-    color: #858c88;
-    font-size: clamp(1.05rem, 3vw, 1.8rem);
-    font-weight: 800;
-    letter-spacing: 0.28em;
+    border-radius: 10px;
+    background-image: url("../medias/cherry-loading-placeholder.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.82;
 }
 
 .image-load-shell::after {
@@ -432,7 +437,8 @@ article .card-image.image-load-shell.is-loaded .site-progressive-image {
 }
 
 .music-lazy-trigger .btn {
-    background: linear-gradient(110deg, #397b5b 0%, #4f9f76 52%, #70b68f 100%);
+    background-color: #0f9d58 !important;
+    background-image: var(--cherry-action-gradient) !important;
 }
 
 .music-lazy-trigger--fixed .btn {
@@ -442,6 +448,21 @@ article .card-image.image-load-shell.is-loaded .site-progressive-image {
 
 .music-lazy-trigger--loaded {
     gap: 0;
+}
+
+.paging a.bg-color,
+.prev-next .article-badge,
+article .article-tags .chip.bg-color,
+#artDetail .article-tag .chip.bg-color {
+    color: #fff !important;
+    background-color: #0f9d58 !important;
+    background-image: var(--cherry-action-gradient) !important;
+    opacity: 1 !important;
+}
+
+.paging a.bg-color,
+.prev-next .article-badge {
+    box-shadow: 0 6px 18px rgba(15, 157, 88, 0.22);
 }
 
 .about-story,
@@ -531,20 +552,22 @@ body.DarkMode .rights-title {
 
 body.DarkMode #headNav.bg-color,
 body.DarkMode #headNav.nav-transparent {
-    background: linear-gradient(110deg, #234f3a 0%, #326b4e 55%, #427e5e 100%) !important;
+    background-color: #0f9d58 !important;
+    background-image: var(--cherry-action-gradient) !important;
     opacity: 1;
 }
 
 body.DarkMode .page-footer.bg-color {
-    color: #d7eadf;
-    background: linear-gradient(135deg, #294f3d 0%, #37664f 55%, #44775e 100%) !important;
+    color: #fff;
+    background-color: #0f9d58 !important;
+    background-image: var(--cherry-action-gradient) !important;
     opacity: 1;
 }
 
 body.DarkMode .page-footer .copy-right,
 body.DarkMode .page-footer a,
 body.DarkMode .page-footer .white-color {
-    color: #d7eadf !important;
+    color: #fff !important;
 }
 
 body.DarkMode .footer-contact-item {
@@ -561,7 +584,7 @@ body.DarkMode article .card-image.image-load-shell {
 }
 
 body.DarkMode .image-load-shell::before {
-    color: #8f9994;
+    opacity: 0.72;
 }
 
 body.DarkMode .rights-content .rights-emphasis,

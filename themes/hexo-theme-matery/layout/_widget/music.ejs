@@ -49,7 +49,7 @@
         </div>
         <% } %>
         <button type="button" class="btn waves-effect waves-light">
-            <i class="fas fa-music"></i><span><%- theme.music.loadButtonText || '打开音乐播放器' %></span>
+            <span><%- theme.music.loadButtonText || '打开音乐播放器' %></span>
         </button>
         <div id="<%- musicTargetId %>"></div>
     </div>
@@ -150,7 +150,7 @@
                 trigger.remove();
             } catch (error) {
                 trigger.disabled = false;
-                trigger.innerHTML = '<i class="fas fa-music"></i><span><%- theme.music.loadButtonText || '打开音乐播放器' %></span>';
+                trigger.innerHTML = '<span><%- theme.music.loadButtonText || '打开音乐播放器' %></span>';
                 M.toast({html: '音乐播放器加载失败，请稍后重试'});
             }
         }, { once: true });
