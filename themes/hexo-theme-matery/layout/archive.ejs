@@ -7,32 +7,9 @@
     <% } %>
 
     <%
-    /**
-     * hashCode function.
-     *
-     * @param str str
-     * @returns {number}
-     */
-    var hashCode = function (str) {
-        if (!str && str.length === 0) {
-            return 0;
-        }
-
-        var hash = 0;
-        for (var i = 0, len = str.length; i < len; i++) {
-            hash = ((hash << 5) - hash) + str.charCodeAt(i);
-            hash |= 0;
-        }
-        return hash;
-    };
-
     // init year and month variable.
     var year = '1970';
     var month = '1970-01';
-
-    // post feature image.
-    var featureimg = '/medias/featureimages/0.jpg';
-    var featureImages = theme.featureImages;
     %>
 
     <div id="cd-timeline" class="container">
@@ -66,17 +43,7 @@
                 <div class="article col s12 m6">
                     <div class="card">
                         <a href="<%- url_for(post.path) %>">
-                            <div class="card-image">
-                                <% if (post.img) { %>
-                                <img src="<%- url_for(post.img) %>" class="responsive-img" alt="<%= post.title %>">
-                                <% } else { %>
-                                <%
-                                    featureimg = featureImages[Math.abs(hashCode(post.title) % featureImages.length)];
-                                %>
-                                <img src="<%- theme.jsDelivr.url %><%- url_for(featureimg) %>" class="responsive-img" alt="<%= post.title %>">
-                                <% } %>
-                                <span class="card-title"><%= post.title %></span>
-                            </div>
+                            <%- partial('_partial/post-card-image', { post: post, cardImageClass: '' }) %>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">

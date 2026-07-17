@@ -23,10 +23,6 @@
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;<%- __('siteTotalWords') %>:&nbsp;<span
                         class="white-color"><%= totalcount(site) %></span>
             <% } %>
-            <% let socialClass = '' %>
-            <% if (theme.busuanziStatistics && theme.busuanziStatistics.enable) { %>
-                <% socialClass = 'social-statis' %>
-            <% } %>
             <% if (theme.busuanziStatistics && theme.busuanziStatistics.totalTraffic) { %>
                 <span id="busuanzi_container_site_pv">
                 &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;<%- __('siteTotalVisits') %>:&nbsp;
@@ -111,7 +107,20 @@
             </span>
             <% } %>
         </div>
-        <div class="col s12 m4 l4 social-link <%- socialClass %>"><%- partial('_partial/social-link') %></div>
+        <div class="col s12 m4 l4 footer-contact">
+            <% if (theme.socialLink && theme.socialLink.xianyu) { %>
+            <span class="footer-contact-item">
+                <i class="fas fa-store" aria-hidden="true"></i>
+                闲鱼 @<%- theme.socialLink.xianyu %>
+            </span>
+            <% } %>
+            <% if (theme.socialLink && theme.socialLink.email) { %>
+            <a class="footer-contact-item" href="mailto:<%- theme.socialLink.email %>">
+                <i class="fas fa-envelope-open" aria-hidden="true"></i>
+                邮箱
+            </a>
+            <% } %>
+        </div>
     </div>
 </footer>
 

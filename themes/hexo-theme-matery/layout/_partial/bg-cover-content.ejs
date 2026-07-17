@@ -1,8 +1,8 @@
+<% var isHomeHero = typeof homeHero !== 'undefined' && homeHero; %>
 <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+    <div class="<%= isHomeHero ? 'col s12 m12 l12' : 'col s10 offset-s1 m8 offset-m2 l8 offset-l2' %>">
         <div class="brand">
-            <% var isHomeHero = typeof homeHero !== 'undefined' && homeHero; %>
-            <h1 class="title center-align home-hero-title">
+            <h1 class="title center-align home-hero-title<%= isHomeHero ? ' home-hero-title--home' : '' %>">
                 <% if (isHomeHero) { %>
                 <%= config.seo && config.seo.home_h1 ? config.seo.home_h1 : config.title %>
                 <% } else { %>

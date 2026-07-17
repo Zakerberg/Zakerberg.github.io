@@ -316,6 +316,24 @@ function findFirstImage(content = '') {
     return match ? match[1] : '';
 }
 
+function isMissingImagePlaceholder(image = '') {
+    const normalized = String(image || '').trim().split(/[?#]/)[0];
+    return /\/Cherry\/0\.(?:jpe?g|png|webp)$/i.test(normalized);
+}
+
+function findPostCardImage(page = {}) {
+    if (page.img) {
+        return isMissingImagePlaceholder(page.img) ? '' : page.img;
+    }
+
+    return findFirstImage(page.content);
+}
+
+function normalizeImageRotation(value) {
+    const rotation = Number.parseInt(value, 10);
+    return [90, 180, 270].includes(rotation) ? rotation : 0;
+}
+
 function buildSpecSummary(page = {}) {
     const parts = [];
     const model = page.article_number || page.full_model || page.model;
@@ -761,6 +779,14 @@ hexo.extend.helper.register('page_cover_image', function(page = this.page) {
 
 hexo.extend.helper.register('page_card_summary', function(page = this.page) {
     return buildCardSummary(page, this.config);
+});
+
+hexo.extend.helper.register('post_card_image', function(page = this.page) {
+    return findPostCardImage(page);
+});
+
+hexo.extend.helper.register('site_image_rotation', function(value = 0) {
+    return normalizeImageRotation(value);
 });
 
 hexo.extend.helper.register('post_keyboard_card', function(page = this.page, archiveData = {}) {

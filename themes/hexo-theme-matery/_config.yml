@@ -94,7 +94,7 @@ music:
   listFolded: true # 列表默认折叠
   hideLrc: true # 隐藏歌词
   lazyLoad: true
-  loadButtonText: 打开音乐播放器
+  loadButtonText: 嗨~Music
 
 # 单独的音乐页面.
 musics:
@@ -155,6 +155,7 @@ socialLink:
   github: https://github.com/Zakerberg
   email: blmichael1129@iCloud.com
   facebook: https://www.facebook.com/Zakerberg
+  xianyu: zakerberg
   # qq: 1612372046
   # twitter: https://twitter.com/Zakerberg
   # weibo: # https://weibo.com/xxx
@@ -376,7 +377,7 @@ changyan:
 
 # 配置是否在 header 中显示 fork me on github 的图标，默认为true，你可以修改为你的仓库地址.
 githubLink:
-  enable: true
+  enable: false
   url: https://github.com/Zakerberg
   title: Fork Me
 

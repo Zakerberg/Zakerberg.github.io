@@ -1,0 +1,20 @@
+<%
+    var cardImage = post_card_image(post);
+    var hasCardImage = Boolean(cardImage);
+    var imageClass = typeof cardImageClass === 'string' ? cardImageClass : '';
+    var imageRotation = site_image_rotation(post.image_rotate);
+%>
+<div class="card-image image-load-shell<%- imageClass ? ' ' + imageClass : '' %><%- hasCardImage ? '' : ' is-missing' %>">
+    <% if (hasCardImage) { %>
+    <img src="<%- url_for(cardImage) %>"
+         class="responsive-img site-progressive-image"
+         style="--image-rotation: <%- imageRotation %>deg;"
+         data-rotate="<%- imageRotation %>"
+         loading="lazy"
+         decoding="async"
+         alt="<%= post.title %>">
+    <% } else { %>
+    <span class="card-no-image-badge">暂无图片</span>
+    <% } %>
+    <span class="card-title"><%= post.title %></span>
+</div>

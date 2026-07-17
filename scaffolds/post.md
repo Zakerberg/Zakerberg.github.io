@@ -4,6 +4,7 @@ date: {{ date }}
 description:
 summary:
 img:
+image_rotate: 0
 tags:
 categories:
 article_number:

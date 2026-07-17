@@ -1,5 +1,6 @@
 <%
 var featureimg = url_for('/medias/bg.jpg');
+var coverRotation = site_image_rotation(page.image_rotate);
 if (page.img) {
     featureimg = url_for(page.img);
 } else {
@@ -25,7 +26,8 @@ if (page.img) {
 }
 %>
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('<%- featureimg %>')">
+<div class="bg-cover pd-header post-cover<%- coverRotation ? ' post-cover--rotated' : '' %>"
+     style="<% if (coverRotation) { %>--post-cover-image: url('<%- featureimg %>'); --post-cover-rotation: <%- coverRotation %>deg;<% } else { %>background-image: url('<%- featureimg %>');<% } %>">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
