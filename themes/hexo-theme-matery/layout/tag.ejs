@@ -16,10 +16,10 @@
                 }
                 var tags = tagArr.join(', ');
             %>
-            <div class="article tag-post col s12 m6 l4" data-tags="<%- tags %>" data-aos="fade-up">
+            <div class="article tag-post col s12 m6 l4" data-tags="<%- tags %>" data-aos="zoom-in">
                 <div class="card">
                     <a href="<%- url_for(post.path) %>">
-                        <%- partial('_partial/post-card-image', { post: post, cardImageClass: 'tag-image' }) %>
+                        <%- partial('_partial/post-card-image', { post: post, cardImageClass: 'home-card-image' }) %>
                     </a>
                     <div class="card-content article-content">
                         <div class="publish-info">
@@ -44,6 +44,15 @@
                             </span>
                         </div>
                     </div>
+                    <% if (post.tags && post.tags.length > 0) { %>
+                    <div class="card-action article-tags">
+                        <% post.tags.forEach(tag => { %>
+                        <a href="<%- url_for(tag.path) %>">
+                            <span class="chip bg-color"><%= tag.name %></span>
+                        </a>
+                        <% }); %>
+                    </div>
+                    <% } %>
                 </div>
             </div>
             <% }); %>
