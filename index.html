@@ -110,9 +110,9 @@
      <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2522521814859993"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 7.3.0">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Cherry" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Cherry" type="application/atom+xml">
 </head>
 
 
@@ -151,28 +151,6 @@
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>定制标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/archives" class="waves-effect waves-light">
-      
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
-      
-      <span>归档</span>
     </a>
     
   </li>
@@ -263,28 +241,6 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/archives" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-archive"></i>
-			
-			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/about" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-user-circle"></i>
@@ -365,34 +321,6 @@
 
                 <!--  -->
             </div>
-            <div class="cover-social-link">
-    <a href="https://github.com/Zakerberg" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:blmichael1129@iCloud.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-    <a href="https://www.facebook.com/Zakerberg" class="tooltipped" target="_blank" data-tooltip="关注我的Facebook: https://www.facebook.com/Zakerberg" data-position="top" data-delay="50">
-        <i class="fab fa-facebook-f"></i>
-    </a>
-
-
-
-
-
-
-
-
-
-
-
-</div>
         </div>
     </div>
 
@@ -481,9 +409,7 @@
         <div class="col l8 offset-l2 m10 offset-m1 s12">
             
             <div class="media-lazy-shell">
-                
-                <img class="media-lazy-poster" src="/medias/banner/0.jpg" alt="Cherry键盘广告">
-                
+                <div class="media-lazy-poster image-load-shell" aria-hidden="true"></div>
                 <div class="media-lazy-overlay">
                     <button id="dplayer-trigger" type="button" class="media-lazy-button waves-effect waves-light">
                         <i class="fas fa-play"></i><span>点击加载视频</span>
@@ -503,6 +429,12 @@
         const trigger = document.getElementById('dplayer-trigger');
         const playerNode = document.getElementById('dplayer');
         if (!trigger || !playerNode) return;
+
+        const shell = trigger.closest('.media-lazy-shell');
+        const overlay = trigger.closest('.media-lazy-overlay');
+        let loading = false;
+        let player = null;
+        let readyTimer = null;
 
         const cssHref = '/libs/dplayer/DPlayer.min.css';
         const scriptSrc = '/libs/dplayer/DPlayer.min.js';
@@ -536,18 +468,63 @@
             });
         };
 
+        const showReadyPlayer = function () {
+            if (!shell || shell.classList.contains('is-player-ready')) return;
+            if (readyTimer) clearTimeout(readyTimer);
+            readyTimer = null;
+            loading = false;
+            shell.classList.add('is-player-ready');
+            playerNode.setAttribute('aria-busy', 'false');
+            if (player) {
+                const playResult = player.video && player.video.play ? player.video.play() : player.play();
+                if (playResult && typeof playResult.catch === 'function') {
+                    playResult.catch(function () {
+                        if (!player.video) return;
+                        player.video.muted = true;
+                        player.video.play().catch(function () {});
+                    });
+                }
+            }
+        };
+
+        const restoreTrigger = function () {
+            loading = false;
+            trigger.disabled = false;
+            trigger.innerHTML = '<i class="fas fa-play"></i><span>点击加载视频</span>';
+            playerNode.style.display = 'none';
+            playerNode.setAttribute('aria-busy', 'false');
+            if (overlay) overlay.style.display = '';
+        };
+
+        const resetPlayer = function () {
+            if (!loading && !player) return;
+            if (readyTimer) clearTimeout(readyTimer);
+            readyTimer = null;
+            const failedPlayer = player;
+            player = null;
+            loading = false;
+            if (failedPlayer && typeof failedPlayer.destroy === 'function') {
+                failedPlayer.destroy();
+            }
+            playerNode.innerHTML = '';
+            restoreTrigger();
+            M.toast({html: '视频加载失败，请稍后重试'});
+        };
+
         trigger.addEventListener('click', async function () {
+            if (loading || player) return;
+            loading = true;
             trigger.disabled = true;
             trigger.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>加载中...</span>';
+            playerNode.setAttribute('aria-busy', 'true');
 
             try {
                 ensureCss();
                 await ensureScript();
                 playerNode.style.display = 'block';
-                trigger.closest('.media-lazy-overlay').style.display = 'none';
-                new DPlayer({
+                player = new DPlayer({
                     container: playerNode,
-                    autoplay: 'false' === 'true',
+                    autoplay: true,
                     theme: '#42b983',
                     loop: 'false' === 'true',
                     lang: 'zh-CN' === 'zh-CN' ? 'zh-cn' : 'en',
@@ -559,12 +536,18 @@
                         thumbnails: ''
                     }
                 });
+                player.on('loadedmetadata', showReadyPlayer);
+                player.on('canplay', showReadyPlayer);
+                player.on('error', function () {
+                    if (shell && shell.classList.contains('is-player-ready')) return;
+                    resetPlayer();
+                });
+                readyTimer = setTimeout(resetPlayer, 20000);
+                player.play();
             } catch (error) {
-                trigger.disabled = false;
-                trigger.innerHTML = '<i class="fas fa-play"></i><span>点击加载视频</span>';
-                M.toast({html: '视频加载失败，请稍后重试'});
+                resetPlayer();
             }
-        }, { once: true });
+        });
     })();
 </script>
 
@@ -641,25 +624,25 @@
     
     <div class="col s12 m6" data-aos="zoom-in-up">
         
-             <div class="post-card" style="background-image: url('https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20V80/V80-1800%20HFM/1.jpeg')">
+             <div class="post-card" style="background-image: url('https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20V81/V81-3060%20HAI/1.JPG')">
         
             <div class="post-body">
                 <div class="post-categories">
                     
                         
-                            <a href="/categories/V80/" class="category">V80</a>
+                            <a href="/categories/V81/" class="category">V81</a>
                         
                     
                 </div>
-                <a href="/2025/01/09/v80/v80-1800/">
-                    <h3 class="post-title">V80-1800</h3>
+                <a href="/2025/01/09/v81/v81-3060/">
+                    <h3 class="post-title">V81-3060</h3>
                 </a>
                 <p class="post-description">
                     
-                        V80-1800 PRE PRODUCTION
+                        V81-3060 PRE PRODUCTION
                     
                 </p>
-                <a href="/2025/01/09/v80/v80-1800/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)" target="_blank">
+                <a href="/2025/01/09/v81/v81-3060/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)" target="_blank">
                     <i class="icon far fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
@@ -697,25 +680,25 @@
     
     <div class="col s12 m6" data-aos="zoom-in-up">
         
-             <div class="post-card" style="background-image: url('https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20V81/V81-3060%20HAI/1.JPG')">
+             <div class="post-card" style="background-image: url('https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20V80/V80-1800%20HFM/1.jpeg')">
         
             <div class="post-body">
                 <div class="post-categories">
                     
                         
-                            <a href="/categories/V81/" class="category">V81</a>
+                            <a href="/categories/V80/" class="category">V80</a>
                         
                     
                 </div>
-                <a href="/2025/01/09/v81/v81-3060/">
-                    <h3 class="post-title">V81-3060</h3>
+                <a href="/2025/01/09/v80/v80-1800/">
+                    <h3 class="post-title">V80-1800</h3>
                 </a>
                 <p class="post-description">
                     
-                        V81-3060 PRE PRODUCTION
+                        V80-1800 PRE PRODUCTION
                     
                 </p>
-                <a href="/2025/01/09/v81/v81-3060/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%)" target="_blank">
+                <a href="/2025/01/09/v80/v80-1800/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%)" target="_blank">
                     <i class="icon far fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
@@ -765,47 +748,6 @@
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/08/18/g80/g80-0078/">
-                        
-<div class="card-image image-load-shell is-missing">
-    
-    <span class="card-no-image-badge">暂无图片</span>
-    
-    <span class="card-title">G80-0078</span>
-</div>
-
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-18
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/G80/" class="post-category">
-                                    G80
-                                </a>
-                                
-                                <a href="/categories/G80/M7/" class="post-category">
-                                    M7
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
             
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
@@ -898,6 +840,88 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2025/08/18/g80/g80-0078/">
+                        
+<div class="card-image image-load-shell is-missing">
+    
+    <span class="card-no-image-badge">暂无图片</span>
+    
+    <span class="card-title">G80-0078</span>
+</div>
+
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/G80/" class="post-category">
+                                    G80
+                                </a>
+                                
+                                <a href="/categories/G80/M7/" class="post-category">
+                                    M7
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2025/08/18/g80/g80-0084/">
+                        
+<div class="card-image image-load-shell is-missing">
+    
+    <span class="card-no-image-badge">暂无图片</span>
+    
+    <span class="card-title">G80-0084</span>
+</div>
+
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/G80/" class="post-category">
+                                    G80
+                                </a>
+                                
+                                <a href="/categories/G80/M8/" class="post-category">
+                                    M8
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2025/08/18/g80/g80-0081/">
                         
 <div class="card-image image-load-shell">
@@ -953,47 +977,6 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/08/18/g80/g80-0084/">
-                        
-<div class="card-image image-load-shell is-missing">
-    
-    <span class="card-no-image-badge">暂无图片</span>
-    
-    <span class="card-title">G80-0084</span>
-</div>
-
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-18
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/G80/" class="post-category">
-                                    G80
-                                </a>
-                                
-                                <a href="/categories/G80/M8/" class="post-category">
-                                    M8
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
                     <a href="/2025/08/17/g80/g80-0110/">
                         
 <div class="card-image image-load-shell is-missing">
@@ -1016,96 +999,6 @@
                                 
                                 <a href="/categories/G80/" class="post-category">
                                     G80
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/08/17/g80/g80-0131/">
-                        
-<div class="card-image image-load-shell">
-    
-    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0131/1.jpeg"
-         class="responsive-img site-progressive-image"
-         style="--image-rotation: 0deg;"
-         data-rotate="0"
-         loading="lazy"
-         decoding="async"
-         alt="G80-0131">
-    
-    <span class="card-title">G80-0131</span>
-</div>
-
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/G80/" class="post-category">
-                                    G80
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/08/17/g80/g80-0130/">
-                        
-<div class="card-image image-load-shell">
-    
-    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/1.jpg"
-         class="responsive-img site-progressive-image"
-         style="--image-rotation: 0deg;"
-         data-rotate="0"
-         loading="lazy"
-         decoding="async"
-         alt="G80-0130">
-    
-    <span class="card-title">G80-0130</span>
-</div>
-
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/G80/" class="post-category">
-                                    G80
-                                </a>
-                                
-                                <a href="/categories/G80/M7/" class="post-category">
-                                    M7
                                 </a>
                                 
                                 
@@ -1168,19 +1061,19 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/08/17/g80/g80-0139/">
+                    <a href="/2025/08/17/g80/g80-0130/">
                         
 <div class="card-image image-load-shell">
     
-    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0139%20%28M7%29/1.jpeg"
+    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/1.jpg"
          class="responsive-img site-progressive-image"
          style="--image-rotation: 0deg;"
          data-rotate="0"
          loading="lazy"
          decoding="async"
-         alt="G80-0139">
+         alt="G80-0130">
     
-    <span class="card-title">G80-0139</span>
+    <span class="card-title">G80-0130</span>
 </div>
 
                     </a>
@@ -1200,6 +1093,49 @@
                                 
                                 <a href="/categories/G80/M7/" class="post-category">
                                     M7
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2025/08/17/g80/g80-0131/">
+                        
+<div class="card-image image-load-shell">
+    
+    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0131/1.jpeg"
+         class="responsive-img site-progressive-image"
+         style="--image-rotation: 0deg;"
+         data-rotate="0"
+         loading="lazy"
+         decoding="async"
+         alt="G80-0131">
+    
+    <span class="card-title">G80-0131</span>
+</div>
+
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-17
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/G80/" class="post-category">
+                                    G80
                                 </a>
                                 
                                 
@@ -1270,13 +1206,19 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/08/16/g80/g80-0218/">
+                    <a href="/2025/08/17/g80/g80-0139/">
                         
-<div class="card-image image-load-shell is-missing">
+<div class="card-image image-load-shell">
     
-    <span class="card-no-image-badge">暂无图片</span>
+    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0139%20%28M7%29/1.jpeg"
+         class="responsive-img site-progressive-image"
+         style="--image-rotation: 0deg;"
+         data-rotate="0"
+         loading="lazy"
+         decoding="async"
+         alt="G80-0139">
     
-    <span class="card-title">G80-0218</span>
+    <span class="card-title">G80-0139</span>
 </div>
 
                     </a>
@@ -1284,7 +1226,7 @@
                     <div class="card-content article-content">
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-17
                             </span>
                             <span class="publish-author">
                                 
@@ -1292,6 +1234,10 @@
                                 
                                 <a href="/categories/G80/" class="post-category">
                                     G80
+                                </a>
+                                
+                                <a href="/categories/G80/M7/" class="post-category">
+                                    M7
                                 </a>
                                 
                                 
@@ -1350,19 +1296,13 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/08/16/g80/g80-0244/">
+                    <a href="/2025/08/16/g80/g80-0218/">
                         
-<div class="card-image image-load-shell">
+<div class="card-image image-load-shell is-missing">
     
-    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0244%20%28M8%29/1.jpeg"
-         class="responsive-img site-progressive-image"
-         style="--image-rotation: 0deg;"
-         data-rotate="0"
-         loading="lazy"
-         decoding="async"
-         alt="G80-0244">
+    <span class="card-no-image-badge">暂无图片</span>
     
-    <span class="card-title">G80-0244</span>
+    <span class="card-title">G80-0218</span>
 </div>
 
                     </a>
@@ -1378,10 +1318,6 @@
                                 
                                 <a href="/categories/G80/" class="post-category">
                                     G80
-                                </a>
-                                
-                                <a href="/categories/G80/M8/" class="post-category">
-                                    M8
                                 </a>
                                 
                                 
@@ -1444,6 +1380,53 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2025/08/16/g80/g80-0244/">
+                        
+<div class="card-image image-load-shell">
+    
+    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0244%20%28M8%29/1.jpeg"
+         class="responsive-img site-progressive-image"
+         style="--image-rotation: 0deg;"
+         data-rotate="0"
+         loading="lazy"
+         decoding="async"
+         alt="G80-0244">
+    
+    <span class="card-title">G80-0244</span>
+</div>
+
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-16
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/G80/" class="post-category">
+                                    G80
+                                </a>
+                                
+                                <a href="/categories/G80/M8/" class="post-category">
+                                    M8
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2025/08/16/g80/g80-0246/">
                         
 <div class="card-image image-load-shell is-missing">
@@ -1477,6 +1460,61 @@
                         </div>
                     </div>
 
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2025/08/16/g80/g80-0247/">
+                        
+<div class="card-image image-load-shell">
+    
+    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0247%20%28M8%20%2B%20NixDorf%29/s-l1600.jpg"
+         class="responsive-img site-progressive-image"
+         style="--image-rotation: 0deg;"
+         data-rotate="0"
+         loading="lazy"
+         decoding="async"
+         alt="G80-0247">
+    
+    <span class="card-title">G80-0247</span>
+</div>
+
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-16
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/G80/" class="post-category">
+                                    G80
+                                </a>
+                                
+                                <a href="/categories/G80/M8/" class="post-category">
+                                    M8
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/NIXDORF-COMPUTER/">
+                            <span class="chip bg-color">NIXDORF COMPUTER</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -1581,6 +1619,90 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2025/08/16/g80/g80-0279/">
+                        
+<div class="card-image image-load-shell">
+    
+    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0279%20%28M9%29/1.jpeg"
+         class="responsive-img site-progressive-image"
+         style="--image-rotation: 0deg;"
+         data-rotate="0"
+         loading="lazy"
+         decoding="async"
+         alt="G80-0279">
+    
+    <span class="card-title">G80-0279</span>
+</div>
+
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-16
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/G80/" class="post-category">
+                                    G80
+                                </a>
+                                
+                                <a href="/categories/G80/M9/" class="post-category">
+                                    M9
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2025/08/16/g80/g80-0299/">
+                        
+<div class="card-image image-load-shell is-missing">
+    
+    <span class="card-no-image-badge">暂无图片</span>
+    
+    <span class="card-title">G80-0299</span>
+</div>
+
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-16
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/G80/" class="post-category">
+                                    G80
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2025/08/16/g80/g80-0284/">
                         
 <div class="card-image image-load-shell">
@@ -1632,13 +1754,19 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/08/16/g80/g80-0299/">
+                    <a href="/2025/08/15/g80/g80-0312/">
                         
-<div class="card-image image-load-shell is-missing">
+<div class="card-image image-load-shell">
     
-    <span class="card-no-image-badge">暂无图片</span>
+    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0312/0.webp"
+         class="responsive-img site-progressive-image"
+         style="--image-rotation: 0deg;"
+         data-rotate="0"
+         loading="lazy"
+         decoding="async"
+         alt="G80-0312">
     
-    <span class="card-title">G80-0299</span>
+    <span class="card-title">G80-0312</span>
 </div>
 
                     </a>
@@ -1646,7 +1774,7 @@
                     <div class="card-content article-content">
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-15
                             </span>
                             <span class="publish-author">
                                 
@@ -1669,19 +1797,19 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/08/16/g80/g80-0247/">
+                    <a href="/2025/08/15/g80/g80-0320/">
                         
 <div class="card-image image-load-shell">
     
-    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0247%20%28M8%20%2B%20NixDorf%29/s-l1600.jpg"
+    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0320/1.png"
          class="responsive-img site-progressive-image"
          style="--image-rotation: 0deg;"
          data-rotate="0"
          loading="lazy"
          decoding="async"
-         alt="G80-0247">
+         alt="G80-0320">
     
-    <span class="card-title">G80-0247</span>
+    <span class="card-title">G80-0320</span>
 </div>
 
                     </a>
@@ -1689,7 +1817,7 @@
                     <div class="card-content article-content">
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-15
                             </span>
                             <span class="publish-author">
                                 
@@ -1697,65 +1825,6 @@
                                 
                                 <a href="/categories/G80/" class="post-category">
                                     G80
-                                </a>
-                                
-                                <a href="/categories/G80/M8/" class="post-category">
-                                    M8
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/NIXDORF-COMPUTER/">
-                            <span class="chip bg-color">NIXDORF COMPUTER</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/08/16/g80/g80-0279/">
-                        
-<div class="card-image image-load-shell">
-    
-    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0279%20%28M9%29/1.jpeg"
-         class="responsive-img site-progressive-image"
-         style="--image-rotation: 0deg;"
-         data-rotate="0"
-         loading="lazy"
-         decoding="async"
-         alt="G80-0279">
-    
-    <span class="card-title">G80-0279</span>
-</div>
-
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/G80/" class="post-category">
-                                    G80
-                                </a>
-                                
-                                <a href="/categories/G80/M9/" class="post-category">
-                                    M9
                                 </a>
                                 
                                 
@@ -1818,19 +1887,13 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/08/15/g80/g80-0320/">
+                    <a href="/2025/08/15/g80/g80-0348/">
                         
-<div class="card-image image-load-shell">
+<div class="card-image image-load-shell is-missing">
     
-    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0320/1.png"
-         class="responsive-img site-progressive-image"
-         style="--image-rotation: 0deg;"
-         data-rotate="0"
-         loading="lazy"
-         decoding="async"
-         alt="G80-0320">
+    <span class="card-no-image-badge">暂无图片</span>
     
-    <span class="card-title">G80-0320</span>
+    <span class="card-title">G80-0348</span>
 </div>
 
                     </a>
@@ -1861,13 +1924,13 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/08/15/g80/g80-0348/">
+                    <a href="/2025/08/15/g80/g80-0347/">
                         
 <div class="card-image image-load-shell is-missing">
     
     <span class="card-no-image-badge">暂无图片</span>
     
-    <span class="card-title">G80-0348</span>
+    <span class="card-title">G80-0347</span>
 </div>
 
                     </a>
@@ -1942,86 +2005,6 @@
     <span class="card-no-image-badge">暂无图片</span>
     
     <span class="card-title">G80-0350</span>
-</div>
-
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-15
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/G80/" class="post-category">
-                                    G80
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/08/15/g80/g80-0312/">
-                        
-<div class="card-image image-load-shell">
-    
-    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0312/0.webp"
-         class="responsive-img site-progressive-image"
-         style="--image-rotation: 0deg;"
-         data-rotate="0"
-         loading="lazy"
-         decoding="async"
-         alt="G80-0312">
-    
-    <span class="card-title">G80-0312</span>
-</div>
-
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-15
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/G80/" class="post-category">
-                                    G80
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/08/15/g80/g80-0347/">
-                        
-<div class="card-image image-load-shell is-missing">
-    
-    <span class="card-no-image-badge">暂无图片</span>
-    
-    <span class="card-title">G80-0347</span>
 </div>
 
                     </a>
@@ -2132,6 +2115,43 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2025/08/15/g80/g80-0362/">
+                        
+<div class="card-image image-load-shell is-missing">
+    
+    <span class="card-no-image-badge">暂无图片</span>
+    
+    <span class="card-title">G80-0362</span>
+</div>
+
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-15
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/G80/" class="post-category">
+                                    G80
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2025/08/15/g80/g80-0387/">
                         
 <div class="card-image image-load-shell is-missing">
@@ -2158,43 +2178,6 @@
                                 
                                 <a href="/categories/G80/M8/" class="post-category">
                                     M8
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/08/15/g80/g80-0362/">
-                        
-<div class="card-image image-load-shell is-missing">
-    
-    <span class="card-no-image-badge">暂无图片</span>
-    
-    <span class="card-title">G80-0362</span>
-</div>
-
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-15
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/G80/" class="post-category">
-                                    G80
                                 </a>
                                 
                                 
@@ -2298,49 +2281,6 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/08/14/g80/g80-0418/">
-                        
-<div class="card-image image-load-shell">
-    
-    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0418/G80-0418/6.jpeg"
-         class="responsive-img site-progressive-image"
-         style="--image-rotation: 0deg;"
-         data-rotate="0"
-         loading="lazy"
-         decoding="async"
-         alt="G80-0418">
-    
-    <span class="card-title">G80-0418</span>
-</div>
-
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/G80/" class="post-category">
-                                    G80
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
                     <a href="/2025/08/14/g80/g80-0427/">
                         
 <div class="card-image image-load-shell">
@@ -2392,56 +2332,19 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/08/14/g80/g80-0413/">
+                    <a href="/2025/08/14/g80/g80-0418/">
                         
 <div class="card-image image-load-shell">
     
-    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0413/1.png"
+    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0418/G80-0418/6.jpeg"
          class="responsive-img site-progressive-image"
          style="--image-rotation: 0deg;"
          data-rotate="0"
          loading="lazy"
          decoding="async"
-         alt="G80-0413">
+         alt="G80-0418">
     
-    <span class="card-title">G80-0413</span>
-</div>
-
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/G80/" class="post-category">
-                                    G80
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/08/14/g80/g80-0438/">
-                        
-<div class="card-image image-load-shell is-missing">
-    
-    <span class="card-no-image-badge">暂无图片</span>
-    
-    <span class="card-title">G80-0438</span>
+    <span class="card-title">G80-0418</span>
 </div>
 
                     </a>
@@ -2527,56 +2430,13 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/08/14/g80/g80-0453/">
-                        
-<div class="card-image image-load-shell">
-    
-    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0453%3Ac/1.jpg"
-         class="responsive-img site-progressive-image"
-         style="--image-rotation: 0deg;"
-         data-rotate="0"
-         loading="lazy"
-         decoding="async"
-         alt="G80-0453">
-    
-    <span class="card-title">G80-0453</span>
-</div>
-
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/G80/" class="post-category">
-                                    G80
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/08/14/g80/g80-0457/">
+                    <a href="/2025/08/14/g80/g80-0438/">
                         
 <div class="card-image image-load-shell is-missing">
     
     <span class="card-no-image-badge">暂无图片</span>
     
-    <span class="card-title">G80-0457</span>
+    <span class="card-title">G80-0438</span>
 </div>
 
                     </a>
@@ -2599,57 +2459,6 @@
                         </div>
                     </div>
 
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/08/14/g80/g80-0452/">
-                        
-<div class="card-image image-load-shell">
-    
-    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0452%20%28BLAUPUNKT%29/1.jpeg"
-         class="responsive-img site-progressive-image"
-         style="--image-rotation: 0deg;"
-         data-rotate="0"
-         loading="lazy"
-         decoding="async"
-         alt="G80-0452">
-    
-    <span class="card-title">G80-0452</span>
-</div>
-
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/G80/" class="post-category">
-                                    G80
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/BLAUPUNKT/">
-                            <span class="chip bg-color">BLAUPUNKT</span>
-                        </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -2709,6 +2518,100 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2025/08/14/g80/g80-0452/">
+                        
+<div class="card-image image-load-shell">
+    
+    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0452%20%28BLAUPUNKT%29/1.jpeg"
+         class="responsive-img site-progressive-image"
+         style="--image-rotation: 0deg;"
+         data-rotate="0"
+         loading="lazy"
+         decoding="async"
+         alt="G80-0452">
+    
+    <span class="card-title">G80-0452</span>
+</div>
+
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/G80/" class="post-category">
+                                    G80
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/BLAUPUNKT/">
+                            <span class="chip bg-color">BLAUPUNKT</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2025/08/14/g80/g80-0413/">
+                        
+<div class="card-image image-load-shell">
+    
+    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0413/1.png"
+         class="responsive-img site-progressive-image"
+         style="--image-rotation: 0deg;"
+         data-rotate="0"
+         loading="lazy"
+         decoding="async"
+         alt="G80-0413">
+    
+    <span class="card-title">G80-0413</span>
+</div>
+
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/G80/" class="post-category">
+                                    G80
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2025/08/14/g80/g80-0454/">
                         
 <div class="card-image image-load-shell">
@@ -2752,19 +2655,13 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/08/14/g80/g80-0459/">
+                    <a href="/2025/08/14/g80/g80-0457/">
                         
-<div class="card-image image-load-shell">
+<div class="card-image image-load-shell is-missing">
     
-    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0459/15.jpeg"
-         class="responsive-img site-progressive-image"
-         style="--image-rotation: 0deg;"
-         data-rotate="0"
-         loading="lazy"
-         decoding="async"
-         alt="G80-0459">
+    <span class="card-no-image-badge">暂无图片</span>
     
-    <span class="card-title">G80-0459</span>
+    <span class="card-title">G80-0457</span>
 </div>
 
                     </a>
@@ -2838,6 +2735,92 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2025/08/14/g80/g80-0453/">
+                        
+<div class="card-image image-load-shell">
+    
+    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0453%3Ac/1.jpg"
+         class="responsive-img site-progressive-image"
+         style="--image-rotation: 0deg;"
+         data-rotate="0"
+         loading="lazy"
+         decoding="async"
+         alt="G80-0453">
+    
+    <span class="card-title">G80-0453</span>
+</div>
+
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/G80/" class="post-category">
+                                    G80
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2025/08/14/g80/g80-0459/">
+                        
+<div class="card-image image-load-shell">
+    
+    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0459/15.jpeg"
+         class="responsive-img site-progressive-image"
+         style="--image-rotation: 0deg;"
+         data-rotate="0"
+         loading="lazy"
+         decoding="async"
+         alt="G80-0459">
+    
+    <span class="card-title">G80-0459</span>
+</div>
+
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/G80/" class="post-category">
+                                    G80
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2025/08/14/g80/g80-0460/">
                         
 <div class="card-image image-load-shell is-missing">
@@ -2845,6 +2828,43 @@
     <span class="card-no-image-badge">暂无图片</span>
     
     <span class="card-title">G80-0460</span>
+</div>
+
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/G80/" class="post-category">
+                                    G80
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2025/08/14/g80/g80-0484/">
+                        
+<div class="card-image image-load-shell is-missing">
+    
+    <span class="card-no-image-badge">暂无图片</span>
+    
+    <span class="card-title">G80-0484</span>
 </div>
 
                     </a>
@@ -2918,90 +2938,6 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/08/14/g80/g80-0486/">
-                        
-<div class="card-image image-load-shell">
-    
-    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0486%20%28M8%29/G80-0486H%3A03/0.png"
-         class="responsive-img site-progressive-image"
-         style="--image-rotation: 0deg;"
-         data-rotate="0"
-         loading="lazy"
-         decoding="async"
-         alt="G80-0486">
-    
-    <span class="card-title">G80-0486</span>
-</div>
-
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/G80/" class="post-category">
-                                    G80
-                                </a>
-                                
-                                <a href="/categories/G80/M8/" class="post-category">
-                                    M8
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/08/14/g80/g80-0484/">
-                        
-<div class="card-image image-load-shell is-missing">
-    
-    <span class="card-no-image-badge">暂无图片</span>
-    
-    <span class="card-title">G80-0484</span>
-</div>
-
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/G80/" class="post-category">
-                                    G80
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
                     <a href="/2025/08/14/g80/g80-0485/">
                         
 <div class="card-image image-load-shell">
@@ -3015,53 +2951,6 @@
          alt="G80-0485">
     
     <span class="card-title">G80-0485</span>
-</div>
-
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/G80/" class="post-category">
-                                    G80
-                                </a>
-                                
-                                <a href="/categories/G80/M8/" class="post-category">
-                                    M8
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/08/14/g80/g80-0488/">
-                        
-<div class="card-image image-load-shell">
-    
-    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0488%20%28M8%29/2.jpeg"
-         class="responsive-img site-progressive-image"
-         style="--image-rotation: 0deg;"
-         data-rotate="0"
-         loading="lazy"
-         decoding="async"
-         alt="G80-0488">
-    
-    <span class="card-title">G80-0488</span>
 </div>
 
                     </a>
@@ -3143,19 +3032,19 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/08/14/g80/g80-0489/">
+                    <a href="/2025/08/14/g80/g80-0488/">
                         
 <div class="card-image image-load-shell">
     
-    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0489/0.jpg"
+    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0488%20%28M8%29/2.jpeg"
          class="responsive-img site-progressive-image"
          style="--image-rotation: 0deg;"
          data-rotate="0"
          loading="lazy"
          decoding="async"
-         alt="G80-0489">
+         alt="G80-0488">
     
-    <span class="card-title">G80-0489</span>
+    <span class="card-title">G80-0488</span>
 </div>
 
                     </a>
@@ -3173,19 +3062,62 @@
                                     G80
                                 </a>
                                 
+                                <a href="/categories/G80/M8/" class="post-category">
+                                    M8
+                                </a>
+                                
                                 
                             </span>
                         </div>
                     </div>
 
                     
-                    <div class="card-action article-tags">
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2025/08/14/g80/g80-0486/">
                         
-                        <a href="/tags/THOMSON/">
-                            <span class="chip bg-color">THOMSON</span>
-                        </a>
-                        
+<div class="card-image image-load-shell">
+    
+    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0486%20%28M8%29/G80-0486H%3A03/0.png"
+         class="responsive-img site-progressive-image"
+         style="--image-rotation: 0deg;"
+         data-rotate="0"
+         loading="lazy"
+         decoding="async"
+         alt="G80-0486">
+    
+    <span class="card-title">G80-0486</span>
+</div>
+
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/G80/" class="post-category">
+                                    G80
+                                </a>
+                                
+                                <a href="/categories/G80/M8/" class="post-category">
+                                    M8
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
                     </div>
+
                     
                 </div>
             </div>
@@ -3237,6 +3169,100 @@
                         </a>
                         
                     </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2025/08/14/g80/g80-0489/">
+                        
+<div class="card-image image-load-shell">
+    
+    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0489/0.jpg"
+         class="responsive-img site-progressive-image"
+         style="--image-rotation: 0deg;"
+         data-rotate="0"
+         loading="lazy"
+         decoding="async"
+         alt="G80-0489">
+    
+    <span class="card-title">G80-0489</span>
+</div>
+
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/G80/" class="post-category">
+                                    G80
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/THOMSON/">
+                            <span class="chip bg-color">THOMSON</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2025/08/13/g80/g80-0505/">
+                        
+<div class="card-image image-load-shell">
+    
+    <img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0505/11.jpeg"
+         class="responsive-img site-progressive-image"
+         style="--image-rotation: 0deg;"
+         data-rotate="0"
+         loading="lazy"
+         decoding="async"
+         alt="G80-0505">
+    
+    <span class="card-title">G80-0505</span>
+</div>
+
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-13
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/G80/" class="post-category">
+                                    G80
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
                     
                 </div>
             </div>
@@ -3362,43 +3388,6 @@
                         </a>
                         
                     </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/08/13/g80/g80-0517/">
-                        
-<div class="card-image image-load-shell is-missing">
-    
-    <span class="card-no-image-badge">暂无图片</span>
-    
-    <span class="card-title">G80-0517</span>
-</div>
-
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-13
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/G80/" class="post-category">
-                                    G80
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
                 </div>
             </div>
@@ -3688,7 +3677,7 @@
     <div class="modal-content">
         <div class="search-header">
             <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+            <input type="search" id="searchInput" name="s" placeholder="快来搜索你想看的键盘~"
                    class="search-input">
         </div>
         <div id="searchResult"></div>

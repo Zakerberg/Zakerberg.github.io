@@ -80,9 +80,9 @@
      <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2522521814859993"
      crossorigin="anonymous"></script>
-<meta name="generator" content="Hexo 7.3.0">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Cherry" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Cherry" type="application/atom+xml">
 </head>
 
 
@@ -121,28 +121,6 @@
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>定制标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/archives" class="waves-effect waves-light">
-      
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
-      
-      <span>归档</span>
     </a>
     
   </li>
@@ -227,28 +205,6 @@
 			    <i class="fa-fw fas fa-tags"></i>
 			
 			定制标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/archives" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-archive"></i>
-			
-			归档
 		</a>
           
         </li>
@@ -638,13 +594,13 @@
                 </div>
             </div>
             
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+                <div id="reward" class="reward-popover">
+    <button type="button" class="reward-link btn-floating btn-medium waves-effect waves-light red"
+            aria-controls="rewardPanel" aria-expanded="false">赏</button>
 
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
+    <div id="rewardPanel" class="reward-panel" role="dialog" aria-hidden="true" aria-label="赏他一个轴!">
+        <div class="reward-panel-content">
+            <button type="button" class="close reward-close" aria-label="关闭打赏二维码"><i class="fas fa-times"></i></button>
             <h4 class="reward-title">赏他一个轴!</h4>
             <div class="reward-content">
                 <div class="reward-tabs">
@@ -666,7 +622,43 @@
 
 <script>
     $(function () {
-        $('.tabs').tabs();
+        const reward = document.getElementById('reward');
+        if (!reward) return;
+
+        const trigger = reward.querySelector('.reward-link');
+        const panel = reward.querySelector('.reward-panel');
+        const closeButton = reward.querySelector('.reward-close');
+        const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+        reward.querySelectorAll('.tabs').forEach(function (tabs) {
+            $(tabs).tabs();
+        });
+
+        const setOpen = function (isOpen) {
+            reward.classList.toggle('is-open', isOpen);
+            trigger.setAttribute('aria-expanded', String(isOpen));
+            panel.setAttribute('aria-hidden', String(!isOpen));
+        };
+
+        reward.addEventListener('mouseenter', function () {
+            if (supportsHover.matches) setOpen(true);
+        });
+        reward.addEventListener('mouseleave', function () {
+            if (supportsHover.matches) setOpen(false);
+        });
+        trigger.addEventListener('click', function () {
+            setOpen(!reward.classList.contains('is-open'));
+        });
+        closeButton.addEventListener('click', function () {
+            setOpen(false);
+            trigger.focus();
+        });
+        document.addEventListener('click', function (event) {
+            if (!reward.contains(event.target)) setOpen(false);
+        });
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') setOpen(false);
+        });
     });
 </script>
 
@@ -1168,7 +1160,7 @@
     <div class="modal-content">
         <div class="search-header">
             <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+            <input type="search" id="searchInput" name="s" placeholder="快来搜索你想看的键盘~"
                    class="search-input">
         </div>
         <div id="searchResult"></div>
