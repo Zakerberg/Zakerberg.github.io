@@ -151,6 +151,14 @@ article .card-image.image-load-shell.is-loaded .site-progressive-image {
     opacity: 0.7;
 }
 
+article .card-image.image-load-shell.home-card-image.is-missing {
+    background: #fff;
+}
+
+article .card-image.image-load-shell.home-card-image.is-missing .card-title {
+    color: #34495e;
+}
+
 .card-no-image-badge {
     position: absolute;
     top: 0.75rem;
