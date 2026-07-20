@@ -16,9 +16,11 @@ var hashCode = function (str) {
 };
 var i = 0;
 var isCategory = is_category();
+var categoryCloudClass = typeof extraClass !== 'undefined' && extraClass ? ' ' + extraClass : '';
+var categoryCloudAnimation = typeof scrollAnimation !== 'undefined' && scrollAnimation;
 %>
 
-<div id="category-cloud" class="container chip-container">
+<div id="category-cloud" class="container chip-container<%= categoryCloudClass %>"<% if (categoryCloudAnimation) { %> data-aos="fade-up"<% } %>>
     <div class="card">
         <div class="card-content">
             <div class="tag-title center-align">

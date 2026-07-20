@@ -4,7 +4,10 @@
 
     <%- partial('_widget/tag-cloud') %>
 
-    <%- partial('_widget/category-cloud') %>
+    <%- partial('_widget/category-cloud', {
+        extraClass: 'tags-category-section',
+        scrollAnimation: true
+    }) %>
 
     <% if (site.tags && site.tags.length > 0) { %>
     <%- partial('_widget/tag-wordcloud') %>

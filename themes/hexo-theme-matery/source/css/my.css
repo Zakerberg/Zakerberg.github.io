@@ -471,6 +471,11 @@ article .card-image.image-load-shell.is-loaded .site-progressive-image {
     gap: 0;
 }
 
+.tags-category-section.chip-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
 .paging a.bg-color,
 .prev-next .article-badge,
 article .article-tags .chip.bg-color,
