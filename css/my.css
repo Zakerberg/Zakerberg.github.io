@@ -484,6 +484,73 @@ article .card-image.image-load-shell.home-card-image.is-missing .card-title {
     margin-bottom: 2rem;
 }
 
+.tag-sphere-section {
+    margin-bottom: 2rem;
+}
+
+.tag-sphere-card {
+    padding: 1rem !important;
+}
+
+.tag-sphere {
+    position: relative;
+    height: clamp(350px, 48vw, 460px);
+    overflow: hidden;
+    border: 1px solid rgba(42, 126, 91, 0.12);
+    border-radius: 18px;
+    background:
+        radial-gradient(circle at 50% 48%, rgba(76, 191, 48, 0.12), transparent 36%),
+        radial-gradient(ellipse at 50% 50%, transparent 48%, rgba(15, 157, 88, 0.08) 49%, transparent 50%),
+        linear-gradient(145deg, #fbfefc, #f2f8f5);
+    box-shadow: inset 0 0 40px rgba(15, 157, 88, 0.05);
+    contain: layout paint;
+}
+
+.tag-sphere::before,
+.tag-sphere::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+    width: min(72%, 340px);
+    aspect-ratio: 1;
+    border: 1px solid rgba(15, 157, 88, 0.1);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scaleY(0.34);
+}
+
+.tag-sphere::after {
+    transform: translate(-50%, -50%) scaleX(0.34);
+}
+
+.tag-sphere-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    max-width: 150px;
+    overflow: hidden;
+    color: #286f50;
+    font-size: calc(0.72rem + var(--tag-popularity, 0) * 0.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+    white-space: nowrap;
+    will-change: transform, opacity;
+}
+
+.tag-sphere-item:hover,
+.tag-sphere-item:focus-visible {
+    color: #0f9d58;
+    outline: 2px solid rgba(15, 157, 88, 0.32);
+    outline-offset: 4px;
+    text-decoration: none;
+}
+
 .paging a.bg-color,
 .prev-next .article-badge,
 article .article-tags .chip.bg-color,
@@ -670,6 +737,19 @@ body.DarkMode .about-story .about-contributor-emphasis {
     color: #63d69d;
 }
 
+body.DarkMode .tag-sphere {
+    border-color: rgba(99, 214, 157, 0.16);
+    background:
+        radial-gradient(circle at 50% 48%, rgba(99, 214, 157, 0.12), transparent 36%),
+        radial-gradient(ellipse at 50% 50%, transparent 48%, rgba(99, 214, 157, 0.1) 49%, transparent 50%),
+        linear-gradient(145deg, #26332d, #1f2a25);
+}
+
+body.DarkMode .tag-sphere-item {
+    color: #9de2be;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.55);
+}
+
 @media only screen and (max-width: 600px) {
     .home-hero-subtitle {
         font-size: 1rem;
@@ -716,6 +796,20 @@ body.DarkMode .about-story .about-contributor-emphasis {
         top: 0.6rem;
         left: 0.6rem;
     }
+
+    .tag-sphere-card {
+        padding: 0.65rem !important;
+    }
+
+    .tag-sphere {
+        height: 330px;
+        border-radius: 14px;
+    }
+
+    .tag-sphere-item {
+        max-width: 108px;
+        font-size: calc(0.66rem + var(--tag-popularity, 0) * 0.15rem);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -725,6 +819,10 @@ body.DarkMode .about-story .about-contributor-emphasis {
 
     .image-load-shell .site-progressive-image {
         transition: none;
+    }
+
+    .tag-sphere-item {
+        will-change: auto;
     }
 }
 
