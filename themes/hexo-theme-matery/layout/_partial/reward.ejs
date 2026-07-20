@@ -1,10 +1,10 @@
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+<div id="reward" class="reward-popover">
+    <button type="button" class="reward-link btn-floating btn-medium waves-effect waves-light red"
+            aria-controls="rewardPanel" aria-expanded="false">赏</button>
 
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
+    <div id="rewardPanel" class="reward-panel" role="dialog" aria-hidden="true" aria-label="<%= theme.reward.title %>">
+        <div class="reward-panel-content">
+            <button type="button" class="close reward-close" aria-label="关闭打赏二维码"><i class="fas fa-times"></i></button>
             <h4 class="reward-title"><%= theme.reward.title %></h4>
             <div class="reward-content">
                 <div class="reward-tabs">
@@ -26,6 +26,42 @@
 
 <script>
     $(function () {
-        $('.tabs').tabs();
+        const reward = document.getElementById('reward');
+        if (!reward) return;
+
+        const trigger = reward.querySelector('.reward-link');
+        const panel = reward.querySelector('.reward-panel');
+        const closeButton = reward.querySelector('.reward-close');
+        const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+        reward.querySelectorAll('.tabs').forEach(function (tabs) {
+            $(tabs).tabs();
+        });
+
+        const setOpen = function (isOpen) {
+            reward.classList.toggle('is-open', isOpen);
+            trigger.setAttribute('aria-expanded', String(isOpen));
+            panel.setAttribute('aria-hidden', String(!isOpen));
+        };
+
+        reward.addEventListener('mouseenter', function () {
+            if (supportsHover.matches) setOpen(true);
+        });
+        reward.addEventListener('mouseleave', function () {
+            if (supportsHover.matches) setOpen(false);
+        });
+        trigger.addEventListener('click', function () {
+            setOpen(!reward.classList.contains('is-open'));
+        });
+        closeButton.addEventListener('click', function () {
+            setOpen(false);
+            trigger.focus();
+        });
+        document.addEventListener('click', function (event) {
+            if (!reward.contains(event.target)) setOpen(false);
+        });
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') setOpen(false);
+        });
     });
 </script>

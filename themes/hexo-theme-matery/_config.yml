@@ -6,12 +6,6 @@ menu:
   Tags:
     url: /tags
     icon: fas fa-tags
-  Categories:
-    url: /categories
-    icon: fas fa-bookmark
-  Archives:
-    url: /archives
-    icon: fas fa-archive
   About:
     url: /about
     icon: fas fa-user-circle
@@ -124,7 +118,7 @@ video:
   pic:
   thumbnails:
   height: 400
-  autoplay: false
+  autoplay: true
   theme: "#42b983"
   loop: false # 是否循环播放
   preload: "metadata" # 预加载，可选值: 'none', 'metadata', 'auto'

@@ -1,7 +1,4 @@
-<%
-    var lazyLoadVideo = Boolean(theme.video.lazyLoad && theme.video.url);
-    var videoPoster = theme.video.pic || (config.seo && config.seo.default_og_image) || '/medias/banner/0.jpg';
-%>
+<% var lazyLoadVideo = Boolean(theme.video.lazyLoad && theme.video.url); %>
 <% if (!lazyLoadVideo) { %>
 <link rel="stylesheet" href="<%- theme.jsDelivr.url %><%- url_for(theme.libs.css.dplayer) %>">
 <% } %>
@@ -16,11 +13,7 @@
         <div class="col l8 offset-l2 m10 offset-m1 s12">
             <% if (lazyLoadVideo) { %>
             <div class="media-lazy-shell">
-                <% if (videoPoster) { %>
-                <img class="media-lazy-poster" src="<%- url_for(videoPoster) %>" alt="<%= theme.video.title %>">
-                <% } else { %>
-                <div class="media-lazy-poster media-lazy-poster--empty"></div>
-                <% } %>
+                <div class="media-lazy-poster image-load-shell" aria-hidden="true"></div>
                 <div class="media-lazy-overlay">
                     <button id="dplayer-trigger" type="button" class="media-lazy-button waves-effect waves-light">
                         <i class="fas fa-play"></i><span><%= theme.video.loadButtonText || '点击加载视频' %></span>
@@ -66,6 +59,12 @@
         const playerNode = document.getElementById('dplayer');
         if (!trigger || !playerNode) return;
 
+        const shell = trigger.closest('.media-lazy-shell');
+        const overlay = trigger.closest('.media-lazy-overlay');
+        let loading = false;
+        let player = null;
+        let readyTimer = null;
+
         const cssHref = '<%- theme.jsDelivr.url %><%- url_for(theme.libs.css.dplayer) %>';
         const scriptSrc = '<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.dplayer) %>';
 
@@ -98,18 +97,63 @@
             });
         };
 
+        const showReadyPlayer = function () {
+            if (!shell || shell.classList.contains('is-player-ready')) return;
+            if (readyTimer) clearTimeout(readyTimer);
+            readyTimer = null;
+            loading = false;
+            shell.classList.add('is-player-ready');
+            playerNode.setAttribute('aria-busy', 'false');
+            if (player) {
+                const playResult = player.video && player.video.play ? player.video.play() : player.play();
+                if (playResult && typeof playResult.catch === 'function') {
+                    playResult.catch(function () {
+                        if (!player.video) return;
+                        player.video.muted = true;
+                        player.video.play().catch(function () {});
+                    });
+                }
+            }
+        };
+
+        const restoreTrigger = function () {
+            loading = false;
+            trigger.disabled = false;
+            trigger.innerHTML = '<i class="fas fa-play"></i><span><%= theme.video.loadButtonText || '点击加载视频' %></span>';
+            playerNode.style.display = 'none';
+            playerNode.setAttribute('aria-busy', 'false');
+            if (overlay) overlay.style.display = '';
+        };
+
+        const resetPlayer = function () {
+            if (!loading && !player) return;
+            if (readyTimer) clearTimeout(readyTimer);
+            readyTimer = null;
+            const failedPlayer = player;
+            player = null;
+            loading = false;
+            if (failedPlayer && typeof failedPlayer.destroy === 'function') {
+                failedPlayer.destroy();
+            }
+            playerNode.innerHTML = '';
+            restoreTrigger();
+            M.toast({html: '视频加载失败，请稍后重试'});
+        };
+
         trigger.addEventListener('click', async function () {
+            if (loading || player) return;
+            loading = true;
             trigger.disabled = true;
             trigger.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>加载中...</span>';
+            playerNode.setAttribute('aria-busy', 'true');
 
             try {
                 ensureCss();
                 await ensureScript();
                 playerNode.style.display = 'block';
-                trigger.closest('.media-lazy-overlay').style.display = 'none';
-                new DPlayer({
+                player = new DPlayer({
                     container: playerNode,
-                    autoplay: '<%- theme.video.autoplay %>' === 'true',
+                    autoplay: true,
                     theme: '<%- theme.video.theme %>',
                     loop: '<%- theme.video.loop %>' === 'true',
                     lang: '<%- config.language %>' === 'zh-CN' ? 'zh-cn' : 'en',
@@ -121,12 +165,18 @@
                         thumbnails: '<% if (theme.video.thumbnails) { %><%- url_for(theme.video.thumbnails) %><% } %>'
                     }
                 });
+                player.on('loadedmetadata', showReadyPlayer);
+                player.on('canplay', showReadyPlayer);
+                player.on('error', function () {
+                    if (shell && shell.classList.contains('is-player-ready')) return;
+                    resetPlayer();
+                });
+                readyTimer = setTimeout(resetPlayer, 20000);
+                player.play();
             } catch (error) {
-                trigger.disabled = false;
-                trigger.innerHTML = '<i class="fas fa-play"></i><span><%= theme.video.loadButtonText || '点击加载视频' %></span>';
-                M.toast({html: '视频加载失败，请稍后重试'});
+                resetPlayer();
             }
-        }, { once: true });
+        });
     })();
 </script>
 <% } %>
