@@ -1,0 +1,515 @@
+{
+  "source": "https://telcontar.net/KBK/Cherry/keyboards",
+  "policy": "https://telcontar.net/KBK/about",
+  "reviewed_on": "2026-07-21",
+  "status": "not_uploaded",
+  "reason": "Telcontar 明确将 reference photos 排除在其公有领域图片声明之外；第三方 Reference 也需由各权利人单独授权。",
+  "items": [
+    {
+      "source_row": 1,
+      "models": [
+        "Kana keyboard"
+      ],
+      "reference_label": "eBay",
+      "reference_pages": [
+        "https://www.ebay.com/itm/202902055356?orig_cvip=true&nordt=true"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 2,
+      "models": [
+        "B25-59AA"
+      ],
+      "reference_label": "Deskthority",
+      "reference_pages": [
+        "https://deskthority.net/viewtopic.php?t=19541"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 3,
+      "models": [
+        "B76-07AA"
+      ],
+      "reference_label": "ClassicCmp",
+      "reference_pages": [
+        "http://www.classiccmp.org/pipermail/cctalk/2019-July/048841.html"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 4,
+      "models": [
+        "B65-46AB"
+      ],
+      "reference_label": "Deskthority (…)",
+      "reference_pages": [
+        "https://deskthority.net/wiki/Cherry_B65_46AB",
+        "https://wiki.themk.org/index.php/Cherry_B65_46AB"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 5,
+      "models": [
+        "B80-16AC"
+      ],
+      "reference_label": "Deskthority",
+      "reference_pages": [
+        "https://deskthority.net/viewtopic.php?t=19554"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 6,
+      "models": [
+        "UB80-01AA"
+      ],
+      "reference_label": "eBay",
+      "reference_pages": [
+        "https://www.ebay.com/itm/long-winded-guff-/122203538782?nordt=true&orig_cvip=true"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 7,
+      "models": [
+        "G80-0081"
+      ],
+      "reference_label": "www.utensilia.tk",
+      "reference_pages": [
+        "http://www.utensilia.tk/berthold-cherry_g80-0081/"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 8,
+      "models": [
+        "CB80-21AA"
+      ],
+      "reference_label": "Imgur",
+      "reference_pages": [
+        "https://imgur.com/a/lfFKRX2"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 9,
+      "models": [
+        "B70-4753"
+      ],
+      "reference_label": "Imgur",
+      "reference_pages": [
+        "https://imgur.com/a/Qil1M"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 10,
+      "models": [
+        "B80-40AB"
+      ],
+      "reference_label": "KAref",
+      "reference_pages": [
+        "https://telcontar.net/KBK/KAref/Control_Data_752_keyboard/"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 11,
+      "models": [
+        "CB80-I3AA"
+      ],
+      "reference_label": "Worthpoint",
+      "reference_pages": [
+        "https://www.worthpoint.com/worthopedia/adds-aquired-digital-data-systems-1872621487"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 12,
+      "models": [
+        "UB80-01AA"
+      ],
+      "reference_label": "KAref",
+      "reference_pages": [
+        "https://telcontar.net/KBK/KAref/Cherry_UB80-01AA/"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 13,
+      "models": [
+        "B65-85AB"
+      ],
+      "reference_label": "See at B80-16AC",
+      "reference_pages": [],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 14,
+      "models": [
+        "B80-08AC"
+      ],
+      "reference_label": "KAref",
+      "reference_pages": [
+        "https://telcontar.net/KBK/KAref/Cherry_B80-08AC/"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 15,
+      "models": [
+        "B80-88AB"
+      ],
+      "reference_label": "KAref",
+      "reference_pages": [
+        "https://telcontar.net/KBK/KAref/Cherry_B80-88AB/"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 16,
+      "models": [
+        "B80-64AB"
+      ],
+      "reference_label": "Flickr",
+      "reference_pages": [
+        "https://www.flickr.com/photos/triplehaata/sets/72157662239685961/"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 17,
+      "models": [
+        "B5AB-7701"
+      ],
+      "reference_label": "KAref",
+      "reference_pages": [
+        "https://telcontar.net/KBK/KAref/ADDS_Regent_25/"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 18,
+      "models": [
+        "B70-05AB"
+      ],
+      "reference_label": "vintagecomputer.ca",
+      "reference_pages": [
+        "https://vintagecomputer.ca/cherry-b70-pro/"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 19,
+      "models": [
+        "UB80-0051",
+        "UB80-0002"
+      ],
+      "reference_label": "geekhack",
+      "reference_pages": [
+        "https://geekhack.org/index.php?topic=33130.msg1949091#msg1949091"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 20,
+      "models": [
+        "G80-0130"
+      ],
+      "reference_label": "KAref",
+      "reference_pages": [
+        "https://telcontar.net/KBK/KAref/Cherry_G80-0130/"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 21,
+      "models": [
+        "UB80-0071/A"
+      ],
+      "reference_label": "Flickr",
+      "reference_pages": [
+        "https://www.flickr.com/photos/86826919@N08/sets/72157662998148266"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 22,
+      "models": [
+        "UB88-0005"
+      ],
+      "reference_label": "Deskthority",
+      "reference_pages": [
+        "https://deskthority.net/viewtopic.php?t=13582"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 23,
+      "models": [
+        "G80-0229"
+      ],
+      "reference_label": "Deskthority",
+      "reference_pages": [
+        "https://deskthority.net/viewtopic.php?t=19763"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 24,
+      "models": [
+        "B4TE-8301"
+      ],
+      "reference_label": "Deskthority",
+      "reference_pages": [
+        "https://deskthority.net/viewtopic.php?p=444053#p444053"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 25,
+      "models": [
+        "B76-07AA"
+      ],
+      "reference_label": "Worthpoint",
+      "reference_pages": [
+        "https://www.worthpoint.com/worthopedia/tektronix-inc-cherry-119-0304-02-data-1956509723"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 26,
+      "models": [
+        "B21E-A601"
+      ],
+      "reference_label": "KBref",
+      "reference_pages": [
+        "https://telcontar.net/KBK/KBref/HP_9835/"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 27,
+      "models": [
+        "UB89-0009PP"
+      ],
+      "reference_label": "eBay",
+      "reference_pages": [
+        "https://www.ebay.com/itm/283441701788"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 28,
+      "models": [
+        "UB89-0009"
+      ],
+      "reference_label": "eBay",
+      "reference_pages": [
+        "https://www.ebay.co.uk/itm/283453194748"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 29,
+      "models": [
+        "U01-0114"
+      ],
+      "reference_label": "Deskthority (…)",
+      "reference_pages": [
+        "https://deskthority.net/wiki/Basis_108",
+        "https://wiki.themk.org/index.php/Basis_108"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 30,
+      "models": [
+        "KFN3-8351",
+        "BFN3-8351"
+      ],
+      "reference_label": "Deskthority (…)",
+      "reference_pages": [
+        "https://deskthority.net/wiki/Cherry_KFN3-8351",
+        "https://wiki.themk.org/index.php/Cherry_KFN3-8351"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 31,
+      "models": [
+        "KFN3-8358",
+        "BFN3-8358"
+      ],
+      "reference_label": "Deskthority (…)",
+      "reference_pages": [
+        "https://deskthority.net/wiki/Cherry_KFN3-8358",
+        "https://wiki.themk.org/index.php/Cherry_KFN3-8358"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 32,
+      "models": [
+        "UB70-0047/A"
+      ],
+      "reference_label": "eBay",
+      "reference_pages": [
+        "https://www.ebay.com/itm/114466843649"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 33,
+      "models": [
+        "UB88-0016"
+      ],
+      "reference_label": "Deskthority",
+      "reference_pages": [
+        "https://deskthority.net/viewtopic.php?p=261218#p261218"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 34,
+      "models": [
+        "B4VE-A302"
+      ],
+      "reference_label": "Deskthority (…)",
+      "reference_pages": [
+        "https://deskthority.net/wiki/Control_Data_721",
+        "https://wiki.themk.org/index.php/Control_Data_721"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 35,
+      "models": [
+        "B4VB-5601"
+      ],
+      "reference_label": "Deskthority (…)",
+      "reference_pages": [
+        "https://deskthority.net/wiki/Cherry_B4VB-5601",
+        "https://wiki.themk.org/index.php/Cherry_B4VB-5601"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 36,
+      "models": [
+        "UB88-0008"
+      ],
+      "reference_label": "bbs.wstx.com",
+      "reference_pages": [
+        "https://bbs.wstx.com/forum.php?mod=viewthread&tid=36933"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 37,
+      "models": [
+        "KXN3-8451",
+        "BXN3-8451"
+      ],
+      "reference_label": "Deskthority (…)",
+      "reference_pages": [
+        "https://deskthority.net/wiki/Cherry_KXN3-8451",
+        "https://wiki.themk.org/index.php/Cherry_KXN3-8451"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 38,
+      "models": [
+        "B70-4753"
+      ],
+      "reference_label": "Deskthority",
+      "reference_pages": [
+        "https://deskthority.net/viewtopic.php?t=13693"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 39,
+      "models": [
+        "KXND-A351",
+        "BXND-A351"
+      ],
+      "reference_label": "Reddit",
+      "reference_pages": [
+        "https://www.reddit.com/r/mechmarket/comments/8ppd96/uswah_980c_lubed_hasu_bke_75_boards_kbd75_xd84/"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 40,
+      "models": [
+        "BXNZ-8751"
+      ],
+      "reference_label": "KBref",
+      "reference_pages": [
+        "https://telcontar.net/KBK/KBref/Tektronix_119-1989-01/"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 41,
+      "models": [
+        "B70-4753"
+      ],
+      "reference_label": "KBref",
+      "reference_pages": [
+        "https://telcontar.net/KBK/KBref/HCP_B70-4753_extended/"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 42,
+      "models": [
+        "CB25-1632A"
+      ],
+      "reference_label": "Imgur",
+      "reference_pages": [
+        "https://imgur.com/a/EDWEIN2"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 43,
+      "models": [
+        "G80-0662/03"
+      ],
+      "reference_label": "Deskthority (…)",
+      "reference_pages": [
+        "https://deskthority.net/wiki/Cherry_G80-0662",
+        "https://wiki.themk.org/index.php/Cherry_G80-0662"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 44,
+      "models": [
+        "B70-4753"
+      ],
+      "reference_label": "KBref",
+      "reference_pages": [
+        "https://telcontar.net/KBK/KBref/TG3_B70-4753_(2)/"
+      ],
+      "status": "rights_review_required"
+    },
+    {
+      "source_row": 45,
+      "models": [
+        "B70-4753"
+      ],
+      "reference_label": "KBref",
+      "reference_pages": [
+        "https://telcontar.net/KBK/KBref/TG3_B70-4753/"
+      ],
+      "status": "rights_review_required"
+    }
+  ]
+}

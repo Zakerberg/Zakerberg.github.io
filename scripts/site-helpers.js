@@ -3,7 +3,7 @@
 const DEFAULT_DESCRIPTION_LIMIT = 160;
 const DEFAULT_CARD_SUMMARY_LIMIT = 120;
 const CHERRY_ARCHIVE_URL = 'https://www.kbdarchive.org/cherry/database.html';
-const EMPTY_DATA_VALUES = new Set(['', '-', 'n/a', 'none', 'null', 'unknown']);
+const EMPTY_DATA_VALUES = new Set(['', '-', '—', '–', '?', 'n/a', 'none', 'null', 'unknown']);
 
 const FIELD_TRANSLATIONS = {
     switch: {
@@ -599,6 +599,8 @@ function buildArchiveFeatures(records) {
 function sourceTitleForUrl(url) {
     const normalized = collapseWhitespace(url);
     if (/\.pdf(?:$|[?#])/i.test(normalized)) return '产品资料 PDF';
+    if (/telcontar\.net\/KBK\/Cherry\/keyboards/i.test(normalized)) return 'Telcontar 老式 Cherry 键盘列表';
+    if (/telcontar\.net\/KBK\//i.test(normalized)) return 'Telcontar 键盘资料';
     if (/deskthority/i.test(normalized)) return 'Deskthority 资料';
     if (/imgur/i.test(normalized)) return '实物图集';
     if (/geekhack/i.test(normalized)) return 'Geekhack 资料';
@@ -613,10 +615,12 @@ function sourceTitleForUrl(url) {
 }
 
 function normalizeSources(page = {}, records = []) {
-    let localSources = page.references || page.data_sources || page.data_source || [];
-    if (!Array.isArray(localSources)) {
-        localSources = [localSources];
-    }
+    const localSources = [
+        page.references,
+        page.data_sources,
+        page.data_source,
+        page.telcontar_references
+    ].flatMap((items) => Array.isArray(items) ? items : [items]).filter(Boolean);
 
     const sources = localSources.map((item) => {
         if (!item) return null;
@@ -652,6 +656,29 @@ function normalizeSources(page = {}, records = []) {
     }).slice(0, 8);
 }
 
+function buildTelcontarObservationRows(observations = []) {
+    if (!Array.isArray(observations) || observations.length <= 1) {
+        return [];
+    }
+
+    return observations.map((observation, index) => {
+        const parts = [
+            ['工厂', observation.factory],
+            ['年代', observation.production_period || observation.date],
+            ['序列号', observation.serial_number || observation.serial],
+            ['开关', observation.switch_type || observation.switches],
+            ['PCB', observation.pcb_codes || observation.pcb],
+            ['客户料号', observation.customer_part],
+            ['系统', observation.system]
+        ].filter(([, value]) => isMeaningfulDataValue(value));
+
+        return {
+            label: `观测 ${index + 1}`,
+            value: parts.map(([label, value]) => `${label}：${collapseWhitespace(value)}`).join('；')
+        };
+    }).filter((row) => row.value);
+}
+
 function buildKeyboardCard(page = {}, archiveData = {}) {
     const identity = extractKeyboardIdentity(page);
     const records = selectArchiveRecords(identity, archiveData);
@@ -659,6 +686,7 @@ function buildKeyboardCard(page = {}, archiveData = {}) {
     const isVariantAggregate = !identity.extension && allExtensions.length > 1;
     const groups = [
         { title: '基本信息', icon: 'fas fa-id-card', rows: [] },
+        { title: '生产与识别', icon: 'fas fa-industry', rows: [] },
         { title: '布局与连接', icon: 'fas fa-keyboard', rows: [] },
         { title: '开关与键帽', icon: 'fas fa-th', rows: [] }
     ];
@@ -687,35 +715,47 @@ function buildKeyboardCard(page = {}, archiveData = {}) {
     addRow(0, '产地', { value: firstLocalValue(page, ['made_in', 'country_of_origin']), origin: firstLocalValue(page, ['made_in', 'country_of_origin']) ? 'local' : '' });
     addRow(0, '替代型号', localOrArchiveValue(page, ['alternate_model', 'alternative_model'], records, ['altDesignation'], 'alternateModel'));
 
-    addRow(1, '布局规格', localOrArchiveValue(page, ['keyboard_layout', 'layout_size'], records, ['layoutSize'], 'layoutSize', { hideOther: true }));
-    addRow(1, '布局制式', localOrArchiveValue(page, ['layout_standard'], records, ['layoutType'], 'layoutType', { hideOther: true }));
-    addRow(1, '接口', localOrArchiveValue(page, ['interface', 'keyboard_interface'], records, ['kbInterface'], 'interface'));
-    addRow(1, '无冲', localOrArchiveValue(page, ['kro', 'key_rollover'], records, ['kbKRO'], 'kro'));
+    addRow(1, '生产工厂', { value: firstLocalValue(page, ['factory', 'manufacturing_site']), origin: page.factory || page.manufacturing_site ? 'local' : '' });
+    addRow(1, '序列号', { value: firstLocalValue(page, ['serial_number', 'serial_numbers']), origin: page.serial_number || page.serial_numbers ? 'local' : '' });
+    addRow(1, 'PCB 编号', { value: firstLocalValue(page, ['pcb_codes', 'pcb_code']), origin: page.pcb_codes || page.pcb_code ? 'local' : '' });
+    addRow(1, '客户料号', { value: firstLocalValue(page, ['customer_part', 'customer_part_number']), origin: page.customer_part || page.customer_part_number ? 'local' : '' });
+    addRow(1, '适配系统', { value: firstLocalValue(page, ['system', 'target_system']), origin: page.system || page.target_system ? 'local' : '' });
+
+    addRow(2, '布局规格', localOrArchiveValue(page, ['keyboard_layout', 'layout_size'], records, ['layoutSize'], 'layoutSize', { hideOther: true }));
+    addRow(2, '布局制式', localOrArchiveValue(page, ['layout_standard'], records, ['layoutType'], 'layoutType', { hideOther: true }));
+    addRow(2, '接口', localOrArchiveValue(page, ['interface', 'keyboard_interface'], records, ['kbInterface'], 'interface'));
+    addRow(2, '无冲', localOrArchiveValue(page, ['kro', 'key_rollover'], records, ['kbKRO'], 'kro'));
     const plate = localOrArchiveValue(page, ['switch_plate', 'plate'], records, ['switchPlate'], 'plate');
-    addRow(1, '定位板', plate);
+    addRow(2, '定位板', plate);
     const localCaseStyle = firstLocalValue(page, ['case_style'], '', { hideOther: true });
     const archiveCaseStyle = formatCaseStyle(records.map((record) => record.caseStyle));
-    addRow(1, '外壳结构', localCaseStyle ? { value: localCaseStyle, origin: 'local' } : { value: archiveCaseStyle, origin: archiveCaseStyle ? 'archive' : '' });
-    addRow(1, '外壳颜色', localOrArchiveValue(page, ['case_color', 'case_colour'], records, ['caseColour'], 'caseColour', { hideOther: true }));
+    addRow(2, '外壳结构', localCaseStyle ? { value: localCaseStyle, origin: 'local' } : { value: archiveCaseStyle, origin: archiveCaseStyle ? 'archive' : '' });
+    addRow(2, '外壳颜色', localOrArchiveValue(page, ['case_color', 'case_colour'], records, ['caseColour'], 'caseColour', { hideOther: true }));
     const localFeatures = firstLocalValue(page, ['features', 'feature'], 'feature');
     const archiveFeatures = buildArchiveFeatures(records);
-    addRow(1, '功能特性', localFeatures ? { value: localFeatures, origin: 'local' } : { value: archiveFeatures, origin: archiveFeatures ? 'archive' : '' });
+    addRow(2, '功能特性', localFeatures ? { value: localFeatures, origin: 'local' } : { value: archiveFeatures, origin: archiveFeatures ? 'archive' : '' });
 
-    addRow(2, '开关类型', localOrArchiveValue(page, ['switch_type', 'switches', 'switch'], records, ['kbSwitch'], 'switch'));
-    addRow(2, '键帽材质', localOrArchiveValue(page, ['keycap_material'], records, ['keycapMaterial'], ''));
-    addRow(2, '键帽厚度', localOrArchiveValue(page, ['keycap_thickness'], records, ['keycapThickness'], 'keycapThickness'));
-    addRow(2, '键帽工艺', localOrArchiveValue(page, ['legend_process', 'keycap_process'], records, ['keycapPrimary'], 'keycapProcess'));
-    addRow(2, '次级工艺', localOrArchiveValue(page, ['keycap_secondary_process'], records, ['keycapSub'], 'keycapProcess'));
-    addRow(2, '键帽配色', localOrArchiveValue(page, ['keycap_scheme'], records, ['keycapScheme'], 'keycapScheme', { hideOther: true }));
-    addRow(2, '侧刻工艺', localOrArchiveValue(page, ['side_legend_process'], records, ['keycapSide'], 'keycapSide'));
-    addRow(2, '键帽行高', localOrArchiveValue(page, ['keycap_profile'], records, ['keycapBottomTop'], '', { hideOther: true }));
-    addRow(2, '空格键', localOrArchiveValue(page, ['spacebar'], records, ['keycapSpace'], 'spacebar', { hideOther: true }));
-    addRow(2, 'Caps Lock 键型', localOrArchiveValue(page, ['caps_lock'], records, ['keycapCaps'], 'capsLock'));
-    addRow(2, '指示灯窗', localOrArchiveValue(page, ['keycap_window'], records, ['keycapWindow'], 'window', { hideOther: true }));
+    addRow(3, '开关类型', localOrArchiveValue(page, ['switch_type', 'switches', 'switch'], records, ['kbSwitch'], 'switch'));
+    addRow(3, '键帽材质', localOrArchiveValue(page, ['keycap_material'], records, ['keycapMaterial'], ''));
+    addRow(3, '键帽厚度', localOrArchiveValue(page, ['keycap_thickness'], records, ['keycapThickness'], 'keycapThickness'));
+    addRow(3, '键帽工艺', localOrArchiveValue(page, ['legend_process', 'keycap_process'], records, ['keycapPrimary'], 'keycapProcess'));
+    addRow(3, '次级工艺', localOrArchiveValue(page, ['keycap_secondary_process'], records, ['keycapSub'], 'keycapProcess'));
+    addRow(3, '键帽配色', localOrArchiveValue(page, ['keycap_scheme'], records, ['keycapScheme'], 'keycapScheme', { hideOther: true }));
+    addRow(3, '侧刻工艺', localOrArchiveValue(page, ['side_legend_process'], records, ['keycapSide'], 'keycapSide'));
+    addRow(3, '键帽行高', localOrArchiveValue(page, ['keycap_profile'], records, ['keycapBottomTop'], '', { hideOther: true }));
+    addRow(3, '空格键', localOrArchiveValue(page, ['spacebar'], records, ['keycapSpace'], 'spacebar', { hideOther: true }));
+    addRow(3, 'Caps Lock 键型', localOrArchiveValue(page, ['caps_lock'], records, ['keycapCaps'], 'capsLock'));
+    addRow(3, '指示灯窗', localOrArchiveValue(page, ['keycap_window'], records, ['keycapWindow'], 'window', { hideOther: true }));
+
+    const observationRows = buildTelcontarObservationRows(page.telcontar_records);
+    if (observationRows.length > 0) {
+        groups.push({ title: '历史观测记录', icon: 'fas fa-history', rows: observationRows });
+        hasLocalDetail = true;
+    }
 
     const sources = normalizeSources(page, records);
     const relatedPdfs = buildRelatedPdfs(page);
-    const notes = collapseWhitespace(page.notes || '');
+    const notes = collapseWhitespace(page.notes || page.telcontar_image_status || '');
     const hasContent = hasLocalDetail || hasArchiveDetail || Boolean(notes)
         || relatedPdfs.length > 0 || sources.length > 0;
     return {

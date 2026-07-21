@@ -7,6 +7,41 @@ category:
   - UB88
 tags:
   - digital
+
+# telcontar-import:start
+article_number: "UB80-01AA"
+series: "UB80"
+production_period: "约 1979 年 / 约 1980 年"
+factory: "Waukegan（美国）"
+made_in: "美国"
+serial_number: "59067 / 85464"
+switch_type: "Cherry 制 Hi-Tek High Profile"
+system: "DEC 专用"
+telcontar_imported: "2026-07-21"
+telcontar_image_status: "未转载：Reference 图片需逐项确认权利或取得授权"
+telcontar_records:
+  - source_table_model: "UB80-01AA"
+    factory: "Waukegan（美国）"
+    production_period: "约 1979 年"
+    serial_number: "59067"
+    switch_type: "Cherry 制 Hi-Tek High Profile"
+    system: "DEC 专用"
+    reference: "eBay"
+  - source_table_model: "UB80-01AA"
+    factory: "Waukegan（美国）"
+    production_period: "约 1980 年"
+    serial_number: "85464"
+    switch_type: "Cherry 制 Hi-Tek High Profile"
+    system: "DEC 专用"
+    reference: "KAref"
+telcontar_references:
+  - title: "Telcontar：老式 Cherry 键盘列表"
+    url: "https://telcontar.net/KBK/Cherry/keyboards"
+  - title: "eBay（Telcontar Reference）"
+    url: "https://www.ebay.com/itm/long-winded-guff-/122203538782?nordt=true&orig_cvip=true"
+  - title: "KAref（Telcontar Reference）"
+    url: "https://telcontar.net/KBK/KAref/Cherry_UB80-01AA/"
+# telcontar-import:end
 ---
 
 
