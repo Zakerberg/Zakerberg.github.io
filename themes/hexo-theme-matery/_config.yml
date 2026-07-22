@@ -49,9 +49,29 @@ time:
 cover:
   showPrevNext: false # 是否显示左右切换按钮.
   showIndicators: true # 是否显示指示器.
-  autoLoop: false # 是否自动轮播.
-  duration: 120 # 切换延迟时间.
-  intervalTime: 5000 # 自动切换下一张的间隔时间. Automatically switch the interval of the next one.
+  autoLoop: true # 是否自动轮播.
+  duration: 520 # 切换动画时长.
+  intervalTime: 3000 # 自动切换下一张的间隔时间. Automatically switch the interval of the next one.
+  # banner/0-6 与 featureimages/0-6 内容相同，因此这里只保留一份并补入 7、8.
+  images:
+    - image: /medias/banner/0.jpg
+      textTone: light
+    - image: /medias/banner/1.jpg
+      textTone: light
+    - image: /medias/banner/2.jpg
+      textTone: light
+    - image: /medias/banner/3.jpg
+      textTone: dark
+    - image: /medias/banner/4.jpg
+      textTone: light
+    - image: /medias/banner/5.jpg
+      textTone: dark
+    - image: /medias/banner/6.jpg
+      textTone: dark
+    - image: /medias/featureimages/7.jpg
+      textTone: light
+    - image: /medias/featureimages/8.jpg
+      textTone: dark
   useConfig: false # 是否使用配置文件, 在 _data/covers.json 下配置推荐文章, false则使用主题在文章中的配置 cover coverImg
   # useConfig 使用方式: 将主题 hexo-theme-matery/source/_data/covers.json 移动到 my-blog/source/_data/下修改配置即可
   video:

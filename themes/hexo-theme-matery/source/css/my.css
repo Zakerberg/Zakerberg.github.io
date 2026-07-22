@@ -11,7 +11,8 @@
     line-height: 1.2;
 }
 
-.bg-cover .home-hero-title--home {
+.bg-cover .home-hero-title--home,
+.home-cover-carousel .home-hero-title--home {
     margin: 0;
     max-width: 100%;
     font-size: clamp(0.95rem, 5.9vw, 5.4rem);
@@ -19,6 +20,106 @@
     letter-spacing: 0.01em;
     white-space: nowrap;
     text-shadow: 0 3px 18px rgba(18, 49, 36, 0.3);
+}
+
+.home-cover-carousel {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    background: #d9ddd7;
+}
+
+.home-cover-carousel .home-cover-slide {
+    height: 100vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home-cover-content {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    transition: color 0.32s ease, text-shadow 0.32s ease;
+}
+
+.home-cover-content .container {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+.home-cover-content .cover-btns a {
+    pointer-events: auto;
+    transition: color 0.32s ease, border-color 0.32s ease, background 0.32s ease, box-shadow 0.32s ease;
+}
+
+.home-cover-content--light-text {
+    color: #fff;
+    text-shadow: 0 3px 22px rgba(0, 0, 0, 0.82), 0 1px 5px rgba(0, 0, 0, 0.9);
+}
+
+.home-cover-content--light-text .home-hero-title--home {
+    color: #fff;
+    text-shadow: 0 3px 22px rgba(0, 0, 0, 0.82), 0 1px 5px rgba(0, 0, 0, 0.9);
+}
+
+.home-cover-content--dark-text {
+    color: #17362a;
+    text-shadow: 0 2px 18px rgba(255, 255, 255, 0.92), 0 1px 3px rgba(255, 255, 255, 0.95);
+}
+
+.home-cover-content--dark-text .home-hero-title--home {
+    color: #17362a;
+    text-shadow: 0 2px 18px rgba(255, 255, 255, 0.92), 0 1px 3px rgba(255, 255, 255, 0.95);
+}
+
+.home-cover-content--dark-text .cover-btns a {
+    color: #17362a;
+    border-color: rgba(23, 54, 42, 0.72);
+    background: rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(4px);
+}
+
+.home-cover-content .cover-btns a:hover,
+.home-cover-content .cover-btns a:focus {
+    color: #fff;
+    border-color: #0f9d58;
+    background-color: #0f9d58;
+    background-image: var(--cherry-action-gradient);
+    box-shadow: 0 10px 24px rgba(15, 157, 88, 0.3);
+}
+
+.home-cover-carousel .indicators {
+    z-index: 30;
+    bottom: 18px;
+}
+
+.home-cover-carousel .indicators .indicator-item {
+    width: 9px;
+    height: 9px;
+    margin: 8px 5px;
+    border: 1px solid rgba(20, 45, 35, 0.38);
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.home-cover-carousel .indicators .indicator-item.active {
+    background: #0f9d58;
+    border-color: rgba(255, 255, 255, 0.85);
+}
+
+@media only screen and (max-width: 600px) {
+    .home-cover-content .cover-btns {
+        top: 8vh;
+    }
+
+    .home-cover-carousel .home-cover-slide {
+        background-position: center center;
+    }
 }
 
 #headNav.bg-color {

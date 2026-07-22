@@ -1,166 +1,126 @@
 <%
-// get all cover posts.
-var coverPosts = [];
-site.posts.forEach(function (post) {
-    if (post.cover) {
-        coverPosts.push(post);
+var configuredSlides = theme.cover && Array.isArray(theme.cover.images) ? theme.cover.images : [];
+var homeSlides = configuredSlides.map(function (slide) {
+    if (typeof slide === 'string') {
+        return { image: slide, textTone: 'light' };
     }
+
+    return {
+        image: slide.image,
+        textTone: slide.textTone === 'dark' ? 'dark' : 'light'
+    };
+}).filter(function (slide) {
+    return slide.image;
 });
-var coverPostsCount = coverPosts.length;
+
+if (homeSlides.length === 0) {
+    homeSlides = [{ image: '/medias/banner/0.jpg', textTone: 'dark' }];
+}
+
+var initialTextTone = homeSlides[0].textTone;
 %>
 
-<div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
-    <% if (coverPostsCount > 0 && theme.cover.showPrevNext) { %>
-        <div id="prev-cover" class="left waves-effect carousel-control">
-            <i class="icon fa fa-angle-left"></i>
-        </div>
-        <div id="next-cover" class="right waves-effect carousel-control">
-            <i class="icon fa fa-angle-right"></i>
-        </div>
+<div id="homeCoverCarousel"
+     class="carousel carousel-slider center index-cover home-cover-carousel"
+     data-indicators="<%- theme.cover.showIndicators %>"
+     aria-label="首页图片轮播"
+     style="margin-top: -64px;">
+    <% if (homeSlides.length > 1 && theme.cover.showPrevNext) { %>
+    <button id="prev-cover" class="left waves-effect carousel-control" type="button" aria-label="上一张图片">
+        <i class="icon fa fa-angle-left" aria-hidden="true"></i>
+    </button>
+    <button id="next-cover" class="right waves-effect carousel-control" type="button" aria-label="下一张图片">
+        <i class="icon fa fa-angle-right" aria-hidden="true"></i>
+    </button>
     <% } %>
 
-    <div class="carousel-item  white-text bg-cover about-cover">
+    <div class="home-cover-content home-cover-content--<%- initialTextTone %>-text">
         <div class="container">
             <%- partial('_partial/bg-cover-content', { homeHero: true }) %>
 
             <div class="cover-btns">
                 <a href="<%=
                         [theme.dream, theme.music, theme.video, theme.recommend]
-                                .some(i=>i.enable)? "#indexCard": "#articles"
+                                .some(function (item) { return item.enable; }) ? '#indexCard' : '#articles'
                         %>" class="waves-effect waves-light btn">
-                    <i class="fa fa-angle-double-down"></i><%- __('startRead') %>
+                    <i class="fa fa-angle-double-down" aria-hidden="true"></i><%- __('startRead') %>
                 </a>
-
-                <!-- <% if (theme.indexbtn && theme.indexbtn.enable) { %>
-                    <a href="<%- url_for(theme.indexbtn.url) %>" class="waves-effect waves-light btn" target="_blank">
-                        <i class="<%- theme.indexbtn.icon %>"></i><%= theme.indexbtn.name %>
-                    </a>
-                <% } else if (theme.githubLink.enable) { %>
-                    <a href="<%- theme.githubLink.url %>" class="waves-effect waves-light btn" target="_blank">
-                        <i class="fab fa-github %>"></i><%= theme.githubLink.title %>
-                    </a>
-                <% } %> -->
             </div>
         </div>
     </div>
 
-    <% if (coverPostsCount > 0) { %>
-        <%
-            var hashCode = function (str) {
-                if (!str && str.length === 0) {
-                    return 0;
-                }
-
-                var hash = 0;
-                for (var i = 0, len = str.length; i < len; i++) {
-                    hash = ((hash << 5) - hash) + str.charCodeAt(i);
-                    hash |= 0;
-                }
-                return hash;
-            };
-
-            var featureImages = theme.featureImages;
-            var imgCount = featureImages.length;
-        %>
-
-        <% for (var i = 0; i < coverPostsCount; i++) { %>
-            <%
-                var post = coverPosts[i];
-                var featureImage = featureImages[Math.abs(hashCode(post.title) % imgCount)];
-
-                var coverImg;
-                if (post.coverImg) {
-                    coverImg = post.coverImg;
-                } else if (post.img) {
-                    coverImg = post.img;
-                } else {
-                    coverImg = featureImage;
-                }
-            %>
-            <div class="carousel-item amber white-text carousel-post bg-cover"
-                 style="background-image: url('<%- theme.jsDelivr.url %><%- url_for(coverImg) %>');">
-                <div class="container">
-                    <div class="row">
-                        <div class="col s10 offset-s1">
-                            <div class="title center-align"><%= post.title %></div>
-                            <div class="description center-align">
-                                <% if (post.summary && post.summary.length > 0) { %>
-                                    <%- post.summary %>
-                                <% } else { %>
-                                    <%- strip_html(post.content).substring(0, 120) %>
-                                <% } %>
-                            </div>
-                            <div class="cover-btns">
-                                <a href="<%- url_for(post.path) %>" class="waves-effect waves-light btn"
-                                   target="_blank">
-                                    <i class="icon fa fa-eye fa-fw"></i><%- __('readMore') %>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <% } %>
-    <% } %>
+    <% homeSlides.forEach(function (slide, index) { %>
+    <div class="carousel-item bg-cover home-cover-slide home-cover-slide--<%- slide.textTone %>-text"
+         data-text-tone="<%- slide.textTone %>"
+         style="background-image: url('<%- theme.jsDelivr.url %><%- url_for(slide.image) %>');"
+         aria-hidden="true"></div>
+    <% }); %>
 </div>
 
 <script>
     $(function () {
-        let coverSlider = $('.carousel');
+        var coverSlider = $('#homeCoverCarousel');
+        var coverContent = coverSlider.find('.home-cover-content');
+        var slideCount = coverSlider.find('.home-cover-slide').length;
+        var carouselIntervalId = null;
+        var shouldAutoLoop = <%- theme.cover.autoLoop ? 'true' : 'false' %> && slideCount > 1;
+        var intervalTime = Math.max(Number('<%- theme.cover.intervalTime %>') || 3000, 1000);
 
-        //用户触摸轮播自动 restartPlay 是否生效
-        let initUserPressedOrDraggedActive = false
+        function applyTextTone(slide) {
+            var textTone = $(slide).attr('data-text-tone') === 'dark' ? 'dark' : 'light';
+            coverContent
+                .removeClass('home-cover-content--dark-text home-cover-content--light-text')
+                .addClass('home-cover-content--' + textTone + '-text');
+        }
 
-        //用户触摸轮播自动 restartPlay
-        function initUserPressedOrDragged(instance) {
-            setInterval(() => {
-                if (instance.pressed || instance.dragged) {
-                    // console.log('initUserPressedOrDragged: ',instance.pressed,instance.dragged)
-                    restartPlay()
-                }
-            }, 1000)
+        function stopAutoCarousel() {
+            if (carouselIntervalId !== null) {
+                clearInterval(carouselIntervalId);
+                carouselIntervalId = null;
+            }
+        }
+
+        function startAutoCarousel() {
+            stopAutoCarousel();
+            if (!shouldAutoLoop || document.hidden) {
+                return;
+            }
+
+            carouselIntervalId = setInterval(function () {
+                coverSlider.carousel('next');
+            }, intervalTime);
         }
 
         coverSlider.carousel({
-            duration: Number('<%- theme.cover.duration %>'),
+            duration: Number('<%- theme.cover.duration %>') || 520,
             fullWidth: true,
             indicators: '<%- theme.cover.showIndicators %>' === 'true',
-            onCycleTo() {
-                if (!initUserPressedOrDraggedActive) {
-                    // console.log('initUserPressedOrDraggedActive')
-                    initUserPressedOrDragged(this)
-                    initUserPressedOrDraggedActive = true
-                }
-            },
-        })
+            onCycleTo: function (slide) {
+                applyTextTone(slide);
+            }
+        });
 
-        let carouselIntervalId;
-        <% if (theme.cover.autoLoop) { %>
-        // Loop to call the next cover article picture.
-        let autoCarousel = function () {
-            carouselIntervalId = setInterval(function () {
-                coverSlider.carousel('next');
-            }, <%- theme.cover.intervalTime %>);
-        };
-        autoCarousel();
-        <% } %>
+        applyTextTone(coverSlider.find('.home-cover-slide').first());
+        startAutoCarousel();
 
-        function restartPlay() {
-            <% if (theme.cover.autoLoop) { %>
-            clearInterval(carouselIntervalId);
-            autoCarousel();
-            <% } %>
-        };
+        coverSlider.on('mousedown touchstart', stopAutoCarousel);
+        $(document).on('mouseup touchend touchcancel', startAutoCarousel);
+        document.addEventListener('visibilitychange', function () {
+            if (document.hidden) {
+                stopAutoCarousel();
+            } else {
+                startAutoCarousel();
+            }
+        });
 
         <% if (theme.cover.showPrevNext) { %>
-        // prev and next cover post.
-        $('#prev-cover').click(function () {
+        $('#prev-cover').on('click', function () {
             coverSlider.carousel('prev');
-            restartPlay();
+            startAutoCarousel();
         });
-        $('#next-cover').click(function () {
+        $('#next-cover').on('click', function () {
             coverSlider.carousel('next');
-            restartPlay();
+            startAutoCarousel();
         });
         <% } %>
     });
