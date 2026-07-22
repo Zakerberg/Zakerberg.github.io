@@ -1,6 +1,7 @@
 ---
 title: "Cherry UB80-0071/A"
 date: 2025-05-10
+img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0071-A/1.jpg
 summary: "Cherry UB80-0071/A，生产记录：Harpenden（英国），年代：1981-11-23 / 1981-09-08，开关：M5/M6, M71?。"
 category:
   - "UB80"
@@ -18,7 +19,6 @@ serial_number: "16147"
 switch_type: "M5/M6, M71?"
 pcb_codes: "7001-0025"
 telcontar_imported: "2026-07-21"
-
 telcontar_records:
   - source_table_model: "UB80-0071/A"
     factory: "Harpenden（英国）"
@@ -37,4 +37,36 @@ telcontar_references:
 
 > ## Cherry UB80-0071/A
 
-![]()
+![Cherry UB80-0071/A](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0071-A/1.jpg)
+
+![Cherry UB80-0071/A](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0071-A/2.jpg)
+
+![Cherry UB80-0071/A](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0071-A/3.jpg)
+
+![Cherry UB80-0071/A](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0071-A/4.jpg)
+
+![Cherry UB80-0071/A](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0071-A/5.jpg)
+
+![Cherry UB80-0071/A](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0071-A/6.jpg)
+
+![Cherry UB80-0071/A](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0071-A/7.jpg)
+
+![Cherry UB80-0071/A](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0071-A/8.jpg)
+
+![Cherry UB80-0071/A](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0071-A/9.jpg)
+
+![Cherry UB80-0071/A](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0071-A/10.jpg)
+
+![Cherry UB80-0071/A](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0071-A/11.jpg)
+
+![Cherry UB80-0071/A](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0071-A/12.jpg)
+
+![Cherry UB80-0071/A](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0071-A/13.jpg)
+
+![Cherry UB80-0071/A](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0071-A/14.jpg)
+
+![Cherry UB80-0071/A](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0071-A/15.jpg)
+
+![Cherry UB80-0071/A](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0071-A/16.jpg)
+
+![Cherry UB80-0071/A](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0071-A/17.jpg)

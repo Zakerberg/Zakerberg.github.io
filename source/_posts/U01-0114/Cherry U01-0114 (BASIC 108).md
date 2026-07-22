@@ -1,7 +1,7 @@
 ---
 title: Cherry Basis 108 
 date: 2025-05-03
-img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20Basis%20108/0.jpeg
+img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20U01-0114%20%28BASIS%20108%29/0.jpeg
 summary: Cherry Basis 108
 
 # telcontar-import:start
@@ -15,7 +15,6 @@ switch_type: "M8（6 mm 开放式，带 LED，稳定型）"
 pcb_codes: "TSP 510-0002 Rev.A1"
 system: "Basis 108"
 telcontar_imported: "2026-07-21"
-
 telcontar_records:
   - source_table_model: "U01-0114"
     factory: "Auerbach（德国）"
@@ -38,36 +37,34 @@ telcontar_references:
 
 ## Cherry Basis 108
 
-![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20Basis%20108/0.jpeg)
+![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20U01-0114%20%28BASIS%20108%29/0.jpeg)
 
-![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20Basis%20108/1.jpeg)
+![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20U01-0114%20%28BASIS%20108%29/2.jpeg)
 
-![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20Basis%20108/2.jpeg)
+![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20U01-0114%20%28BASIS%20108%29/3.jpeg)
 
-![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20Basis%20108/3.jpeg)
+![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20U01-0114%20%28BASIS%20108%29/4.jpeg)
 
-![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20Basis%20108/4.jpeg)
+![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20U01-0114%20%28BASIS%20108%29/5.jpeg)
 
-![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20Basis%20108/5.jpeg)
+![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20U01-0114%20%28BASIS%20108%29/6.jpeg)
 
-![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20Basis%20108/6.jpeg)
+![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20U01-0114%20%28BASIS%20108%29/7.jpeg)
 
-![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20Basis%20108/7.jpeg)
+![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20U01-0114%20%28BASIS%20108%29/8.jpeg)
 
-![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20Basis%20108/8.jpeg)
+![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20U01-0114%20%28BASIS%20108%29/9.jpeg)
 
-![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20Basis%20108/9.jpeg)
+![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20U01-0114%20%28BASIS%20108%29/11.jpeg)
 
-![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20Basis%20108/11.jpeg)
+![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20U01-0114%20%28BASIS%20108%29/12.jpeg)
 
-![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20Basis%20108/12.jpeg)
+![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20U01-0114%20%28BASIS%20108%29/13.jpeg)
 
-![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20Basis%20108/13.jpeg)
+![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20U01-0114%20%28BASIS%20108%29/14.jpeg)
 
-![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20Basis%20108/14.jpeg)
+![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20U01-0114%20%28BASIS%20108%29/15.jpeg)
 
-![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20Basis%20108/15.jpeg)
+![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20U01-0114%20%28BASIS%20108%29/16.jpeg)
 
-![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20Basis%20108/16.jpeg)
-
-![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20Basis%20108/17.jpeg)
+![Cherry Basis 108](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20U01-0114%20%28BASIS%20108%29/17.jpeg)

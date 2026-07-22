@@ -14,7 +14,6 @@ production_period: "约 1974 年"
 switch_type: "M6"
 pcb_codes: "11840 rev J"
 telcontar_imported: "2026-07-21"
-
 telcontar_records:
   - source_table_model: "Kana keyboard"
     production_period: "约 1974 年"
@@ -29,6 +28,4 @@ telcontar_references:
 # telcontar-import:end
 ---
 
-> ## Cherry Kana keyboard
-
-![]()
+> ## Cherry Kana keyboard (暂无图片)

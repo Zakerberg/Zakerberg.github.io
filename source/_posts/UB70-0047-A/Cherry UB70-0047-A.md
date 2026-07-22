@@ -18,7 +18,6 @@ switch_type: "M8（6 mm 开放式）"
 pcb_codes: "7001-0174, ISSB ENG ISS 3?"
 system: "Wren Executive Computer"
 telcontar_imported: "2026-07-21"
-
 telcontar_records:
   - source_table_model: "UB70-0047/A"
     factory: "Harpenden（英国）"
@@ -36,6 +35,4 @@ telcontar_references:
 # telcontar-import:end
 ---
 
-> ## Cherry UB70-0047/A
-
-![]()
+> ## Cherry UB70-0047/A (暂无图片)

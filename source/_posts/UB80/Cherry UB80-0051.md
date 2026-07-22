@@ -1,6 +1,7 @@
 ---
 title: "Cherry UB80-0051"
 date: 2025-05-10
+img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0051/1.jpg
 summary: "Cherry UB80-0051，生产记录：St Albans（英国），年代：1980-08-13，开关：M5/M6, M71。"
 category:
   - "UB80"
@@ -17,7 +18,6 @@ made_in: "英国"
 serial_number: "11193"
 switch_type: "M5/M6, M71"
 telcontar_imported: "2026-07-21"
-
 paired_models:
   - "UB80-0002"
 telcontar_records:
@@ -37,4 +37,14 @@ telcontar_references:
 
 > ## Cherry UB80-0051
 
-![]()
+![Cherry UB80-0051](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0051/1.jpg)
+
+![Cherry UB80-0051](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0051/2.jpg)
+
+![Cherry UB80-0051](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0051/3.jpg)
+
+![Cherry UB80-0051](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0051/4.jpg)
+
+![Cherry UB80-0051](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0051/5.jpg)
+
+![Cherry UB80-0051](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-0051/6.jpg)

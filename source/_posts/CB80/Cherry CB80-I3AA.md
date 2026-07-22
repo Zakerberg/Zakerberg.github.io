@@ -37,6 +37,4 @@ telcontar_references:
 # telcontar-import:end
 ---
 
-> ## Cherry CB80-I3AA
-
-![]()
+> ## Cherry CB80-I3AA (暂无图片)

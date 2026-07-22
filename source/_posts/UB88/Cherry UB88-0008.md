@@ -17,7 +17,6 @@ serial_number: "046608 / 046612"
 switch_type: "M8（6 mm 封闭式，带 LED）"
 pcb_codes: "7001-0095, 026-1001 ART REV …, …"
 telcontar_imported: "2026-07-21"
-
 telcontar_records:
   - source_table_model: "UB88-0008"
     factory: "Harpenden（英国）"
@@ -34,6 +33,4 @@ telcontar_references:
 # telcontar-import:end
 ---
 
-> ## Cherry UB88-0008
-
-![]()
+> ## Cherry UB88-0008 (暂无图片)

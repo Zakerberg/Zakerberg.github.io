@@ -13,7 +13,6 @@ factory: "Harpenden（英国）"
 made_in: "英国"
 serial_number: "28013"
 telcontar_imported: "2026-07-21"
-
 telcontar_records:
   - source_table_model: "UB89-0009"
     factory: "Harpenden（英国）"
@@ -28,6 +27,4 @@ telcontar_references:
 # telcontar-import:end
 ---
 
-> ## Cherry UB89-0009
-
-![]()
+> ## Cherry UB89-0009 (暂无图片)
