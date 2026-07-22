@@ -1,6 +1,7 @@
 ---
 title: "Cherry B21E-A601"
-date: 2026-07-21
+date: 2025-05-10
+img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B21E-A601/1.jp
 summary: "Cherry B21E-A601，年代：约 1982–1983 年，开关：M1/M11。"
 category:
   - "B21E"
@@ -17,7 +18,6 @@ switch_type: "M1/M11"
 customer_part: "3101-0436-1 REV.G"
 system: "HP 9835"
 telcontar_imported: "2026-07-21"
-telcontar_image_status: "未转载：Reference 图片需逐项确认权利或取得授权"
 telcontar_records:
   - source_table_model: "B21E-A601"
     production_period: "约 1982–1983 年"
@@ -36,4 +36,10 @@ telcontar_references:
 
 > ## Cherry B21E-A601
 
-本页字段整理自 Telcontar 的老式 Cherry 键盘列表。Reference 图片在权利状态确认前不作转载，原始参考链接请见“资料来源”。
+![Cherry B21E-A601](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B21E-A601/1.jpg)
+
+![Cherry B21E-A601](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B21E-A601/2.jpg)
+
+![Cherry B21E-A601](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B21E-A601/3.jpg)
+
+![Cherry B21E-A601](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B21E-A601/4.jpg)

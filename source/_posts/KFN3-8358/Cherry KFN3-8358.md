@@ -17,7 +17,7 @@ serial_number: "1406680"
 switch_type: "固态电容式（DIN 标准）"
 pcb_codes: "001-1318 REV A, 026-1091 ART REV A"
 telcontar_imported: "2026-07-21"
-telcontar_image_status: "未转载：Reference 图片需逐项确认权利或取得授权"
+
 paired_models:
   - "BFN3-8358"
 telcontar_records:
@@ -40,4 +40,4 @@ telcontar_references:
 
 > ## Cherry KFN3-8358
 
-本页字段整理自 Telcontar 的老式 Cherry 键盘列表。Reference 图片在权利状态确认前不作转载，原始参考链接请见“资料来源”。
+![]()。

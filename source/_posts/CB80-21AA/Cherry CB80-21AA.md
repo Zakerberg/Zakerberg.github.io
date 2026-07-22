@@ -15,7 +15,7 @@ made_in: "美国"
 serial_number: "797967"
 switch_type: "固态电容式（DIN 标准前）"
 telcontar_imported: "2026-07-21"
-telcontar_image_status: "未转载：Reference 图片需逐项确认权利或取得授权"
+
 telcontar_records:
   - source_table_model: "CB80-21AA"
     factory: "Waukegan（美国）"

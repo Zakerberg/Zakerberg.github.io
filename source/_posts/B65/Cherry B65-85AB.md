@@ -17,7 +17,7 @@ pcb_codes: "001-1079, …?"
 customer_part: "355-07000"
 system: "未知 ADDS 终端"
 telcontar_imported: "2026-07-21"
-telcontar_image_status: "未转载：Reference 图片需逐项确认权利或取得授权"
+
 telcontar_records:
   - source_table_model: "B65-85AB"
     factory: "Waukegan（美国）"

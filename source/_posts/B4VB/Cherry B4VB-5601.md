@@ -1,7 +1,7 @@
 ---
 title: Cherry B4VB
 date: 2025-05-11
-img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B4VB-5601/0.webp
+img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B4VB/B4VB-5601/0.webp
 summary: Cherry B4VB
 category: 
   - B4VB
@@ -18,7 +18,7 @@ pcb_codes: "026-0980 ART REV B, 001-1261"
 customer_part: "1432400 REV. H"
 system: "Kroy 80K"
 telcontar_imported: "2026-07-21"
-telcontar_image_status: "未转载：Reference 图片需逐项确认权利或取得授权"
+
 telcontar_records:
   - source_table_model: "B4VB-5601"
     factory: "Waukegan（美国）"
@@ -42,16 +42,16 @@ telcontar_references:
 
 ## Cherry B4VB-5601 
 
-![Cherry B4VB-5601](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B4VB-5601/0.webp)
+![Cherry B4VB-5601](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B4VB/B4VB-5601/0.webp)
 
-![Cherry B4VB-5601](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B4VB-5601/1.webp)
+![Cherry B4VB-5601](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B4VB/B4VB-5601/1.webp)
 
-![Cherry B4VB-5601](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B4VB-5601/2.webp)
+![Cherry B4VB-5601](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B4VB/B4VB-5601/2.webp)
 
-![Cherry B4VB-5601](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B4VB-5601/3.webp)
+![Cherry B4VB-5601](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B4VB/B4VB-5601/3.webp)
 
-![Cherry B4VB-5601](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B4VB-5601/4.webp)
+![Cherry B4VB-5601](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B4VB/B4VB-5601/4.webp)
 
-![Cherry B4VB-5601](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B4VB-5601/1.jpg)
+![Cherry B4VB-5601](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B4VB/B4VB-5601/1.jpg)
 
-![Cherry B4VB-5601](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B4VB-5601/0.jpg)
+![Cherry B4VB-5601](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B4VB/B4VB-5601/0.jpg)

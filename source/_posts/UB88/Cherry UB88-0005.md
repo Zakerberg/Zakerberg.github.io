@@ -16,7 +16,7 @@ made_in: "英国"
 serial_number: "14811"
 switch_type: "M8（12 mm 封闭式，带 LED）"
 telcontar_imported: "2026-07-21"
-telcontar_image_status: "未转载：Reference 图片需逐项确认权利或取得授权"
+
 telcontar_records:
   - source_table_model: "UB88-0005"
     factory: "Harpenden（英国）"
@@ -34,4 +34,4 @@ telcontar_references:
 
 > ## Cherry UB88-0005
 
-本页字段整理自 Telcontar 的老式 Cherry 键盘列表。Reference 图片在权利状态确认前不作转载，原始参考链接请见“资料来源”。
+![]()。

@@ -17,7 +17,7 @@ serial_number: "13941"
 switch_type: "Cherry MX 黑轴（含空格键专用配置）"
 pcb_codes: "026-1123 ART REV C, 001-1371 REV C"
 telcontar_imported: "2026-07-21"
-telcontar_image_status: "未转载：Reference 图片需逐项确认权利或取得授权"
+
 paired_models:
   - "BXN3-8451"
 telcontar_records:
@@ -40,4 +40,4 @@ telcontar_references:
 
 > ## Cherry KXN3-8451
 
-本页字段整理自 Telcontar 的老式 Cherry 键盘列表。Reference 图片在权利状态确认前不作转载，原始参考链接请见“资料来源”。
+![]()。

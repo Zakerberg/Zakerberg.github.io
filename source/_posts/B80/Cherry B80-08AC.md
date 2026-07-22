@@ -18,7 +18,7 @@ switch_type: "M5"
 pcb_codes: "001-1051 REV B"
 customer_part: "495306036-001"
 telcontar_imported: "2026-07-21"
-telcontar_image_status: "未转载：Reference 图片需逐项确认权利或取得授权"
+
 telcontar_records:
   - source_table_model: "B80-08AC"
     factory: "Waukegan（美国）"
@@ -38,4 +38,4 @@ telcontar_references:
 
 > ## Cherry B80-08AC
 
-本页字段整理自 Telcontar 的老式 Cherry 键盘列表。Reference 图片在权利状态确认前不作转载，原始参考链接请见“资料来源”。
+![]()。

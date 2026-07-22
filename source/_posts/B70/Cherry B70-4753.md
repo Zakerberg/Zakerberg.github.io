@@ -15,7 +15,7 @@ switch_type: "M5/M6 / M7，空格键可能为 M5（原图未展示） / M7，空
 pcb_codes: "CEPCO, …? / 001-0556 REV. C, CEPCO / 001-0556N / 001-0556 REV. C (unclear) / 001-0556 REV. C"
 system: "Contact Systems CS-400D / 型号未确认；带扩展区"
 telcontar_imported: "2026-07-21"
-telcontar_image_status: "未转载：Reference 图片需逐项确认权利或取得授权"
+
 telcontar_records:
   - source_table_model: "B70-4753"
     factory: "Waukegan（美国）"

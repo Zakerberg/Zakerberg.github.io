@@ -20,7 +20,7 @@ pcb_codes: "001-0843 REV B"
 customer_part: "97.26024.010.REV.02"
 system: "Anderson Jacobson AJ 510"
 telcontar_imported: "2026-07-21"
-telcontar_image_status: "未转载：Reference 图片需逐项确认权利或取得授权"
+
 telcontar_records:
   - source_table_model: "B80-64AB"
     factory: "Waukegan（美国）"
@@ -41,4 +41,4 @@ telcontar_references:
 
 > ## Cherry B80-64AB
 
-本页字段整理自 Telcontar 的老式 Cherry 键盘列表。Reference 图片在权利状态确认前不作转载，原始参考链接请见“资料来源”。
+![]()。

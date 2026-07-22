@@ -18,7 +18,7 @@ pcb_codes: "4039-D-D"
 customer_part: "119-1989-01"
 system: "Tektronix 4200-series terminals"
 telcontar_imported: "2026-07-21"
-telcontar_image_status: "未转载：Reference 图片需逐项确认权利或取得授权"
+
 telcontar_records:
   - source_table_model: "BXNZ-8751"
     factory: "Waukegan（美国）"

@@ -18,7 +18,7 @@ pcb_codes: "001-1089 REV. A, ADDS, 025-0742 ART REV A"
 customer_part: "355.08201"
 system: "NCR 101 (ADDS Consul 580)"
 telcontar_imported: "2026-07-21"
-telcontar_image_status: "未转载：Reference 图片需逐项确认权利或取得授权"
+
 telcontar_records:
   - source_table_model: "B80-16AC"
     factory: "Waukegan（美国）"

@@ -381,7 +381,7 @@ function createPost(model, targetRows, block, importDate) {
         tags.forEach((tag) => lines.push(`  - ${yamlScalar(tag)}`));
     }
     lines.push('', block, '---', '', `> ## Cherry ${model}`, '',
-        '本页字段整理自 Telcontar 的老式 Cherry 键盘列表。Reference 图片在权利状态确认前不作转载，原始参考链接请见“资料来源”。', '');
+        '![]()。', '');
     return lines.join('\n');
 }
 

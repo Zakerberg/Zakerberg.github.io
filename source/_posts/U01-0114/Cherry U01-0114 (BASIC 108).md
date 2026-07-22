@@ -15,7 +15,7 @@ switch_type: "M8（6 mm 开放式，带 LED，稳定型）"
 pcb_codes: "TSP 510-0002 Rev.A1"
 system: "Basis 108"
 telcontar_imported: "2026-07-21"
-telcontar_image_status: "未转载：Reference 图片需逐项确认权利或取得授权"
+
 telcontar_records:
   - source_table_model: "U01-0114"
     factory: "Auerbach（德国）"

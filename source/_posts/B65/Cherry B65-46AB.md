@@ -17,7 +17,7 @@ pcb_codes: "001-0880(?) REV B"
 customer_part: "355-06000"
 system: "ADDS Regent 200"
 telcontar_imported: "2026-07-21"
-telcontar_image_status: "未转载：Reference 图片需逐项确认权利或取得授权"
+
 telcontar_records:
   - source_table_model: "B65-46AB"
     factory: "Waukegan（美国）"

@@ -18,7 +18,7 @@ switch_type: "Cherry MX 黑轴"
 pcb_codes: "4038-B-C"
 customer_part: "019-4688 REV. BX"
 telcontar_imported: "2026-07-21"
-telcontar_image_status: "未转载：Reference 图片需逐项确认权利或取得授权"
+
 paired_models:
   - "BXND-A351"
 telcontar_records:
@@ -40,4 +40,4 @@ telcontar_references:
 
 > ## Cherry KXND-A351
 
-本页字段整理自 Telcontar 的老式 Cherry 键盘列表。Reference 图片在权利状态确认前不作转载，原始参考链接请见“资料来源”。
+![]()。

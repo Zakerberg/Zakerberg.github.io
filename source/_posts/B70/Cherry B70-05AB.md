@@ -14,7 +14,7 @@ serial_number: "978224"
 switch_type: "M5/M6"
 pcb_codes: "001-1019 REV B"
 telcontar_imported: "2026-07-21"
-telcontar_image_status: "未转载：Reference 图片需逐项确认权利或取得授权"
+
 telcontar_records:
   - source_table_model: "B70-05AB"
     factory: "Waukegan（美国）"

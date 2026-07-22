@@ -18,7 +18,7 @@ serial_number: "59067 / 85464"
 switch_type: "Cherry 制 Hi-Tek High Profile"
 system: "DEC 专用"
 telcontar_imported: "2026-07-21"
-telcontar_image_status: "未转载：Reference 图片需逐项确认权利或取得授权"
+
 telcontar_records:
   - source_table_model: "UB80-01AA"
     factory: "Waukegan（美国）"

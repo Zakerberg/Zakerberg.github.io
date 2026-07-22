@@ -18,7 +18,7 @@ serial_number: "16147"
 switch_type: "M5/M6, M71?"
 pcb_codes: "7001-0025"
 telcontar_imported: "2026-07-21"
-telcontar_image_status: "未转载：Reference 图片需逐项确认权利或取得授权"
+
 telcontar_records:
   - source_table_model: "UB80-0071/A"
     factory: "Harpenden（英国）"
@@ -37,4 +37,4 @@ telcontar_references:
 
 > ## Cherry UB80-0071/A
 
-本页字段整理自 Telcontar 的老式 Cherry 键盘列表。Reference 图片在权利状态确认前不作转载，原始参考链接请见“资料来源”。
+![]()。

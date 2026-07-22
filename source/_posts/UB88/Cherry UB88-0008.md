@@ -17,7 +17,7 @@ serial_number: "046608 / 046612"
 switch_type: "M8（6 mm 封闭式，带 LED）"
 pcb_codes: "7001-0095, 026-1001 ART REV …, …"
 telcontar_imported: "2026-07-21"
-telcontar_image_status: "未转载：Reference 图片需逐项确认权利或取得授权"
+
 telcontar_records:
   - source_table_model: "UB88-0008"
     factory: "Harpenden（英国）"
@@ -36,4 +36,4 @@ telcontar_references:
 
 > ## Cherry UB88-0008
 
-本页字段整理自 Telcontar 的老式 Cherry 键盘列表。Reference 图片在权利状态确认前不作转载，原始参考链接请见“资料来源”。
+![]()。
