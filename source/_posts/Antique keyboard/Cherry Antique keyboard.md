@@ -1,7 +1,6 @@
 ---
 title: Cherry Antique keyboard
 date: 2025-05-06 
-top: true
 img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20Antique%20keyboard/07.JPG
 summary: Cherry Antique keyboard
 ---

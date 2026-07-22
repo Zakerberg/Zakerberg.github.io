@@ -64,7 +64,7 @@ var initialTextTone = homeSlides[0].textTone;
         var slideCount = coverSlider.find('.home-cover-slide').length;
         var carouselIntervalId = null;
         var shouldAutoLoop = <%- theme.cover.autoLoop ? 'true' : 'false' %> && slideCount > 1;
-        var intervalTime = Math.max(Number('<%- theme.cover.intervalTime %>') || 3000, 1000);
+        var intervalTime = Math.max(Number('<%- theme.cover.intervalTime %>') || 10000, 1000);
 
         function applyTextTone(slide) {
             var textTone = $(slide).attr('data-text-tone') === 'dark' ? 'dark' : 'light';

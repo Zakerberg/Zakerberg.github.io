@@ -1,0 +1,46 @@
+<%
+var marqueeTags = [];
+site.tags.map(function (tag) {
+    marqueeTags.push(tag);
+});
+
+var laneCount = Math.min(7, Math.max(3, Math.ceil(marqueeTags.length / 18)));
+var marqueeLanes = Array.from({ length: laneCount }, function () { return []; });
+var maxTagLength = marqueeTags.reduce(function (maxLength, tag) {
+    return Math.max(maxLength, tag.length || 0);
+}, 1);
+
+marqueeTags.forEach(function (tag, index) {
+    marqueeLanes[index % laneCount].push(tag);
+});
+%>
+
+<div class="container tag-marquee-section" data-aos="fade-up">
+    <div class="card">
+        <div class="card-content tag-marquee-card">
+            <div class="tag-marquee" role="region" aria-label="键盘标签循环弹幕">
+                <% marqueeLanes.forEach(function (lane, laneIndex) { %>
+                <div class="tag-marquee-row"
+                     style="--marquee-duration: <%- 52 + laneIndex * 5 %>s; --marquee-delay: -<%- 7 + laneIndex * 11 %>s;">
+                    <div class="tag-marquee-track">
+                        <% for (var repeat = 0; repeat < 2; repeat++) { %>
+                        <div class="tag-marquee-group"<% if (repeat === 1) { %> aria-hidden="true"<% } else { %> role="list"<% } %>>
+                            <% lane.forEach(function (tag) { %>
+                            <a href="<%- url_for(tag.path) %>"
+                               class="tag-marquee-item"
+                               <% if (repeat === 0) { %>role="listitem"<% } else { %>tabindex="-1"<% } %>
+                               style="--tag-popularity: <%- ((tag.length || 0) / maxTagLength).toFixed(3) %>;"
+                               title="<%- tag.name %>：<%- tag.length %> 篇文章">
+                                <span><%- tag.name %></span>
+                                <small><%- tag.length %></small>
+                            </a>
+                            <% }); %>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+</div>

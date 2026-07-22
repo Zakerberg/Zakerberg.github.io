@@ -48,10 +48,10 @@ time:
 # 首页封面轮播图的相关配置.
 cover:
   showPrevNext: false # 是否显示左右切换按钮.
-  showIndicators: true # 是否显示指示器.
+  showIndicators: false # 是否显示指示器.
   autoLoop: true # 是否自动轮播.
   duration: 520 # 切换动画时长.
-  intervalTime: 3000 # 自动切换下一张的间隔时间. Automatically switch the interval of the next one.
+  intervalTime: 10000 # 自动切换下一张的间隔时间. Automatically switch the interval of the next one.
   # banner/0-6 与 featureimages/0-6 内容相同，因此这里只保留一份并补入 7、8.
   images:
     - image: /medias/banner/0.jpg
