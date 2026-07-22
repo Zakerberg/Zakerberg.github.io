@@ -1,7 +1,7 @@
 ---
 title: "Cherry B21E-A601"
 date: 2025-05-10
-img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B21E-A601/1.jp
+img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B21E-A601/1.jpg
 summary: "Cherry B21E-A601，年代：约 1982–1983 年，开关：M1/M11。"
 category:
   - "B21E"

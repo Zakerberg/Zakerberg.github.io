@@ -1,7 +1,7 @@
 ---
 title: Cherry B65-46AB 
 date: 2025-05-09
-img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/Cherry%20B65-46AB/0.jpeg
+img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/B65-46AB/1.jpg
 summary: Cherry B65-46AB 
 category: 
   - B65
@@ -17,7 +17,6 @@ pcb_codes: "001-0880(?) REV B"
 customer_part: "355-06000"
 system: "ADDS Regent 200"
 telcontar_imported: "2026-07-21"
-
 telcontar_records:
   - source_table_model: "B65-46AB"
     factory: "Waukegan（美国）"
@@ -40,26 +39,28 @@ telcontar_references:
 
 ## Cherry B65-46AB 
 
-![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/Cherry%20B65-46AB/0.jpeg)
+![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/B65-46AB/1.jpg)
 
-![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/Cherry%20B65-46AB/1.jpeg)
+![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/B65-46AB/1.jpg)
 
-![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/Cherry%20B65-46AB/2.jpeg)
+![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/B65-46AB/2.jpg)
 
-![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/Cherry%20B65-46AB/3.jpeg)
+![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/B65-46AB/3.jpg)
 
-![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/Cherry%20B65-46AB/5.jpeg)
+![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/B65-46AB/4.jpg)
 
-![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/Cherry%20B65-46AB/6.jpeg)
+![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/B65-46AB/5.jpg)
 
-![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/Cherry%20B65-46AB/7.jpeg)
+![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/B65-46AB/6.jpg)
 
-![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/Cherry%20B65-46AB/9.jpeg)
+![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/B65-46AB/7.jpg)
 
-![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/Cherry%20B65-46AB/10.jpeg)
+![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/B65-46AB/8.jpg)
 
-![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/Cherry%20B65-46AB/11.jpeg)
+![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/B65-46AB/9.jpg)
 
-![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/Cherry%20B65-46AB/12.jpeg)
+![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/B65-46AB/10.jpg)
 
-![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/Cherry%20B65-46AB/13.jpeg)
+![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/B65-46AB/11.jpg)
+
+![Cherry B65-46AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/B65-46AB/12.jpg)

@@ -1,6 +1,7 @@
 ---
 title: "Cherry B25-59AA"
-date: 2026-07-21
+date: 2025-05-10
+img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B25-59AA/1.jpg
 summary: "Cherry B25-59AA，生产记录：Hirose（日本），开关：M6。"
 category:
   - "B25"
@@ -15,7 +16,6 @@ made_in: "日本"
 serial_number: "170279"
 switch_type: "M6"
 telcontar_imported: "2026-07-21"
-
 telcontar_records:
   - source_table_model: "B25-59AA"
     factory: "Hirose（日本）"
@@ -32,4 +32,10 @@ telcontar_references:
 
 > ## Cherry B25-59AA
 
-![]()。
+![Cherry B25-59AA](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B25-59AA/1.jpg)
+
+![Cherry B25-59AA](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B25-59AA/2.jpg)
+
+![Cherry B25-59AA](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B25-59AA/3.jpg)
+
+![Cherry B25-59AA](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B25-59AA/4.jpg)
