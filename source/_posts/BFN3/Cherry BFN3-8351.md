@@ -17,7 +17,6 @@ serial_number: "1304942"
 switch_type: "固态电容式（DIN 标准）"
 pcb_codes: "026-1051, 001-1318 ART REV E"
 telcontar_imported: "2026-07-21"
-
 paired_models:
   - "KFN3-8351"
 telcontar_records:
