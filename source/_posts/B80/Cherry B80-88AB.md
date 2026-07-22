@@ -1,6 +1,7 @@
 ---
 title: "Cherry B80-88AB"
-date: 2026-07-21
+img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B80/B80-88AB/1.jpg
+date: 2025-05-10
 summary: "Cherry B80-88AB，生产记录：Waukegan（美国），年代：约 1980 年，开关：M5。"
 category:
   - "B80"
@@ -18,7 +19,6 @@ switch_type: "M5"
 pcb_codes: "001-1033 REV. C"
 customer_part: "F0000012 REV.C"
 telcontar_imported: "2026-07-21"
-
 telcontar_records:
   - source_table_model: "B80-88AB"
     factory: "Waukegan（美国）"
@@ -38,4 +38,18 @@ telcontar_references:
 
 > ## Cherry B80-88AB
 
-![]()。
+![Cherry B80-88AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B80/B80-88AB/1.jpg)
+
+![Cherry B80-88AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B80/B80-88AB/2.jpg)
+
+![Cherry B80-88AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B80/B80-88AB/3.jpg)
+
+![Cherry B80-88AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B80/B80-88AB/4.jpg)
+
+![Cherry B80-88AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B80/B80-88AB/5.jpg)
+
+![Cherry B80-88AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B80/B80-88AB/6.jpg)
+
+![Cherry B80-88AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B80/B80-88AB/7.jpg)
+
+![Cherry B80-88AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B80/B80-88AB/8.jpg)

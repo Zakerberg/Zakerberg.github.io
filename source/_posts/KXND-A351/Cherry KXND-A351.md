@@ -1,6 +1,6 @@
 ---
 title: "Cherry KXND-A351"
-date: 2026-07-21
+date: 2025-05-10
 summary: "Cherry KXND-A351，生产记录：Waukegan（美国），年代：1985 年，开关：Cherry MX 黑轴。"
 category:
   - "KXND"
@@ -40,4 +40,4 @@ telcontar_references:
 
 > ## Cherry KXND-A351
 
-![]()。
+![]()

@@ -1,7 +1,8 @@
 ---
 title: "Cherry B76-07AA"
-date: 2026-07-21
+date: 2025-05-10
 summary: "Cherry B76-07AA，生产记录：Waukegan（美国），年代：约 1978 年，开关：M5 或 M6。"
+img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B76-07AA/1.jpg
 category:
   - "B76"
 tags:
@@ -19,7 +20,6 @@ switch_type: "M5 或 M6"
 customer_part: "119-0304-02"
 system: "Tektronix 4006 / Tektronix 4006(-1)/4010(-1)"
 telcontar_imported: "2026-07-21"
-
 telcontar_records:
   - source_table_model: "B76-07AA"
     factory: "Waukegan（美国）"
@@ -47,4 +47,18 @@ telcontar_references:
 
 > ## Cherry B76-07AA
 
-![]()。
+![Cherry B76-07AA](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B76-07AA/1.jpg)
+
+![Cherry B76-07AA](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B76-07AA/0.jpg)
+
+![Cherry B76-07AA](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B76-07AA/2.jpg)
+
+![Cherry B76-07AA](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B76-07AA/3.jpg)
+
+![Cherry B76-07AA](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B76-07AA/4.jpg)
+
+![Cherry B76-07AA](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B76-07AA/5.jpg)
+
+![Cherry B76-07AA](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B76-07AA/6.jpg)
+
+![Cherry B76-07AA](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B76-07AA/7.jpg)

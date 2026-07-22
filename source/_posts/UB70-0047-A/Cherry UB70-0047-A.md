@@ -1,6 +1,6 @@
 ---
 title: "Cherry UB70-0047/A"
-date: 2026-07-21
+date: 2025-05-10
 summary: "Cherry UB70-0047/A，生产记录：Harpenden（英国），年代：1984-04-13，开关：M8（6 mm 开放式）。"
 category:
   - "UB70"
@@ -38,4 +38,4 @@ telcontar_references:
 
 > ## Cherry UB70-0047/A
 
-![]()。
+![]()

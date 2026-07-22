@@ -1,6 +1,7 @@
 ---
 title: "Cherry BXN3-8451"
-date: 2026-07-21
+date: 2025-05-10
+img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/1.jpg
 summary: "Cherry BXN3-8451，生产记录：Waukegan（美国），年代：约 1984 年，开关：Cherry MX 黑轴（含空格键专用配置）。"
 category:
   - "BXN3"
@@ -17,7 +18,6 @@ serial_number: "1332550"
 switch_type: "Cherry MX 黑轴（含空格键专用配置）"
 pcb_codes: "026-1123 ART REV C, 001-1371 REV C"
 telcontar_imported: "2026-07-21"
-
 paired_models:
   - "KXN3-8451"
 telcontar_records:
@@ -40,4 +40,54 @@ telcontar_references:
 
 > ## Cherry BXN3-8451
 
-![]()。
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/1.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/2.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/3.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/4.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/5.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/6.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/7.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/8.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/9.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/10.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/11.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/12.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/13.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/14.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/15.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/16.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/17.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/18.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/19.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/20.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/21.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/22.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/23.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/24.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/25.jpg)
+
+![Cherry BXN3-8451](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN3-8451/26.jpg)

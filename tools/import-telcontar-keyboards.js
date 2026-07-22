@@ -381,7 +381,7 @@ function createPost(model, targetRows, block, importDate) {
         tags.forEach((tag) => lines.push(`  - ${yamlScalar(tag)}`));
     }
     lines.push('', block, '---', '', `> ## Cherry ${model}`, '',
-        '![]()。', '');
+        '![]()', '');
     return lines.join('\n');
 }
 

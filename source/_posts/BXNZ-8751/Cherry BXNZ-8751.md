@@ -1,7 +1,7 @@
 ---
 title: Cherry BXNZ-8751 
 date: 2025-04-27
-img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXNZ-8751/1.JPG
+img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXNZ-8751/1.jpg
 summary: Cherry BXNZ-8751 
 category: 
   - BXNZ
@@ -18,7 +18,6 @@ pcb_codes: "4039-D-D"
 customer_part: "119-1989-01"
 system: "Tektronix 4200-series terminals"
 telcontar_imported: "2026-07-21"
-
 telcontar_records:
   - source_table_model: "BXNZ-8751"
     factory: "Waukegan（美国）"
@@ -40,4 +39,16 @@ telcontar_references:
 
 ## Cherry BXNZ-8751
 
-![Cherry BXNZ-8751](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXNZ-8751/1.JPG)
+![Cherry BXNZ-8751](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXNZ-8751/1.jpg)
+
+![Cherry BXNZ-8751](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXNZ-8751/2.jpg)
+
+![Cherry BXNZ-8751](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXNZ-8751/3.jpg)
+
+![Cherry BXNZ-8751](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXNZ-8751/4.jpg)
+
+![Cherry BXNZ-8751](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXNZ-8751/5.jpg)
+
+![Cherry BXNZ-8751](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXNZ-8751/6.jpg)
+
+![Cherry BXNZ-8751](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXNZ-8751/7.jpg)

@@ -1,6 +1,7 @@
 ---
 title: "Cherry BXND-A351"
-date: 2026-07-21
+date: 2025-05-10
+img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/1.jpg
 summary: "Cherry BXND-A351，生产记录：Waukegan（美国），年代：1985 年，开关：Cherry MX 黑轴。"
 category:
   - "BXND"
@@ -18,7 +19,6 @@ switch_type: "Cherry MX 黑轴"
 pcb_codes: "4038-B-C"
 customer_part: "019-4688 REV. BX"
 telcontar_imported: "2026-07-21"
-
 paired_models:
   - "KXND-A351"
 telcontar_records:
@@ -40,4 +40,48 @@ telcontar_references:
 
 > ## Cherry BXND-A351
 
-![]()。
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/1.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/2.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/3.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/4.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/5.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/6.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/7.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/8.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/9.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/10.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/11.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/12.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/13.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/14.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/15.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/16.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/17.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/18.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/19.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/20.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/21.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/22.jpg)
+
+![Cherry BXND-A351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXND-A351/23.jpg)

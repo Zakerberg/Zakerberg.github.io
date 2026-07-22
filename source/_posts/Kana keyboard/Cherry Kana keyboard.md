@@ -1,6 +1,6 @@
 ---
 title: "Cherry Kana keyboard"
-date: 2026-07-21
+date: 2025-05-10
 summary: "Cherry Kana keyboard，年代：约 1974 年，开关：M6。"
 category:
   - "Cherry"
@@ -31,4 +31,4 @@ telcontar_references:
 
 > ## Cherry Kana keyboard
 
-![]()。
+![]()

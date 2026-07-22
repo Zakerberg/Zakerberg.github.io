@@ -1,6 +1,7 @@
 ---
 title: "Cherry BFN3-8351"
-date: 2026-07-21
+date: 2025-05-10
+img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/1.jpg
 summary: "Cherry BFN3-8351，生产记录：Waukegan（美国），年代：约 1983 年，开关：固态电容式（DIN 标准）。"
 category:
   - "BFN3"
@@ -37,6 +38,48 @@ telcontar_references:
 # telcontar-import:end
 ---
 
-> ## Cherry BFN3-8351
+> # Cherry BFN3-8351
 
-![]()。
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/1.jpg)
+
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/2.jpg)
+
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/3.jpg)
+
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/4.jpg)
+
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/5.jpg)
+
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/6.jpg)
+
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/7.jpg)
+
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/8.jpg)
+
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/9.jpg)
+
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/10.jpg)
+
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/11.jpg)
+
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/12.jpg)
+
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/13.jpg)
+
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/14.jpg)
+
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/15.jpg)
+
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/16.jpg)
+
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/17.jpg)
+
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/18.jpg)
+
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/19.jpg)
+
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/20.jpg)
+
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/21.jpg)
+
+![Cherry BFN3-8351](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BFN3/BFN3-8351/22.jpg)

@@ -1,6 +1,6 @@
 ---
 title: "Cherry KXN3-8451"
-date: 2026-07-21
+date: 2025-05-10
 summary: "Cherry KXN3-8451，生产记录：Waukegan（美国），年代：约 1984 年，开关：Cherry MX 黑轴（含空格键专用配置）。"
 category:
   - "KXN3"
@@ -40,4 +40,4 @@ telcontar_references:
 
 > ## Cherry KXN3-8451
 
-![]()。
+![]()

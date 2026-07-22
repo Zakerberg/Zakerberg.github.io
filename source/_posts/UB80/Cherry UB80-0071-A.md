@@ -1,6 +1,6 @@
 ---
 title: "Cherry UB80-0071/A"
-date: 2026-07-21
+date: 2025-05-10
 summary: "Cherry UB80-0071/A，生产记录：Harpenden（英国），年代：1981-11-23 / 1981-09-08，开关：M5/M6, M71?。"
 category:
   - "UB80"
@@ -37,4 +37,4 @@ telcontar_references:
 
 > ## Cherry UB80-0071/A
 
-![]()。
+![]()

@@ -1,6 +1,6 @@
 ---
 title: "Cherry KFN3-8351"
-date: 2026-07-21
+date: 2025-05-10
 summary: "Cherry KFN3-8351，生产记录：Waukegan（美国），年代：约 1983 年，开关：固态电容式（DIN 标准）。"
 category:
   - "KFN3"
@@ -40,4 +40,4 @@ telcontar_references:
 
 > ## Cherry KFN3-8351
 
-![]()。
+![]()

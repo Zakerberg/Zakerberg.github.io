@@ -1,6 +1,6 @@
 ---
 title: "Cherry UB88-0008"
-date: 2026-07-21
+date: 2025-05-10
 summary: "Cherry UB88-0008，生产记录：Harpenden（英国），年代：约 1984 年，开关：M8（6 mm 封闭式，带 LED）。"
 category:
   - "UB88"
@@ -36,4 +36,4 @@ telcontar_references:
 
 > ## Cherry UB88-0008
 
-![]()。
+![]()

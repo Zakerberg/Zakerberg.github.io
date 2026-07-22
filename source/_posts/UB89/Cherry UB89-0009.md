@@ -1,6 +1,6 @@
 ---
 title: "Cherry UB89-0009"
-date: 2026-07-21
+date: 2025-05-10
 summary: "Cherry UB89-0009，生产记录：Harpenden（英国），年代：1982-12-22。"
 category:
   - "UB89"
@@ -30,4 +30,4 @@ telcontar_references:
 
 > ## Cherry UB89-0009
 
-![]()。
+![]()

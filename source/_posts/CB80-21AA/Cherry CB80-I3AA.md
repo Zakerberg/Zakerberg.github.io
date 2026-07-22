@@ -1,6 +1,6 @@
 ---
 title: "Cherry CB80-I3AA"
-date: 2026-07-21
+date: 2025-05-10
 summary: "Cherry CB80-I3AA，生产记录：Waukegan（美国），年代：1980 年，开关：固态电容式。"
 category:
   - "CB80"
@@ -39,4 +39,4 @@ telcontar_references:
 
 > ## Cherry CB80-I3AA
 
-![]()。
+![]()
