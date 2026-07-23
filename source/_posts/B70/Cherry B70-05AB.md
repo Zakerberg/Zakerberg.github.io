@@ -51,7 +51,7 @@ telcontar_references:
 
 ![Cherry B70-05AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B70/B70-05AB/9.jpg)
 
-![Cherry B70-05AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B70/B70-05AB/0.jpg)
+![Cherry B70-05AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B70/B70-05AB/10.jpg)
 
 ![Cherry B70-05AB](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B70/B70-05AB/11.jpg)
 

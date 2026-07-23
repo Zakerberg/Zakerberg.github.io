@@ -38,4 +38,4 @@ telcontar_references:
 
 ![Cherry B25-59AA](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B25-59AA/3.jpg)
 
-![Cherry B25-59AA](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B25-59AA/4.jpg)
+![Cherry B25-59AA](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B25-59AA/4.png)

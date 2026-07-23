@@ -1,7 +1,7 @@
 ---
 title: Cherry UB80-01AA 
 date: 2025-04-05
-img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB8001AA/5.jpg
+img: https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-01AA/5.jpg
 summary: Cherry UB80-01AA 
 category: 
   - UB88
@@ -78,5 +78,4 @@ telcontar_references:
 ![Cherry UB80-01AA](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-01AA/14.jpg)
 
 ![Cherry UB80-01AA](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20UB80/UB80-01AA/15.jpg)
-
 

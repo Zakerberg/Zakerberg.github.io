@@ -25,8 +25,6 @@ category:
 
 ![Cherry B65-1712](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/B65-1712/7.jpg)
 
-![Cherry B65-1712](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/B65-1712/8.jpg)
-
 ![Cherry B65-1712](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/B65-1712/9.jpg)
 
 ![Cherry B65-1712](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/B65-1712/1.jpeg)
@@ -40,5 +38,4 @@ category:
 ![Cherry B65-1712](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/B65-1712/5.jpeg)
 
 ![Cherry B65-1712](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20B65/B65-1712/6.jpeg)
-
 

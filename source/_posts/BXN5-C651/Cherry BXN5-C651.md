@@ -24,8 +24,6 @@ category:
 
 ![Cherry BXN5-C651](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN5-C651/6.jpeg)
 
-![Cherry BXN5-C651](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN5-C651/7.jpeg)
-
 ![Cherry BXN5-C651](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN5-C651/8.jpeg)
 
 ![Cherry BXN5-C651](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20BXN5-C651/9.jpeg)
