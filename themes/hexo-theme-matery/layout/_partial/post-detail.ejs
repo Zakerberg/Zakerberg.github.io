@@ -2,7 +2,8 @@
 <div id="artDetail">
     <%
         var archiveData = typeof site !== 'undefined' && site.data ? site.data.cherry_archive : {};
-        var keyboardCard = typeof post_keyboard_card === 'function' ? post_keyboard_card(page, archiveData) : null;
+        var referenceData = typeof site !== 'undefined' && site.data ? site.data.cherry_reference : {};
+        var keyboardCard = typeof post_keyboard_card === 'function' ? post_keyboard_card(page, archiveData, referenceData) : null;
         var hasPostSpecCard = keyboardCard && keyboardCard.hasContent;
     %>
     <div class="card">
@@ -99,11 +100,19 @@
                     <% keyboardCard.groups.forEach(function (group) { %>
                     <section class="post-spec-section">
                         <h3 class="post-spec-section-title"><i class="<%= group.icon %>"></i><%= group.title %></h3>
+                        <% if (group.notice) { %>
+                        <div class="post-spec-section-notice"><%= group.notice %></div>
+                        <% } %>
                         <div class="post-spec-grid">
                             <% group.rows.forEach(function (row) { %>
                             <div class="post-spec-item">
                                 <div class="post-spec-label"><%= row.label %></div>
-                                <div class="post-spec-value"><%= row.value %></div>
+                                <div class="post-spec-value">
+                                    <span><%= row.value %></span>
+                                    <% if (row.evidenceLabel) { %>
+                                    <span class="post-spec-evidence post-spec-evidence-<%= row.evidence %>"><%= row.evidenceLabel %></span>
+                                    <% } %>
+                                </div>
                             </div>
                             <% }) %>
                         </div>

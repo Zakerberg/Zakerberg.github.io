@@ -4,6 +4,12 @@ const DEFAULT_DESCRIPTION_LIMIT = 160;
 const DEFAULT_CARD_SUMMARY_LIMIT = 120;
 const CHERRY_ARCHIVE_URL = 'https://www.kbdarchive.org/cherry/database.html';
 const EMPTY_DATA_VALUES = new Set(['', '-', '—', '–', '?', 'n/a', 'none', 'null', 'unknown']);
+const EVIDENCE_LABELS = {
+    documented: '文档记载',
+    observed: '实物观察',
+    inferred: '资料推定',
+    family: '系列参考'
+};
 
 const FIELD_TRANSLATIONS = {
     switch: {
@@ -614,7 +620,7 @@ function sourceTitleForUrl(url) {
     }
 }
 
-function normalizeSources(page = {}, records = []) {
+function normalizeSources(page = {}, records = [], extraSources = []) {
     const localSources = [
         page.references,
         page.data_sources,
@@ -622,7 +628,7 @@ function normalizeSources(page = {}, records = []) {
         page.telcontar_references
     ].flatMap((items) => Array.isArray(items) ? items : [items]).filter(Boolean);
 
-    const sources = localSources.map((item) => {
+    const sources = [...localSources, ...extraSources].map((item) => {
         if (!item) return null;
         if (typeof item === 'string') {
             const value = collapseWhitespace(item);
@@ -653,7 +659,116 @@ function normalizeSources(page = {}, records = []) {
         if (!key || seen.has(key)) return false;
         seen.add(key);
         return true;
-    }).slice(0, 8);
+    }).slice(0, 12);
+}
+
+function normalizeReferenceKey(value = '') {
+    return collapseWhitespace(value)
+        .normalize('NFKC')
+        .toUpperCase()
+        .replace(/^CHERRY\s+/, '')
+        .replace(/[^A-Z0-9]+/g, '');
+}
+
+function referenceModelKey(page = {}, identity = {}) {
+    const candidates = [
+        page.article_number,
+        page.full_model,
+        page.part_number,
+        page.model,
+        identity.fullModel,
+        identity.baseModel,
+        page.title
+    ];
+
+    for (const candidate of candidates) {
+        const key = normalizeReferenceKey(candidate);
+        if (key) return key;
+    }
+    return '';
+}
+
+function referenceFieldResult(modelReference, fieldName) {
+    const field = modelReference && modelReference.fields && modelReference.fields[fieldName];
+    if (!field || !isMeaningfulDataValue(field.value)) return { value: '', origin: '' };
+    return {
+        value: collapseWhitespace(field.value),
+        origin: 'reference',
+        evidence: field.evidence || 'observed',
+        source: modelReference.source || ''
+    };
+}
+
+function preferResult(primary, fallback) {
+    return primary && collapseWhitespace(primary.value) ? primary : fallback;
+}
+
+function referenceSource(referenceData = {}, sourceId = '') {
+    return referenceData.sources && referenceData.sources[sourceId]
+        ? referenceData.sources[sourceId]
+        : null;
+}
+
+function referenceSeries(page = {}, identity = {}, modelKey = '', referenceData = {}) {
+    const seriesData = referenceData.series || {};
+    const candidates = [page.series, identity.series];
+    const explicitModel = collapseWhitespace(page.article_number || page.full_model || page.part_number || page.model || page.title)
+        .replace(/^Cherry\s+/i, '');
+    const modelSeries = explicitModel.match(/^([A-Z][A-Z0-9]{0,7})[-\s]/i)?.[1];
+    if (modelSeries) candidates.push(modelSeries);
+
+    for (const candidate of candidates) {
+        const key = collapseWhitespace(candidate).toUpperCase();
+        if (key && seriesData[key]) return { key, ...seriesData[key] };
+    }
+
+    return Object.keys(seriesData)
+        .sort((a, b) => b.length - a.length)
+        .map((key) => ({ key, ...seriesData[key] }))
+        .find((entry) => modelKey.startsWith(normalizeReferenceKey(entry.key))) || null;
+}
+
+function referencePrefix(seriesKey = '', referenceData = {}) {
+    return Object.keys(referenceData.prefixes || {})
+        .sort((a, b) => b.length - a.length)
+        .map((key) => ({ key, ...referenceData.prefixes[key] }))
+        .find((entry) => seriesKey.startsWith(entry.key)) || null;
+}
+
+function referenceFactories(factoryValue = '', referenceData = {}) {
+    const normalized = collapseWhitespace(factoryValue).toUpperCase();
+    if (!normalized) return [];
+
+    return Object.entries(referenceData.factories || {})
+        .filter(([key]) => normalized.includes(key))
+        .map(([key, value]) => ({ key, ...value }));
+}
+
+function referenceSerialDates(serialValue = '', referenceData = {}) {
+    const normalized = collapseWhitespace(serialValue);
+    if (!normalized) return [];
+
+    return Object.entries(referenceData.serialDates || {})
+        .filter(([serial]) => normalized.includes(serial))
+        .map(([serial, value]) => ({ serial, ...value }));
+}
+
+function referenceSwitchFamilies(switchValue = '', referenceData = {}) {
+    const normalized = collapseWhitespace(switchValue).toUpperCase();
+    if (!normalized) return [];
+
+    let matches = Object.entries(referenceData.switchFamilies || {})
+        .filter(([, entry]) => (entry.aliases || []).some((alias) => normalized.includes(String(alias).toUpperCase())))
+        .map(([key, entry]) => ({ key, ...entry }));
+
+    if (matches.some((entry) => entry.key.startsWith('CAP_') && entry.key !== 'CAP_GENERIC')) {
+        matches = matches.filter((entry) => entry.key !== 'CAP_GENERIC');
+    }
+    return matches;
+}
+
+function mergeReferenceValues(entries, fieldName) {
+    return uniqueValues(entries.map((entry) => entry[fieldName]).filter(Boolean)).join(' / ');
 }
 
 function buildTelcontarObservationRows(observations = []) {
@@ -679,9 +794,13 @@ function buildTelcontarObservationRows(observations = []) {
     }).filter((row) => row.value);
 }
 
-function buildKeyboardCard(page = {}, archiveData = {}) {
+function buildKeyboardCard(page = {}, archiveData = {}, referenceData = {}) {
     const identity = extractKeyboardIdentity(page);
     const records = selectArchiveRecords(identity, archiveData);
+    const modelKey = referenceModelKey(page, identity);
+    const modelReference = referenceData.models && referenceData.models[modelKey];
+    const seriesReference = referenceSeries(page, identity, modelKey, referenceData);
+    const prefixReference = referencePrefix(seriesReference ? seriesReference.key : '', referenceData);
     const allExtensions = uniqueValues(records.map((record) => record.kbExtension || '未标注完整料号'));
     const isVariantAggregate = !identity.extension && allExtensions.length > 1;
     const groups = [
@@ -692,12 +811,22 @@ function buildKeyboardCard(page = {}, archiveData = {}) {
     ];
     let hasLocalDetail = false;
     let hasArchiveDetail = false;
+    let hasReferenceDetail = false;
+    const usedReferenceSources = new Set();
 
     const addRow = (groupIndex, label, result, isDetail = true) => {
         if (!result || !collapseWhitespace(result.value)) return;
-        groups[groupIndex].rows.push({ label, value: result.value });
+        const evidence = collapseWhitespace(result.evidence || '');
+        groups[groupIndex].rows.push({
+            label,
+            value: result.value,
+            evidence,
+            evidenceLabel: EVIDENCE_LABELS[evidence] || ''
+        });
         if (isDetail && result.origin === 'local') hasLocalDetail = true;
         if (isDetail && result.origin === 'archive') hasArchiveDetail = true;
+        if (isDetail && result.origin === 'reference') hasReferenceDetail = true;
+        if (result.source) usedReferenceSources.add(result.source);
     };
 
     const modelValue = firstLocalValue(page, ['article_number', 'full_model', 'part_number', 'model'])
@@ -707,19 +836,58 @@ function buildKeyboardCard(page = {}, archiveData = {}) {
     if (isVariantAggregate) {
         addRow(0, '已知版本', { value: `${allExtensions.length} 个完整料号`, origin: 'archive' });
     }
-    addRow(0, '年代', localOrArchiveValue(page, ['production_period', 'era'], records, [], ''));
+    addRow(0, '年代', preferResult(
+        localOrArchiveValue(page, ['production_period', 'era'], records, [], ''),
+        referenceFieldResult(modelReference, 'production_period')
+    ));
     addRow(0, '客户 / 品牌', localOrArchiveValue(page, ['customer', 'client', 'region_client'], records, ['kbBrand'], '', { hideOther: true }));
     const localLanguage = firstLocalValue(page, ['region', 'language'], 'language');
     const archiveLanguage = archiveFieldValue(records, ['languagePrimary', 'languageSecondary'], 'language');
     addRow(0, '配列语言', localLanguage ? { value: localLanguage, origin: 'local' } : { value: archiveLanguage, origin: archiveLanguage ? 'archive' : '' });
-    addRow(0, '产地', { value: firstLocalValue(page, ['made_in', 'country_of_origin']), origin: firstLocalValue(page, ['made_in', 'country_of_origin']) ? 'local' : '' });
+    const localMadeIn = firstLocalValue(page, ['made_in', 'country_of_origin']);
+    addRow(0, '产地', preferResult(
+        { value: localMadeIn, origin: localMadeIn ? 'local' : '' },
+        referenceFieldResult(modelReference, 'made_in')
+    ));
     addRow(0, '替代型号', localOrArchiveValue(page, ['alternate_model', 'alternative_model'], records, ['altDesignation'], 'alternateModel'));
 
-    addRow(1, '生产工厂', { value: firstLocalValue(page, ['factory', 'manufacturing_site']), origin: page.factory || page.manufacturing_site ? 'local' : '' });
-    addRow(1, '序列号', { value: firstLocalValue(page, ['serial_number', 'serial_numbers']), origin: page.serial_number || page.serial_numbers ? 'local' : '' });
+    const localFactory = firstLocalValue(page, ['factory', 'manufacturing_site']);
+    const factoryResult = preferResult(
+        { value: localFactory, origin: localFactory ? 'local' : '' },
+        referenceFieldResult(modelReference, 'factory')
+    );
+    addRow(1, '生产工厂', factoryResult);
+    const serialResult = preferResult(
+        { value: firstLocalValue(page, ['serial_number', 'serial_numbers']), origin: page.serial_number || page.serial_numbers ? 'local' : '' },
+        referenceFieldResult(modelReference, 'serial_number')
+    );
+    addRow(1, '序列号', serialResult);
+    referenceSerialDates(serialResult.value, referenceData).forEach((serialDate) => {
+        addRow(1, '序列号日期提示', {
+            value: `${serialDate.serial}：${serialDate.date}；${serialDate.note}`,
+            origin: 'reference',
+            evidence: serialDate.evidence,
+            source: serialDate.source
+        });
+    });
     addRow(1, 'PCB 编号', { value: firstLocalValue(page, ['pcb_codes', 'pcb_code']), origin: page.pcb_codes || page.pcb_code ? 'local' : '' });
-    addRow(1, '客户料号', { value: firstLocalValue(page, ['customer_part', 'customer_part_number']), origin: page.customer_part || page.customer_part_number ? 'local' : '' });
-    addRow(1, '适配系统', { value: firstLocalValue(page, ['system', 'target_system']), origin: page.system || page.target_system ? 'local' : '' });
+    addRow(1, '客户料号', preferResult(
+        { value: firstLocalValue(page, ['customer_part', 'customer_part_number']), origin: page.customer_part || page.customer_part_number ? 'local' : '' },
+        referenceFieldResult(modelReference, 'customer_part')
+    ));
+    addRow(1, '适配系统', preferResult(
+        { value: firstLocalValue(page, ['system', 'target_system']), origin: page.system || page.target_system ? 'local' : '' },
+        referenceFieldResult(modelReference, 'system')
+    ));
+
+    referenceFactories(factoryResult.value, referenceData).forEach((factory) => {
+        addRow(1, '工厂背景', {
+            value: factory.summary,
+            origin: 'reference',
+            evidence: factory.evidence,
+            source: factory.source
+        });
+    });
 
     addRow(2, '布局规格', localOrArchiveValue(page, ['keyboard_layout', 'layout_size'], records, ['layoutSize'], 'layoutSize', { hideOther: true }));
     addRow(2, '布局制式', localOrArchiveValue(page, ['layout_standard'], records, ['layoutType'], 'layoutType', { hideOther: true }));
@@ -735,7 +903,11 @@ function buildKeyboardCard(page = {}, archiveData = {}) {
     const archiveFeatures = buildArchiveFeatures(records);
     addRow(2, '功能特性', localFeatures ? { value: localFeatures, origin: 'local' } : { value: archiveFeatures, origin: archiveFeatures ? 'archive' : '' });
 
-    addRow(3, '开关类型', localOrArchiveValue(page, ['switch_type', 'switches', 'switch'], records, ['kbSwitch'], 'switch'));
+    const switchResult = preferResult(
+        localOrArchiveValue(page, ['switch_type', 'switches', 'switch'], records, ['kbSwitch'], 'switch'),
+        referenceFieldResult(modelReference, 'switch_type')
+    );
+    addRow(3, '开关类型', switchResult);
     addRow(3, '键帽材质', localOrArchiveValue(page, ['keycap_material'], records, ['keycapMaterial'], ''));
     addRow(3, '键帽厚度', localOrArchiveValue(page, ['keycap_thickness'], records, ['keycapThickness'], 'keycapThickness'));
     addRow(3, '键帽工艺', localOrArchiveValue(page, ['legend_process', 'keycap_process'], records, ['keycapPrimary'], 'keycapProcess'));
@@ -747,16 +919,108 @@ function buildKeyboardCard(page = {}, archiveData = {}) {
     addRow(3, 'Caps Lock 键型', localOrArchiveValue(page, ['caps_lock'], records, ['keycapCaps'], 'capsLock'));
     addRow(3, '指示灯窗', localOrArchiveValue(page, ['keycap_window'], records, ['keycapWindow'], 'window', { hideOther: true }));
 
+    const switchReferences = referenceSwitchFamilies(switchResult.value, referenceData);
+    if (switchReferences.length > 0) {
+        groups[3].notice = '以下带“系列参考”的参数来自对应轴体家族资料，不代表本页实物已经逐颗拆解或测量。';
+        addRow(3, '轴体家族参考', {
+            value: mergeReferenceValues(switchReferences, 'label'),
+            origin: 'reference',
+            evidence: 'family',
+            source: switchReferences[0].source
+        });
+        ['origin', 'mechanism', 'travel', 'force', 'contact', 'keycap'].forEach((fieldName) => {
+            const labels = {
+                origin: '系列产地',
+                mechanism: '工作方式',
+                travel: '系列行程',
+                force: '压力参考',
+                contact: '触点 / 感应',
+                keycap: '键帽兼容参考'
+            };
+            const value = mergeReferenceValues(switchReferences, fieldName);
+            if (!value) return;
+            addRow(3, labels[fieldName], {
+                value,
+                origin: 'reference',
+                evidence: 'family',
+                source: switchReferences.find((entry) => entry[fieldName])?.source || ''
+            });
+        });
+
+        const variantNotes = switchReferences.flatMap((entry) => {
+            if (!entry.variants) return [];
+            const normalizedSwitch = collapseWhitespace(switchResult.value).toUpperCase();
+            return Object.entries(entry.variants)
+                .filter(([key]) => normalizedSwitch.includes(key) || (key === 'BLACK' && normalizedSwitch.includes('黑轴')))
+                .map(([, variant]) => variant.summary);
+        });
+        if (variantNotes.length > 0) {
+            addRow(3, '具体版本参考', {
+                value: uniqueValues(variantNotes).join(' / '),
+                origin: 'reference',
+                evidence: 'family',
+                source: switchReferences[0].source
+            });
+        }
+    }
+
+    const modelCodeRows = [];
+    const addModelCodeRow = (label, entry, value) => {
+        if (!entry || !value) return;
+        const evidence = entry.evidence || 'observed';
+        modelCodeRows.push({
+            label,
+            value,
+            evidence,
+            evidenceLabel: EVIDENCE_LABELS[evidence] || ''
+        });
+        hasReferenceDetail = true;
+        if (entry.source) usedReferenceSources.add(entry.source);
+    };
+    addModelCodeRow('前缀含义', prefixReference, prefixReference && `${prefixReference.key}：${prefixReference.meaning}`);
+    addModelCodeRow('系列定位', seriesReference, seriesReference && `${seriesReference.key}：${seriesReference.meaning}`);
+    if (modelCodeRows.length > 0) {
+        groups.splice(1, 0, {
+            title: '型号解读',
+            icon: 'fas fa-code-branch',
+            notice: 'Cherry 早期型号规则并未完整公开；“实物观察”和“资料推定”表示当前研究结论，不应视为官方定义。',
+            rows: modelCodeRows
+        });
+    }
+
+    if (modelReference && Array.isArray(modelReference.rows) && modelReference.rows.length > 0) {
+        const rows = modelReference.rows
+            .filter((row) => row && row.label && isMeaningfulDataValue(row.value))
+            .map((row) => ({
+                label: row.label,
+                value: collapseWhitespace(row.value),
+                evidence: row.evidence || 'observed',
+                evidenceLabel: EVIDENCE_LABELS[row.evidence || 'observed'] || ''
+            }));
+        if (rows.length > 0) {
+            groups.push({
+                title: '型号实物补充',
+                icon: 'fas fa-search-plus',
+                rows
+            });
+            hasReferenceDetail = true;
+            if (modelReference.source) usedReferenceSources.add(modelReference.source);
+        }
+    }
+
     const observationRows = buildTelcontarObservationRows(page.telcontar_records);
     if (observationRows.length > 0) {
         groups.push({ title: '历史观测记录', icon: 'fas fa-history', rows: observationRows });
         hasLocalDetail = true;
     }
 
-    const sources = normalizeSources(page, records);
+    const extraSources = [...usedReferenceSources]
+        .map((sourceId) => referenceSource(referenceData, sourceId))
+        .filter(Boolean);
+    const sources = normalizeSources(page, records, extraSources);
     const relatedPdfs = buildRelatedPdfs(page);
     const notes = collapseWhitespace(page.notes || page.telcontar_image_status || '');
-    const hasContent = hasLocalDetail || hasArchiveDetail || Boolean(notes)
+    const hasContent = hasLocalDetail || hasArchiveDetail || hasReferenceDetail || Boolean(notes)
         || relatedPdfs.length > 0 || sources.length > 0;
     return {
         groups: groups.filter((group) => group.rows.length > 0),
@@ -829,8 +1093,8 @@ hexo.extend.helper.register('site_image_rotation', function(value = 0) {
     return normalizeImageRotation(value);
 });
 
-hexo.extend.helper.register('post_keyboard_card', function(page = this.page, archiveData = {}) {
-    return buildKeyboardCard(page, archiveData);
+hexo.extend.helper.register('post_keyboard_card', function(page = this.page, archiveData = {}, referenceData = {}) {
+    return buildKeyboardCard(page, archiveData, referenceData);
 });
 
 hexo.extend.helper.register('post_related_pdfs', function(page = this.page) {

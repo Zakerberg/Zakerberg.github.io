@@ -358,7 +358,7 @@ article .card-image.image-load-shell.home-card-image.is-missing .card-title {
 
 .post-spec-sections {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.9rem;
 }
 
@@ -386,6 +386,16 @@ article .card-image.image-load-shell.home-card-image.is-missing .card-title {
     font-size: 0.82rem;
 }
 
+.post-spec-section-notice {
+    margin: -0.25rem 0 0.9rem;
+    padding: 0.62rem 0.72rem;
+    border-radius: 8px;
+    background: rgba(49, 133, 96, 0.07);
+    color: #65736d;
+    font-size: 0.76rem;
+    line-height: 1.6;
+}
+
 .post-spec-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -409,6 +419,44 @@ article .card-image.image-load-shell.home-card-image.is-missing .card-title {
     font-size: 0.92rem;
     line-height: 1.65;
     word-break: break-word;
+}
+
+.post-spec-evidence {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 0.4rem;
+    padding: 0.08rem 0.42rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    line-height: 1.45;
+    white-space: nowrap;
+    vertical-align: 0.08rem;
+}
+
+.post-spec-evidence-documented {
+    border-color: rgba(42, 107, 160, 0.2);
+    background: rgba(42, 107, 160, 0.09);
+    color: #2a6ba0;
+}
+
+.post-spec-evidence-observed {
+    border-color: rgba(47, 154, 108, 0.22);
+    background: rgba(47, 154, 108, 0.1);
+    color: #277e59;
+}
+
+.post-spec-evidence-inferred {
+    border-color: rgba(193, 132, 37, 0.22);
+    background: rgba(215, 155, 51, 0.11);
+    color: #95681f;
+}
+
+.post-spec-evidence-family {
+    border-color: rgba(91, 112, 103, 0.2);
+    background: rgba(91, 112, 103, 0.08);
+    color: #596c64;
 }
 
 .post-spec-footer-row {
