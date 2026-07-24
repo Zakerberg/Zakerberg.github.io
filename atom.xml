@@ -6,7 +6,7 @@
   <link href="https://zakerberg.github.io/atom.xml" rel="self"/>
   
   <link href="https://zakerberg.github.io/"/>
-  <updated>2026-07-22T07:17:48.512Z</updated>
+  <updated>2026-07-23T16:00:00.000Z</updated>
   <id>https://zakerberg.github.io/</id>
   
   <author>
@@ -21,12 +21,12 @@
     <link href="https://zakerberg.github.io/2026/07/22/cherry-switches/cherry-switches/"/>
     <id>https://zakerberg.github.io/2026/07/22/cherry-switches/cherry-switches/</id>
     <published>2026-07-21T16:00:00.000Z</published>
-    <updated>2026-07-22T07:17:48.512Z</updated>
+    <updated>2026-07-23T16:00:00.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Cherry 的键盘开关历史远不止今天常见的红轴、茶轴、青轴和黑轴。在 MX 诞生以前，Cherry 已经尝试过微动结构、簧片触点、金合金交叉点、静电容和薄膜触点；MX 之后又发展出 ML、MY、MV、Low Profile 与 Ultra Low Profile 等不同方向。</p><p>本文以 <a href="https://telcontar.net/KBK/Cherry/#switches">Telcontar 的 Cherry Switches 档案</a> 为主线，并结合其收录的 Cherry 原厂图纸、目录、专利和数据表进行中文整理。文中的年份、参数与型号均尽量保留资料边界：有争议的地方会明确标注“推测”“约”或“待考”，不会把收藏圈经验当成原厂结论。</p><blockquote><p><strong>图片与资料使用说明：</strong>本文是中文整理，不是 CHERRY 官方资料。图片仅选用 Telcontar 声明为公共领域的站内作品，或页面明确标为 CC0 的照片；不使用其 Reference 区照片、品牌 Logo 及标注为“经许可使用”的第三方图片。原始数据仍请以对应年代的 Cherry 图纸、目录和数据表为准。</p></blockquote><p><img src="/medias/switches/cherry-mx-selection.jpg" alt="Cherry MX 开关类型选集"></p><p><em>图：Cherry MX 开关类型选集。来源：Telcontar / Daniel Beardsmore，Public Domain。</em></p><h2 id="先读懂参数"><a href="#先读懂参数" class="headerlink" title="先读懂参数"></a>先读懂参数</h2><table><thead><tr><th>参数</th><th>中文含义</th><th>阅读方法</th></tr></thead><tbody><tr><td>Pretravel</td><td>预行程 / 触发行程</td><td>从开始按压到电气导通的距离</td></tr><tr><td>Total travel</td><td>总行程</td><td>从初始位置到底部的完整位移</td></tr><tr><td>Initial / preload force</td><td>初始力 / 预压力</td><td>刚开始推动轴心所需的力</td></tr><tr><td>Operating / actuation force</td><td>动作力 / 触发力</td><td>到达触发点时的力</td></tr><tr><td>Tactile force</td><td>段落峰值力</td><td>越过段落点附近的峰值，不等同于触发力</td></tr><tr><td>Terminal / end force</td><td>触底力</td><td>接近或到达总行程末端时的力</td></tr><tr><td>Bounce time</td><td>触点回弹时间</td><td>触点闭合后稳定所需时间，越短越利于高频输入</td></tr><tr><td>Momentary</td><td>瞬时动作</td><td>松手后自动复位，是普通键盘最常见的形式</td></tr><tr><td>Alternate action</td><td>交替动作 / 自锁</td><td>每次按压在锁定与释放之间切换</td></tr><tr><td>SPST-NO</td><td>单刀单掷常开</td><td>未按下时断开，按下后接通</td></tr></tbody></table><p>本文沿用资料中的 cN、gf、mm、V 和 mA。<code>1 gf = 0.980665 cN</code>，收藏资料中常近似看作同一量级，但两者并不完全相等。</p><h2 id="系列速览"><a href="#系列速览" class="headerlink" title="系列速览"></a>系列速览</h2><table><thead><tr><th>系列</th><th>大致年代</th><th>结构 / 信号方式</th><th>总行程</th><th>主要特点</th></tr></thead><tbody><tr><td>S31</td><td>1968 年或更早</td><td>开放式微动、金合金交叉点</td><td>待考</td><td>从工业微动向低能量键盘开关过渡</td></tr><tr><td>Reed</td><td>1970 年前后</td><td>簧片管 + 磁体</td><td>最大 4.8 mm</td><td>磁力制造段落感，寿命至少 1000 万次</td></tr><tr><td>M4/M5/M6</td><td>1970 年代</td><td>金合金交叉点</td><td>最大 4.8 mm</td><td>美国 / 日本体系，含照明和多触点版本</td></tr><tr><td>M7</td><td>1970 年代中期</td><td>金合金交叉点</td><td>最大 4.8 mm</td><td>德国体系，与 M4/M5/M6 并非简单改名关系</td></tr><tr><td>MF / 静电容</td><td>1970 年代后期至 1980 年代</td><td>泡棉垫片静电容</td><td>公开参数不足</td><td>无机械触点，已知型号带回差</td></tr><tr><td>M8 / MD / MJ</td><td>约 1979 年后</td><td>金属棱柱或镀金线触点</td><td>1.5–4 mm</td><td>低矮结构，多种行程、触点和键帽安装规格</td></tr><tr><td>M9</td><td>1979 年后</td><td>金属触点</td><td>4.2 mm</td><td>面向 Triumph-Adler 电子打字机，可双段动作</td></tr><tr><td>MX</td><td>1983 年末起</td><td>Gold Crosspoint</td><td>通常 4 mm</td><td>最长寿、影响最大的 Cherry 独立机械轴系列</td></tr><tr><td>ML</td><td>年代待进一步核对</td><td>低矮 Gold Crosspoint</td><td>3.0 mm</td><td>面向紧凑型键盘，单独 PCB 安装</td></tr><tr><td>MY / FTSC</td><td>1980 年代中后期</td><td>独立机械模块 + 薄膜触点</td><td>型号资料不完整</td><td>常见于 G81，轴模块负责回弹与压合薄膜</td></tr><tr><td>M11</td><td>1979 年图纸可证</td><td>HP 定制金属触点</td><td>3.175 mm</td><td>用于替代 Datanetics DC-60 的特殊系列</td></tr><tr><td>M85</td><td>1987 年</td><td>Hirose 中央照明触点</td><td>待考</td><td>M8 衍生的中央照明型号</td></tr><tr><td>MX Low Profile</td><td>2018 年</td><td>低矮 Gold Crosspoint</td><td>3.2 mm</td><td>独立板装低矮轴，Red 与 Speed 两类</td></tr><tr><td>MV / Viola</td><td>2020 年</td><td>开放式桥接触点</td><td>4.0 mm</td><td>面向主流价位的半独立结构</td></tr><tr><td>MX Ultra Low Profile</td><td>2021 年</td><td>开放式 SMD 结构</td><td>1.8 mm</td><td>3.5 mm 高，面向笔记本及超薄设备</td></tr></tbody></table><h2 id="S31：从微动开关走向键盘"><a href="#S31：从微动开关走向键盘" class="headerlink" title="S31：从微动开关走向键盘"></a>S31：从微动开关走向键盘</h2><p>S31 是 Cherry 早期的低能量微型开放式快动开关。收藏圈有时把它称作“mousetrap”，因为内部弹片动作很像捕鼠夹。它可以理解为 S30 思路向金合金交叉点触点的适配，资料可追溯到 1968 年或更早。</p><p>目前仍缺少带 Cherry 标识且来源完整的实物样本，因此 S31 是否被大规模作为独立键盘轴使用，证据并不充分。能够确认的是，相关低能量型号的额定电流约为 <code>0.1 A</code>，HP 9100A 计算器键盘曾使用 68 只同类开关。对 S31 最稳妥的定位，是 Cherry 早期键盘开关技术链条中的重要前身，而不是一个已经完全考证清楚的量产轴系。</p><h2 id="Reed：磁体驱动的簧片开关"><a href="#Reed：磁体驱动的簧片开关" class="headerlink" title="Reed：磁体驱动的簧片开关"></a>Reed：磁体驱动的簧片开关</h2><p>Cherry Reed 的专利于 1970 年 7 月提交，并在 1972 年 2 月获批。按键下压时，磁体与簧片管的相对位置发生变化；磁力分离机制同时带来触觉段落。它的结构很高，PCB 到定位板顶部约 <code>28.4 mm</code>，外壳还会高出定位板约 <code>1.5 mm</code>。</p><table><thead><tr><th>项目</th><th>参数</th></tr></thead><tbody><tr><td>已知型号</td><td><code>201-0100</code>：SPST-NO；<code>202-0100</code>：DPST-NO</td></tr><tr><td>动作力</td><td><code>2.5 ± 0.5 oz</code>，约 <code>69 ± 14 cN</code></td></tr><tr><td>预行程</td><td><code>2.4 ± 0.8 mm</code></td></tr><tr><td>总行程</td><td>最大 <code>4.8 mm</code></td></tr><tr><td>额定功率</td><td>DC <code>7 W</code>；AC <code>12 VA</code></td></tr><tr><td>最大电流 / 电压</td><td><code>0.25 A</code> / <code>28 V</code></td></tr><tr><td>回弹时间</td><td>不超过 <code>1 ms</code></td></tr><tr><td>初始电阻</td><td>不超过 <code>250 mΩ</code></td></tr><tr><td>寿命</td><td>至少 <code>1000 万次</code></td></tr></tbody></table><p>公开资料中只确认过套件键盘使用这种开关，它的销售周期似乎不长。Reed 更像 Cherry 对高可靠、低磨损输入方案的一次早期探索。</p><h2 id="M4-M5-M6-与-M7：早期金合金交叉点家族"><a href="#M4-M5-M6-与-M7：早期金合金交叉点家族" class="headerlink" title="M4/M5/M6 与 M7：早期金合金交叉点家族"></a>M4/M5/M6 与 M7：早期金合金交叉点家族</h2><p>M4、M5、M6 主要属于美国 / 日本制造体系，外壳通常更光亮；M7 则属于德国体系，表面更偏哑光和纹理质感。两边在外形和命名上相近，但不是简单的同系列改名。M4 偏向角部照明，M5/M6 提供不同结构；M7 又分中央照明、标准、多触点及侧面照明等形式。</p><p><img src="/medias/switches/cherry-m61-0120.jpg" alt="Cherry M61-0120 Style A"></p><p><em>图：推定为 M61-0120 Style A。摄影：Jeremy Martin，CC0；来源：Telcontar。</em></p><p>早期 <code>261/262</code> 后来改编号为 <code>M61/M62</code>。常见基础型号包括 <code>M61-0100</code>（SPST-NO）、<code>M62-0100</code>（DPST-NO）以及 <code>M61-0800</code> 交替动作版本。M7 中可见 M71 中央照明、M73/M74 标准版本，以及 M75–M78 多触点或侧照版本。</p><table><thead><tr><th>项目</th><th>M4/M5/M6 资料参数</th></tr></thead><tbody><tr><td>动作力</td><td><code>2.5 ± 0.5 oz</code>，约 <code>69 ± 14 cN</code></td></tr><tr><td>预行程</td><td><code>2.4 ± 0.8 mm</code></td></tr><tr><td>总行程</td><td>最大 <code>4.8 mm</code></td></tr><tr><td>额定功率</td><td>DC / AC <code>3 W / 3 VA</code></td></tr><tr><td>最大开关电流</td><td><code>0.125 A</code></td></tr><tr><td>最大持续电流</td><td><code>0.5 A</code></td></tr><tr><td>最大电压</td><td><code>28 V</code></td></tr><tr><td>回弹时间</td><td>不超过 <code>2 ms</code></td></tr><tr><td>初始触点电阻</td><td>最大 <code>200 mΩ</code>，典型 <code>25 mΩ</code></td></tr><tr><td>标称寿命</td><td>至少 <code>1000 万次</code>；部分广告曾宣称 <code>5000 万至 1 亿次</code></td></tr></tbody></table><p><img src="/medias/switches/cherry-m71-0100.jpg" alt="Cherry M71-0100"></p><p><em>图：推定为 M71-0100。摄影：Jeremy Martin，CC0；来源：Telcontar。</em></p><p>M7 的精确首发年份仍不明朗，现有图纸把线索指向 1974 年前后。不同颜色轴心是否对应固定手感或重量，也没有足够原厂材料支持统一结论。Hirose 后续在日本生产 M5、M6，时间线大致为 1983 年和 1985 年。</p><h2 id="Solid-State-MF：泡棉垫片静电容"><a href="#Solid-State-MF：泡棉垫片静电容" class="headerlink" title="Solid State / MF：泡棉垫片静电容"></a>Solid State / MF：泡棉垫片静电容</h2><p>Cherry 的固态静电容键盘使用泡棉垫片改变电容，不依赖传统金属触点；已知版本均带有回差。1977 年已有相关宣传，1979 年可见 <code>CB80-07AA</code>、<code>CB80-12AA</code>，到 1982 年 CB80 编码改为 B4V / B4VE。后来的 Series MF 看起来是面向 DIN 人机工学要求的泡棉垫片方案。</p><p>这部分史料仍不完整：专利图与现存实物并非完全一致，公开页面也没有给出可统一引用的力程、电气和寿命参数。日本 Hirose 版本还出现过触觉弹片或橡胶套结构。因此，这一系列更适合按“技术路线”理解，不能把某个样本的参数推广到全部 MF / 静电容键盘。</p><h2 id="M8、MD、MJ：2-5-mm-到-4-mm-的低矮路线"><a href="#M8、MD、MJ：2-5-mm-到-4-mm-的低矮路线" class="headerlink" title="M8、MD、MJ：2.5 mm 到 4 mm 的低矮路线"></a>M8、MD、MJ：2.5 mm 到 4 mm 的低矮路线</h2><p>德国 M8 提供 <code>2.5 mm</code> 总行程，标准版本采用 6 mm 键帽安装柱，也有 12 mm 版本。按触点材料可分为 M81、M82、M84：M81 使用金合金实体棱柱，M82 使用银合金实体棱柱，M84 则改用成本更低的镀金线触点。</p><p>它可配置单刀或双刀、线性或两档段落、LED、0° / 7° 轴心、空格加重、开放或封闭上盖，以及 6 mm / 12 mm 键帽柱。Cherry 于 2013 年 7 月 31 日发布停产通知，最后购买日为同年 10 月 31 日。</p><table><thead><tr><th>项目</th><th>M8 参数</th></tr></thead><tbody><tr><td>总行程</td><td><code>2.5 +0.2/-0.3 mm</code></td></tr><tr><td>线性预行程</td><td><code>1.6 ± 0.6 mm</code></td></tr><tr><td>普通段落预行程</td><td><code>1.3 ± 0.6 mm</code></td></tr><tr><td>德国邮政段落预行程</td><td><code>1.4 ± 0.6 mm</code></td></tr><tr><td>回弹时间</td><td>1982 目录为最大 <code>2 ms</code>；其他手册为最大 <code>5 ms</code></td></tr><tr><td>瞬时版本寿命</td><td><code>1000 万次</code></td></tr><tr><td>最大持续电流</td><td><code>500 mA</code></td></tr><tr><td>初始触点电阻</td><td>最大 <code>200 mΩ</code>，典型 <code>25 mΩ</code></td></tr></tbody></table><table><thead><tr><th>子系列</th><th>触点</th><th>最大开关电流</th><th>最大电压</th></tr></thead><tbody><tr><td>M81</td><td>AuAg26Ni3 金合金实体棱柱</td><td><code>100 mA</code></td><td><code>28 V</code></td></tr><tr><td>M82</td><td>AgPd30 银合金实体棱柱</td><td><code>100 mA</code></td><td><code>60 V</code></td></tr><tr><td>M84</td><td>AuAg10、3 µm 镀金线</td><td><code>10 mA</code></td><td><code>12 V</code></td></tr></tbody></table><p>Hirose 的 M83A 保持 <code>2.5 mm</code> 行程，M83S 缩短到 <code>1.5 mm</code>；1983 年 4 月推出的 MD、MJ 分别扩展到 <code>3 mm</code> 和 <code>4 mm</code>。四者外壳高度依次约为 <code>6.7 / 6.7 / 7.3 / 7.7 mm</code>。Hirose 原始数据表不允许公开展示，因此这里只记录公开页面可核对的数据，不附原表扫描件。</p><h2 id="M9：为电子打字机而生"><a href="#M9：为电子打字机而生" class="headerlink" title="M9：为电子打字机而生"></a>M9：为电子打字机而生</h2><p>M9 由 Günter Murmann 设计，1979 年申请专利，主要面向 Triumph-Adler 电子打字机。它支持单刀 / 双刀、瞬时 / 自锁 / 双段动作、LED、0° / 7° / 10° 轴心、空格加重、6 mm / 12 mm 键帽，以及 PCB 或定位板安装。</p><table><thead><tr><th>项目</th><th>参数</th></tr></thead><tbody><tr><td>总行程</td><td><code>4.2 mm</code></td></tr><tr><td>预行程</td><td><code>2.0 ± 0.6 mm</code></td></tr><tr><td>第二段动作点</td><td><code>3.5 ± 0.5 mm</code></td></tr><tr><td>回弹时间</td><td>最大 <code>2 ms</code></td></tr><tr><td>瞬时版本寿命</td><td><code>1600 万次</code></td></tr><tr><td>自锁版本寿命</td><td><code>500 万次</code></td></tr><tr><td>最大持续电流</td><td><code>500 mA</code></td></tr><tr><td>初始触点电阻</td><td>最大 <code>200 mΩ</code>，典型 <code>25 mΩ</code></td></tr></tbody></table><p>M91 到 M94 代表不同触点体系，但 M91 没有发现对应技术文档。M92 / M93 的最大开关电流为 <code>100 mA</code>，其中 M93 在 1982 目录中写作 <code>125 mA</code>；M94 为 <code>10 mA</code>。电压等级随触点类型约为 <code>60 V / 28 V / 12 V</code>。由于现存表格列关系并不完全清晰，识别具体实物时应优先看完整料号和年代图纸。</p><h2 id="MX：延续至今的核心家族"><a href="#MX：延续至今的核心家族" class="headerlink" title="MX：延续至今的核心家族"></a>MX：延续至今的核心家族</h2><p>Cherry MX 自 1983 年末起持续生产。它为符合当时 DIN 键盘人机工学要求而采用完整约 <code>4 mm</code> 行程，早期就包含线性、段落、回差、双触点等设计，量产主流后来转为单刀常开，并可选 LED、二极管或跳线。</p><p><img src="/medias/switches/cherry-6mm-8mm-stems.svg" alt="Cherry 6 mm 与 8 mm 键帽安装柱对比"></p><p><em>图：Cherry 6 mm 与 MX 8 mm 键帽安装柱尺寸对比。制图：Telcontar / Daniel Beardsmore，Public Domain。</em></p><p>MX 的核心是 Gold Crosspoint 触点：两个交叉的贵金属接触点在动作时形成可靠导通，并具备一定自清洁能力。早期资料常见 <code>2000 万次</code>寿命，后来提高到 <code>5000 万次</code>；部分 2020 年后的 RGB Red、Black、Brown、Speed 版本达到 <code>1 亿次</code>，典型回弹时间缩短到 <code>1 ms</code> 以下。不同年代的数据表会有差异，收藏老轴时不能直接套用今天 MX2A 的规格。</p><h3 id="经典与特殊-MX-对照"><a href="#经典与特殊-MX-对照" class="headerlink" title="经典与特殊 MX 对照"></a>经典与特殊 MX 对照</h3><p>下表按 Telcontar 汇总的历史数据整理。触底力来自相应年代曲线或数据表时才列出，空白不代表没有触底力，而是缺少适合统一比较的数据。</p><table><thead><tr><th>类型</th><th>料号族</th><th>手感</th><th>预行程</th><th>总行程</th><th>动作 / 段落力</th><th>约触底力</th><th>备注</th></tr></thead><tbody><tr><td>Black 黑轴</td><td><code>MX1A-11xx</code></td><td>线性</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td><code>60 ± 20 cN</code></td><td>约 <code>85 cN</code></td><td>早期核心线性型号</td></tr><tr><td>Linear Grey 线性灰</td><td><code>MX1A-21xx</code></td><td>线性、空格加重</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td><code>80 ± 25 cN</code></td><td>约 <code>110 cN</code></td><td>常用于大键</td></tr><tr><td>Lock 锁轴</td><td><code>MX1A-31xx</code></td><td>线性、自锁</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td><code>60 ± 20 cN</code></td><td>约 <code>105 cN</code></td><td>交替动作，不是普通瞬时轴</td></tr><tr><td>White 白轴</td><td><code>MX1A-A1xx</code></td><td>段落 + 回差 / 轻微声响</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td><code>70 ± 20 cN</code></td><td>约 <code>85 cN</code></td><td>原始段落型 MX 路线</td></tr><tr><td>Click Grey 点击灰</td><td><code>MX1A-B1xx</code></td><td>段落有声、空格加重</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td>约 <code>95 cN</code></td><td>—</td><td>对应重手大键用途</td></tr><tr><td>Clear 透明轴</td><td><code>MX1A-C1xx</code></td><td>段落无声</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td><code>55 ± 20 cN</code></td><td>约 <code>95 cN</code></td><td>段落比茶轴更明显</td></tr><tr><td>Tactile Grey 段落灰</td><td><code>MX1A-D1xx</code></td><td>段落无声、空格加重</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td>历史参数不完整</td><td>—</td><td>Clear 的大键对应型号</td></tr><tr><td>Blue 青轴</td><td><code>MX1A-E1xx</code></td><td>段落有声 + 回差</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td><code>50 ± 15 cN</code></td><td>约 <code>60 cN</code></td><td>Cherry 资料称 1987 年推出</td></tr><tr><td>Green 绿轴</td><td><code>MX1A-F1xx</code></td><td>段落有声、空格加重</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td><code>70 ± 20 cN</code></td><td>约 <code>90 cN</code></td><td>青轴的重手对应型号</td></tr><tr><td>Brown 茶轴</td><td><code>MX1A-G1xx</code></td><td>段落无声</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td><code>45 ± 20 cN</code></td><td>约 <code>60 cN</code></td><td>1992 年为 Kinesis 定制</td></tr><tr><td>Red 红轴</td><td><code>MX1A-L1xx</code></td><td>线性</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td><code>45 ± 15 cN</code></td><td>约 <code>58 cN</code></td><td>2008 年出现，后成为常规型号</td></tr><tr><td>Silent Red 静音红</td><td><code>MX3A-L1xx</code></td><td>阻尼线性</td><td><code>1.9 ± 0.6 mm</code></td><td><code>3.7 -0.4 mm</code></td><td><code>45 ± 15 cN</code></td><td>—</td><td>上下行均有缓冲结构</td></tr><tr><td>Silent Black 静音黑</td><td><code>MX3A-11xx</code></td><td>阻尼线性</td><td><code>1.9 ± 0.6 mm</code></td><td><code>3.7 -0.4 mm</code></td><td><code>60 ± 20 cN</code></td><td>—</td><td>重手静音线性</td></tr><tr><td>Nature White 自然白</td><td><code>MX1A-41NA</code></td><td>线性</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td><code>52 ± 15 cN</code></td><td>—</td><td>2019 年停产通知所涉型号</td></tr><tr><td>Speed Silver 银轴</td><td><code>MX1A-51xx</code></td><td>短触发线性</td><td><code>1.2 ± 0.4 mm</code></td><td><code>3.4 -0.4 mm</code></td><td><code>45 ± 15 cN</code></td><td>—</td><td>面向快速触发</td></tr><tr><td>Ergo Clear</td><td><code>MX1A-H1xx</code></td><td>段落无声</td><td><code>2 mm</code></td><td><code>4 mm</code></td><td>触发约 <code>40 cN</code>，段落约 <code>55 cN</code></td><td>—</td><td>2022 年成为正式产品</td></tr><tr><td>Black Clear-Top</td><td><code>MX1A/MX2A-61NW</code></td><td>线性</td><td><code>2 mm</code></td><td><code>4 mm</code></td><td><code>63.5 cN</code></td><td><code>110 cN</code></td><td>官方复刻社区所称 Nixie 风格</td></tr></tbody></table><p>RGB 版本主要改为透明上盖以配合 PCB 上的 SMD RGB LED，基础力程通常对应同色标准版本。所谓“Vintage MX”更多是收藏者对特定年代实物手感的概括；关于某年是否统一更换塑料材料，公开证据仍不足，不宜写成确定的生产分界线。</p><h2 id="ML：低矮-Gold-Crosspoint"><a href="#ML：低矮-Gold-Crosspoint" class="headerlink" title="ML：低矮 Gold Crosspoint"></a>ML：低矮 Gold Crosspoint</h2><p>Telcontar 的 Cherry 总览页注明 ML 主页面“本站未收录”，但其料号页与 Cherry ML1A 原厂数据表仍提供了可核对参数。ML 是独立 PCB 安装的低矮机械开关，采用单刀常开 Gold Crosspoint 触点，常见于 G84 系列紧凑键盘。</p><table><thead><tr><th>项目</th><th>ML1A 参数</th></tr></thead><tbody><tr><td>手感</td><td>段落；段落峰值 <code>50 ± 20 cN</code></td></tr><tr><td>总行程</td><td><code>3.0 -0.5 mm</code></td></tr><tr><td>预行程</td><td><code>1.5 ± 0.5 mm</code></td></tr><tr><td>初始力</td><td>最小 <code>30 cN</code></td></tr><tr><td>触发力</td><td><code>45 ± 20 cN</code></td></tr><tr><td>最大电压 / 电流</td><td><code>12 V AC/DC</code> / <code>10 mA AC/DC</code></td></tr><tr><td>触点结构</td><td>SPST-NO，AuAg10 Gold Crosspoint</td></tr><tr><td>回弹时间</td><td>最大 <code>5 ms</code></td></tr><tr><td>初始触点电阻</td><td>小于 <code>200 mΩ</code>，典型 <code>25 mΩ</code></td></tr><tr><td>寿命</td><td>超过 <code>2000 万次</code></td></tr><tr><td>工作温度</td><td><code>-10°C 至 +70°C</code></td></tr><tr><td>防护等级</td><td><code>IP40</code></td></tr></tbody></table><p>ML1A 是较矮的常见版本，资料中还出现过更高、更坚固的 ML1B。两者的精确投产与停产时间尚待更多目录交叉验证。</p><h2 id="MY-FTSC：机械模块压合薄膜"><a href="#MY-FTSC：机械模块压合薄膜" class="headerlink" title="MY / FTSC：机械模块压合薄膜"></a>MY / FTSC：机械模块压合薄膜</h2><p>MY 是德国 FTSC（Full-Travel Sealed Contact）产品线，绝大多数配套键盘归入 G81。它不是 MX 式独立金属触点轴：每个按键有独立回弹弹簧和执行弹片，最终由模块压合下方薄膜触点，因此常被描述为“带独立机械按键模块的薄膜键盘”。</p><p>英国 Cherry Electrical Products 于 1984 年申请早期设计专利；德国团队为降低打字机键盘成本继续改良，并在 1985–1986 年申请新专利。现有收藏资料把 MY 分为 Type 1a、1b、2、3，但这不是官方命名。Type 1 热铆在背板上，拆除通常会损坏；Type 2、3 改为可拆结构。各类型缺少统一、可信的原厂力程测量，因此本文不编造具体克数。识别时应记录轴心颜色、安装方式、背板结构和完整键盘料号。</p><h2 id="M11、M85-与-Cherry-代工-Hi-Tek"><a href="#M11、M85-与-Cherry-代工-Hi-Tek" class="headerlink" title="M11、M85 与 Cherry 代工 Hi-Tek"></a>M11、M85 与 Cherry 代工 Hi-Tek</h2><p><img src="/medias/switches/cherry-m11.jpg" alt="Cherry M11 开关"></p><p><em>图：两只标准 M11（非空格版本）。来源：Telcontar / Daniel Beardsmore，Public Domain。</em></p><p>M11 是为 HP 键盘准备的特殊单刀开关，意在作为 Datanetics DC-60 的兼容替代品。已知图纸日期为 1979 年 11 月，普通版本多为黑色；透明 <code>M11-0101</code> 是空格加重版本，动作力约 <code>95 ± 25 cN</code>。总行程为 <code>3.175 mm</code>。目前只在 HP 相关键盘中确认过使用。</p><p>M85 则是 Hirose Cherry 在 1987 年 4 月推出的 M8 衍生中央照明轴，已知型号为 <code>M85A-0N00</code>，单刀结构，并在 2013 年与后期 M8 产品一同走向停产。</p><p>此外，Cherry 曾按 DEC 要求生产过采用 Hi-Tek High Profile 开关的完整键盘，已知型号 <code>UB80-01AA</code>，年代约为 1978–1980 年。这里的开关设计属于 Hi-Tek，Cherry 是键盘制造方，不应把它误归为 Cherry 自研轴体。</p><h2 id="MX-Low-Profile：独立低矮机械轴"><a href="#MX-Low-Profile：独立低矮机械轴" class="headerlink" title="MX Low Profile：独立低矮机械轴"></a>MX Low Profile：独立低矮机械轴</h2><p>MX Low Profile 于 2018 年 1 月 12 日发布。它沿用金合金交叉点理念，但并不是把普通 MX 简单压矮，而是一套新结构。早期资料记录两个线性版本：红色轴心 <code>MX1B-L2NA</code> 和银色 Speed <code>MX1B-52NA</code>，都为外置 SMD RGB LED 预留空间。</p><table><thead><tr><th>项目</th><th>Red</th><th>Speed</th></tr></thead><tbody><tr><td>手感</td><td>线性</td><td>线性</td></tr><tr><td>总行程</td><td><code>3.2 ± 0.25 mm</code></td><td><code>3.2 ± 0.25 mm</code></td></tr><tr><td>预行程</td><td><code>1.2 ± 0.3 mm</code></td><td><code>1.0 ± 0.3 mm</code></td></tr><tr><td>最小预压力</td><td><code>30 cN</code></td><td><code>30 cN</code></td></tr><tr><td>动作力</td><td><code>45 ± 15 cN</code></td><td><code>45 ± 15 cN</code></td></tr><tr><td>典型回弹</td><td><code>1 ms</code></td><td><code>1 ms</code></td></tr><tr><td>标称寿命</td><td><code>5000 万次</code></td><td><code>5000 万次</code></td></tr><tr><td>最大电压</td><td><code>12 V AC/DC</code></td><td><code>12 V AC/DC</code></td></tr><tr><td>最小轴间距</td><td><code>16 mm</code></td><td><code>16 mm</code></td></tr></tbody></table><h2 id="MV-Viola：开放式主流方案"><a href="#MV-Viola：开放式主流方案" class="headerlink" title="MV / Viola：开放式主流方案"></a>MV / Viola：开放式主流方案</h2><p>MV 最初以 Viola 名称于 2020 年 1 月发布。它采用开放底部、定位板安装的半独立结构，PCB 焊盘是固定触点，活动铜合金桥片负责导通；RGB LED 位于 PCB。Cherry 将其渐进式力程称为 <code>CrossLinear</code>。</p><p><img src="/medias/switches/cherry-mv-force-curve.svg" alt="Cherry MV / Viola 力程曲线"></p><p><em>图：依据 Cherry 公布参数绘制的 MV / Viola 力程曲线。制图：Telcontar / Daniel Beardsmore，Public Domain。</em></p><table><thead><tr><th>项目</th><th>参数</th></tr></thead><tbody><tr><td>手感</td><td>CrossLinear，整体接近线性</td></tr><tr><td>总行程</td><td><code>4.0 ± 0.4 mm</code></td></tr><tr><td>预行程</td><td><code>2.0 ± 0.6 mm</code></td></tr><tr><td>最小初始力</td><td><code>20 cN</code></td></tr><tr><td>动作力</td><td><code>45 ± 15 cN</code></td></tr><tr><td>触底附近力</td><td>约 <code>75 cN</code></td></tr><tr><td>典型电压 / 电流</td><td><code>2–5 V</code> / <code>0.1–1 mA</code></td></tr><tr><td>触点形式</td><td>SPST-NO</td></tr><tr><td>最小轴间距</td><td><code>16 mm</code></td></tr></tbody></table><h2 id="MX-Ultra-Low-Profile：3-5-mm-高的超薄轴"><a href="#MX-Ultra-Low-Profile：3-5-mm-高的超薄轴" class="headerlink" title="MX Ultra Low Profile：3.5 mm 高的超薄轴"></a>MX Ultra Low Profile：3.5 mm 高的超薄轴</h2><p>MX Ultra Low Profile 于 2021 年 3 月 18 日发布，面向笔记本和超薄设备。它不再是传统封闭轴壳，而是高度约 <code>3.5 mm</code> 的开放式 SMD 结构；两只摆臂在跨接弹簧作用下运动，中部透明执行件承载键帽并允许 SMD RGB 光线通过。</p><p>已知型号包括有声段落 <code>MX6C-K3NB</code> 和无声段落 <code>MX6C-T3NB</code>。Telcontar 早期资料的总参数表把反馈统一写作“Tactile click”，而产品型号又区分 Click 与 Tactile，因此实际识别应以完整型号及相应原厂数据表为准。</p><p><img src="/medias/switches/cherry-mx-ulp-force-curve.svg" alt="Cherry MX Ultra Low Profile 力程曲线"></p><p><em>图：Cherry MX Ultra Low Profile 官方力程数据重绘。制图：Telcontar / Daniel Beardsmore，Public Domain。</em></p><table><thead><tr><th>项目</th><th>参数</th></tr></thead><tbody><tr><td>总行程</td><td><code>1.8 mm</code></td></tr><tr><td>预行程</td><td><code>0.8 mm</code></td></tr><tr><td>段落峰值力</td><td><code>65 cN</code></td></tr><tr><td>触发力</td><td><code>52 cN</code></td></tr><tr><td>标称寿命</td><td><code>1500 万次</code></td></tr><tr><td>电压</td><td><code>5 V</code></td></tr></tbody></table><h2 id="如何识别一只未知-Cherry-轴"><a href="#如何识别一只未知-Cherry-轴" class="headerlink" title="如何识别一只未知 Cherry 轴"></a>如何识别一只未知 Cherry 轴</h2><ol><li>先记录键盘完整料号、铭牌、生产日期码和产地，不要只看轴心颜色。</li><li>拆下一只非大键键帽，拍摄轴心形状、颜色、上盖纹理、Logo、LED 位置和键帽安装柱。</li><li>从 PCB 或背板侧记录焊脚数量、定位方式、二极管 / 跳线、薄膜结构及是否可拆。</li><li>测量预行程、总行程和外壳高度；老轴的弹簧、润滑和磨损会让手感偏离目录值。</li><li>用完整料号对照对应年代的编号规则。相同颜色在不同系列、工厂和年代中不一定代表相同结构。</li><li>对无法证实的结论保留“待考”，并保存原图、来源链接和访问日期，方便后续修订。</li></ol><h2 id="资料误差与收藏注意事项"><a href="#资料误差与收藏注意事项" class="headerlink" title="资料误差与收藏注意事项"></a>资料误差与收藏注意事项</h2><ul><li>不同年份目录可能给出不同参数，例如 M8 回弹时间有 <code>2 ms</code> 与 <code>5 ms</code> 两套记录，M93 最大开关电流也有 <code>100 mA</code> 与 <code>125 mA</code> 的差异。</li><li>轴心颜色是识别线索，不是单独定论。M7、早期 MX、Hirose 版本尤其需要结合触点和外壳。</li><li>标称寿命是在规定电压、电流、速度和环境下测得，不等于几十年后老轴仍能达到原始指标。</li><li>“手感”受键帽重量、定位板、弹簧老化、污染、润滑和键位大小影响，目录参数不能完全替代实物体验。</li><li>文章展示的开关照片和曲线用于史料辨识，不代表 CHERRY 对本站内容的认可或授权。</li></ul><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><a href="https://telcontar.net/KBK/Cherry/#switches">Telcontar：Cherry Switches 总览</a></li><li><a href="https://telcontar.net/KBK/Cherry/S31">Telcontar：S31</a></li><li><a href="https://telcontar.net/KBK/Cherry/reed">Telcontar：Cherry Reed</a></li><li><a href="https://telcontar.net/KBK/Cherry/M7">Telcontar：M4/M5/M6 与 M7</a></li><li><a href="https://telcontar.net/KBK/Cherry/solid_state">Telcontar：Solid State Capacitive</a></li><li><a href="https://telcontar.net/KBK/Cherry/M8DJ">Telcontar：M8、MD、MJ</a></li><li><a href="https://telcontar.net/KBK/Cherry/M9">Telcontar：M9</a></li><li><a href="https://telcontar.net/KBK/Cherry/MX">Telcontar：MX</a></li><li><a href="https://telcontar.net/KBK/Cherry/MX_variants">Telcontar：MX Variants</a></li><li><a href="https://telcontar.net/KBK/Cherry/ML_schema">Telcontar：ML 料号规则</a></li><li><a href="https://www.farnell.com/datasheets/2301175.pdf">Cherry ML1A 原厂数据表镜像</a></li><li><a href="https://telcontar.net/KBK/Cherry/MY">Telcontar：MY</a></li><li><a href="https://telcontar.net/KBK/Cherry/M11">Telcontar：M11</a></li><li><a href="https://telcontar.net/KBK/Cherry/M85">Telcontar：M85</a></li><li><a href="https://telcontar.net/KBK/Cherry/Hi-Tek">Telcontar：Cherry-produced Hi-Tek</a></li><li><a href="https://telcontar.net/KBK/Cherry/MX_Low_Profile">Telcontar：MX Low Profile</a></li><li><a href="https://telcontar.net/KBK/Cherry/MV">Telcontar：MV / Viola</a></li><li><a href="https://telcontar.net/KBK/Cherry/MX_Ultra_Low_Profile">Telcontar：MX Ultra Low Profile</a></li><li><a href="https://telcontar.net/KBK/about">Telcontar：About / 图片授权说明</a></li></ul><p>最后更新：2026-07-22。后续如发现新的原厂目录、图纸或可核对实物，本文会继续修订，并保留不确定信息的说明。</p>]]></content>
+    <content type="html"><![CDATA[<p>Cherry 的键盘开关历史远不止今天常见的红轴、茶轴、青轴和黑轴。在 MX 诞生以前，Cherry 已经尝试过微动结构、簧片触点、金合金交叉点、静电容和薄膜触点；MX 之后又发展出 ML、MY、MV、Low Profile 与 Ultra Low Profile 等不同方向。</p><p>本文以 <a href="https://telcontar.net/KBK/Cherry/#switches">Telcontar 的 Cherry Switches 档案</a> 为历史主线，并结合其收录的 Cherry 原厂图纸、目录、专利和数据表进行中文整理；在仍然生产的 MX 系列部分，补充 <a href="https://www.cherry.cn/mx.html">CHERRY 中国官网 MX 页面</a> 及各轴体详情页截至 <code>2026-07-24</code> 公布的信息。文中的年份、参数与型号均尽量保留资料边界：有争议的地方会明确标注“推测”“约”或“待考”，不会把收藏圈经验当成原厂结论。</p><blockquote><p><strong>图片与资料使用说明：</strong>本文是非官方中文整理。历史图片仅选用 Telcontar 声明为公共领域的站内作品，或页面明确标为 CC0 的照片；当前产品图片直接引用 CHERRY 中国官网 CDN，并在图注中单独标明。CHERRY 官网图片及其中的文字、商标版权归 CHERRY 或相应权利人所有，仅用于轴体识别与资料说明，不属于本站开源许可范围。原始数据仍请以对应年代的 Cherry 图纸、目录和数据表为准。</p></blockquote><p><img src="/medias/switches/cherry-mx-selection.jpg" alt="Cherry MX 开关类型选集"></p><p><em>图：Cherry MX 开关类型选集。来源：Telcontar / Daniel Beardsmore，Public Domain。</em></p><h2 id="先读懂参数"><a href="#先读懂参数" class="headerlink" title="先读懂参数"></a>先读懂参数</h2><table><thead><tr><th>参数</th><th>中文含义</th><th>阅读方法</th></tr></thead><tbody><tr><td>Pretravel</td><td>预行程 / 触发行程</td><td>从开始按压到电气导通的距离</td></tr><tr><td>Total travel</td><td>总行程</td><td>从初始位置到底部的完整位移</td></tr><tr><td>Initial / preload force</td><td>初始力 / 预压力</td><td>刚开始推动轴心所需的力</td></tr><tr><td>Operating / actuation force</td><td>动作力 / 触发力</td><td>到达触发点时的力</td></tr><tr><td>Tactile force</td><td>段落峰值力</td><td>越过段落点附近的峰值，不等同于触发力</td></tr><tr><td>Terminal / end force</td><td>触底力</td><td>接近或到达总行程末端时的力</td></tr><tr><td>Bounce time</td><td>触点回弹时间</td><td>触点闭合后稳定所需时间，越短越利于高频输入</td></tr><tr><td>Momentary</td><td>瞬时动作</td><td>松手后自动复位，是普通键盘最常见的形式</td></tr><tr><td>Alternate action</td><td>交替动作 / 自锁</td><td>每次按压在锁定与释放之间切换</td></tr><tr><td>SPST-NO</td><td>单刀单掷常开</td><td>未按下时断开，按下后接通</td></tr></tbody></table><p>本文沿用资料中的 cN、gf、mm、V 和 mA。<code>1 gf = 0.980665 cN</code>，收藏资料中常近似看作同一量级，但两者并不完全相等。</p><h2 id="系列速览"><a href="#系列速览" class="headerlink" title="系列速览"></a>系列速览</h2><table><thead><tr><th>系列</th><th>大致年代</th><th>结构 / 信号方式</th><th>总行程</th><th>主要特点</th></tr></thead><tbody><tr><td>S31</td><td>1968 年或更早</td><td>开放式微动、金合金交叉点</td><td>待考</td><td>从工业微动向低能量键盘开关过渡</td></tr><tr><td>Reed</td><td>1970 年前后</td><td>簧片管 + 磁体</td><td>最大 4.8 mm</td><td>磁力制造段落感，寿命至少 1000 万次</td></tr><tr><td>M4/M5/M6</td><td>1970 年代</td><td>金合金交叉点</td><td>最大 4.8 mm</td><td>美国 / 日本体系，含照明和多触点版本</td></tr><tr><td>M7</td><td>1970 年代中期</td><td>金合金交叉点</td><td>最大 4.8 mm</td><td>德国体系，与 M4/M5/M6 并非简单改名关系</td></tr><tr><td>MF / 静电容</td><td>1970 年代后期至 1980 年代</td><td>泡棉垫片静电容</td><td>公开参数不足</td><td>无机械触点，已知型号带回差</td></tr><tr><td>M8 / MD / MJ</td><td>约 1979 年后</td><td>金属棱柱或镀金线触点</td><td>1.5–4 mm</td><td>低矮结构，多种行程、触点和键帽安装规格</td></tr><tr><td>M9</td><td>1979 年后</td><td>金属触点</td><td>4.2 mm</td><td>面向 Triumph-Adler 电子打字机，可双段动作</td></tr><tr><td>MX / MX2A</td><td>1983 年末起</td><td>Gold Crosspoint</td><td>通常 3.4–4 mm</td><td>最长寿、影响最大的 Cherry 独立机械轴系列；MX2A 为当前改良结构</td></tr><tr><td>ML</td><td>年代待进一步核对</td><td>低矮 Gold Crosspoint</td><td>3.0 mm</td><td>面向紧凑型键盘，单独 PCB 安装</td></tr><tr><td>MY / FTSC</td><td>1980 年代中后期</td><td>独立机械模块 + 薄膜触点</td><td>型号资料不完整</td><td>常见于 G81，轴模块负责回弹与压合薄膜</td></tr><tr><td>M11</td><td>1979 年图纸可证</td><td>HP 定制金属触点</td><td>3.175 mm</td><td>用于替代 Datanetics DC-60 的特殊系列</td></tr><tr><td>M85</td><td>1987 年</td><td>Hirose 中央照明触点</td><td>待考</td><td>M8 衍生的中央照明型号</td></tr><tr><td>MX-LP / MX Low Profile</td><td>2018 年</td><td>低矮 Gold Crosspoint</td><td>3.2 mm</td><td>独立板装低矮轴，Red 与 Speed Silver 两类</td></tr><tr><td>MV / Viola</td><td>2020 年</td><td>开放式桥接触点</td><td>4.0 mm</td><td>面向主流价位的半独立结构</td></tr><tr><td>MX-ULP / MX Ultra Low Profile</td><td>2021 年</td><td>开放式 SMD 结构</td><td>1.8 mm</td><td>整体高度 3.5 mm，面向笔记本及超薄设备</td></tr></tbody></table><h2 id="S31：从微动开关走向键盘"><a href="#S31：从微动开关走向键盘" class="headerlink" title="S31：从微动开关走向键盘"></a>S31：从微动开关走向键盘</h2><p>S31 是 Cherry 早期的低能量微型开放式快动开关。收藏圈有时把它称作“mousetrap”，因为内部弹片动作很像捕鼠夹。它可以理解为 S30 思路向金合金交叉点触点的适配，资料可追溯到 1968 年或更早。</p><p>目前仍缺少带 Cherry 标识且来源完整的实物样本，因此 S31 是否被大规模作为独立键盘轴使用，证据并不充分。能够确认的是，相关低能量型号的额定电流约为 <code>0.1 A</code>，HP 9100A 计算器键盘曾使用 68 只同类开关。对 S31 最稳妥的定位，是 Cherry 早期键盘开关技术链条中的重要前身，而不是一个已经完全考证清楚的量产轴系。</p><h2 id="Reed：磁体驱动的簧片开关"><a href="#Reed：磁体驱动的簧片开关" class="headerlink" title="Reed：磁体驱动的簧片开关"></a>Reed：磁体驱动的簧片开关</h2><p>Cherry Reed 的专利于 1970 年 7 月提交，并在 1972 年 2 月获批。按键下压时，磁体与簧片管的相对位置发生变化；磁力分离机制同时带来触觉段落。它的结构很高，PCB 到定位板顶部约 <code>28.4 mm</code>，外壳还会高出定位板约 <code>1.5 mm</code>。</p><table><thead><tr><th>项目</th><th>参数</th></tr></thead><tbody><tr><td>已知型号</td><td><code>201-0100</code>：SPST-NO；<code>202-0100</code>：DPST-NO</td></tr><tr><td>动作力</td><td><code>2.5 ± 0.5 oz</code>，约 <code>69 ± 14 cN</code></td></tr><tr><td>预行程</td><td><code>2.4 ± 0.8 mm</code></td></tr><tr><td>总行程</td><td>最大 <code>4.8 mm</code></td></tr><tr><td>额定功率</td><td>DC <code>7 W</code>；AC <code>12 VA</code></td></tr><tr><td>最大电流 / 电压</td><td><code>0.25 A</code> / <code>28 V</code></td></tr><tr><td>回弹时间</td><td>不超过 <code>1 ms</code></td></tr><tr><td>初始电阻</td><td>不超过 <code>250 mΩ</code></td></tr><tr><td>寿命</td><td>至少 <code>1000 万次</code></td></tr></tbody></table><p>公开资料中只确认过套件键盘使用这种开关，它的销售周期似乎不长。Reed 更像 Cherry 对高可靠、低磨损输入方案的一次早期探索。</p><h2 id="M4-M5-M6-与-M7：早期金合金交叉点家族"><a href="#M4-M5-M6-与-M7：早期金合金交叉点家族" class="headerlink" title="M4/M5/M6 与 M7：早期金合金交叉点家族"></a>M4/M5/M6 与 M7：早期金合金交叉点家族</h2><p>M4、M5、M6 主要属于美国 / 日本制造体系，外壳通常更光亮；M7 则属于德国体系，表面更偏哑光和纹理质感。两边在外形和命名上相近，但不是简单的同系列改名。M4 偏向角部照明，M5/M6 提供不同结构；M7 又分中央照明、标准、多触点及侧面照明等形式。</p><p><img src="/medias/switches/cherry-m61-0120.jpg" alt="Cherry M61-0120 Style A"></p><p><em>图：推定为 M61-0120 Style A。摄影：Jeremy Martin，CC0；来源：Telcontar。</em></p><p>早期 <code>261/262</code> 后来改编号为 <code>M61/M62</code>。常见基础型号包括 <code>M61-0100</code>（SPST-NO）、<code>M62-0100</code>（DPST-NO）以及 <code>M61-0800</code> 交替动作版本。M7 中可见 M71 中央照明、M73/M74 标准版本，以及 M75–M78 多触点或侧照版本。</p><table><thead><tr><th>项目</th><th>M4/M5/M6 资料参数</th></tr></thead><tbody><tr><td>动作力</td><td><code>2.5 ± 0.5 oz</code>，约 <code>69 ± 14 cN</code></td></tr><tr><td>预行程</td><td><code>2.4 ± 0.8 mm</code></td></tr><tr><td>总行程</td><td>最大 <code>4.8 mm</code></td></tr><tr><td>额定功率</td><td>DC / AC <code>3 W / 3 VA</code></td></tr><tr><td>最大开关电流</td><td><code>0.125 A</code></td></tr><tr><td>最大持续电流</td><td><code>0.5 A</code></td></tr><tr><td>最大电压</td><td><code>28 V</code></td></tr><tr><td>回弹时间</td><td>不超过 <code>2 ms</code></td></tr><tr><td>初始触点电阻</td><td>最大 <code>200 mΩ</code>，典型 <code>25 mΩ</code></td></tr><tr><td>标称寿命</td><td>至少 <code>1000 万次</code>；部分广告曾宣称 <code>5000 万至 1 亿次</code></td></tr></tbody></table><p><img src="/medias/switches/cherry-m71-0100.jpg" alt="Cherry M71-0100"></p><p><em>图：推定为 M71-0100。摄影：Jeremy Martin，CC0；来源：Telcontar。</em></p><p>M7 的精确首发年份仍不明朗，现有图纸把线索指向 1974 年前后。不同颜色轴心是否对应固定手感或重量，也没有足够原厂材料支持统一结论。Hirose 后续在日本生产 M5、M6，时间线大致为 1983 年和 1985 年。</p><h2 id="Solid-State-MF：泡棉垫片静电容"><a href="#Solid-State-MF：泡棉垫片静电容" class="headerlink" title="Solid State / MF：泡棉垫片静电容"></a>Solid State / MF：泡棉垫片静电容</h2><p>Cherry 的固态静电容键盘使用泡棉垫片改变电容，不依赖传统金属触点；已知版本均带有回差。1977 年已有相关宣传，1979 年可见 <code>CB80-07AA</code>、<code>CB80-12AA</code>，到 1982 年 CB80 编码改为 B4V / B4VE。后来的 Series MF 看起来是面向 DIN 人机工学要求的泡棉垫片方案。</p><p>这部分史料仍不完整：专利图与现存实物并非完全一致，公开页面也没有给出可统一引用的力程、电气和寿命参数。日本 Hirose 版本还出现过触觉弹片或橡胶套结构。因此，这一系列更适合按“技术路线”理解，不能把某个样本的参数推广到全部 MF / 静电容键盘。</p><h2 id="M8、MD、MJ：2-5-mm-到-4-mm-的低矮路线"><a href="#M8、MD、MJ：2-5-mm-到-4-mm-的低矮路线" class="headerlink" title="M8、MD、MJ：2.5 mm 到 4 mm 的低矮路线"></a>M8、MD、MJ：2.5 mm 到 4 mm 的低矮路线</h2><p>德国 M8 提供 <code>2.5 mm</code> 总行程，标准版本采用 6 mm 键帽安装柱，也有 12 mm 版本。按触点材料可分为 M81、M82、M84：M81 使用金合金实体棱柱，M82 使用银合金实体棱柱，M84 则改用成本更低的镀金线触点。</p><p>它可配置单刀或双刀、线性或两档段落、LED、0° / 7° 轴心、空格加重、开放或封闭上盖，以及 6 mm / 12 mm 键帽柱。Cherry 于 2013 年 7 月 31 日发布停产通知，最后购买日为同年 10 月 31 日。</p><table><thead><tr><th>项目</th><th>M8 参数</th></tr></thead><tbody><tr><td>总行程</td><td><code>2.5 +0.2/-0.3 mm</code></td></tr><tr><td>线性预行程</td><td><code>1.6 ± 0.6 mm</code></td></tr><tr><td>普通段落预行程</td><td><code>1.3 ± 0.6 mm</code></td></tr><tr><td>德国邮政段落预行程</td><td><code>1.4 ± 0.6 mm</code></td></tr><tr><td>回弹时间</td><td>1982 目录为最大 <code>2 ms</code>；其他手册为最大 <code>5 ms</code></td></tr><tr><td>瞬时版本寿命</td><td><code>1000 万次</code></td></tr><tr><td>最大持续电流</td><td><code>500 mA</code></td></tr><tr><td>初始触点电阻</td><td>最大 <code>200 mΩ</code>，典型 <code>25 mΩ</code></td></tr></tbody></table><table><thead><tr><th>子系列</th><th>触点</th><th>最大开关电流</th><th>最大电压</th></tr></thead><tbody><tr><td>M81</td><td>AuAg26Ni3 金合金实体棱柱</td><td><code>100 mA</code></td><td><code>28 V</code></td></tr><tr><td>M82</td><td>AgPd30 银合金实体棱柱</td><td><code>100 mA</code></td><td><code>60 V</code></td></tr><tr><td>M84</td><td>AuAg10、3 µm 镀金线</td><td><code>10 mA</code></td><td><code>12 V</code></td></tr></tbody></table><p>Hirose 的 M83A 保持 <code>2.5 mm</code> 行程，M83S 缩短到 <code>1.5 mm</code>；1983 年 4 月推出的 MD、MJ 分别扩展到 <code>3 mm</code> 和 <code>4 mm</code>。四者外壳高度依次约为 <code>6.7 / 6.7 / 7.3 / 7.7 mm</code>。Hirose 原始数据表不允许公开展示，因此这里只记录公开页面可核对的数据，不附原表扫描件。</p><h2 id="M9：为电子打字机而生"><a href="#M9：为电子打字机而生" class="headerlink" title="M9：为电子打字机而生"></a>M9：为电子打字机而生</h2><p>M9 由 Günter Murmann 设计，1979 年申请专利，主要面向 Triumph-Adler 电子打字机。它支持单刀 / 双刀、瞬时 / 自锁 / 双段动作、LED、0° / 7° / 10° 轴心、空格加重、6 mm / 12 mm 键帽，以及 PCB 或定位板安装。</p><table><thead><tr><th>项目</th><th>参数</th></tr></thead><tbody><tr><td>总行程</td><td><code>4.2 mm</code></td></tr><tr><td>预行程</td><td><code>2.0 ± 0.6 mm</code></td></tr><tr><td>第二段动作点</td><td><code>3.5 ± 0.5 mm</code></td></tr><tr><td>回弹时间</td><td>最大 <code>2 ms</code></td></tr><tr><td>瞬时版本寿命</td><td><code>1600 万次</code></td></tr><tr><td>自锁版本寿命</td><td><code>500 万次</code></td></tr><tr><td>最大持续电流</td><td><code>500 mA</code></td></tr><tr><td>初始触点电阻</td><td>最大 <code>200 mΩ</code>，典型 <code>25 mΩ</code></td></tr></tbody></table><p>M91 到 M94 代表不同触点体系，但 M91 没有发现对应技术文档。M92 / M93 的最大开关电流为 <code>100 mA</code>，其中 M93 在 1982 目录中写作 <code>125 mA</code>；M94 为 <code>10 mA</code>。电压等级随触点类型约为 <code>60 V / 28 V / 12 V</code>。由于现存表格列关系并不完全清晰，识别具体实物时应优先看完整料号和年代图纸。</p><h2 id="MX：延续至今的核心家族"><a href="#MX：延续至今的核心家族" class="headerlink" title="MX：延续至今的核心家族"></a>MX：延续至今的核心家族</h2><p>Cherry MX 自 1983 年末起持续生产。它为符合当时 DIN 键盘人机工学要求而采用完整约 <code>4 mm</code> 行程，早期就包含线性、段落、回差、双触点等设计，量产主流后来转为单刀常开，并可选 LED、二极管或跳线。</p><p><img src="https://cdn6.zhuocms.com/storage/wwwcherrycn/LBTT/202404/29662f5d7436e19.png" alt="CHERRY MX 系列官方展示图"></p><p><em>图：CHERRY MX 系列官方展示图。来源：<a href="https://www.cherry.cn/mx.html">CHERRY 中国官网 MX 页面</a>；版权归 CHERRY 或相应权利人所有。</em></p><p><img src="/medias/switches/cherry-6mm-8mm-stems.svg" alt="Cherry 6 mm 与 8 mm 键帽安装柱对比"></p><p><em>图：Cherry 6 mm 与 MX 8 mm 键帽安装柱尺寸对比。制图：Telcontar / Daniel Beardsmore，Public Domain。</em></p><p>MX 的核心是 Gold Crosspoint 触点：两个交叉的贵金属接触点在动作时形成可靠导通，并具备一定自清洁能力。早期资料常见 <code>2000 万次</code>寿命，后来提高到 <code>5000 万次</code>；部分 2020 年后的 RGB Red、Black、Brown、Speed 版本达到 <code>1 亿次</code>，典型回弹时间缩短到 <code>1 ms</code> 以下。不同年代的数据表会有差异，收藏老轴时不能直接套用今天 MX2A 的规格。</p><h3 id="官网当前-MX-分类"><a href="#官网当前-MX-分类" class="headerlink" title="官网当前 MX 分类"></a>官网当前 MX 分类</h3><p>CHERRY 中国官网当前把机械轴体分成 MX、MX 标准轴、MX-LP 矮轴和 MX-ULP 超矮轴四个入口。这里的“MX”和“MX 标准轴”是官网栏目名称，不代表前者不是标准高度；为了避免混淆，下文把前者称作“MX 页面产品”，把后者称作“MX 标准轴页面产品”。</p><table><thead><tr><th>官网栏目</th><th>当前列出的轴体</th><th>结构重点</th></tr></thead><tbody><tr><td><a href="https://www.cherry.cn/mx.html">MX</a></td><td>银轴、青轴、红轴、黑轴、墨轴、玉轴</td><td>经典 MX 手感及定制轴体</td></tr><tr><td><a href="https://www.cherry.cn/mx_stand.html">MX 标准轴</a></td><td>花瓣轴、茶轴、极光轴，以及 MX2A 黑、红、静音红、墨、青、银、玉轴</td><td>标准高度，包含 MX2A 改良结构和定制轴</td></tr><tr><td><a href="https://www.cherry.cn/mx_lp.html">MX-LP 矮轴</a></td><td>矮红轴、矮银轴</td><td><code>3.2 mm</code> 总行程，面向薄型键盘</td></tr><tr><td><a href="https://www.cherry.cn/mx_ulp.html">MX-ULP 超矮轴</a></td><td>超矮轴</td><td>整体高度约 <code>3.5 mm</code>，面向笔记本及超薄设备</td></tr></tbody></table><h3 id="MX-页面当前轴体"><a href="#MX-页面当前轴体" class="headerlink" title="MX 页面当前轴体"></a>MX 页面当前轴体</h3><p>下表只写官网列表或详情页能够直接核对的参数。墨轴和玉轴属于较新的定制产品，其数值不应仅凭轴心颜色套用经典黑轴、茶轴或其他旧型号。</p><table><thead><tr><th>轴体</th><th>类型</th><th>触发力</th><th>段落力</th><th>预行程</th><th>总行程</th><th>官网定位 / 说明</th></tr></thead><tbody><tr><td><a href="https://www.cherry.cn/mx-6335.html">MX 银轴</a></td><td>线性、快速触发</td><td><code>45 ± 15 cN</code></td><td>无</td><td><code>1.2 ± 0.4 mm</code></td><td>官网摘要未列出</td><td>快速触达，面向游戏</td></tr><tr><td><a href="https://www.cherry.cn/mx-6336.html">MX 青轴</a></td><td>强段落、有声</td><td><code>50 ± 15 cN</code></td><td><code>60 ± 15 cN</code></td><td><code>2.2 ± 0.6 mm</code></td><td>官网摘要未列出</td><td>声音清脆、节奏感强</td></tr><tr><td><a href="https://www.cherry.cn/mx-6337.html">MX 红轴</a></td><td>线性</td><td><code>45 ± 15 cN</code></td><td>无</td><td><code>2.0 ± 0.6 mm</code></td><td>官网摘要未列出</td><td>轻巧触及、回弹迅速</td></tr><tr><td><a href="https://www.cherry.cn/mx-6338.html">MX 黑轴</a></td><td>重手线性</td><td><code>60 ± 20 cN</code></td><td>无</td><td><code>2.0 ± 0.6 mm</code></td><td>官网摘要未列出</td><td>触发灵敏、回馈迅速</td></tr><tr><td><a href="https://www.cherry.cn/mx-6348.html">MX 墨轴</a></td><td>线性</td><td><code>63.5 cN</code></td><td>无</td><td><code>2.0 mm</code></td><td><code>4.0 mm</code></td><td>基于社区所称 NIXIE 风格回归；黑色轴心、乳白上盖、黑色底壳、镀金弹簧</td></tr><tr><td><a href="https://www.cherry.cn/mx-6349.html">MX 玉轴</a></td><td>中段落</td><td><code>40 cN</code></td><td><code>55 cN</code></td><td><code>2.0 mm</code></td><td><code>4.0 mm</code></td><td>官网称其为 CHERRY 首款定制轴；标称寿命超过 <code>5000 万次</code></td></tr></tbody></table><h3 id="经典与特殊-MX-对照"><a href="#经典与特殊-MX-对照" class="headerlink" title="经典与特殊 MX 对照"></a>经典与特殊 MX 对照</h3><p>下表按 Telcontar 汇总的历史数据整理。触底力来自相应年代曲线或数据表时才列出，空白不代表没有触底力，而是缺少适合统一比较的数据。</p><table><thead><tr><th>类型</th><th>料号族</th><th>手感</th><th>预行程</th><th>总行程</th><th>动作 / 段落力</th><th>约触底力</th><th>备注</th></tr></thead><tbody><tr><td>Black 黑轴</td><td><code>MX1A-11xx</code></td><td>线性</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td><code>60 ± 20 cN</code></td><td>约 <code>85 cN</code></td><td>早期核心线性型号</td></tr><tr><td>Linear Grey 线性灰</td><td><code>MX1A-21xx</code></td><td>线性、空格加重</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td><code>80 ± 25 cN</code></td><td>约 <code>110 cN</code></td><td>常用于大键</td></tr><tr><td>Lock 锁轴</td><td><code>MX1A-31xx</code></td><td>线性、自锁</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td><code>60 ± 20 cN</code></td><td>约 <code>105 cN</code></td><td>交替动作，不是普通瞬时轴</td></tr><tr><td>White 白轴</td><td><code>MX1A-A1xx</code></td><td>段落 + 回差 / 轻微声响</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td><code>70 ± 20 cN</code></td><td>约 <code>85 cN</code></td><td>原始段落型 MX 路线</td></tr><tr><td>Click Grey 点击灰</td><td><code>MX1A-B1xx</code></td><td>段落有声、空格加重</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td>约 <code>95 cN</code></td><td>—</td><td>对应重手大键用途</td></tr><tr><td>Clear 透明轴</td><td><code>MX1A-C1xx</code></td><td>段落无声</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td><code>55 ± 20 cN</code></td><td>约 <code>95 cN</code></td><td>段落比茶轴更明显</td></tr><tr><td>Tactile Grey 段落灰</td><td><code>MX1A-D1xx</code></td><td>段落无声、空格加重</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td>历史参数不完整</td><td>—</td><td>Clear 的大键对应型号</td></tr><tr><td>Blue 青轴</td><td><code>MX1A-E1xx</code></td><td>段落有声 + 回差</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td><code>50 ± 15 cN</code></td><td>约 <code>60 cN</code></td><td>Cherry 资料称 1987 年推出</td></tr><tr><td>Green 绿轴</td><td><code>MX1A-F1xx</code></td><td>段落有声、空格加重</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td><code>70 ± 20 cN</code></td><td>约 <code>90 cN</code></td><td>青轴的重手对应型号</td></tr><tr><td>Brown 茶轴</td><td><code>MX1A-G1xx</code></td><td>段落无声</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td><code>45 ± 20 cN</code></td><td>约 <code>60 cN</code></td><td>1992 年为 Kinesis 定制</td></tr><tr><td>Red 红轴</td><td><code>MX1A-L1xx</code></td><td>线性</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td><code>45 ± 15 cN</code></td><td>约 <code>58 cN</code></td><td>2008 年出现，后成为常规型号</td></tr><tr><td>Silent Red 静音红</td><td><code>MX3A-L1xx</code></td><td>阻尼线性</td><td><code>1.9 ± 0.6 mm</code></td><td><code>3.7 -0.4 mm</code></td><td><code>45 ± 15 cN</code></td><td>—</td><td>上下行均有缓冲结构</td></tr><tr><td>Silent Black 静音黑</td><td><code>MX3A-11xx</code></td><td>阻尼线性</td><td><code>1.9 ± 0.6 mm</code></td><td><code>3.7 -0.4 mm</code></td><td><code>60 ± 20 cN</code></td><td>—</td><td>重手静音线性</td></tr><tr><td>Nature White 自然白</td><td><code>MX1A-41NA</code></td><td>线性</td><td>约 <code>2 mm</code></td><td>约 <code>4 mm</code></td><td><code>52 ± 15 cN</code></td><td>—</td><td>2019 年停产通知所涉型号</td></tr><tr><td>Speed Silver 银轴</td><td><code>MX1A-51xx</code></td><td>短触发线性</td><td><code>1.2 ± 0.4 mm</code></td><td><code>3.4 -0.4 mm</code></td><td><code>45 ± 15 cN</code></td><td>—</td><td>面向快速触发</td></tr><tr><td>Ergo Clear</td><td><code>MX1A-H1xx</code></td><td>段落无声</td><td><code>2 mm</code></td><td><code>4 mm</code></td><td>触发约 <code>40 cN</code>，段落约 <code>55 cN</code></td><td>—</td><td>2022 年成为正式产品</td></tr><tr><td>Black Clear-Top</td><td><code>MX1A/MX2A-61NW</code></td><td>线性</td><td><code>2 mm</code></td><td><code>4 mm</code></td><td><code>63.5 cN</code></td><td><code>110 cN</code></td><td>官方复刻社区所称 Nixie 风格</td></tr></tbody></table><p>RGB 版本主要改为透明上盖以配合 PCB 上的 SMD RGB LED，基础力程通常对应同色标准版本。所谓“Vintage MX”更多是收藏者对特定年代实物手感的概括；关于某年是否统一更换塑料材料，公开证据仍不足，不宜写成确定的生产分界线。</p><h3 id="MX2A：当前标准轴改良结构"><a href="#MX2A：当前标准轴改良结构" class="headerlink" title="MX2A：当前标准轴改良结构"></a>MX2A：当前标准轴改良结构</h3><p>MX2A 延续 Gold Crosspoint 电气触点和 MX 十字轴心兼容体系，但对影响顺滑度、声音和一致性的机械部件进行了改良。官网详情图给出的共同结构包括：</p><ul><li>轴心桶柱四周环状点润，使润滑位置与机械配合集中在导向区域，并降低弹簧噪声。</li><li>弹簧由桶形过渡到圆柱形设计，以减小公差并改善回弹一致性。</li><li>轴心使用六条肋骨加强结构，轴心与导轨表面采用钻石抛光处理，以降低滑动刮擦。</li><li>Gold Crosspoint 触点采用两点焊接；官网详情图称触点表面为 <code>99.99%</code> 黄金涂层。</li><li>MX2A 红、黑、银、静音红、茶、玉和墨轴的详情页写有出厂润滑；MX2A 青轴页面未标注出厂润滑，不应自动视为相同处理。</li></ul><p><img src="https://cdn6.zhuocms.com/storage/wwwcherrycn/switch/202405/11663f1337ca393.jpg" alt="CHERRY MX2A 轴体官方参数表"></p><p><em>图：CHERRY MX2A 当前零售轴体参数表。来源：<a href="https://www.cherry.cn/mx_stand.html">CHERRY 中国官网 MX 标准轴页面</a>及详情图；版权归 CHERRY 或相应权利人所有。</em></p><table><thead><tr><th>MX2A 轴体</th><th>类型</th><th>触发力</th><th>段落力</th><th>预行程</th><th>总行程</th><th>标称寿命</th><th>针脚</th></tr></thead><tbody><tr><td><a href="https://www.cherry.cn/mx_stand-6341.html">黑轴 RGB</a></td><td>重手线性</td><td><code>60 ± 20 cN</code></td><td>无</td><td><code>2.0 ± 0.6 mm</code></td><td><code>4.0 -0.4 mm</code></td><td>超过 <code>1 亿次</code></td><td>3 Pin</td></tr><tr><td><a href="https://www.cherry.cn/mx_stand-6346.html">银轴 RGB</a></td><td>快速触发线性</td><td><code>45 ± 15 cN</code></td><td>无</td><td><code>1.2 ± 0.4 mm</code></td><td><code>3.4 -0.4 mm</code></td><td>超过 <code>1 亿次</code></td><td>3 Pin</td></tr><tr><td><a href="https://www.cherry.cn/mx_stand-6343.html">静音红轴 RGB</a></td><td>轻音线性</td><td><code>45 ± 15 cN</code></td><td>无</td><td><code>1.9 ± 0.6 mm</code></td><td><code>3.7 -0.4 mm</code></td><td>超过 <code>5000 万次</code></td><td>3 Pin</td></tr><tr><td><a href="https://www.cherry.cn/mx_stand-6345.html">青轴 RGB</a></td><td>强段落、有声</td><td><code>50 ± 15 cN</code></td><td><code>60 ± 15 cN</code></td><td><code>2.2 ± 0.6 mm</code></td><td><code>4.0 -0.5 mm</code></td><td>超过 <code>5000 万次</code></td><td>3 Pin</td></tr><tr><td><a href="https://www.cherry.cn/mx_stand-6339.html">茶轴 RGB</a></td><td>轻微段落、无声</td><td><code>45 ± 20 cN</code></td><td><code>55 ± 20 cN</code></td><td><code>2.0 ± 0.6 mm</code></td><td><code>4.0 -0.4 mm</code></td><td>超过 <code>1 亿次</code></td><td>3 Pin</td></tr><tr><td><a href="https://www.cherry.cn/mx_stand-6347.html">玉轴 RGB</a></td><td>中段落</td><td><code>40 cN</code></td><td><code>55 cN</code></td><td><code>2.0 mm</code></td><td><code>4.0 mm</code></td><td>超过 <code>5000 万次</code></td><td>3 Pin</td></tr><tr><td><a href="https://www.cherry.cn/mx_stand-6342.html">红轴 RGB</a></td><td>轻手线性</td><td><code>45 ± 15 cN</code></td><td>无</td><td><code>2.0 ± 0.6 mm</code></td><td><code>4.0 -0.4 mm</code></td><td>超过 <code>1 亿次</code></td><td>3 Pin</td></tr><tr><td><a href="https://www.cherry.cn/mx_stand-6344.html">墨轴（无光）</a></td><td>重手线性</td><td><code>63.5 cN</code></td><td>无</td><td><code>2.0 mm</code></td><td><code>4.0 mm</code></td><td>超过 <code>5000 万次</code></td><td>5 Pin</td></tr></tbody></table><h3 id="花瓣轴与极光轴"><a href="#花瓣轴与极光轴" class="headerlink" title="花瓣轴与极光轴"></a>花瓣轴与极光轴</h3><p>花瓣轴和极光轴也是官网“MX 标准轴”栏目中的当前产品，但并非只靠颜色区分的经典 MX 复刻。两者均提供了较完整的结构说明。</p><table><thead><tr><th>项目</th><th><a href="https://www.cherry.cn/mx_stand-6420.html">花瓣轴</a></th><th><a href="https://www.cherry.cn/mx_stand-6407.html">极光轴</a></th></tr></thead><tbody><tr><td>类型</td><td>微段落、无声</td><td>线性、静音</td></tr><tr><td>触发力</td><td><code>30 cN</code>，官网称初始压力与触发压力相同</td><td><code>45 cN</code></td></tr><tr><td>预行程</td><td><code>2.0 mm</code></td><td><code>1.6 ± 0.4 mm</code></td></tr><tr><td>总行程</td><td><code>4.0 mm</code></td><td><code>3.7 ± 0.4 mm</code></td></tr><tr><td>回弹时间</td><td>官网未列出</td><td>小于 <code>1 ms</code></td></tr><tr><td>标称寿命</td><td>超过 <code>5000 万次</code></td><td>超过 <code>5000 万次</code></td></tr><tr><td>安装</td><td>5 Pin</td><td>5 Pin、双点焊接</td></tr><tr><td>轴心 / 外壳</td><td>标准 MX 十字轴心；粉色系外壳</td><td>POM 轴心、尼龙半透明上盖、尼龙底壳</td></tr><tr><td>弹簧</td><td><code>16 mm</code> 加长弹簧</td><td><code>18 mm</code> 镀金弹簧</td></tr><tr><td>润滑 / 降噪</td><td>出厂精密润滑；以较轻微的段落确认按压</td><td>出厂精密润滑；轴心两侧嵌入定制消音硅胶条，降低摩擦与触底碰撞声</td></tr><tr><td>触点</td><td>Gold Crosspoint</td><td>Gold Crosspoint；官网称触点表面为 <code>99.99%</code> 黄金涂层</td></tr></tbody></table><p><img src="https://cdn6.zhuocms.com/storage/wwwcherrycn/switch/202510/1768f202547972b.png" alt="CHERRY 花瓣轴官方产品图"></p><p><em>图：CHERRY 花瓣轴。来源：<a href="https://www.cherry.cn/mx_stand-6420.html">CHERRY 中国官网花瓣轴详情页</a>；版权归 CHERRY 或相应权利人所有。</em></p><p><img src="https://cdn6.zhuocms.com/storage/wwwcherrycn/switch/202510/1768f1ef243802f.png" alt="CHERRY 极光轴官方产品图"></p><p><em>图：CHERRY 极光轴。来源：<a href="https://www.cherry.cn/mx_stand-6407.html">CHERRY 中国官网极光轴详情页</a>；版权归 CHERRY 或相应权利人所有。</em></p><h2 id="ML：低矮-Gold-Crosspoint"><a href="#ML：低矮-Gold-Crosspoint" class="headerlink" title="ML：低矮 Gold Crosspoint"></a>ML：低矮 Gold Crosspoint</h2><p>Telcontar 的 Cherry 总览页注明 ML 主页面“本站未收录”，但其料号页与 Cherry ML1A 原厂数据表仍提供了可核对参数。ML 是独立 PCB 安装的低矮机械开关，采用单刀常开 Gold Crosspoint 触点，常见于 G84 系列紧凑键盘。</p><table><thead><tr><th>项目</th><th>ML1A 参数</th></tr></thead><tbody><tr><td>手感</td><td>段落；段落峰值 <code>50 ± 20 cN</code></td></tr><tr><td>总行程</td><td><code>3.0 -0.5 mm</code></td></tr><tr><td>预行程</td><td><code>1.5 ± 0.5 mm</code></td></tr><tr><td>初始力</td><td>最小 <code>30 cN</code></td></tr><tr><td>触发力</td><td><code>45 ± 20 cN</code></td></tr><tr><td>最大电压 / 电流</td><td><code>12 V AC/DC</code> / <code>10 mA AC/DC</code></td></tr><tr><td>触点结构</td><td>SPST-NO，AuAg10 Gold Crosspoint</td></tr><tr><td>回弹时间</td><td>最大 <code>5 ms</code></td></tr><tr><td>初始触点电阻</td><td>小于 <code>200 mΩ</code>，典型 <code>25 mΩ</code></td></tr><tr><td>寿命</td><td>超过 <code>2000 万次</code></td></tr><tr><td>工作温度</td><td><code>-10°C 至 +70°C</code></td></tr><tr><td>防护等级</td><td><code>IP40</code></td></tr></tbody></table><p>ML1A 是较矮的常见版本，资料中还出现过更高、更坚固的 ML1B。两者的精确投产与停产时间尚待更多目录交叉验证。</p><h2 id="MY-FTSC：机械模块压合薄膜"><a href="#MY-FTSC：机械模块压合薄膜" class="headerlink" title="MY / FTSC：机械模块压合薄膜"></a>MY / FTSC：机械模块压合薄膜</h2><p>MY 是德国 FTSC（Full-Travel Sealed Contact）产品线，绝大多数配套键盘归入 G81。它不是 MX 式独立金属触点轴：每个按键有独立回弹弹簧和执行弹片，最终由模块压合下方薄膜触点，因此常被描述为“带独立机械按键模块的薄膜键盘”。</p><p>英国 Cherry Electrical Products 于 1984 年申请早期设计专利；德国团队为降低打字机键盘成本继续改良，并在 1985–1986 年申请新专利。现有收藏资料把 MY 分为 Type 1a、1b、2、3，但这不是官方命名。Type 1 热铆在背板上，拆除通常会损坏；Type 2、3 改为可拆结构。各类型缺少统一、可信的原厂力程测量，因此本文不编造具体克数。识别时应记录轴心颜色、安装方式、背板结构和完整键盘料号。</p><h2 id="M11、M85-与-Cherry-代工-Hi-Tek"><a href="#M11、M85-与-Cherry-代工-Hi-Tek" class="headerlink" title="M11、M85 与 Cherry 代工 Hi-Tek"></a>M11、M85 与 Cherry 代工 Hi-Tek</h2><p><img src="/medias/switches/cherry-m11.jpg" alt="Cherry M11 开关"></p><p><em>图：两只标准 M11（非空格版本）。来源：Telcontar / Daniel Beardsmore，Public Domain。</em></p><p>M11 是为 HP 键盘准备的特殊单刀开关，意在作为 Datanetics DC-60 的兼容替代品。已知图纸日期为 1979 年 11 月，普通版本多为黑色；透明 <code>M11-0101</code> 是空格加重版本，动作力约 <code>95 ± 25 cN</code>。总行程为 <code>3.175 mm</code>。目前只在 HP 相关键盘中确认过使用。</p><p>M85 则是 Hirose Cherry 在 1987 年 4 月推出的 M8 衍生中央照明轴，已知型号为 <code>M85A-0N00</code>，单刀结构，并在 2013 年与后期 M8 产品一同走向停产。</p><p>此外，Cherry 曾按 DEC 要求生产过采用 Hi-Tek High Profile 开关的完整键盘，已知型号 <code>UB80-01AA</code>，年代约为 1978–1980 年。这里的开关设计属于 Hi-Tek，Cherry 是键盘制造方，不应把它误归为 Cherry 自研轴体。</p><h2 id="MX-LP-矮轴：3-2-mm-总行程"><a href="#MX-LP-矮轴：3-2-mm-总行程" class="headerlink" title="MX-LP 矮轴：3.2 mm 总行程"></a>MX-LP 矮轴：3.2 mm 总行程</h2><p>MX Low Profile 于 2018 年 1 月 12 日发布。它沿用 Gold Crosspoint 触点，但并不是把普通 MX 简单压矮，而是一套独立低矮结构。官网称其整体高度比标准 MX 低约 <code>35%</code>，可配合直接安装在 PCB 上的 SMD RGB 或单色 LED；高精度聚合物上盖负责导向，触点具备自清洁能力，并强调防尘污设计。</p><p>当前 <a href="https://www.cherry.cn/mx_lp.html">CHERRY 中国官网 MX-LP 页面</a> 列出矮红轴和矮银轴两款线性轴体。两者动作力和总行程相同，主要差异是矮银轴把触发点进一步提前到 <code>1.0 mm</code>。</p><table><thead><tr><th>项目</th><th><a href="https://www.cherry.cn/mx_lp-6363.html">MX-LP 矮红轴</a></th><th><a href="https://www.cherry.cn/mx_lp-6364.html">MX-LP 矮银轴</a></th></tr></thead><tbody><tr><td>手感</td><td>线性</td><td>线性、快速触发</td></tr><tr><td>动作力</td><td><code>45 cN</code></td><td><code>45 cN</code></td></tr><tr><td>预行程</td><td><code>1.2 mm</code></td><td><code>1.0 mm</code></td></tr><tr><td>总行程</td><td><code>3.2 mm</code></td><td><code>3.2 mm</code></td></tr><tr><td>当前官网标称寿命</td><td>超过 <code>1 亿次</code></td><td>超过 <code>1 亿次</code></td></tr><tr><td>照明</td><td>支持 PCB 上的 SMD RGB 或单色 LED</td><td>支持 PCB 上的 SMD RGB 或单色 LED</td></tr><tr><td>制造信息</td><td>官网详情图标注德国设计与制造</td><td>官网详情图标注德国设计与制造</td></tr></tbody></table><p><img src="https://cdn6.zhuocms.com/storage/wwwcherrycn/switch/202405/306657de67adf9a.jpg" alt="CHERRY MX-LP 矮红轴官方产品图"></p><p><em>图：CHERRY MX-LP 矮红轴。来源：<a href="https://www.cherry.cn/mx_lp-6363.html">CHERRY 中国官网矮红轴详情页</a>；版权归 CHERRY 或相应权利人所有。</em></p><p><img src="https://cdn6.zhuocms.com/storage/wwwcherrycn/switch/202405/306657e0408d79f.jpg" alt="CHERRY MX-LP 矮银轴官方产品图"></p><p><em>图：CHERRY MX-LP 矮银轴。来源：<a href="https://www.cherry.cn/mx_lp-6364.html">CHERRY 中国官网矮银轴详情页</a>；版权归 CHERRY 或相应权利人所有。</em></p><h3 id="2018-年早期数据表参数"><a href="#2018-年早期数据表参数" class="headerlink" title="2018 年早期数据表参数"></a>2018 年早期数据表参数</h3><p>早期资料记录的料号为红色轴心 <code>MX1B-L2NA</code> 和银色 Speed <code>MX1B-52NA</code>。早期数据表与当前官网在核心力程上相符，但寿命标注从当年的 <code>5000 万次</code>提高到当前详情图的“超过 <code>1 亿次</code>”；这更可能反映产品迭代或测试规格更新，不能把新寿命倒推给所有早期实物。</p><table><thead><tr><th>项目</th><th>Red</th><th>Speed Silver</th></tr></thead><tbody><tr><td>手感</td><td>线性</td><td>线性</td></tr><tr><td>总行程</td><td><code>3.2 ± 0.25 mm</code></td><td><code>3.2 ± 0.25 mm</code></td></tr><tr><td>预行程</td><td><code>1.2 ± 0.3 mm</code></td><td><code>1.0 ± 0.3 mm</code></td></tr><tr><td>最小预压力</td><td><code>30 cN</code></td><td><code>30 cN</code></td></tr><tr><td>动作力</td><td><code>45 ± 15 cN</code></td><td><code>45 ± 15 cN</code></td></tr><tr><td>典型回弹</td><td><code>1 ms</code></td><td><code>1 ms</code></td></tr><tr><td>标称寿命</td><td><code>5000 万次</code></td><td><code>5000 万次</code></td></tr><tr><td>最大电压</td><td><code>12 V AC/DC</code></td><td><code>12 V AC/DC</code></td></tr><tr><td>最小轴间距</td><td><code>16 mm</code></td><td><code>16 mm</code></td></tr></tbody></table><h2 id="MV-Viola：开放式主流方案"><a href="#MV-Viola：开放式主流方案" class="headerlink" title="MV / Viola：开放式主流方案"></a>MV / Viola：开放式主流方案</h2><p>MV 最初以 Viola 名称于 2020 年 1 月发布。它采用开放底部、定位板安装的半独立结构，PCB 焊盘是固定触点，活动铜合金桥片负责导通；RGB LED 位于 PCB。Cherry 将其渐进式力程称为 <code>CrossLinear</code>。</p><p><img src="/medias/switches/cherry-mv-force-curve.svg" alt="Cherry MV / Viola 力程曲线"></p><p><em>图：依据 Cherry 公布参数绘制的 MV / Viola 力程曲线。制图：Telcontar / Daniel Beardsmore，Public Domain。</em></p><table><thead><tr><th>项目</th><th>参数</th></tr></thead><tbody><tr><td>手感</td><td>CrossLinear，整体接近线性</td></tr><tr><td>总行程</td><td><code>4.0 ± 0.4 mm</code></td></tr><tr><td>预行程</td><td><code>2.0 ± 0.6 mm</code></td></tr><tr><td>最小初始力</td><td><code>20 cN</code></td></tr><tr><td>动作力</td><td><code>45 ± 15 cN</code></td></tr><tr><td>触底附近力</td><td>约 <code>75 cN</code></td></tr><tr><td>典型电压 / 电流</td><td><code>2–5 V</code> / <code>0.1–1 mA</code></td></tr><tr><td>触点形式</td><td>SPST-NO</td></tr><tr><td>最小轴间距</td><td><code>16 mm</code></td></tr></tbody></table><h2 id="MX-ULP-超矮轴：3-5-mm-整体高度"><a href="#MX-ULP-超矮轴：3-5-mm-整体高度" class="headerlink" title="MX-ULP 超矮轴：3.5 mm 整体高度"></a>MX-ULP 超矮轴：3.5 mm 整体高度</h2><p>MX Ultra Low Profile 于 2021 年 3 月 18 日发布，面向笔记本和超薄设备。它不再是传统封闭轴壳，而是整体高度约 <code>3.5 mm</code> 的开放式 SMD 结构；两只摆臂在跨接弹簧作用下运动，中部透明执行件承载键帽并允许 SMD RGB 光线通过。官网详情图强调德国设计与制造、Gold Crosspoint、短回弹时间、SMD 自动化装配以及高亮度 RGB 适配。</p><p>已知型号包括有声段落 <code>MX6C-K3NB</code> 和无声段落 <code>MX6C-T3NB</code>。Telcontar 早期资料的总参数表把反馈统一写作“Tactile click”，而产品型号又区分 Click 与 Tactile，因此实际识别应以完整型号及相应原厂数据表为准。</p><p>当前中文官网还存在一处需要保留的资料矛盾：<a href="https://www.cherry.cn/mx_ulp.html">MX-ULP 列表页</a>把“超矮轴”卡片写成“线性轴”，但其<a href="https://www.cherry.cn/mx_ulp-6365.html">产品详情页</a>和官方详情图展示的是 <code>MX ULP Click</code>，明确描述为有触感且有点击声。本文不擅自把两者合并，轴体识别仍以完整料号为准。</p><p><img src="https://cdn6.zhuocms.com/storage/wwwcherrycn/switch/202405/306657e102abbba.jpg" alt="CHERRY MX-ULP 超矮轴官方产品图"></p><p><em>图：CHERRY MX-ULP 超矮轴。来源：<a href="https://www.cherry.cn/mx_ulp-6365.html">CHERRY 中国官网超矮轴详情页</a>；版权归 CHERRY 或相应权利人所有。</em></p><p><img src="/medias/switches/cherry-mx-ulp-force-curve.svg" alt="Cherry MX Ultra Low Profile 力程曲线"></p><p><em>图：Cherry MX Ultra Low Profile 官方力程数据重绘。制图：Telcontar / Daniel Beardsmore，Public Domain。</em></p><table><thead><tr><th>项目</th><th>参数</th></tr></thead><tbody><tr><td>总行程</td><td><code>1.8 mm</code></td></tr><tr><td>预行程</td><td><code>0.8 mm</code></td></tr><tr><td>段落峰值力</td><td><code>65 cN</code></td></tr><tr><td>触发力</td><td><code>52 cN</code></td></tr><tr><td>早期资料标称寿命</td><td><code>1500 万次</code></td></tr><tr><td>电压</td><td><code>5 V</code></td></tr></tbody></table><p>上表保留的是早期数据表参数。当前官网详情图对 <code>MX ULP Click</code> 标注“超过 <code>5000 万次</code>”按键寿命，不能直接覆盖早期型号的 <code>1500 万次</code>数据；收藏与维修时应同时记录料号、生产年代和具体规格书版本。</p><h2 id="如何识别一只未知-Cherry-轴"><a href="#如何识别一只未知-Cherry-轴" class="headerlink" title="如何识别一只未知 Cherry 轴"></a>如何识别一只未知 Cherry 轴</h2><ol><li>先记录键盘完整料号、铭牌、生产日期码和产地，不要只看轴心颜色。</li><li>拆下一只非大键键帽，拍摄轴心形状、颜色、上盖纹理、Logo、LED 位置和键帽安装柱。</li><li>从 PCB 或背板侧记录焊脚数量、定位方式、二极管 / 跳线、薄膜结构及是否可拆。</li><li>测量预行程、总行程和外壳高度；老轴的弹簧、润滑和磨损会让手感偏离目录值。</li><li>用完整料号对照对应年代的编号规则。相同颜色在不同系列、工厂和年代中不一定代表相同结构。</li><li>对无法证实的结论保留“待考”，并保存原图、来源链接和访问日期，方便后续修订。</li></ol><h2 id="资料误差与收藏注意事项"><a href="#资料误差与收藏注意事项" class="headerlink" title="资料误差与收藏注意事项"></a>资料误差与收藏注意事项</h2><ul><li>不同年份目录可能给出不同参数，例如 M8 回弹时间有 <code>2 ms</code> 与 <code>5 ms</code> 两套记录，M93 最大开关电流也有 <code>100 mA</code> 与 <code>125 mA</code> 的差异。</li><li>轴心颜色是识别线索，不是单独定论。M7、早期 MX、Hirose 版本尤其需要结合触点和外壳。</li><li>标称寿命是在规定电压、电流、速度和环境下测得，不等于几十年后老轴仍能达到原始指标。</li><li>“手感”受键帽重量、定位板、弹簧老化、污染、润滑和键位大小影响，目录参数不能完全替代实物体验。</li><li>文章展示的开关照片和曲线用于史料辨识，不代表 CHERRY 对本站内容的认可或授权。</li></ul><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><a href="https://www.cherry.cn/mx.html">CHERRY 中国官网：MX</a></li><li><a href="https://www.cherry.cn/mx_stand.html">CHERRY 中国官网：MX 标准轴</a></li><li><a href="https://www.cherry.cn/mx_lp.html">CHERRY 中国官网：MX-LP 矮轴</a></li><li><a href="https://www.cherry.cn/mx_ulp.html">CHERRY 中国官网：MX-ULP 超矮轴</a></li><li><a href="https://telcontar.net/KBK/Cherry/#switches">Telcontar：Cherry Switches 总览</a></li><li><a href="https://telcontar.net/KBK/Cherry/S31">Telcontar：S31</a></li><li><a href="https://telcontar.net/KBK/Cherry/reed">Telcontar：Cherry Reed</a></li><li><a href="https://telcontar.net/KBK/Cherry/M7">Telcontar：M4/M5/M6 与 M7</a></li><li><a href="https://telcontar.net/KBK/Cherry/solid_state">Telcontar：Solid State Capacitive</a></li><li><a href="https://telcontar.net/KBK/Cherry/M8DJ">Telcontar：M8、MD、MJ</a></li><li><a href="https://telcontar.net/KBK/Cherry/M9">Telcontar：M9</a></li><li><a href="https://telcontar.net/KBK/Cherry/MX">Telcontar：MX</a></li><li><a href="https://telcontar.net/KBK/Cherry/MX_variants">Telcontar：MX Variants</a></li><li><a href="https://telcontar.net/KBK/Cherry/ML_schema">Telcontar：ML 料号规则</a></li><li><a href="https://www.farnell.com/datasheets/2301175.pdf">Cherry ML1A 原厂数据表镜像</a></li><li><a href="https://telcontar.net/KBK/Cherry/MY">Telcontar：MY</a></li><li><a href="https://telcontar.net/KBK/Cherry/M11">Telcontar：M11</a></li><li><a href="https://telcontar.net/KBK/Cherry/M85">Telcontar：M85</a></li><li><a href="https://telcontar.net/KBK/Cherry/Hi-Tek">Telcontar：Cherry-produced Hi-Tek</a></li><li><a href="https://telcontar.net/KBK/Cherry/MX_Low_Profile">Telcontar：MX Low Profile</a></li><li><a href="https://telcontar.net/KBK/Cherry/MV">Telcontar：MV / Viola</a></li><li><a href="https://telcontar.net/KBK/Cherry/MX_Ultra_Low_Profile">Telcontar：MX Ultra Low Profile</a></li><li><a href="https://telcontar.net/KBK/about">Telcontar：About / 图片授权说明</a></li></ul><p>最后更新：2026-07-24。当前 MX 产品信息以 CHERRY 中国官网在该日期展示的页面和详情图为准；官网后续可能调整产品名称、参数或在售状态。后续如发现新的原厂目录、图纸或可核对实物，本文会继续修订，并保留不确定信息的说明。</p>]]></content>
     
     
-    <summary type="html">从 S31、簧片、M4/M5/M6、M7、M8、M9 到 MX、ML、MY、MV、MX Low Profile 与 MX Ultra Low Profile，系统整理 Cherry 键盘开关的历史、结构、手感和技术参数。</summary>
+    <summary type="html">从早期 S31、M7、M8、M9 到当前 MX、MX2A、MX-LP 与 MX-ULP，系统整理 Cherry 键盘开关的历史、结构、手感和官方技术参数。</summary>
     
     
     
@@ -38,35 +38,6 @@
     <category term="Cherry 轴体" scheme="https://zakerberg.github.io/tags/Cherry-%E8%BD%B4%E4%BD%93/"/>
     
     <category term="键盘开关" scheme="https://zakerberg.github.io/tags/%E9%94%AE%E7%9B%98%E5%BC%80%E5%85%B3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>G80-0075</title>
-    <link href="https://zakerberg.github.io/2025/08/18/g80/g80-0075/"/>
-    <id>https://zakerberg.github.io/2025/08/18/g80/g80-0075/</id>
-    <published>2025-08-17T16:00:00.000Z</published>
-    <updated>2026-07-21T07:22:59.264Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><h2 id="G80-0075"><a href="#G80-0075" class="headerlink" title="G80-0075"></a>G80-0075</h2></blockquote><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/0.jpeg" alt="G80-0075"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/1.jpeg" alt="G80-0075"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/2.jpeg" alt="G80-0075"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/3.jpeg" alt="G80-0075"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/4.jpeg" alt="G80-0075"></p><blockquote><h2 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h2></blockquote><p><a href="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/Cherry_Keyboards_and_Switches_Catalogue_1982.pdf">Cherry_Keyboards_and_Switches_Catalogue_1982.pdf</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;h2 id=&quot;G80-0075&quot;&gt;&lt;a href=&quot;#G80-0075&quot; class=&quot;headerlink&quot; title=&quot;G80-0075&quot;&gt;&lt;/a&gt;G80-0075&lt;/h2&gt;&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/0.jpeg&quot; alt=&quot;G80-0075&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/1.jpeg&quot; alt=&quot;G80-0075&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/2.jpeg&quot; alt=&quot;G80-0075&quot;&gt;&lt;/p&gt;
-&lt;</summary>
-      
-    
-    
-    
-    <category term="G80" scheme="https://zakerberg.github.io/categories/G80/"/>
-    
-    <category term="M7" scheme="https://zakerberg.github.io/categories/G80/M7/"/>
-    
     
   </entry>
   
@@ -100,23 +71,23 @@
   </entry>
   
   <entry>
-    <title>G80-0078</title>
-    <link href="https://zakerberg.github.io/2025/08/18/g80/g80-0078/"/>
-    <id>https://zakerberg.github.io/2025/08/18/g80/g80-0078/</id>
+    <title>G80-0075</title>
+    <link href="https://zakerberg.github.io/2025/08/18/g80/g80-0075/"/>
+    <id>https://zakerberg.github.io/2025/08/18/g80/g80-0075/</id>
     <published>2025-08-17T16:00:00.000Z</published>
     <updated>2026-07-21T07:22:59.264Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><h2 id="G80-0078-暂无图片"><a href="#G80-0078-暂无图片" class="headerlink" title="G80-0078 (暂无图片)"></a>G80-0078 (暂无图片)</h2></blockquote><blockquote><h2 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h2></blockquote><p><a href="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/Cherry_Keyboards_and_Switches_Catalogue_1982.pdf">Cherry_Keyboards_and_Switches_Catalogue_1982.pdf</a></p>]]></content>
+    <content type="html"><![CDATA[<blockquote><h2 id="G80-0075"><a href="#G80-0075" class="headerlink" title="G80-0075"></a>G80-0075</h2></blockquote><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/0.jpeg" alt="G80-0075"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/1.jpeg" alt="G80-0075"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/2.jpeg" alt="G80-0075"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/3.jpeg" alt="G80-0075"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/4.jpeg" alt="G80-0075"></p><blockquote><h2 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h2></blockquote><p><a href="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/Cherry_Keyboards_and_Switches_Catalogue_1982.pdf">Cherry_Keyboards_and_Switches_Catalogue_1982.pdf</a></p>]]></content>
     
     
       
       
     <summary type="html">&lt;blockquote&gt;
-&lt;h2 id=&quot;G80-0078-暂无图片&quot;&gt;&lt;a href=&quot;#G80-0078-暂无图片&quot; class=&quot;headerlink&quot; title=&quot;G80-0078 (暂无图片)&quot;&gt;&lt;/a&gt;G80-0078 (暂无图片)&lt;/h2&gt;&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;h2 id=&quot;PDF&quot;&gt;&lt;a href=&quot;#PDF&quot; class=&quot;headerlink&quot; title=&quot;PDF&quot;&gt;&lt;/a&gt;PDF&lt;/h2&gt;&lt;/blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/Cherry_Keyboards_and_Switches_Catalogue_1982.pdf&quot;&gt;Cherry_Keyboards_and_Switches_Catalogue_1982.pdf&lt;/a&gt;&lt;/p&gt;
-</summary>
+&lt;h2 id=&quot;G80-0075&quot;&gt;&lt;a href=&quot;#G80-0075&quot; class=&quot;headerlink&quot; title=&quot;G80-0075&quot;&gt;&lt;/a&gt;G80-0075&lt;/h2&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/0.jpeg&quot; alt=&quot;G80-0075&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/1.jpeg&quot; alt=&quot;G80-0075&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/2.jpeg&quot; alt=&quot;G80-0075&quot;&gt;&lt;/p&gt;
+&lt;</summary>
       
     
     
@@ -155,6 +126,35 @@
     
     
     <category term="Berthold" scheme="https://zakerberg.github.io/tags/Berthold/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>G80-0078</title>
+    <link href="https://zakerberg.github.io/2025/08/18/g80/g80-0078/"/>
+    <id>https://zakerberg.github.io/2025/08/18/g80/g80-0078/</id>
+    <published>2025-08-17T16:00:00.000Z</published>
+    <updated>2026-07-21T07:22:59.264Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><h2 id="G80-0078-暂无图片"><a href="#G80-0078-暂无图片" class="headerlink" title="G80-0078 (暂无图片)"></a>G80-0078 (暂无图片)</h2></blockquote><blockquote><h2 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h2></blockquote><p><a href="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/Cherry_Keyboards_and_Switches_Catalogue_1982.pdf">Cherry_Keyboards_and_Switches_Catalogue_1982.pdf</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;h2 id=&quot;G80-0078-暂无图片&quot;&gt;&lt;a href=&quot;#G80-0078-暂无图片&quot; class=&quot;headerlink&quot; title=&quot;G80-0078 (暂无图片)&quot;&gt;&lt;/a&gt;G80-0078 (暂无图片)&lt;/h2&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&quot;PDF&quot;&gt;&lt;a href=&quot;#PDF&quot; class=&quot;headerlink&quot; title=&quot;PDF&quot;&gt;&lt;/a&gt;PDF&lt;/h2&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/Cherry_Keyboards_and_Switches_Catalogue_1982.pdf&quot;&gt;Cherry_Keyboards_and_Switches_Catalogue_1982.pdf&lt;/a&gt;&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="G80" scheme="https://zakerberg.github.io/categories/G80/"/>
+    
+    <category term="M7" scheme="https://zakerberg.github.io/categories/G80/M7/"/>
+    
     
   </entry>
   
@@ -241,6 +241,65 @@
   </entry>
   
   <entry>
+    <title>G80-0130</title>
+    <link href="https://zakerberg.github.io/2025/08/17/g80/g80-0130/"/>
+    <id>https://zakerberg.github.io/2025/08/17/g80/g80-0130/</id>
+    <published>2025-08-16T16:00:00.000Z</published>
+    <updated>2026-07-21T08:53:49.009Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><h2 id="G80-0130"><a href="#G80-0130" class="headerlink" title="G80-0130"></a>G80-0130</h2></blockquote><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/1.jpg" alt="G80-0130"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/3.jpg" alt="G80-0130"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/4.jpg" alt="G80-0130"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/5.jpg" alt="G80-0130"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/6.jpg" alt="G80-0130"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/7.jpg" alt="G80-0130"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/8.jpg" alt="G80-0130"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/9.jpg" alt="G80-0130"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/10.jpg" alt="G80-0130"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/2.jpg" alt="G80-0130"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;h2 id=&quot;G80-0130&quot;&gt;&lt;a href=&quot;#G80-0130&quot; class=&quot;headerlink&quot; title=&quot;G80-0130&quot;&gt;&lt;/a&gt;G80-0130&lt;/h2&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/1.jpg&quot; alt=&quot;G80-0130&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/3.jpg&quot; alt=&quot;G80-0130&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/4.jpg&quot; alt=&quot;G80-0130&quot;&gt;</summary>
+      
+    
+    
+    
+    <category term="G80" scheme="https://zakerberg.github.io/categories/G80/"/>
+    
+    <category term="M7" scheme="https://zakerberg.github.io/categories/G80/M7/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>G80-0140</title>
+    <link href="https://zakerberg.github.io/2025/08/17/g80/g80-0140/"/>
+    <id>https://zakerberg.github.io/2025/08/17/g80/g80-0140/</id>
+    <published>2025-08-16T16:00:00.000Z</published>
+    <updated>2026-07-21T07:22:59.266Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><h2 id="G80-0140"><a href="#G80-0140" class="headerlink" title="G80-0140"></a>G80-0140</h2></blockquote><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0140%20%28M7%29/1.jpeg" alt="G80-0140"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0140%20%28M7%29/2.jpeg" alt="G80-0140"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0140%20%28M7%29/3.jpeg" alt="G80-0140"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0140%20%28M7%29/4.jpeg" alt="G80-0140"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;h2 id=&quot;G80-0140&quot;&gt;&lt;a href=&quot;#G80-0140&quot; class=&quot;headerlink&quot; title=&quot;G80-0140&quot;&gt;&lt;/a&gt;G80-0140&lt;/h2&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0140%20%28M7%29/1.jpeg&quot; alt=&quot;G80-0140&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0140%20%28M7%29/2.jpeg&quot; alt=&quot;G80-0140&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0140%20%28M7%29/3.jpeg&quot; alt=&quot;G80-0140&quot;&gt;&lt;/p&gt;
+&lt;</summary>
+      
+    
+    
+    
+    <category term="G80" scheme="https://zakerberg.github.io/categories/G80/"/>
+    
+    <category term="M7" scheme="https://zakerberg.github.io/categories/G80/M7/"/>
+    
+    
+    <category term="Berthold" scheme="https://zakerberg.github.io/tags/Berthold/"/>
+    
+  </entry>
+  
+  <entry>
     <title>G80-0139</title>
     <link href="https://zakerberg.github.io/2025/08/17/g80/g80-0139/"/>
     <id>https://zakerberg.github.io/2025/08/17/g80/g80-0139/</id>
@@ -258,34 +317,6 @@
 &lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0139%20%28M7%29/2.jpeg&quot; alt=&quot;G80-0139&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0139%20%28M7%29/3.jpeg&quot; alt=&quot;G80-0139&quot;&gt;&lt;/p&gt;
 &lt;</summary>
-      
-    
-    
-    
-    <category term="G80" scheme="https://zakerberg.github.io/categories/G80/"/>
-    
-    <category term="M7" scheme="https://zakerberg.github.io/categories/G80/M7/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>G80-0130</title>
-    <link href="https://zakerberg.github.io/2025/08/17/g80/g80-0130/"/>
-    <id>https://zakerberg.github.io/2025/08/17/g80/g80-0130/</id>
-    <published>2025-08-16T16:00:00.000Z</published>
-    <updated>2026-07-21T08:53:49.009Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><h2 id="G80-0130"><a href="#G80-0130" class="headerlink" title="G80-0130"></a>G80-0130</h2></blockquote><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/1.jpg" alt="G80-0130"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/3.jpg" alt="G80-0130"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/4.jpg" alt="G80-0130"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/5.jpg" alt="G80-0130"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/6.jpg" alt="G80-0130"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/7.jpg" alt="G80-0130"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/8.jpg" alt="G80-0130"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/9.jpg" alt="G80-0130"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/10.jpg" alt="G80-0130"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/2.jpg" alt="G80-0130"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;h2 id=&quot;G80-0130&quot;&gt;&lt;a href=&quot;#G80-0130&quot; class=&quot;headerlink&quot; title=&quot;G80-0130&quot;&gt;&lt;/a&gt;G80-0130&lt;/h2&gt;&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/1.jpg&quot; alt=&quot;G80-0130&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/3.jpg&quot; alt=&quot;G80-0130&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0130%20%20%28M7%29/4.jpg&quot; alt=&quot;G80-0130&quot;&gt;</summary>
       
     
     
@@ -324,37 +355,6 @@
   </entry>
   
   <entry>
-    <title>G80-0140</title>
-    <link href="https://zakerberg.github.io/2025/08/17/g80/g80-0140/"/>
-    <id>https://zakerberg.github.io/2025/08/17/g80/g80-0140/</id>
-    <published>2025-08-16T16:00:00.000Z</published>
-    <updated>2026-07-21T07:22:59.266Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><h2 id="G80-0140"><a href="#G80-0140" class="headerlink" title="G80-0140"></a>G80-0140</h2></blockquote><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0140%20%28M7%29/1.jpeg" alt="G80-0140"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0140%20%28M7%29/2.jpeg" alt="G80-0140"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0140%20%28M7%29/3.jpeg" alt="G80-0140"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0140%20%28M7%29/4.jpeg" alt="G80-0140"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;h2 id=&quot;G80-0140&quot;&gt;&lt;a href=&quot;#G80-0140&quot; class=&quot;headerlink&quot; title=&quot;G80-0140&quot;&gt;&lt;/a&gt;G80-0140&lt;/h2&gt;&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0140%20%28M7%29/1.jpeg&quot; alt=&quot;G80-0140&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0140%20%28M7%29/2.jpeg&quot; alt=&quot;G80-0140&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0140%20%28M7%29/3.jpeg&quot; alt=&quot;G80-0140&quot;&gt;&lt;/p&gt;
-&lt;</summary>
-      
-    
-    
-    
-    <category term="G80" scheme="https://zakerberg.github.io/categories/G80/"/>
-    
-    <category term="M7" scheme="https://zakerberg.github.io/categories/G80/M7/"/>
-    
-    
-    <category term="Berthold" scheme="https://zakerberg.github.io/tags/Berthold/"/>
-    
-  </entry>
-  
-  <entry>
     <title>G80-0218</title>
     <link href="https://zakerberg.github.io/2025/08/16/g80/g80-0218/"/>
     <id>https://zakerberg.github.io/2025/08/16/g80/g80-0218/</id>
@@ -374,6 +374,35 @@
     
     
     <category term="G80" scheme="https://zakerberg.github.io/categories/G80/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>G80-0244</title>
+    <link href="https://zakerberg.github.io/2025/08/16/g80/g80-0244/"/>
+    <id>https://zakerberg.github.io/2025/08/16/g80/g80-0244/</id>
+    <published>2025-08-15T16:00:00.000Z</published>
+    <updated>2026-07-21T07:22:59.267Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><h2 id="G80-0244"><a href="#G80-0244" class="headerlink" title="G80-0244"></a>G80-0244</h2></blockquote><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0244%20%28M8%29/1.jpeg" alt="G80-0244"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0244%20%28M8%29/2.jpeg" alt="G80-0244"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0244%20%28M8%29/3.jpeg" alt="G80-0244"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0244%20%28M8%29/4.jpeg" alt="G80-0244"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;h2 id=&quot;G80-0244&quot;&gt;&lt;a href=&quot;#G80-0244&quot; class=&quot;headerlink&quot; title=&quot;G80-0244&quot;&gt;&lt;/a&gt;G80-0244&lt;/h2&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0244%20%28M8%29/1.jpeg&quot; alt=&quot;G80-0244&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0244%20%28M8%29/2.jpeg&quot; alt=&quot;G80-0244&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0244%20%28M8%29/3.jpeg&quot; alt=&quot;G80-0244&quot;&gt;&lt;/p&gt;
+&lt;</summary>
+      
+    
+    
+    
+    <category term="G80" scheme="https://zakerberg.github.io/categories/G80/"/>
+    
+    <category term="M8" scheme="https://zakerberg.github.io/categories/G80/M8/"/>
     
     
   </entry>
@@ -435,35 +464,6 @@
   </entry>
   
   <entry>
-    <title>G80-0246</title>
-    <link href="https://zakerberg.github.io/2025/08/16/g80/g80-0246/"/>
-    <id>https://zakerberg.github.io/2025/08/16/g80/g80-0246/</id>
-    <published>2025-08-15T16:00:00.000Z</published>
-    <updated>2026-07-21T07:22:59.267Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><h2 id="G80-0246-暂无图片"><a href="#G80-0246-暂无图片" class="headerlink" title="G80-0246 (暂无图片)"></a>G80-0246 (暂无图片)</h2></blockquote><blockquote><h2 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h2></blockquote><p><a href="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/Cherry_Keyboards_and_Switches_Catalogue_1982.pdf">Cherry_Keyboards_and_Switches_Catalogue_1982.pdf</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;h2 id=&quot;G80-0246-暂无图片&quot;&gt;&lt;a href=&quot;#G80-0246-暂无图片&quot; class=&quot;headerlink&quot; title=&quot;G80-0246 (暂无图片)&quot;&gt;&lt;/a&gt;G80-0246 (暂无图片)&lt;/h2&gt;&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;h2 id=&quot;PDF&quot;&gt;&lt;a href=&quot;#PDF&quot; class=&quot;headerlink&quot; title=&quot;PDF&quot;&gt;&lt;/a&gt;PDF&lt;/h2&gt;&lt;/blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/Cherry_Keyboards_and_Switches_Catalogue_1982.pdf&quot;&gt;Cherry_Keyboards_and_Switches_Catalogue_1982.pdf&lt;/a&gt;&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    <category term="G80" scheme="https://zakerberg.github.io/categories/G80/"/>
-    
-    <category term="M8" scheme="https://zakerberg.github.io/categories/G80/M8/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>G80-0247</title>
     <link href="https://zakerberg.github.io/2025/08/16/g80/g80-0247/"/>
     <id>https://zakerberg.github.io/2025/08/16/g80/g80-0247/</id>
@@ -495,23 +495,23 @@
   </entry>
   
   <entry>
-    <title>G80-0244</title>
-    <link href="https://zakerberg.github.io/2025/08/16/g80/g80-0244/"/>
-    <id>https://zakerberg.github.io/2025/08/16/g80/g80-0244/</id>
+    <title>G80-0246</title>
+    <link href="https://zakerberg.github.io/2025/08/16/g80/g80-0246/"/>
+    <id>https://zakerberg.github.io/2025/08/16/g80/g80-0246/</id>
     <published>2025-08-15T16:00:00.000Z</published>
     <updated>2026-07-21T07:22:59.267Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><h2 id="G80-0244"><a href="#G80-0244" class="headerlink" title="G80-0244"></a>G80-0244</h2></blockquote><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0244%20%28M8%29/1.jpeg" alt="G80-0244"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0244%20%28M8%29/2.jpeg" alt="G80-0244"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0244%20%28M8%29/3.jpeg" alt="G80-0244"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0244%20%28M8%29/4.jpeg" alt="G80-0244"></p>]]></content>
+    <content type="html"><![CDATA[<blockquote><h2 id="G80-0246-暂无图片"><a href="#G80-0246-暂无图片" class="headerlink" title="G80-0246 (暂无图片)"></a>G80-0246 (暂无图片)</h2></blockquote><blockquote><h2 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h2></blockquote><p><a href="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/Cherry_Keyboards_and_Switches_Catalogue_1982.pdf">Cherry_Keyboards_and_Switches_Catalogue_1982.pdf</a></p>]]></content>
     
     
       
       
     <summary type="html">&lt;blockquote&gt;
-&lt;h2 id=&quot;G80-0244&quot;&gt;&lt;a href=&quot;#G80-0244&quot; class=&quot;headerlink&quot; title=&quot;G80-0244&quot;&gt;&lt;/a&gt;G80-0244&lt;/h2&gt;&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0244%20%28M8%29/1.jpeg&quot; alt=&quot;G80-0244&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0244%20%28M8%29/2.jpeg&quot; alt=&quot;G80-0244&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0244%20%28M8%29/3.jpeg&quot; alt=&quot;G80-0244&quot;&gt;&lt;/p&gt;
-&lt;</summary>
+&lt;h2 id=&quot;G80-0246-暂无图片&quot;&gt;&lt;a href=&quot;#G80-0246-暂无图片&quot; class=&quot;headerlink&quot; title=&quot;G80-0246 (暂无图片)&quot;&gt;&lt;/a&gt;G80-0246 (暂无图片)&lt;/h2&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&quot;PDF&quot;&gt;&lt;a href=&quot;#PDF&quot; class=&quot;headerlink&quot; title=&quot;PDF&quot;&gt;&lt;/a&gt;PDF&lt;/h2&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0075%20%28M7%29/Cherry_Keyboards_and_Switches_Catalogue_1982.pdf&quot;&gt;Cherry_Keyboards_and_Switches_Catalogue_1982.pdf&lt;/a&gt;&lt;/p&gt;
+</summary>
       
     
     
@@ -520,6 +520,34 @@
     
     <category term="M8" scheme="https://zakerberg.github.io/categories/G80/M8/"/>
     
+    
+  </entry>
+  
+  <entry>
+    <title>G80-0284</title>
+    <link href="https://zakerberg.github.io/2025/08/16/g80/g80-0284/"/>
+    <id>https://zakerberg.github.io/2025/08/16/g80/g80-0284/</id>
+    <published>2025-08-15T16:00:00.000Z</published>
+    <updated>2026-07-21T07:22:59.268Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><h2 id="G80-0284"><a href="#G80-0284" class="headerlink" title="G80-0284"></a>G80-0284</h2></blockquote><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0284%20%28BLAUPUNKT%29/1.jpeg" alt="G80-0284"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0284%20%28BLAUPUNKT%29/2.jpeg" alt="G80-0284"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0284%20%28BLAUPUNKT%29/3.jpeg" alt="G80-0284"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0284%20%28BLAUPUNKT%29/4.jpeg" alt="G80-0284"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0284%20%28BLAUPUNKT%29/5.jpeg" alt="G80-0284"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0284%20%28BLAUPUNKT%29/6.jpeg" alt="G80-0284"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0284%20%28BLAUPUNKT%29/7.jpeg" alt="G80-0284"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0284%20%28BLAUPUNKT%29/8.jpeg" alt="G80-0284"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;h2 id=&quot;G80-0284&quot;&gt;&lt;a href=&quot;#G80-0284&quot; class=&quot;headerlink&quot; title=&quot;G80-0284&quot;&gt;&lt;/a&gt;G80-0284&lt;/h2&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0284%20%28BLAUPUNKT%29/1.jpeg&quot; alt=&quot;G80-0284&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0284%20%28BLAUPUNKT%29/2.jpeg&quot; alt=&quot;G80-0284&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0284%20%28BLAUPUNKT%29/3.jpeg&quot; </summary>
+      
+    
+    
+    
+    <category term="G80" scheme="https://zakerberg.github.io/categories/G80/"/>
+    
+    
+    <category term="BLAUPUNKT" scheme="https://zakerberg.github.io/tags/BLAUPUNKT/"/>
     
   </entry>
   
@@ -549,37 +577,6 @@
     
     <category term="M9" scheme="https://zakerberg.github.io/categories/G80/M9/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>G80-0276</title>
-    <link href="https://zakerberg.github.io/2025/08/16/g80/g80-0276/"/>
-    <id>https://zakerberg.github.io/2025/08/16/g80/g80-0276/</id>
-    <published>2025-08-15T16:00:00.000Z</published>
-    <updated>2026-07-23T02:16:08.852Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><h2 id="G80-0276"><a href="#G80-0276" class="headerlink" title="G80-0276"></a>G80-0276</h2></blockquote><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0276/1.jpeg" alt="G80-0276"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0276/2.jpeg" alt="G80-0276"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0276/3.jpeg" alt="G80-0276"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0276/4.jpeg" alt="G80-0276"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0276/5.jpeg" alt="G80-0276"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0276/6.jpeg" alt="G80-0276"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0276/11.jpeg" alt="G80-0276"></p><p><img src="https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0276/12.jpeg" alt="G80-0276"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;h2 id=&quot;G80-0276&quot;&gt;&lt;a href=&quot;#G80-0276&quot; class=&quot;headerlink&quot; title=&quot;G80-0276&quot;&gt;&lt;/a&gt;G80-0276&lt;/h2&gt;&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0276/1.jpeg&quot; alt=&quot;G80-0276&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0276/2.jpeg&quot; alt=&quot;G80-0276&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/Cherry%20G80/G80-0276/3.jpeg&quot; alt=&quot;G80-0276&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cherrybai.oss</summary>
-      
-    
-    
-    
-    <category term="G80" scheme="https://zakerberg.github.io/categories/G80/"/>
-    
-    <category term="M8" scheme="https://zakerberg.github.io/categories/G80/M8/"/>
-    
-    
-    <category term="TAYLORIX-SYSTEM 8" scheme="https://zakerberg.github.io/tags/TAYLORIX-SYSTEM-8/"/>
     
   </entry>
   
