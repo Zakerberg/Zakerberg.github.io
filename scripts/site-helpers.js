@@ -240,6 +240,35 @@ const FIELD_TRANSLATIONS = {
     },
     alternateModel: {
         'dec-compatible': 'DEC 兼容型号'
+    },
+    fccPurpose: {
+        'original equipment': '原始设备申请',
+        'change in identification': '标识变更申请'
+    },
+    fccClass: {
+        'jbp - part 15 class b computing device peripheral': 'JBP：Part 15 B 类计算设备外设',
+        'dxx - part 15 low power communication device transmitter': 'DXX：Part 15 低功率通信设备发射器',
+        'dxt - part 15 low power transceiver, rx verified': 'DXT：Part 15 低功率收发器（接收端已验证）',
+        'dts - digital transmission system': 'DTS：数字传输系统',
+        'uwb - ultra wideband transmitter': 'UWB：超宽带发射器'
+    },
+    fccDescription: {
+        keyboard: '键盘',
+        keypad: '小键盘',
+        'wireless keyboard': '无线键盘',
+        'wireless keyboard 2.4 ghz': '2.4 GHz 无线键盘',
+        '2.4ghz wireless keyboard': '2.4 GHz 无线键盘',
+        'wireless keyboard 2.4ghz': '2.4 GHz 无线键盘',
+        'ultraflat wireless keyboard 2.4ghz': '超薄 2.4 GHz 无线键盘',
+        '2.4ghz wireless keyboard with multimedia keys': '带多媒体键的 2.4 GHz 无线键盘',
+        'wireless multimedia desktop keyboard': '无线多媒体桌面键盘',
+        'mechanical keyboard': '机械键盘',
+        'keyboard w/card reader': '带读卡器的键盘',
+        'keyboard and pad': '键盘及小键盘',
+        'keyboard with rfid chip card reader': '带 RFID 芯片卡读卡器的键盘',
+        'keyboard with rfid reader and chip card reader': '带 RFID 与芯片卡读卡器的键盘',
+        'keyboard with integrated trackball': '带集成轨迹球的键盘',
+        'wireless desktop': '无线桌面套装（键盘组件）'
     }
 };
 
@@ -608,6 +637,7 @@ function sourceTitleForUrl(url) {
     if (/telcontar\.net\/KBK\/Cherry\/keyboards/i.test(normalized)) return 'Telcontar 老式 Cherry 键盘列表';
     if (/telcontar\.net\/KBK\//i.test(normalized)) return 'Telcontar 键盘资料';
     if (/deskthority/i.test(normalized)) return 'Deskthority 资料';
+    if (/fccid\.io/i.test(normalized)) return 'FCC 设备认证记录';
     if (/imgur/i.test(normalized)) return '实物图集';
     if (/geekhack/i.test(normalized)) return 'Geekhack 资料';
     if (/reddit/i.test(normalized)) return 'Reddit 收藏记录';
@@ -625,6 +655,7 @@ function normalizeSources(page = {}, records = [], extraSources = []) {
         page.references,
         page.data_sources,
         page.data_source,
+        page.fcc_references,
         page.telcontar_references
     ].flatMap((items) => Array.isArray(items) ? items : [items]).filter(Boolean);
 
@@ -792,6 +823,30 @@ function buildTelcontarObservationRows(observations = []) {
             value: parts.map(([label, value]) => `${label}：${collapseWhitespace(value)}`).join('；')
         };
     }).filter((row) => row.value);
+}
+
+function buildFccRows(records = []) {
+    if (!Array.isArray(records)) return [];
+
+    return records.map((record) => {
+        if (!record || !isMeaningfulDataValue(record.fcc_id)) return null;
+        const parts = [
+            ['申报型号', record.model],
+            ['设备说明', translateDataValue('fccDescription', record.device_description)],
+            ['申请日期', record.application_date],
+            ['最终日期', record.final_action_date],
+            ['申请人', record.applicant],
+            ['申请类型', translateDataValue('fccPurpose', record.application_purpose)],
+            ['设备类别', translateDataValue('fccClass', record.equipment_class)],
+            ['工作频率', record.frequency]
+        ].filter(([, value]) => isMeaningfulDataValue(value));
+        return {
+            label: record.fcc_id,
+            value: parts.map(([label, value]) => `${label}：${collapseWhitespace(value)}`).join('；'),
+            evidence: 'documented',
+            evidenceLabel: EVIDENCE_LABELS.documented
+        };
+    }).filter(Boolean);
 }
 
 function buildKeyboardCard(page = {}, archiveData = {}, referenceData = {}) {
@@ -1011,6 +1066,17 @@ function buildKeyboardCard(page = {}, archiveData = {}, referenceData = {}) {
     const observationRows = buildTelcontarObservationRows(page.telcontar_records);
     if (observationRows.length > 0) {
         groups.push({ title: '历史观测记录', icon: 'fas fa-history', rows: observationRows });
+        hasLocalDetail = true;
+    }
+
+    const fccRows = buildFccRows(page.fcc_records);
+    if (fccRows.length > 0) {
+        groups.push({
+            title: 'FCC 认证记录',
+            icon: 'fas fa-broadcast-tower',
+            notice: 'FCC 日期表示设备申报或批准记录，不等同于产品上市、生产或停产日期。',
+            rows: fccRows
+        });
         hasLocalDetail = true;
     }
 

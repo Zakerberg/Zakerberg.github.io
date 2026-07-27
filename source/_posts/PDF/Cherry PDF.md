@@ -76,3 +76,13 @@ category:
 > [Mouseboard_2](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/PDF/Mouseboard_2.pdf)
 
 > [The_Standards](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/PDF/The_Standards.pdf)
+
+> [CE-1338-1_Cherry_PC_Compatible_3270_Style_126_Key_Enhanced_Keyboard_Brochure](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/PDF/CE-1338-1_Cherry_PC_Compatible_3270_Style_126_Key_Enhanced_Keyboard_Brochure.pdf)
+
+> [Cherry_Catalog_C-73_197307](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/PDF/Cherry_Catalog_C-73_197307.pdf)
+
+> [Cherry_Keyboard_and_Key_Module_Specifications_1971](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/PDF/Cherry_Keyboard_and_Key_Module_Specifications_1971.pdf)
+
+> [Cherry_Keyboard_Brochure_1971](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/PDF/Cherry_Keyboard_Brochure_1971.pdf)
+
+> [G80-81-1800_eng](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/PDF/G80-81-1800_eng.pdf)

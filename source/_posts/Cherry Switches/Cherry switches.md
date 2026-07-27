@@ -1,7 +1,7 @@
 ---
 title: Cherry 轴体与键盘开关资料总览
 date: 2026-07-22
-updated: 2026-07-24
+updated: 2026-07-27
 top: true
 description: 从早期 S31、M7、M8、M9 到当前 MX、MX2A、MX-LP 与 MX-ULP，系统整理 Cherry 键盘开关的历史、结构、手感和官方技术参数。
 summary: Cherry 键盘开关历史、结构、手感与参数总览
@@ -16,9 +16,9 @@ categories:
 
 Cherry 的键盘开关历史远不止今天常见的红轴、茶轴、青轴和黑轴。在 MX 诞生以前，Cherry 已经尝试过微动结构、簧片触点、金合金交叉点、静电容和薄膜触点；MX 之后又发展出 ML、MY、MV、Low Profile 与 Ultra Low Profile 等不同方向。
 
-本文以 [Telcontar 的 Cherry Switches 档案](https://telcontar.net/KBK/Cherry/#switches) 为历史主线，并结合其收录的 Cherry 原厂图纸、目录、专利和数据表进行中文整理；在仍然生产的 MX 系列部分，补充 [CHERRY 中国官网 MX 页面](https://www.cherry.cn/mx.html) 及各轴体详情页截至 `2026-07-24` 公布的信息。文中的年份、参数与型号均尽量保留资料边界：有争议的地方会明确标注“推测”“约”或“待考”，不会把收藏圈经验当成原厂结论。
+本文以 [Telcontar 的 Cherry Switches 档案](https://telcontar.net/KBK/Cherry/#switches) 为历史主线，并结合其收录的 Cherry 原厂图纸、目录、专利和数据表进行中文整理；在仍然生产的 MX 系列部分，补充 [CHERRY 中国官网 MX 页面](https://www.cherry.cn/mx.html) 及各轴体详情页截至 `2026-07-24` 公布的信息。Wikimedia Commons 的分类和媒体用于补充外观、拆解、触点与动作演示，不单独作为技术参数依据。文中的年份、参数与型号均尽量保留资料边界：有争议的地方会明确标注“推测”“约”或“待考”，不会把收藏圈经验当成原厂结论。
 
-> **图片与资料使用说明：**本文是非官方中文整理。历史图片仅选用 Telcontar 声明为公共领域的站内作品，或页面明确标为 CC0 的照片；当前产品图片直接引用 CHERRY 中国官网 CDN，并在图注中单独标明。CHERRY 官网图片及其中的文字、商标版权归 CHERRY 或相应权利人所有，仅用于轴体识别与资料说明，不属于本站开源许可范围。原始数据仍请以对应年代的 Cherry 图纸、目录和数据表为准。
+> **图片与资料使用说明：**本文是非官方中文整理。历史图片仅选用 Telcontar 声明为公共领域的站内作品、页面明确标为 CC0 的照片，或 Wikimedia Commons 文件页明确允许复用的媒体；每项 Commons 媒体均保留作者、文件页和许可信息。当前产品图片直接引用 CHERRY 中国官网 CDN，并在图注中单独标明。CHERRY 官网图片及其中的文字、商标版权归 CHERRY 或相应权利人所有，仅用于轴体识别与资料说明，不属于本站开源许可范围。原始数据仍请以对应年代的 Cherry 图纸、目录和数据表为准。
 
 ![Cherry MX 开关类型选集](/medias/switches/cherry-mx-selection.jpg)
 
@@ -60,6 +60,32 @@ Cherry 的键盘开关历史远不止今天常见的红轴、茶轴、青轴和�
 | MX-LP / MX Low Profile | 2018 年 | 低矮 Gold Crosspoint | 3.2 mm | 独立板装低矮轴，Red 与 Speed Silver 两类 |
 | MV / Viola | 2020 年 | 开放式桥接触点 | 4.0 mm | 面向主流价位的半独立结构 |
 | MX-ULP / MX Ultra Low Profile | 2021 年 | 开放式 SMD 结构 | 1.8 mm | 整体高度 3.5 mm，面向笔记本及超薄设备 |
+
+## Wikimedia Commons 分类与媒体
+
+[Wikimedia Commons 的 Cherry switches 分类](https://commons.wikimedia.org/wiki/Category:Cherry_switches)把轴体媒体分为六个子分类。下表记录的是 `2026-07-27` 抓取时的文件数量；数量会随 Commons 后续整理而变化。
+
+| Commons 分类 | 文件数 | 适合核对的内容 |
+| --- | ---: | --- |
+| [Cherry M7](https://commons.wikimedia.org/wiki/Category:Cherry_M7) | 18 | Gold Crosspoint 触点、M61 拆解、M7 外形差异 |
+| [Cherry M8](https://commons.wikimedia.org/wiki/Category:Cherry_M8) | 4 | 开放 / 封闭上盖、M84A-0100 样本 |
+| [Cherry M9](https://commons.wikimedia.org/wiki/Category:Cherry_M9) | 6 | M9 外形、键帽柱及 M94A-18NI |
+| [Cherry ML](https://commons.wikimedia.org/wiki/Category:Cherry_ML) | 8 | ML1A / ML1B、键帽接口和尺寸 |
+| [Cherry MX](https://commons.wikimedia.org/wiki/Category:Cherry_MX_computer_keyboard_switches) | 164 | 轴心、弹簧、触点、自锁机构及不同颜色版本 |
+| [Cherry MY](https://commons.wikimedia.org/wiki/Category:Cherry_MY) | 9 | Type 1 / Type 3 执行机构、拆解和近似力程曲线 |
+
+Commons 的分类名称和图片说明属于社区整理，可靠性低于对应年代的 Cherry 原厂目录、图纸、专利和当前官网。本文按“原厂资料 > 专利 / 认证记录 > 有完整出处的实物媒体 > 社区说明”的顺序处理重复字段：媒体能够证明照片中可见的结构，但不能仅凭图注确定整个系列的首发年份、力程或寿命。
+
+![打开外壳后的 Cherry 微动开关](/medias/switches/commons/cherry-microswitch-opened.jpg)
+
+*图：打开外壳后的 Cherry 微动开关。摄影：[Winfried Mueller](https://commons.wikimedia.org/wiki/File:2005-02-02-Cherry-Mikroschalter.jpg)，[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)。*
+
+<video controls preload="metadata" poster="/medias/switches/commons/cherry-1959-switch-poster.jpg" style="display:block;width:100%;height:auto;border-radius:10px;">
+  <source src="/medias/switches/commons/cherry-1959-switch.webm" type="video/webm">
+  当前浏览器不支持 WebM 视频，可前往 Wikimedia Commons 文件页观看。
+</video>
+
+*视频：1959 年 Cherry `01APBSW` 开关动作演示。作者：[LGR](https://commons.wikimedia.org/wiki/File:Clicking_a_1959_Cherry_mechanical_keyboard_switch.webm)，[CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)。文件页将其描述为 Cherry 早期开关，但“第一款”说法不作为本文的独立历史定论。视频仅在浏览器读取元数据，用户播放后才加载完整内容。*
 
 ## S31：从微动开关走向键盘
 
@@ -112,6 +138,14 @@ M4、M5、M6 主要属于美国 / 日本制造体系，外壳通常更光亮；M
 
 *图：推定为 M71-0100。摄影：Jeremy Martin，CC0；来源：Telcontar。*
 
+![Cherry Gold Crosspoint 交叉点触点特写](/medias/switches/commons/cherry-gold-crosspoint-closeup.jpg)
+
+*图：Gold Crosspoint 交叉点触点特写。作者：[snuci](https://commons.wikimedia.org/wiki/File:Cherry_Gold_crosspoint_-_crosspoints_close-up.JPG)，Public Domain。*
+
+![推定 M61-0120 的拆解组件](/medias/switches/commons/cherry-m61-0120-components.jpg)
+
+*图：来自约 1981 年 CDC IST II 的开关组件。Commons 文件页将其标为“可能是 M61-0120，未确认”，因此本文继续使用“推定”而不写成确定型号。作者：[Tom Hunter](https://commons.wikimedia.org/wiki/File:Cherry_M61-0120_(CDC)_--_components.jpg)，Public Domain。*
+
 M7 的精确首发年份仍不明朗，现有图纸把线索指向 1974 年前后。不同颜色轴心是否对应固定手感或重量，也没有足够原厂材料支持统一结论。Hirose 后续在日本生产 M5、M6，时间线大致为 1983 年和 1985 年。
 
 ## Solid State / MF：泡棉垫片静电容
@@ -143,6 +177,10 @@ Cherry 的固态静电容键盘使用泡棉垫片改变电容，不依赖传统�
 | M82 | AgPd30 银合金实体棱柱 | `100 mA` | `60 V` |
 | M84 | AuAg10、3 µm 镀金线 | `10 mA` | `12 V` |
 
+![Cherry M8 封闭式与开放式样本](/medias/switches/commons/cherry-m8-comparison.jpg)
+
+*图：左侧为未确认具体型号的封闭式 M8，右侧为后期 `M84A-0100` 开放式样本；不能把右侧料号套用于左侧。摄影：[Daniel Beardsmore](https://commons.wikimedia.org/wiki/File:Cherry_M8.jpg)，Public Domain。*
+
 Hirose 的 M83A 保持 `2.5 mm` 行程，M83S 缩短到 `1.5 mm`；1983 年 4 月推出的 MD、MJ 分别扩展到 `3 mm` 和 `4 mm`。四者外壳高度依次约为 `6.7 / 6.7 / 7.3 / 7.7 mm`。Hirose 原始数据表不允许公开展示，因此这里只记录公开页面可核对的数据，不附原表扫描件。
 
 ## M9：为电子打字机而生
@@ -160,6 +198,10 @@ M9 由 Günter Murmann 设计，1979 年申请专利，主要面向 Triumph-Adle
 | 最大持续电流 | `500 mA` |
 | 初始触点电阻 | 最大 `200 mΩ`，典型 `25 mΩ` |
 
+![Cherry M9 样本对比](/medias/switches/commons/cherry-m9-comparison.jpg)
+
+*图：左侧 M9 具体型号未确认，右侧为 `M94A-18NI`；图像只用于外形比较。摄影：[Daniel Beardsmore](https://commons.wikimedia.org/wiki/File:Cherry_M9.jpg)，Public Domain。*
+
 M91 到 M94 代表不同触点体系，但 M91 没有发现对应技术文档。M92 / M93 的最大开关电流为 `100 mA`，其中 M93 在 1982 目录中写作 `125 mA`；M94 为 `10 mA`。电压等级随触点类型约为 `60 V / 28 V / 12 V`。由于现存表格列关系并不完全清晰，识别具体实物时应优先看完整料号和年代图纸。
 
 ## MX：延续至今的核心家族
@@ -175,6 +217,18 @@ Cherry MX 自 1983 年末起持续生产。它为符合当时 DIN 键盘人机�
 *图：Cherry 6 mm 与 MX 8 mm 键帽安装柱尺寸对比。制图：Telcontar / Daniel Beardsmore，Public Domain。*
 
 MX 的核心是 Gold Crosspoint 触点：两个交叉的贵金属接触点在动作时形成可靠导通，并具备一定自清洁能力。早期资料常见 `2000 万次`寿命，后来提高到 `5000 万次`；部分 2020 年后的 RGB Red、Black、Brown、Speed 版本达到 `1 亿次`，典型回弹时间缩短到 `1 ms` 以下。不同年代的数据表会有差异，收藏老轴时不能直接套用今天 MX2A 的规格。
+
+![Cherry MX Gold Crosspoint 触点侧视图](/medias/switches/commons/cherry-mx-gold-crosspoint-contacts.jpg)
+
+*图：Cherry MX Gold Crosspoint 触点侧视图。摄影：[Daniel Beardsmore](https://commons.wikimedia.org/wiki/File:Cherry_MX_--_gold_crosspoint_contacts.jpg)，Public Domain。*
+
+![Cherry MX 开盖结构](/medias/switches/commons/cherry-mx-opened.jpg)
+
+*图：左侧为闭合的 MX 青轴，右侧为开盖的 MX 茶轴。摄影：[Daniel Beardsmore](https://commons.wikimedia.org/wiki/File:Cherry_MX_--_opened,_1.jpg)，Public Domain。*
+
+![多种 Cherry MX 轴心与回位弹簧](/medias/switches/commons/cherry-mx-sliders-and-springs.jpg)
+
+*图：2013 年购入的 White、Green、Red、Brown、Blue、Black、Clear 与 Tactile Grey 轴心及弹簧。摄影：[Daniel Beardsmore](https://commons.wikimedia.org/wiki/File:Cherry_MX_--_sliders_and_springs.jpg)，Public Domain。轴心颜色只用于这一组已知样本的识别，不作为所有年代产品的统一规则。*
 
 ### 官网当前 MX 分类
 
@@ -281,6 +335,14 @@ MX2A 延续 Gold Crosspoint 电气触点和 MX 十字轴心兼容体系，但对
 
 Telcontar 的 Cherry 总览页注明 ML 主页面“本站未收录”，但其料号页与 Cherry ML1A 原厂数据表仍提供了可核对参数。ML 是独立 PCB 安装的低矮机械开关，采用单刀常开 Gold Crosspoint 触点，常见于 G84 系列紧凑键盘。
 
+![Cherry ML1A-11JW](/medias/switches/commons/cherry-ml1a-11jw.jpg)
+
+*图：Cherry `ML1A-11JW` 短型开关。摄影：[Daniel Beardsmore](https://commons.wikimedia.org/wiki/File:Cherry_ML1A-11JW.jpg)，Public Domain。*
+
+![Cherry ML 外形尺寸对比](/medias/switches/commons/cherry-ml-size-comparison.jpg)
+
+*图：Cherry ML 外形尺寸对比。摄影：[Daniel Beardsmore](https://commons.wikimedia.org/wiki/File:Cherry_ML_size_comparison.jpg)，Public Domain。*
+
 | 项目 | ML1A 参数 |
 | --- | --- |
 | 手感 | 段落；段落峰值 `50 ± 20 cN` |
@@ -301,6 +363,14 @@ ML1A 是较矮的常见版本，资料中还出现过更高、更坚固的 ML1B�
 ## MY / FTSC：机械模块压合薄膜
 
 MY 是德国 FTSC（Full-Travel Sealed Contact）产品线，绝大多数配套键盘归入 G81。它不是 MX 式独立金属触点轴：每个按键有独立回弹弹簧和执行弹片，最终由模块压合下方薄膜触点，因此常被描述为“带独立机械按键模块的薄膜键盘”。
+
+![Cherry MY Type 1 拆解俯视图](/medias/switches/commons/cherry-my-type1-disassembled.jpg)
+
+*图：Cherry MY Type 1 拆解俯视图。摄影：[Daniel Beardsmore](https://commons.wikimedia.org/wiki/File:Cherry_MY_Type_1_--_disassembled,_top_views.jpg)，Public Domain。*
+
+![Cherry MY 近似力程曲线](/medias/switches/commons/cherry-my-force-graph.svg)
+
+*图：依据 Cherry《The Keyboard Pros! Catalog 06/07》低分辨率图表重绘的 MY 近似力程曲线。制图：[Daniel Beardsmore](https://commons.wikimedia.org/wiki/File:Cherry_MY_force_graph.svg)，Public Domain。它不是全部 MY 类型的精密测量结果，不覆盖本文“各类型缺少统一原厂测量”的结论。*
 
 英国 Cherry Electrical Products 于 1984 年申请早期设计专利；德国团队为降低打字机键盘成本继续改良，并在 1985–1986 年申请新专利。现有收藏资料把 MY 分为 Type 1a、1b、2、3，但这不是官方命名。Type 1 热铆在背板上，拆除通常会损坏；Type 2、3 改为可拆结构。各类型缺少统一、可信的原厂力程测量，因此本文不编造具体克数。识别时应记录轴心颜色、安装方式、背板结构和完整键盘料号。
 
@@ -445,5 +515,7 @@ MX Ultra Low Profile 于 2021 年 3 月 18 日发布，面向笔记本和超薄�
 - [Telcontar：MV / Viola](https://telcontar.net/KBK/Cherry/MV)
 - [Telcontar：MX Ultra Low Profile](https://telcontar.net/KBK/Cherry/MX_Ultra_Low_Profile)
 - [Telcontar：About / 图片授权说明](https://telcontar.net/KBK/about)
+- [Wikimedia Commons：Cherry switches 分类](https://commons.wikimedia.org/wiki/Category:Cherry_switches)
+- [Wikimedia Commons：媒体复用说明](https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia)
 
-最后更新：2026-07-24。当前 MX 产品信息以 CHERRY 中国官网在该日期展示的页面和详情图为准；官网后续可能调整产品名称、参数或在售状态。后续如发现新的原厂目录、图纸或可核对实物，本文会继续修订，并保留不确定信息的说明。
+最后更新：2026-07-27。当前 MX 产品信息以 CHERRY 中国官网在 `2026-07-24` 展示的页面和详情图为准；Wikimedia Commons 分类与许可核对于 `2026-07-27` 完成。官网和 Commons 后续都可能调整页面、分类、参数或在售状态。后续如发现新的原厂目录、图纸或可核对实物，本文会继续修订，并保留不确定信息的说明。

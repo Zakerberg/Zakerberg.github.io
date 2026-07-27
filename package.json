@@ -8,7 +8,9 @@
     "deploy": "hexo deploy",
     "server": "hexo server",
     "sync:cherry-data": "node tools/sync-cherry-archive.js",
-    "sync:telcontar-keyboards": "node tools/import-telcontar-keyboards.js"
+    "sync:telcontar-keyboards": "node tools/import-telcontar-keyboards.js",
+    "sync:commons-switches": "node tools/sync-commons-switch-media.js",
+    "sync:fcc-keyboards": "node tools/import-fcc-keyboards.js"
   },
   "hexo": {
     "version": "7.3.0"

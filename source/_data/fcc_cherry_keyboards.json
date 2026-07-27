@@ -1,0 +1,1427 @@
+{
+  "source": "https://fccid.io/GDD",
+  "retrievedAt": "2026-07-27T06:30:57.819Z",
+  "applications": 164,
+  "keyboardApplications": 79,
+  "models": 75,
+  "updated": [
+    "source/_posts/G8A/G8A-2560.md",
+    "source/_posts/G8D-2403/Cherry G8D-2403.md",
+    "source/_posts/G8E-3885/Cherry G8E-3885.md",
+    "source/_posts/JD-857K/Cherry JD-857K.md",
+    "source/_posts/JG-912/Cherry JG-912.md",
+    "source/_posts/G8A/G8A-25100.md",
+    "source/_posts/MX3883/Cherry MX3883.md",
+    "source/_posts/MX25510/Cherry MX25510.md",
+    "source/_posts/MX3960/Cherry MX3960.md",
+    "source/_posts/JK/JK-71.md",
+    "source/_posts/JG-925/Cherry JG-925.md",
+    "source/_posts/MXU-270/Cherry MXU-270.md",
+    "source/_posts/MX386A/Cherry MX386A.md",
+    "source/_posts/MX3824/Cherry MX3824.md",
+    "source/_posts/MX3882/Cherry MX3882.md",
+    "source/_posts/JG-91/Cherry JG-91.md",
+    "source/_posts/MX3872/Cherry MX3872.md",
+    "source/_posts/JD-856K/Cherry JD-856K.md",
+    "source/_posts/JD-70K/Cherry JD-70K.md",
+    "source/_posts/JD-85K/Cherry JD-85K.md",
+    "source/_posts/JK/JK-A04.md",
+    "source/_posts/JG-05REV/Cherry JG-05REV.md",
+    "source/_posts/JG-90/Cherry JG-90.md",
+    "source/_posts/JG-07REV/Cherry JG-07REV.md",
+    "source/_posts/JG-07/Cherry JG-07.md",
+    "source/_posts/JG-040/Cherry JG-040.md",
+    "source/_posts/JG-03/Cherry JG-03.md",
+    "source/_posts/JG-05/Cherry JG-05.md",
+    "source/_posts/JG-04/Cherry JG-04.md",
+    "source/_posts/JG-02/Cherry JG-02.md",
+    "source/_posts/JG-01/Cherry JG-01.md",
+    "source/_posts/RS6600-C3R/Cherry RS6600-C3R.md",
+    "source/_posts/G260/Cherry G260.md",
+    "source/_posts/G248/Cherry G248.md",
+    "source/_posts/G258B/Cherry G258B.md",
+    "source/_posts/G247/Cherry G247.md",
+    "source/_posts/G258/Cherry G258.md",
+    "source/_posts/G257/Cherry G257.md",
+    "source/_posts/G208/Cherry G208.md",
+    "source/_posts/219XX/Cherry 219XX.md",
+    "source/_posts/RS13800WL/Cherry RS13800WL.md",
+    "source/_posts/MICADO/Cherry MICADO.md",
+    "source/_posts/G84/G84-4700.md",
+    "source/_posts/G81/G81-1800.md",
+    "source/_posts/G81/G81-1900.md",
+    "source/_posts/G80/G80-11801.md",
+    "source/_posts/G80/G80-1560.md",
+    "source/_posts/LK401/Cherry LK401.md",
+    "source/_posts/G80/G80-1550.md",
+    "source/_posts/G80/G80-9002.md",
+    "source/_posts/G81/G81-3000.md",
+    "source/_posts/G80/G80-3000.md",
+    "source/_posts/LK411/Cherry LK411.md",
+    "source/_posts/G80/G80-5000.md",
+    "source/_posts/G84/G84-4400.md",
+    "source/_posts/G83/G83-6000.md",
+    "source/_posts/G84/G84-4100.md",
+    "source/_posts/G83/G83-9007.md",
+    "source/_posts/G80/G80-3700.md",
+    "source/_posts/G80/G80-1500.md",
+    "source/_posts/G80/G80-3600.md",
+    "source/_posts/G80/G80-3500.md",
+    "source/_posts/G80/G80-3300.md",
+    "source/_posts/G83/G83-3000.md",
+    "source/_posts/G80/G80-2000.md",
+    "source/_posts/G80/G80-1307.md",
+    "source/_posts/G80/G80-3100.md",
+    "source/_posts/G80/G80-2100.md",
+    "source/_posts/G80/G80-1300.md",
+    "source/_posts/G80/G80-1800.md",
+    "source/_posts/G80/G80-1191.md",
+    "source/_posts/G80/G80-1165.md",
+    "source/_posts/G80/G80-1600.md",
+    "source/_posts/G81/G81-1000.md",
+    "source/_posts/G80/G80-1000.md"
+  ],
+  "created": [],
+  "skippedDirty": [],
+  "generatedPages": [
+    "source/_posts/219XX/Cherry 219XX.md",
+    "source/_posts/G208/Cherry G208.md",
+    "source/_posts/G247/Cherry G247.md",
+    "source/_posts/G248/Cherry G248.md",
+    "source/_posts/G257/Cherry G257.md",
+    "source/_posts/G258/Cherry G258.md",
+    "source/_posts/G258B/Cherry G258B.md",
+    "source/_posts/G260/Cherry G260.md",
+    "source/_posts/G80/G80-1307.md",
+    "source/_posts/G80/G80-1560.md",
+    "source/_posts/G80/G80-3300.md",
+    "source/_posts/G8A/G8A-25100.md",
+    "source/_posts/G8A/G8A-2560.md",
+    "source/_posts/G8D-2403/Cherry G8D-2403.md",
+    "source/_posts/G8E-3885/Cherry G8E-3885.md",
+    "source/_posts/JD-70K/Cherry JD-70K.md",
+    "source/_posts/JD-856K/Cherry JD-856K.md",
+    "source/_posts/JD-857K/Cherry JD-857K.md",
+    "source/_posts/JD-85K/Cherry JD-85K.md",
+    "source/_posts/JG-01/Cherry JG-01.md",
+    "source/_posts/JG-02/Cherry JG-02.md",
+    "source/_posts/JG-03/Cherry JG-03.md",
+    "source/_posts/JG-04/Cherry JG-04.md",
+    "source/_posts/JG-040/Cherry JG-040.md",
+    "source/_posts/JG-05/Cherry JG-05.md",
+    "source/_posts/JG-05REV/Cherry JG-05REV.md",
+    "source/_posts/JG-07/Cherry JG-07.md",
+    "source/_posts/JG-07REV/Cherry JG-07REV.md",
+    "source/_posts/JG-90/Cherry JG-90.md",
+    "source/_posts/JG-91/Cherry JG-91.md",
+    "source/_posts/JG-912/Cherry JG-912.md",
+    "source/_posts/JG-925/Cherry JG-925.md",
+    "source/_posts/JK/JK-71.md",
+    "source/_posts/JK/JK-A04.md",
+    "source/_posts/LK401/Cherry LK401.md",
+    "source/_posts/LK411/Cherry LK411.md",
+    "source/_posts/MICADO/Cherry MICADO.md",
+    "source/_posts/MX25510/Cherry MX25510.md",
+    "source/_posts/MX3824/Cherry MX3824.md",
+    "source/_posts/MX386A/Cherry MX386A.md",
+    "source/_posts/MX3872/Cherry MX3872.md",
+    "source/_posts/MX3882/Cherry MX3882.md",
+    "source/_posts/MX3883/Cherry MX3883.md",
+    "source/_posts/MX3960/Cherry MX3960.md",
+    "source/_posts/MXU-270/Cherry MXU-270.md",
+    "source/_posts/RS13800WL/Cherry RS13800WL.md",
+    "source/_posts/RS6600-C3R/Cherry RS6600-C3R.md"
+  ],
+  "records": [
+    {
+      "fcc_id": "GDDG8A-2560",
+      "model": "G8A-2560",
+      "device_description": "K63W Pro Compact Ultra-Wideband",
+      "application_date": "2026-03-30",
+      "final_action_date": "2026-04-21",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "UWB - Ultra Wideband Transmitter",
+      "frequency": "7372.8 MHz",
+      "source_url": "https://fccid.io/GDDG8A-2560"
+    },
+    {
+      "fcc_id": "GDDG8D-2403",
+      "model": "G8D-2403",
+      "device_description": "K33 COMPACT WIRELESS KEYBOARD",
+      "application_date": "2025-09-10",
+      "final_action_date": "2025-09-10",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DTS - Digital Transmission System",
+      "frequency": "2402-2480 MHz",
+      "source_url": "https://fccid.io/GDDG8D-2403"
+    },
+    {
+      "fcc_id": "GDDG8E-3885",
+      "model": "G8E-3885",
+      "device_description": "MX 8.2 PRO TMR TKL WIRELESS KEYBOARD",
+      "application_date": "2025-08-06",
+      "final_action_date": "2025-08-06",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DTS - Digital Transmission System",
+      "frequency": "2402-2478 MHz",
+      "source_url": "https://fccid.io/GDDG8E-3885"
+    },
+    {
+      "fcc_id": "GDDJD-857K",
+      "model": "JD-857K",
+      "device_description": "CHERRY STREAM KEYBOARD ULTIMATE",
+      "application_date": "2025-07-23",
+      "final_action_date": "2025-07-23",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DTS - Digital Transmission System",
+      "frequency": "2402-2480 MHz",
+      "source_url": "https://fccid.io/GDDJD-857K"
+    },
+    {
+      "fcc_id": "GDDJG-912",
+      "model": "JG-912",
+      "device_description": "DW 9100 KB",
+      "application_date": "2025-06-24",
+      "final_action_date": "2025-06-24",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DTS - Digital Transmission System",
+      "frequency": "2402-2480 MHz",
+      "source_url": "https://fccid.io/GDDJG-912"
+    },
+    {
+      "fcc_id": "GDDG8A-25100",
+      "model": "G8A-25100",
+      "device_description": "Cherry Xtrfy MX 10.1 Wireless",
+      "application_date": "2025-03-24",
+      "final_action_date": "2025-03-24",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "2402-2480 MHz",
+      "source_url": "https://fccid.io/GDDG8A-25100"
+    },
+    {
+      "fcc_id": "GDDMX3883",
+      "model": "MX3883",
+      "device_description": "Mechanical Keyboard",
+      "application_date": "2024-12-22",
+      "final_action_date": "2024-12-22",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DTS - Digital Transmission System",
+      "frequency": "2402-2480 MHz",
+      "source_url": "https://fccid.io/GDDMX3883"
+    },
+    {
+      "fcc_id": "GDDMX25510",
+      "model": "MX25510",
+      "device_description": "CHERRY KW 550 MX LP",
+      "application_date": "2024-11-28",
+      "final_action_date": "2024-11-29",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DTS - Digital Transmission System",
+      "frequency": "2402-2480 MHz",
+      "source_url": "https://fccid.io/GDDMX25510"
+    },
+    {
+      "fcc_id": "GDDMX3960",
+      "model": "MX3960",
+      "device_description": "CHERRY KW 300 MX",
+      "application_date": "2024-08-26",
+      "final_action_date": "2024-08-26",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DTS - Digital Transmission System",
+      "frequency": "2402-2480 MHz",
+      "source_url": "https://fccid.io/GDDMX3960"
+    },
+    {
+      "fcc_id": "GDDJK-71",
+      "model": "JK-71",
+      "device_description": "Cherry Wireless Keyboard",
+      "application_date": "2023-05-09",
+      "final_action_date": "2023-05-10",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DTS - Digital Transmission System",
+      "frequency": "2402-2480 MHz",
+      "source_url": "https://fccid.io/GDDJK-71"
+    },
+    {
+      "fcc_id": "GDDJG-925",
+      "model": "JG-925",
+      "device_description": "Cherry Wireless Keyboard",
+      "application_date": "2022-10-19",
+      "final_action_date": "2022-10-20",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DTS - Digital Transmission System",
+      "frequency": "2402-2480 MHz",
+      "source_url": "https://fccid.io/GDDJG-925"
+    },
+    {
+      "fcc_id": "GDDMXU-270",
+      "model": "MXU-270",
+      "device_description": "CHERRY KW X ULP Keyboard",
+      "application_date": "2022-09-28",
+      "final_action_date": "2022-10-04",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "2403-2480 MHz",
+      "source_url": "https://fccid.io/GDDMXU-270"
+    },
+    {
+      "fcc_id": "GDDMX386A",
+      "model": "MX386A",
+      "device_description": "CHERRY MX-LP 2.1 Compact Wireless/ CHERRY MX-LP 6.1 Compact Wireless",
+      "application_date": "2022-07-25",
+      "final_action_date": "2022-07-25",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "2402-2480 MHz",
+      "source_url": "https://fccid.io/GDDMX386A"
+    },
+    {
+      "fcc_id": "GDDMX3824",
+      "model": "MX3824",
+      "device_description": "CHERRY MX 2.0S Wireless",
+      "application_date": "2022-04-14",
+      "final_action_date": "2022-04-14",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "2402-2480 MHz",
+      "source_url": "https://fccid.io/GDDMX3824"
+    },
+    {
+      "fcc_id": "GDDMX3882",
+      "model": "MX3882",
+      "device_description": "CHERRY MX 8.2 TKL Wireless",
+      "application_date": "2022-01-12",
+      "final_action_date": "2022-01-12",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "2402-2480 MHz",
+      "source_url": "https://fccid.io/GDDMX3882"
+    },
+    {
+      "fcc_id": "GDDJG-91",
+      "model": "JG-91",
+      "device_description": "Cherry Wireless Keyboard",
+      "application_date": "2021-08-13",
+      "final_action_date": "2021-08-18",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DTS - Digital Transmission System",
+      "frequency": "2402-2480 MHz",
+      "source_url": "https://fccid.io/GDDJG-91"
+    },
+    {
+      "fcc_id": "GDDMX3872",
+      "model": "MX3872",
+      "device_description": "MX 3.0S wireless RGB",
+      "application_date": "2021-08-09",
+      "final_action_date": "2021-08-09",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DTS - Digital Transmission System",
+      "frequency": "2402-2480 MHz",
+      "source_url": "https://fccid.io/GDDMX3872"
+    },
+    {
+      "fcc_id": "GDDJD-856K",
+      "model": "JD-856K",
+      "device_description": "CHERRY Stream Desktop Recharge - Key",
+      "application_date": "2021-05-24",
+      "final_action_date": "2021-05-26",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "2406-2476 MHz",
+      "source_url": "https://fccid.io/GDDJD-856K"
+    },
+    {
+      "fcc_id": "GDDJD-70K",
+      "model": "JD-70K",
+      "device_description": "Wireless Desktop",
+      "application_date": "2020-10-23",
+      "final_action_date": "2020-10-25",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "2408-2474 MHz",
+      "source_url": "https://fccid.io/GDDJD-70K"
+    },
+    {
+      "fcc_id": "GDDJD-85K",
+      "model": "JD-85K",
+      "device_description": "Cherry Wireless Keyboard",
+      "application_date": "2020-08-26",
+      "final_action_date": "2020-08-28",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "2406-2476 MHz",
+      "source_url": "https://fccid.io/GDDJD-85K"
+    },
+    {
+      "fcc_id": "GDD-JK-A04",
+      "model": "JK-A04",
+      "device_description": "Keyboard with RFID reader and chip card reader",
+      "application_date": "2019-11-20",
+      "final_action_date": "2019-11-20",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "13.56 MHz",
+      "source_url": "https://fccid.io/GDD-JK-A04"
+    },
+    {
+      "fcc_id": "GDDJG-05REV",
+      "model": "JG-05REV",
+      "device_description": "CHERRY DW 5100",
+      "application_date": "2019-03-05",
+      "final_action_date": "2019-03-05",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "2408-2474 MHz",
+      "source_url": "https://fccid.io/GDDJG-05REV"
+    },
+    {
+      "fcc_id": "GDDJG-90",
+      "model": "JG-90",
+      "device_description": "Cherry Wireless Keyboard",
+      "application_date": "2018-09-28",
+      "final_action_date": "2018-10-01",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DTS - Digital Transmission System",
+      "frequency": "2402-2480 MHz",
+      "source_url": "https://fccid.io/GDDJG-90"
+    },
+    {
+      "fcc_id": "GDDJG-07REV",
+      "model": "JG-07REV",
+      "device_description": "2.4GHz Wireless Keyboard with Multimedia Keys",
+      "application_date": "2018-06-07",
+      "final_action_date": "2018-06-07",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "2403-2479 MHz",
+      "source_url": "https://fccid.io/GDDJG-07REV"
+    },
+    {
+      "fcc_id": "GDDJG-07",
+      "model": "JG-07",
+      "device_description": "2.4GHz Wireless keyboard with multimedia keys",
+      "application_date": "2013-08-15",
+      "final_action_date": "2013-08-16",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "2402-2479 MHz",
+      "source_url": "https://fccid.io/GDDJG-07"
+    },
+    {
+      "fcc_id": "GDDJG-040",
+      "model": "JG-040",
+      "device_description": "Wireless Keyboard",
+      "application_date": "2012-09-25",
+      "final_action_date": "2012-09-25",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXT - Part 15 Low Power Transceiver, Rx Verified",
+      "frequency": "2406-2468 MHz",
+      "source_url": "https://fccid.io/GDDJG-040"
+    },
+    {
+      "fcc_id": "GDDJG-03",
+      "model": "JG-03",
+      "device_description": "Wireless Keyboard",
+      "application_date": "2012-07-11",
+      "final_action_date": "2012-07-16",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXT - Part 15 Low Power Transceiver, Rx Verified",
+      "frequency": "2406-2468 MHz",
+      "source_url": "https://fccid.io/GDDJG-03"
+    },
+    {
+      "fcc_id": "GDDJG-05",
+      "model": "JG-05",
+      "device_description": "Wireless Keyboard",
+      "application_date": "2012-05-25",
+      "final_action_date": "2012-05-25",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "2403-2478 MHz",
+      "source_url": "https://fccid.io/GDDJG-05"
+    },
+    {
+      "fcc_id": "GDDJG-04",
+      "model": "JG-04",
+      "device_description": "Wireless Keyboard",
+      "application_date": "2012-01-08",
+      "final_action_date": "2012-01-08",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXT - Part 15 Low Power Transceiver, Rx Verified",
+      "frequency": "2406-2468 MHz",
+      "source_url": "https://fccid.io/GDDJG-04"
+    },
+    {
+      "fcc_id": "GDDJG-02",
+      "model": "JG-02",
+      "device_description": "Wireless Keyboard 2.4 GHz",
+      "application_date": "2010-08-25",
+      "final_action_date": "2010-08-27",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "2402-2480 MHz",
+      "source_url": "https://fccid.io/GDDJG-02"
+    },
+    {
+      "fcc_id": "GDDJG-01",
+      "model": "JG-01",
+      "device_description": "2.4GHz Wireless Keyboard",
+      "application_date": "2009-11-17",
+      "final_action_date": "2009-11-17",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "2402-2480 MHz",
+      "source_url": "https://fccid.io/GDDJG-01"
+    },
+    {
+      "fcc_id": "GDDRS6600-C3R",
+      "model": "RS6600-C3R",
+      "device_description": "Keyboard with RFID chip card reader",
+      "application_date": "2008-08-22",
+      "final_action_date": "2008-08-22",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "13.56 MHz",
+      "source_url": "https://fccid.io/GDDRS6600-C3R"
+    },
+    {
+      "fcc_id": "GDDG260",
+      "model": "G260",
+      "device_description": "Wireless Keyboard",
+      "application_date": "2008-02-21",
+      "final_action_date": "2008-02-22",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "2402-2467 MHz",
+      "source_url": "https://fccid.io/GDDG260"
+    },
+    {
+      "fcc_id": "GDDG248",
+      "model": "G248",
+      "device_description": "WIRELESS KEYBOARD 2.4GHz",
+      "application_date": "2007-08-16",
+      "final_action_date": "2007-08-16",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "2402-2480 MHz",
+      "source_url": "https://fccid.io/GDDG248"
+    },
+    {
+      "fcc_id": "GDDG258B",
+      "model": "G258B",
+      "device_description": "ULTRAFLAT WIRELESS KEYBOARD 2.4GHz",
+      "application_date": "2007-07-27",
+      "final_action_date": "2007-07-27",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "2402-2480 MHz",
+      "source_url": "https://fccid.io/GDDG258B"
+    },
+    {
+      "fcc_id": "GDDG247",
+      "model": "G247",
+      "device_description": "Wireless Keyboard",
+      "application_date": "2006-10-03",
+      "final_action_date": "2006-10-03",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "26.995-27.195 MHz",
+      "source_url": "https://fccid.io/GDDG247"
+    },
+    {
+      "fcc_id": "GDDG258",
+      "model": "G258",
+      "device_description": "Wireless Keyboard",
+      "application_date": "2006-08-10",
+      "final_action_date": "2006-08-11",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "2404-2467 MHz",
+      "source_url": "https://fccid.io/GDDG258"
+    },
+    {
+      "fcc_id": "GDDG257",
+      "model": "G257",
+      "device_description": "Wireless Multimedia Desktop Keyboard",
+      "application_date": "2006-08-08",
+      "final_action_date": "2006-08-09",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "26.995-27.195 MHz",
+      "source_url": "https://fccid.io/GDDG257"
+    },
+    {
+      "fcc_id": "GDDG208",
+      "model": "G208",
+      "device_description": "Wireless Keyboard",
+      "application_date": "2005-06-17",
+      "final_action_date": "2005-06-17",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "2404-2467 MHz",
+      "source_url": "https://fccid.io/GDDG208"
+    },
+    {
+      "fcc_id": "GDD219XX",
+      "model": "219XX",
+      "device_description": "Wireless Keyboard",
+      "application_date": "2003-11-17",
+      "final_action_date": "2003-11-17",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "27.145 MHz",
+      "source_url": "https://fccid.io/GDD219XX"
+    },
+    {
+      "fcc_id": "GDDRS13800WL",
+      "model": "RS13800WL",
+      "device_description": "Wireless Keyboard",
+      "application_date": "2003-01-28",
+      "final_action_date": "2003-01-28",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "DXX - Part 15 Low Power Communication Device Transmitter",
+      "frequency": "2400-2483.5 MHz",
+      "source_url": "https://fccid.io/GDDRS13800WL"
+    },
+    {
+      "fcc_id": "GDDMICADO",
+      "model": "MICADO",
+      "device_description": "",
+      "application_date": "1997-06-15",
+      "final_action_date": "1997-09-16",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDMICADO"
+    },
+    {
+      "fcc_id": "GDDG84-4700",
+      "model": "G84-4700",
+      "device_description": "",
+      "application_date": "1997-02-20",
+      "final_action_date": "1997-05-07",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG84-4700"
+    },
+    {
+      "fcc_id": "GDDG81-1800",
+      "model": "G81-1800",
+      "device_description": "",
+      "application_date": "1996-11-25",
+      "final_action_date": "1997-03-04",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG81-1800"
+    },
+    {
+      "fcc_id": "GDDG81-1900",
+      "model": "G81-1900",
+      "device_description": "",
+      "application_date": "1996-10-18",
+      "final_action_date": "1997-01-21",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG81-1900"
+    },
+    {
+      "fcc_id": "GDDG80-11801",
+      "model": "G80-11801",
+      "device_description": "",
+      "application_date": "1996-09-17",
+      "final_action_date": "1997-01-17",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG80-11801"
+    },
+    {
+      "fcc_id": "GDDG80-1560",
+      "model": "G80-1560",
+      "device_description": "",
+      "application_date": "1996-09-17",
+      "final_action_date": "1997-01-16",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG80-1560"
+    },
+    {
+      "fcc_id": "GDDLK401",
+      "model": "LK401",
+      "device_description": "Keyboard",
+      "application_date": "1996-06-17",
+      "final_action_date": "1996-10-07",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDLK401"
+    },
+    {
+      "fcc_id": "GDDG80-1550",
+      "model": "G80-1550",
+      "device_description": "Keyboard",
+      "application_date": "1996-01-25",
+      "final_action_date": "1996-08-01",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG80-1550"
+    },
+    {
+      "fcc_id": "GDDG80-9002",
+      "model": "G80-9002",
+      "device_description": "Keypad",
+      "application_date": "1996-04-10",
+      "final_action_date": "1996-05-01",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG80-9002"
+    },
+    {
+      "fcc_id": "GDDG81-3000",
+      "model": "G81-3000",
+      "device_description": "Keyboard",
+      "application_date": "1996-01-24",
+      "final_action_date": "1996-03-25",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG81-3000"
+    },
+    {
+      "fcc_id": "GDDG80-3000",
+      "model": "G80-3000",
+      "device_description": "Keyboard",
+      "application_date": "1996-01-24",
+      "final_action_date": "1996-03-25",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG80-3000"
+    },
+    {
+      "fcc_id": "GDDLK411",
+      "model": "LK411",
+      "device_description": "Keyboard",
+      "application_date": "1995-10-24",
+      "final_action_date": "1996-03-20",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDLK411"
+    },
+    {
+      "fcc_id": "GDDG80-5000",
+      "model": "G80-5000",
+      "device_description": "Keyboard and pad",
+      "application_date": "1995-10-24",
+      "final_action_date": "1995-11-30",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG80-5000"
+    },
+    {
+      "fcc_id": "GDDG84-4400",
+      "model": "G84-4400",
+      "device_description": "Keyboard with integrated trackball",
+      "application_date": "1995-02-12",
+      "final_action_date": "1995-06-27",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG84-4400"
+    },
+    {
+      "fcc_id": "GDDG83-6000",
+      "model": "G83-6000",
+      "device_description": "Keyboard",
+      "application_date": "1994-10-14",
+      "final_action_date": "1994-11-21",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG83-6000"
+    },
+    {
+      "fcc_id": "GDDG84-4100",
+      "model": "G84-4100",
+      "device_description": "Keyboard",
+      "application_date": "1993-10-14",
+      "final_action_date": "1994-02-28",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG84-4100"
+    },
+    {
+      "fcc_id": "GDDG83-9007",
+      "model": "G83-9007",
+      "device_description": "Keyboard",
+      "application_date": "1993-08-25",
+      "final_action_date": "1993-12-08",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG83-9007"
+    },
+    {
+      "fcc_id": "GDDG80-3700",
+      "model": "G80-3700",
+      "device_description": "Keypad",
+      "application_date": "1993-06-14",
+      "final_action_date": "1993-08-26",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG80-3700"
+    },
+    {
+      "fcc_id": "GDDG80-1500",
+      "model": "G80-1500",
+      "device_description": "Keyboard W/Card Reader",
+      "application_date": "1993-04-23",
+      "final_action_date": "1993-06-14",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG80-1500"
+    },
+    {
+      "fcc_id": "GDDG80-3600",
+      "model": "G80-3600",
+      "device_description": "Keyboard",
+      "application_date": "1992-06-16",
+      "final_action_date": "1992-08-13",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG80-3600"
+    },
+    {
+      "fcc_id": "GDDG80-3500",
+      "model": "G80-3500",
+      "device_description": "Keyboard",
+      "application_date": "1992-01-12",
+      "final_action_date": "1992-06-03",
+      "applicant": "Cherry Europe GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG80-3500"
+    },
+    {
+      "fcc_id": "GDDG80-3300",
+      "model": "G80-3300",
+      "device_description": "Keyboard",
+      "application_date": "1991-05-03",
+      "final_action_date": "1991-07-24",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG80-3300"
+    },
+    {
+      "fcc_id": "GDDG83-3000",
+      "model": "G83-3000",
+      "device_description": "Keyboard",
+      "application_date": "1991-05-03",
+      "final_action_date": "1991-06-26",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG83-3000"
+    },
+    {
+      "fcc_id": "GDDG80-2000",
+      "model": "G80-2000",
+      "device_description": "Keyboard",
+      "application_date": "1990-10-18",
+      "final_action_date": "1991-01-18",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG80-2000"
+    },
+    {
+      "fcc_id": "GDDG80-1307",
+      "model": "G80-1307",
+      "device_description": "Keyboard",
+      "application_date": "1990-05-04",
+      "final_action_date": "1990-09-14",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG80-1307"
+    },
+    {
+      "fcc_id": "GDDG80-3100",
+      "model": "G80-3100",
+      "device_description": "Keyboard",
+      "application_date": "1990-05-04",
+      "final_action_date": "1990-09-10",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG80-3100"
+    },
+    {
+      "fcc_id": "GDDG80-2100",
+      "model": "G80-2100",
+      "device_description": "Keyboard",
+      "application_date": "1990-07-19",
+      "final_action_date": "1990-09-10",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDDG80-2100"
+    },
+    {
+      "fcc_id": "GDD5YOG80-2100",
+      "model": "5YOG80-2100",
+      "device_description": "",
+      "application_date": "1989-09-23",
+      "final_action_date": "1989-11-14",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDD5YOG80-2100"
+    },
+    {
+      "fcc_id": "GDD5YOG80-1300",
+      "model": "5YOG80-1300",
+      "device_description": "",
+      "application_date": "1989-09-23",
+      "final_action_date": "1989-11-14",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDD5YOG80-1300"
+    },
+    {
+      "fcc_id": "GDD5YOG81-3000",
+      "model": "5YOG81-3000",
+      "device_description": "",
+      "application_date": "1989-02-23",
+      "final_action_date": "1989-04-25",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDD5YOG81-3000"
+    },
+    {
+      "fcc_id": "GDD5YOG80-3000",
+      "model": "5YOG80-3000",
+      "device_description": "",
+      "application_date": "1989-02-23",
+      "final_action_date": "1989-04-25",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDD5YOG80-3000"
+    },
+    {
+      "fcc_id": "GDD5YOG80-1800",
+      "model": "5YOG80-1800",
+      "device_description": "",
+      "application_date": "1989-03-03",
+      "final_action_date": "1989-03-28",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDD5YOG80-1800"
+    },
+    {
+      "fcc_id": "GDD5Y0G80-1191",
+      "model": "5Y0G80-1191",
+      "device_description": "",
+      "application_date": "1989-02-03",
+      "final_action_date": "1989-03-27",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDD5Y0G80-1191"
+    },
+    {
+      "fcc_id": "GDD5Y0G80-1165",
+      "model": "5Y0G80-1165",
+      "device_description": "",
+      "application_date": "1989-02-09",
+      "final_action_date": "1989-03-23",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDD5Y0G80-1165"
+    },
+    {
+      "fcc_id": "GDD5YOG80-2000",
+      "model": "5YOG80-2000",
+      "device_description": "",
+      "application_date": "1989-02-03",
+      "final_action_date": "1989-03-15",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDD5YOG80-2000"
+    },
+    {
+      "fcc_id": "GDD5YOG80-1600",
+      "model": "5YOG80-1600",
+      "device_description": "",
+      "application_date": "1989-01-27",
+      "final_action_date": "1989-03-14",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDD5YOG80-1600"
+    },
+    {
+      "fcc_id": "GDD5YOG81-1000",
+      "model": "5YOG81-1000",
+      "device_description": "",
+      "application_date": "1988-11-25",
+      "final_action_date": "1989-01-06",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDD5YOG81-1000"
+    },
+    {
+      "fcc_id": "GDD5YOG80-1000",
+      "model": "5YOG80-1000",
+      "device_description": "",
+      "application_date": "1988-03-24",
+      "final_action_date": "1988-07-13",
+      "applicant": "Cherry GmbH",
+      "application_purpose": "Original Equipment",
+      "equipment_class": "JBP - Part 15 Class B Computing Device Peripheral",
+      "frequency": "",
+      "source_url": "https://fccid.io/GDD5YOG80-1000"
+    }
+  ],
+  "excluded": [
+    {
+      "fcc_id": "GDDJD-420R",
+      "description": "Wireless Receiver"
+    },
+    {
+      "fcc_id": "GDDG8D-2403R",
+      "description": "Wireless Receiver"
+    },
+    {
+      "fcc_id": "GDDG8E-3885R",
+      "description": "Wireless Receiver"
+    },
+    {
+      "fcc_id": "GDDJD-857M",
+      "description": "CHERRY STREAM MOUSE ULTIMATE"
+    },
+    {
+      "fcc_id": "GDDJR-912",
+      "description": "DW 9100 Dongle"
+    },
+    {
+      "fcc_id": "GDDJF-912",
+      "description": "DW 9100 MS"
+    },
+    {
+      "fcc_id": "GDDG8A-25100R",
+      "description": "Wireless Receiver"
+    },
+    {
+      "fcc_id": "GDDMX3883R",
+      "description": "Dongle"
+    },
+    {
+      "fcc_id": "GDDCX-H3-R",
+      "description": "Dongle"
+    },
+    {
+      "fcc_id": "GDDCX-H3W",
+      "description": "H3W"
+    },
+    {
+      "fcc_id": "GDDJW-0200",
+      "description": "Cherry Wireless Mouse"
+    },
+    {
+      "fcc_id": "GDDJR-0200",
+      "description": "Cherry Wireless Dongle"
+    },
+    {
+      "fcc_id": "GDDCX-M6X-8K-R",
+      "description": "CherryXTRFY wireless mouse receiver"
+    },
+    {
+      "fcc_id": "GDDCX-M68WPRO",
+      "description": "CherryXTRFY wireless gaming mouse"
+    },
+    {
+      "fcc_id": "GDDCX-M64WPRO",
+      "description": "CherryXTRFY wireless gaming mouse"
+    },
+    {
+      "fcc_id": "GDDJR-5000",
+      "description": "Wireless Receiver"
+    },
+    {
+      "fcc_id": "GDDJW-5000",
+      "description": "M50 Wireless"
+    },
+    {
+      "fcc_id": "GDDJD-855M",
+      "description": "CHERRY STREAM MOUSE COMFORT"
+    },
+    {
+      "fcc_id": "GDDJD-855R",
+      "description": "WIRELESS DONGLE"
+    },
+    {
+      "fcc_id": "GDDCX-M6X-1K-R",
+      "description": "CherryXTRFY wireless mouse receiver"
+    },
+    {
+      "fcc_id": "GDDCX-M68W",
+      "description": "CherryXTRFY wireless gaming mouse"
+    },
+    {
+      "fcc_id": "GDDCX-M64W",
+      "description": "CherryXTRFY wireless gaming mouse"
+    },
+    {
+      "fcc_id": "GDDJR-925",
+      "description": "Cherry Wireless Dongle"
+    },
+    {
+      "fcc_id": "GDDJF-75",
+      "description": "CHERRY GENTIX BT"
+    },
+    {
+      "fcc_id": "GDDMXU-270R",
+      "description": "CHERRY KW X ULP Dongle"
+    },
+    {
+      "fcc_id": "GDDJR-2180",
+      "description": "Dongle"
+    },
+    {
+      "fcc_id": "GDDJF-2180",
+      "description": "MW 2180 Wireless Mouse"
+    },
+    {
+      "fcc_id": "GDDMX3882R",
+      "description": "Wireless Dongle"
+    },
+    {
+      "fcc_id": "GDDJF-86",
+      "description": "Cherry Wireless Mouse"
+    },
+    {
+      "fcc_id": "GDDJF-81",
+      "description": "Cherry Wireless Mouse"
+    },
+    {
+      "fcc_id": "GDDMX3872R",
+      "description": "MX 3.0S wireless RGB"
+    },
+    {
+      "fcc_id": "GDDJF-91",
+      "description": "Cherry Wireless Mouse"
+    },
+    {
+      "fcc_id": "GDDJR-91",
+      "description": "Cherry Wireless Dongle"
+    },
+    {
+      "fcc_id": "GDDJD-856R",
+      "description": "CHERRY Stream Desktop Recharge -Receiver"
+    },
+    {
+      "fcc_id": "GDDJD-856M",
+      "description": "CHERRY Stream Desktop Recharge - Mouse"
+    },
+    {
+      "fcc_id": "GDDJD-70R",
+      "description": "Wireless Desktop"
+    },
+    {
+      "fcc_id": "GDDJD-70M",
+      "description": "Wireless Desktop"
+    },
+    {
+      "fcc_id": "GDDJD-85M",
+      "description": "Cherry Wireless Mouse"
+    },
+    {
+      "fcc_id": "GDDJD-85R",
+      "description": "Cherry Wireless Dongle"
+    },
+    {
+      "fcc_id": "GDDJW-45L",
+      "description": "CHERRY MW 4500 LEFT"
+    },
+    {
+      "fcc_id": "GDDJF-85",
+      "description": "Cherry Wireless Mouse"
+    },
+    {
+      "fcc_id": "GDDR340REV",
+      "description": "CHERRY MW 3000"
+    },
+    {
+      "fcc_id": "GDDJF-T01REV",
+      "description": "CHERRY MW 3000"
+    },
+    {
+      "fcc_id": "GDDRG50",
+      "description": "Wireless Sym. Nano Receiver"
+    },
+    {
+      "fcc_id": "GDDJF-T032",
+      "description": "Wireless Sym. Nano Mouse"
+    },
+    {
+      "fcc_id": "GDDJR-90",
+      "description": "Cherry Wireless Dongle"
+    },
+    {
+      "fcc_id": "GDDJF-80",
+      "description": "Cherry Wireless Mouse"
+    },
+    {
+      "fcc_id": "GDDR070REV",
+      "description": "2.4GHz Wireless Receiver"
+    },
+    {
+      "fcc_id": "GDDJF-07REV",
+      "description": "2.4GHz Wireless Mouse"
+    },
+    {
+      "fcc_id": "GDDR-45",
+      "description": "CHERRY MW 4500"
+    },
+    {
+      "fcc_id": "GDDJW-45",
+      "description": "CHERRY MW 4500"
+    },
+    {
+      "fcc_id": "GDDJT-03",
+      "description": "USB Tag Reader"
+    },
+    {
+      "fcc_id": "GDDJT-02",
+      "description": "RFID Reader"
+    },
+    {
+      "fcc_id": "GDDAFIM5002",
+      "description": "energy autarkic switch module"
+    },
+    {
+      "fcc_id": "GDDAFIM5001",
+      "description": "energy autarkic switch module"
+    },
+    {
+      "fcc_id": "GDDR340",
+      "description": "2.4G WIRELESS RECEIVER"
+    },
+    {
+      "fcc_id": "GDDAFIS2004",
+      "description": "Energy Autarkic RF Lighting Switch"
+    },
+    {
+      "fcc_id": "GDDR070",
+      "description": "2.4GHz Wireless Receiver"
+    },
+    {
+      "fcc_id": "GDDJF-07",
+      "description": "2.4GHz Wireless Mouse"
+    },
+    {
+      "fcc_id": "GDDAFIS5001",
+      "description": "Autarker Funkschalter - Evaluation-Kit"
+    },
+    {
+      "fcc_id": "GDDJF-03",
+      "description": "Wireless Mouse"
+    },
+    {
+      "fcc_id": "GDDR330",
+      "description": "Dongle"
+    },
+    {
+      "fcc_id": "GDDJF-05",
+      "description": "Wireless Mouse"
+    },
+    {
+      "fcc_id": "GDDJF-04",
+      "description": "Wireless Mouse"
+    },
+    {
+      "fcc_id": "GDDR040",
+      "description": "Wireless Dongle"
+    },
+    {
+      "fcc_id": "GDDRG10",
+      "description": "Wireless Sym. Nano Receiver"
+    },
+    {
+      "fcc_id": "GDDJF-T03",
+      "description": "Wireless Sym. Nano Mouse"
+    },
+    {
+      "fcc_id": "GDDJF-T02",
+      "description": "Wireless Sym. Nano Mouse"
+    },
+    {
+      "fcc_id": "GDDJF-T01-D",
+      "description": "Dongle"
+    },
+    {
+      "fcc_id": "GDDJF-T01",
+      "description": "Wireless Mouse"
+    },
+    {
+      "fcc_id": "GDDJF-02",
+      "description": "Wireless Laser Mouse 2.4 GHz"
+    },
+    {
+      "fcc_id": "GDDJF-01",
+      "description": "Wireless Optical Mouse 2,4GHz"
+    },
+    {
+      "fcc_id": "GDDF3000",
+      "description": "M-T3000 (Wireless Traveller Mouse)"
+    },
+    {
+      "fcc_id": "GDDST1200C3R",
+      "description": "Inductive Tag Reader"
+    },
+    {
+      "fcc_id": "GDDF670",
+      "description": "Wireless Mouse"
+    },
+    {
+      "fcc_id": "GDDF800",
+      "description": "WIRELESS OPTICAL MOUSE 2.4GHz"
+    },
+    {
+      "fcc_id": "GDDF300R",
+      "description": "WIRELESS LASER MOUSE 2.4GHz"
+    },
+    {
+      "fcc_id": "GDDF200S",
+      "description": "Wireless 2.4G Laser Mouse"
+    },
+    {
+      "fcc_id": "GDDF200L",
+      "description": "Wireless 2.4G Laser Mouse"
+    },
+    {
+      "fcc_id": "GDDF200R",
+      "description": "Wireless Laser Mouse"
+    },
+    {
+      "fcc_id": "GDDR660",
+      "description": "Wireless Receiver"
+    },
+    {
+      "fcc_id": "GDDF660",
+      "description": "Wireless Mouse"
+    },
+    {
+      "fcc_id": "GDDF-88",
+      "description": "Wireless Mouse"
+    },
+    {
+      "fcc_id": "GDDF-89XX",
+      "description": "Wireless Mouse"
+    },
+    {
+      "fcc_id": "GDDM-3000",
+      "description": "Wireless Mouse"
+    }
+  ]
+}
