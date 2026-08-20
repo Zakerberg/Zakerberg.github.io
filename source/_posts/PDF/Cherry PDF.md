@@ -19,6 +19,8 @@ category:
 
 > [Ergonomische Tastatur - Patent 0671751](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/PDF/Ergonomische%20Tastatur%20-%20Patent%200671751.pdf)
 
+> [Cherry_Keyboards_and_Switches_Catalogue_1982](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/PDF/Cherry_Keyboards_and_Switches_Catalogue_1982.pdf)
+
 > [G80-0312](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/PDF/G80-0312.pdf)
 
 > [G80-0312-2](https://cherrybai.oss-cn-beijing.aliyuncs.com/Cherry/PDF/G80-0312-2.pdf)
