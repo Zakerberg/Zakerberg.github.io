@@ -17,10 +17,26 @@ test("accepts only local page paths", () => {
   assert.equal(sanitizePath("//example.com/"), null);
 });
 
-test("formats Chinese province names for the public list", () => {
-  assert.deepEqual(formatLocation("CN", "Guangdong"), {
+test("formats Chinese country, province and city names for the public list", () => {
+  assert.deepEqual(formatLocation("CN", "Guangdong", "Guangzhou"), {
     country: "中国",
     region: "广东",
-    location: "中国 · 广东"
+    location: "中国 · 广东 · 广州"
+  });
+});
+
+test("uses China Hong Kong as a complete location name", () => {
+  assert.deepEqual(formatLocation("HK", "Hong Kong", "Hong Kong"), {
+    country: "中国香港",
+    region: "",
+    location: "中国香港"
+  });
+});
+
+test("translates Berlin for German visits", () => {
+  assert.deepEqual(formatLocation("DE", "Berlin", "Berlin"), {
+    country: "德国",
+    region: "柏林",
+    location: "德国 · 柏林"
   });
 });

@@ -1037,17 +1037,11 @@ body.DarkMode .tag-marquee-item:focus-visible {
     align-items: center;
     justify-content: center;
     gap: 0.7rem;
-    margin-bottom: 0.35rem;
+    margin-bottom: 1.25rem;
 }
 
 .recent-visitors-title i {
     color: #0f9d58;
-}
-
-.recent-visitors-summary {
-    margin: 0 0 1.35rem;
-    color: #718096;
-    font-size: 0.95rem;
 }
 
 .recent-visitors-table {
@@ -1060,13 +1054,13 @@ body.DarkMode .tag-marquee-item:focus-visible {
 .recent-visitors-head,
 .recent-visitor-row {
     display: grid;
-    grid-template-columns: minmax(160px, 1.15fr) minmax(145px, 0.9fr) minmax(160px, 1fr);
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr) minmax(0, 1.25fr);
     align-items: center;
-    column-gap: 1rem;
+    column-gap: clamp(2rem, 5vw, 5rem);
 }
 
 .recent-visitors-head {
-    padding: 0.82rem 1.2rem;
+    padding: 0.86rem clamp(1.5rem, 3vw, 2.6rem);
     color: #fff;
     background-color: #0f9d58;
     background-image: var(--cherry-action-gradient);
@@ -1077,7 +1071,7 @@ body.DarkMode .tag-marquee-item:focus-visible {
 
 .recent-visitor-row {
     min-height: 58px;
-    padding: 0.8rem 1.2rem;
+    padding: 0.82rem clamp(1.5rem, 3vw, 2.6rem);
     color: #405166;
     border-bottom: 1px solid rgba(15, 157, 88, 0.1);
     transition: background-color 0.2s ease;
@@ -1195,7 +1189,6 @@ body.DarkMode .recent-visitor-location::before {
     background: #63d69d;
 }
 
-body.DarkMode .recent-visitors-summary,
 body.DarkMode .recent-visitors-status {
     color: #a7b5ad;
 }

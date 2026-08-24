@@ -40,6 +40,53 @@ const CHINA_REGIONS = {
   Zhejiang: "浙江"
 };
 
+const COUNTRY_NAMES = {
+  HK: "中国香港",
+  MO: "中国澳门",
+  TW: "中国台湾"
+};
+
+const CITY_NAMES = {
+  Amsterdam: "阿姆斯特丹",
+  "Baden-Wurttemberg": "巴登-符腾堡",
+  Bavaria: "巴伐利亚",
+  Beijing: "北京",
+  Berlin: "柏林",
+  Chengdu: "成都",
+  Chongqing: "重庆",
+  Dusseldorf: "杜塞尔多夫",
+  Frankfurt: "法兰克福",
+  "Frankfurt am Main": "法兰克福",
+  Guangzhou: "广州",
+  Hamburg: "汉堡",
+  Hangzhou: "杭州",
+  Helsinki: "赫尔辛基",
+  "Hong Kong": "香港",
+  London: "伦敦",
+  "Los Angeles": "洛杉矶",
+  Madrid: "马德里",
+  Melbourne: "墨尔本",
+  Munich: "慕尼黑",
+  Nanjing: "南京",
+  "New York": "纽约",
+  Osaka: "大阪",
+  Paris: "巴黎",
+  Seoul: "首尔",
+  Shanghai: "上海",
+  Shenzhen: "深圳",
+  Singapore: "新加坡",
+  Stockholm: "斯德哥尔摩",
+  Sydney: "悉尼",
+  Taipei: "台北",
+  Tokyo: "东京",
+  Toronto: "多伦多",
+  Vancouver: "温哥华",
+  Vienna: "维也纳",
+  Wuhan: "武汉",
+  "Xi'an": "西安",
+  Xian: "西安"
+};
+
 const BOT_PATTERN = /bot|crawler|spider|slurp|bingpreview|facebookexternalhit|headless|preview/i;
 
 function json(data, status = 200, origin = null) {
@@ -110,6 +157,7 @@ export function sanitizePath(path) {
 
 function countryName(countryCode) {
   if (!countryCode || countryCode === "XX") return "未知地区";
+  if (COUNTRY_NAMES[countryCode]) return COUNTRY_NAMES[countryCode];
 
   try {
     return new Intl.DisplayNames(["zh-CN"], { type: "region" }).of(countryCode) || countryCode;
@@ -118,14 +166,32 @@ function countryName(countryCode) {
   }
 }
 
-export function formatLocation(countryCode, rawRegion) {
+function translatedPlace(value) {
+  const name = String(value || "").trim();
+  return CITY_NAMES[name] || name;
+}
+
+export function formatLocation(countryCode, rawRegion, rawCity) {
   const code = String(countryCode || "XX").toUpperCase();
   const country = countryName(code);
   const regionValue = String(rawRegion || "").trim();
-  const region = code === "CN" ? CHINA_REGIONS[regionValue] || regionValue : regionValue;
+  const region = code === "CN" ? CHINA_REGIONS[regionValue] || translatedPlace(regionValue) : translatedPlace(regionValue);
+  const city = translatedPlace(rawCity);
 
-  if (!region || country.includes(region)) return { country, region: "", location: country };
-  return { country, region, location: `${country} · ${region}` };
+  if (code === "HK" || code === "MO") {
+    return { country, region: "", location: country };
+  }
+
+  const candidates = code === "CN" ? [region, city] : [city || region];
+  const details = candidates.filter((value, index, values) => {
+    return value && !country.includes(value) && values.indexOf(value) === index;
+  });
+
+  return {
+    country,
+    region: region && !country.includes(region) ? region : "",
+    location: details.length ? `${country} · ${details.join(" · ")}` : country
+  };
 }
 
 async function hashIp(ip, secret) {
@@ -207,7 +273,7 @@ async function recordVisit(request, env, origin) {
     return json({ recorded: false, reason: "rate-limited" }, 200, origin);
   }
 
-  const location = formatLocation(request.cf?.country, request.cf?.region);
+  const location = formatLocation(request.cf?.country, request.cf?.region, request.cf?.city);
   await env.DB.prepare(
     `INSERT INTO visits
       (ip_masked, ip_hash, country, region, location, page_path, visited_at)
