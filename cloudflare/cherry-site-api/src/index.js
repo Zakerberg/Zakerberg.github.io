@@ -1,8 +1,8 @@
 const DEFAULT_ALLOWED_ORIGINS = ["https://zakerberg.github.io"];
 const PAGE_SIZE = 10;
 const MAX_PAGE = 5;
-const DEDUPE_SECONDS = 60;
-const MAX_VISITS_PER_MINUTE = 10;
+const DEDUPE_WINDOW_SECONDS = 3 * 60 * 60;
+const MIN_UPDATE_INTERVAL_SECONDS = 60;
 
 const CHINA_REGIONS = {
   Anhui: "安徽",
@@ -215,6 +215,15 @@ function numericSetting(value, fallback, min, max) {
   return Math.min(max, Math.max(min, parsed));
 }
 
+export function visitAction(lastVisitedAt, now) {
+  if (!Number.isFinite(lastVisitedAt)) return "insert";
+
+  const age = Math.max(0, now - lastVisitedAt);
+  if (age < MIN_UPDATE_INTERVAL_SECONDS) return "ignore";
+  if (age <= DEDUPE_WINDOW_SECONDS) return "update";
+  return "insert";
+}
+
 async function cleanupVisits(env, now) {
   const retentionDays = numericSetting(env.RETENTION_DAYS, 7, 1, 30);
   const maxVisits = numericSetting(env.MAX_VISITS, 50, 10, 500);
@@ -254,36 +263,57 @@ async function recordVisit(request, env, origin) {
   const now = Math.floor(Date.now() / 1000);
   const ipHash = await hashIp(ip, env.IP_HASH_SECRET);
   const duplicate = await env.DB.prepare(
-    "SELECT id FROM visits WHERE ip_hash = ? AND page_path = ? AND visited_at >= ? LIMIT 1"
+    `SELECT id, visited_at
+       FROM visits
+      WHERE ip_hash = ? AND visited_at >= ?
+      ORDER BY visited_at DESC, id DESC
+      LIMIT 1`
   )
-    .bind(ipHash, pagePath, now - DEDUPE_SECONDS)
+    .bind(ipHash, now - DEDUPE_WINDOW_SECONDS)
     .first();
 
-  if (duplicate) {
-    return json({ recorded: false, reason: "duplicate" }, 200, origin);
-  }
-
-  const recentCount = await env.DB.prepare(
-    "SELECT COUNT(*) AS total FROM visits WHERE ip_hash = ? AND visited_at >= ?"
-  )
-    .bind(ipHash, now - DEDUPE_SECONDS)
-    .first();
-
-  if (Number(recentCount?.total || 0) >= MAX_VISITS_PER_MINUTE) {
-    return json({ recorded: false, reason: "rate-limited" }, 200, origin);
+  const action = visitAction(Number(duplicate?.visited_at), now);
+  if (action === "ignore") {
+    return json({ recorded: false, updated: false, reason: "duplicate" }, 200, origin);
   }
 
   const location = formatLocation(request.cf?.country, request.cf?.region, request.cf?.city);
-  await env.DB.prepare(
+  const maskedIp = maskIp(ip);
+
+  if (action === "update") {
+    await env.DB.batch([
+      env.DB.prepare(
+        `UPDATE visits
+            SET ip_masked = ?, country = ?, region = ?, location = ?, page_path = ?, visited_at = ?
+          WHERE id = ?`
+      ).bind(maskedIp, location.country, location.region, location.location, pagePath, now, duplicate.id),
+      env.DB.prepare(
+        "DELETE FROM visits WHERE ip_hash = ? AND id <> ? AND visited_at >= ?"
+      ).bind(ipHash, duplicate.id, now - DEDUPE_WINDOW_SECONDS)
+    ]);
+
+    return json({ recorded: true, updated: true }, 200, origin);
+  }
+
+  const inserted = await env.DB.prepare(
     `INSERT INTO visits
       (ip_masked, ip_hash, country, region, location, page_path, visited_at)
      VALUES (?, ?, ?, ?, ?, ?, ?)`
   )
-    .bind(maskIp(ip), ipHash, location.country, location.region, location.location, pagePath, now)
+    .bind(maskedIp, ipHash, location.country, location.region, location.location, pagePath, now)
     .run();
 
+  const insertedId = Number(inserted.meta?.last_row_id);
+  if (Number.isFinite(insertedId)) {
+    await env.DB.prepare(
+      "DELETE FROM visits WHERE ip_hash = ? AND id <> ? AND visited_at >= ?"
+    )
+      .bind(ipHash, insertedId, now - DEDUPE_WINDOW_SECONDS)
+      .run();
+  }
+
   await cleanupVisits(env, now);
-  return json({ recorded: true }, 201, origin);
+  return json({ recorded: true, updated: false }, 201, origin);
 }
 
 async function listVisits(url, env, origin) {

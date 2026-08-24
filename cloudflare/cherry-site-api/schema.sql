@@ -12,5 +12,5 @@ CREATE TABLE IF NOT EXISTS visits (
 CREATE INDEX IF NOT EXISTS idx_visits_visited_at
   ON visits (visited_at DESC, id DESC);
 
-CREATE INDEX IF NOT EXISTS idx_visits_dedupe
-  ON visits (ip_hash, page_path, visited_at DESC);
+CREATE INDEX IF NOT EXISTS idx_visits_ip_time
+  ON visits (ip_hash, visited_at DESC, id DESC);

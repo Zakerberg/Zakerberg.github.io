@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { formatLocation, maskIp, sanitizePath } from "../src/index.js";
+import { formatLocation, maskIp, sanitizePath, visitAction } from "../src/index.js";
 
 test("masks IPv4 without retaining the middle octets", () => {
   assert.equal(maskIp("120.34.56.31"), "120.***.***.31");
@@ -39,4 +39,17 @@ test("translates Berlin for German visits", () => {
     region: "柏林",
     location: "德国 · 柏林"
   });
+});
+
+test("ignores rapid refreshes from the same IP", () => {
+  assert.equal(visitAction(1_000, 1_059), "ignore");
+});
+
+test("updates the existing row within the rolling three-hour window", () => {
+  assert.equal(visitAction(12 * 60 * 60, 14 * 60 * 60), "update");
+  assert.equal(visitAction(12 * 60 * 60, 15 * 60 * 60), "update");
+});
+
+test("inserts a new row after the three-hour window", () => {
+  assert.equal(visitAction(12 * 60 * 60, 15 * 60 * 60 + 1), "insert");
 });
