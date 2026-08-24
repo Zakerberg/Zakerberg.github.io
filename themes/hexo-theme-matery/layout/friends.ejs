@@ -227,6 +227,37 @@
             </div>
         </div>
 
+        <% if (theme.recentVisitors && theme.recentVisitors.enable) { %>
+        <section class="card recent-visitors-card" id="recent-visitors" data-aos="fade-up">
+            <div class="card-content">
+                <div class="tag-title center-align recent-visitors-title">
+                    <i class="fas fa-map-marked-alt" aria-hidden="true"></i>
+                    <span>页面访问</span>
+                </div>
+                <p class="recent-visitors-summary center-align">最近 50 条页面访问记录，每页显示 10 条</p>
+
+                <div class="recent-visitors-table">
+                    <div class="recent-visitors-head" aria-hidden="true">
+                        <span>访问时间</span>
+                        <span>脱敏 IP</span>
+                        <span>粗略地区</span>
+                    </div>
+                    <div id="recent-visitors-list" class="recent-visitors-list" role="list" aria-live="polite">
+                        <p class="recent-visitors-status">正在加载访问记录...</p>
+                    </div>
+                </div>
+
+                <nav id="recent-visitors-pagination" class="recent-visitors-pagination"
+                    aria-label="页面访问记录分页" hidden></nav>
+
+                <p class="recent-visitors-privacy">
+                    <i class="fas fa-user-shield" aria-hidden="true"></i>
+                    <span>本站仅处理经脱敏的访问 IP 所对应的粗略地区，用于展示站点访问地域；不保存或公开完整 IP，记录将在 7 天内自动删除。</span>
+                </p>
+            </div>
+        </section>
+        <% } %>
+
         <% if (page.content && page.content.length > 0) { %>
             <div class="card">
                 <div class="card-content">

@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cherry-site-api",
+  "main": "src/index.js",
+  "compatibility_date": "2026-08-24",
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": {
+    "enabled": false
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "cherry-visitors",
+      "database_id": "e2e7320d-2d54-49d6-aee3-35c840fcca61"
+    }
+  ],
+  "triggers": {
+    "crons": [
+      "15 * * * *"
+    ]
+  },
+  "vars": {
+    "ALLOWED_ORIGINS": "https://zakerberg.github.io,http://localhost:4000,http://127.0.0.1:4000",
+    "MAX_VISITS": "50",
+    "RETENTION_DAYS": "7"
+  }
+}

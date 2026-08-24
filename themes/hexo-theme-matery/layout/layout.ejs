@@ -93,6 +93,13 @@
         <% } %>
     <% } %>
 
+    <% if (theme.recentVisitors && theme.recentVisitors.enable && theme.recentVisitors.endpoint) { %>
+    <script>
+        window.CHERRY_VISITOR_CONFIG = <%- JSON.stringify({ endpoint: theme.recentVisitors.endpoint }) %>;
+    </script>
+    <script defer src="<%- url_for('/js/recent-visitors.js') %>"></script>
+    <% } %>
+
     <% if (theme.tidio.enable) { %>
         <script src="//code.tidio.co/<%- theme.tidio.public_key %>.js"></script>
         <script>

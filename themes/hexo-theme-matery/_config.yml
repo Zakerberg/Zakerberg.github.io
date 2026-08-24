@@ -417,6 +417,11 @@ busuanziStatistics:
   totalNumberOfvisitors: true # 总人次
   todayTraffic: true # 今日访问量（每天 00:00 重置）
 
+# 最近页面访问：Worker 只保存脱敏 IP、不可逆 HMAC 和粗略地区。
+recentVisitors:
+  enable: true
+  endpoint: https://cherry-site-api.blm1129mobil1.workers.dev
+
 # 添加 Google Analytics 配置
 googleAnalytics:
   enable: false
