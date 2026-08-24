@@ -1165,7 +1165,7 @@ body.DarkMode .tag-marquee-item:focus-visible {
     display: flex;
     align-items: flex-start;
     gap: 0.65rem;
-    margin: 1.3rem 0 0;
+    margin: 2rem 0 0;
     padding: 0.9rem 1rem;
     color: #5f7168;
     border-left: 3px solid #0f9d58;
@@ -1256,6 +1256,7 @@ body.DarkMode .recent-visitors-privacy {
     }
 
     .recent-visitors-privacy {
+        margin-top: 1.5rem;
         font-size: 0.82rem;
     }
 }
