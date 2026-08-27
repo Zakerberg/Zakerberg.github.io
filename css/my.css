@@ -1105,6 +1105,54 @@ body.DarkMode .tag-marquee-item:focus-visible {
     content: "";
 }
 
+.recent-visitor-location {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    min-width: 0;
+}
+
+.recent-visitor-location::before {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.recent-visitor-location-text {
+    grid-row: 1;
+    grid-column: 2;
+}
+
+.recent-visitor-network {
+    grid-column: 2;
+    overflow: hidden;
+    margin-top: 0.22rem;
+    color: #718278;
+    font-size: 0.76rem;
+    line-height: 1.45;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.recent-visitor-risk {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 0.38rem;
+    padding: 0.16rem 0.55rem;
+    border: 1px solid rgba(205, 126, 47, 0.24);
+    border-radius: 999px;
+    color: #9b5c22;
+    background: rgba(243, 166, 74, 0.12);
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.recent-visitor-risk-high {
+    color: #a44732;
+    border-color: rgba(196, 77, 53, 0.25);
+    background: rgba(218, 94, 65, 0.11);
+}
+
 .recent-visitors-status {
     margin: 0;
     padding: 2.2rem 1rem;
@@ -1121,7 +1169,13 @@ body.DarkMode .tag-marquee-item:focus-visible {
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.55rem;
+    width: 100%;
+    height: auto;
     margin-top: 1.25rem;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    line-height: normal;
 }
 
 .recent-visitors-pagination[hidden] {
@@ -1159,6 +1213,15 @@ body.DarkMode .tag-marquee-item:focus-visible {
     color: #a6b1ab;
     cursor: default;
     opacity: 0.62;
+}
+
+.recent-visitors-page-ellipsis {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    height: 38px;
+    color: #789086;
 }
 
 .recent-visitors-privacy {
@@ -1211,6 +1274,22 @@ body.DarkMode .recent-visitor-ip {
     color: #b9d8c8;
 }
 
+body.DarkMode .recent-visitor-network {
+    color: #93a99e;
+}
+
+body.DarkMode .recent-visitor-risk {
+    color: #e8bd83;
+    border-color: rgba(232, 189, 131, 0.24);
+    background: rgba(232, 189, 131, 0.08);
+}
+
+body.DarkMode .recent-visitor-risk-high {
+    color: #efa18e;
+    border-color: rgba(239, 161, 142, 0.25);
+    background: rgba(239, 161, 142, 0.08);
+}
+
 body.DarkMode .recent-visitors-page-button {
     color: #a8ddc0;
     border-color: rgba(99, 214, 157, 0.22);
@@ -1247,6 +1326,15 @@ body.DarkMode .recent-visitors-privacy {
     .recent-visitor-ip,
     .recent-visitor-location {
         font-size: 0.9rem;
+    }
+
+    .recent-visitor-location {
+        align-self: start;
+    }
+
+    .recent-visitor-network {
+        max-width: 48vw;
+        white-space: normal;
     }
 
     .recent-visitors-page-button {
