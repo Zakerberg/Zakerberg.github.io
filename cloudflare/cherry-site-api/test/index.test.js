@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { formatLocation, maskIp, sanitizePath, visitAction } from "../src/index.js";
+import { formatLocation, maskIp, networkMetadata, sanitizePath, visitAction } from "../src/index.js";
 
 test("masks IPv4 without retaining the middle octets", () => {
   assert.equal(maskIp("120.34.56.31"), "120.***.***.31");
@@ -41,15 +41,47 @@ test("translates Berlin for German visits", () => {
   });
 });
 
+test("adds postal code when Cloudflare provides more detailed geolocation", () => {
+  assert.deepEqual(formatLocation("SG", "Singapore", "Singapore", "238801"), {
+    country: "新加坡",
+    region: "",
+    location: "新加坡 · 邮编 238801"
+  });
+});
+
+test("marks explicit VPN networks as suspected proxy or VPN traffic", () => {
+  assert.deepEqual(networkMetadata(9009, "M247 Europe SRL VPN"), {
+    network: "M247 Europe SRL VPN · AS9009",
+    riskLevel: "high",
+    riskLabel: "疑似代理/VPN"
+  });
+});
+
+test("marks data-center networks as a lower-confidence proxy or VPN risk", () => {
+  assert.deepEqual(networkMetadata(24940, "Hetzner Online GmbH"), {
+    network: "Hetzner Online GmbH · AS24940",
+    riskLevel: "medium",
+    riskLabel: "疑似代理/VPN"
+  });
+});
+
+test("does not mark ordinary access networks as VPN traffic", () => {
+  assert.deepEqual(networkMetadata(4134, "CHINANET-BACKBONE"), {
+    network: "CHINANET-BACKBONE · AS4134",
+    riskLevel: "",
+    riskLabel: ""
+  });
+});
+
 test("ignores rapid refreshes from the same IP", () => {
   assert.equal(visitAction(1_000, 1_059), "ignore");
 });
 
-test("updates the existing row within the rolling three-hour window", () => {
+test("updates the existing row within the rolling six-hour window", () => {
   assert.equal(visitAction(12 * 60 * 60, 14 * 60 * 60), "update");
-  assert.equal(visitAction(12 * 60 * 60, 15 * 60 * 60), "update");
+  assert.equal(visitAction(12 * 60 * 60, 18 * 60 * 60), "update");
 });
 
-test("inserts a new row after the three-hour window", () => {
-  assert.equal(visitAction(12 * 60 * 60, 15 * 60 * 60 + 1), "insert");
+test("inserts a new row after the six-hour window", () => {
+  assert.equal(visitAction(12 * 60 * 60, 18 * 60 * 60 + 1), "insert");
 });

@@ -118,7 +118,26 @@
 
         var location = document.createElement('span');
         location.className = 'recent-visitor-location';
-        location.textContent = item.location || '未知地区';
+        var locationText = document.createElement('span');
+        locationText.className = 'recent-visitor-location-text';
+        locationText.textContent = item.location || '未知地区';
+        location.appendChild(locationText);
+
+        if (item.network) {
+            var network = document.createElement('small');
+            network.className = 'recent-visitor-network';
+            network.textContent = '网络：' + item.network;
+            location.appendChild(network);
+        }
+
+        if (item.riskLabel) {
+            var risk = document.createElement('span');
+            var riskLevel = item.riskLevel === 'high' ? 'high' : 'medium';
+            risk.className = 'recent-visitor-risk recent-visitor-risk-' + riskLevel;
+            risk.textContent = item.riskLabel;
+            risk.title = '依据网络运营商及数据中心特征推测，不代表确定结论';
+            location.appendChild(risk);
+        }
 
         row.append(time, ip, location);
         return row;
@@ -139,17 +158,41 @@
         return button;
     }
 
+    function paginationEllipsis() {
+        var ellipsis = document.createElement('span');
+        ellipsis.className = 'recent-visitors-page-ellipsis';
+        ellipsis.textContent = '...';
+        ellipsis.setAttribute('aria-hidden', 'true');
+        return ellipsis;
+    }
+
+    function visiblePages(current, totalPages) {
+        if (totalPages <= 7) {
+            return Array.from({ length: totalPages }, function (_value, index) { return index + 1; });
+        }
+
+        var pages = [1, totalPages];
+        for (var page = Math.max(2, current - 2); page <= Math.min(totalPages - 1, current + 2); page += 1) {
+            pages.push(page);
+        }
+        return pages.sort(function (left, right) { return left - right; });
+    }
+
     function renderPagination(pagination) {
         if (!paginationElement) return;
 
         var current = Number(pagination.page) || 1;
-        var totalPages = Math.min(5, Number(pagination.totalPages) || 1);
+        var totalPages = Math.min(20, Number(pagination.totalPages) || 1);
+        var pages = visiblePages(current, totalPages);
         paginationElement.replaceChildren();
         paginationElement.appendChild(paginationButton('上一页', current - 1, current <= 1, false));
 
-        for (var page = 1; page <= totalPages; page += 1) {
+        pages.forEach(function (page, index) {
+            if (index > 0 && page - pages[index - 1] > 1) {
+                paginationElement.appendChild(paginationEllipsis());
+            }
             paginationElement.appendChild(paginationButton(String(page), page, page === current, page === current));
-        }
+        });
 
         paginationElement.appendChild(paginationButton('下一页', current + 1, current >= totalPages, false));
         paginationElement.hidden = totalPages <= 1;

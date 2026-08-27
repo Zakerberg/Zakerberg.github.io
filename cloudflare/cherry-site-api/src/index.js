@@ -1,7 +1,7 @@
 const DEFAULT_ALLOWED_ORIGINS = ["https://zakerberg.github.io"];
 const PAGE_SIZE = 10;
-const MAX_PAGE = 5;
-const DEDUPE_WINDOW_SECONDS = 3 * 60 * 60;
+const MAX_PAGE = 20;
+const DEDUPE_WINDOW_SECONDS = 6 * 60 * 60;
 const MIN_UPDATE_INTERVAL_SECONDS = 60;
 
 const CHINA_REGIONS = {
@@ -88,6 +88,8 @@ const CITY_NAMES = {
 };
 
 const BOT_PATTERN = /bot|crawler|spider|slurp|bingpreview|facebookexternalhit|headless|preview/i;
+const VPN_OR_PROXY_PATTERN = /\b(vpn|proxy|tor exit|anonymi[sz]er|mullvad|nordvpn|expressvpn|surfshark|proton vpn|windscribe|private internet access|cyberghost|hotspot shield|tunnelbear|ivacy|astrill|strongvpn)\b/i;
+const DATA_CENTER_PATTERN = /\b(amazon|aws|google cloud|microsoft azure|digitalocean|linode|akamai connected cloud|vultr|choopa|ovh|hetzner|leaseweb|m247|datacamp|contabo|scaleway|rackspace|oracle cloud|alibaba cloud|tencent cloud|cloudflare|server|hosting|datacenter|data center|colo(?:cation)?)\b/i;
 
 function json(data, status = 200, origin = null) {
   const headers = new Headers({
@@ -171,27 +173,58 @@ function translatedPlace(value) {
   return CITY_NAMES[name] || name;
 }
 
-export function formatLocation(countryCode, rawRegion, rawCity) {
+export function formatLocation(countryCode, rawRegion, rawCity, rawPostalCode = "") {
   const code = String(countryCode || "XX").toUpperCase();
   const country = countryName(code);
   const regionValue = String(rawRegion || "").trim();
   const region = code === "CN" ? CHINA_REGIONS[regionValue] || translatedPlace(regionValue) : translatedPlace(regionValue);
   const city = translatedPlace(rawCity);
+  const postalCode = String(rawPostalCode || "").trim().slice(0, 16);
 
   if (code === "HK" || code === "MO") {
-    return { country, region: "", location: country };
+    const details = postalCode ? [`邮编 ${postalCode}`] : [];
+    return { country, region: "", location: [country, ...details].join(" · ") };
   }
 
-  const candidates = code === "CN" ? [region, city] : [city || region];
+  const candidates = [region, city];
   const details = candidates.filter((value, index, values) => {
     return value && !country.includes(value) && values.indexOf(value) === index;
   });
+  if (postalCode) details.push(`邮编 ${postalCode}`);
 
   return {
     country,
     region: region && !country.includes(region) ? region : "",
     location: details.length ? `${country} · ${details.join(" · ")}` : country
   };
+}
+
+function cleanNetworkName(value) {
+  return String(value || "")
+    .replace(/[\u0000-\u001f\u007f]/g, "")
+    .trim()
+    .slice(0, 100);
+}
+
+export function networkMetadata(asn, asOrganization) {
+  const organization = cleanNetworkName(asOrganization);
+  const asNumber = Number.parseInt(asn, 10);
+  const network = [
+    organization,
+    Number.isFinite(asNumber) && asNumber > 0 ? `AS${asNumber}` : ""
+  ].filter(Boolean).join(" · ");
+
+  if (!organization) return { network, riskLevel: "", riskLabel: "" };
+
+  if (VPN_OR_PROXY_PATTERN.test(organization)) {
+    return { network, riskLevel: "high", riskLabel: "疑似代理/VPN" };
+  }
+
+  if (DATA_CENTER_PATTERN.test(organization)) {
+    return { network, riskLevel: "medium", riskLabel: "疑似代理/VPN" };
+  }
+
+  return { network, riskLevel: "", riskLabel: "" };
 }
 
 async function hashIp(ip, secret) {
@@ -226,7 +259,7 @@ export function visitAction(lastVisitedAt, now) {
 
 async function cleanupVisits(env, now) {
   const retentionDays = numericSetting(env.RETENTION_DAYS, 7, 1, 30);
-  const maxVisits = numericSetting(env.MAX_VISITS, 50, 10, 500);
+  const maxVisits = numericSetting(env.MAX_VISITS, 200, 10, 500);
   const cutoff = now - retentionDays * 24 * 60 * 60;
 
   await env.DB.batch([
@@ -277,16 +310,34 @@ async function recordVisit(request, env, origin) {
     return json({ recorded: false, updated: false, reason: "duplicate" }, 200, origin);
   }
 
-  const location = formatLocation(request.cf?.country, request.cf?.region, request.cf?.city);
+  const location = formatLocation(
+    request.cf?.country,
+    request.cf?.region,
+    request.cf?.city,
+    request.cf?.postalCode
+  );
+  const network = networkMetadata(request.cf?.asn, request.cf?.asOrganization);
   const maskedIp = maskIp(ip);
 
   if (action === "update") {
     await env.DB.batch([
       env.DB.prepare(
         `UPDATE visits
-            SET ip_masked = ?, country = ?, region = ?, location = ?, page_path = ?, visited_at = ?
+            SET ip_masked = ?, country = ?, region = ?, location = ?, network = ?,
+                risk_level = ?, risk_label = ?, page_path = ?, visited_at = ?
           WHERE id = ?`
-      ).bind(maskedIp, location.country, location.region, location.location, pagePath, now, duplicate.id),
+      ).bind(
+        maskedIp,
+        location.country,
+        location.region,
+        location.location,
+        network.network,
+        network.riskLevel,
+        network.riskLabel,
+        pagePath,
+        now,
+        duplicate.id
+      ),
       env.DB.prepare(
         "DELETE FROM visits WHERE ip_hash = ? AND id <> ? AND visited_at >= ?"
       ).bind(ipHash, duplicate.id, now - DEDUPE_WINDOW_SECONDS)
@@ -297,10 +348,21 @@ async function recordVisit(request, env, origin) {
 
   const inserted = await env.DB.prepare(
     `INSERT INTO visits
-      (ip_masked, ip_hash, country, region, location, page_path, visited_at)
-     VALUES (?, ?, ?, ?, ?, ?, ?)`
+      (ip_masked, ip_hash, country, region, location, network, risk_level, risk_label, page_path, visited_at)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
   )
-    .bind(maskedIp, ipHash, location.country, location.region, location.location, pagePath, now)
+    .bind(
+      maskedIp,
+      ipHash,
+      location.country,
+      location.region,
+      location.location,
+      network.network,
+      network.riskLevel,
+      network.riskLabel,
+      pagePath,
+      now
+    )
     .run();
 
   const insertedId = Number(inserted.meta?.last_row_id);
@@ -323,12 +385,12 @@ async function listVisits(url, env, origin) {
   const count = await env.DB.prepare("SELECT COUNT(*) AS total FROM visits WHERE visited_at >= ?")
     .bind(cutoff)
     .first();
-  const total = Math.min(Number(count?.total || 0), numericSetting(env.MAX_VISITS, 50, 10, 500));
+  const total = Math.min(Number(count?.total || 0), numericSetting(env.MAX_VISITS, 200, 10, 500));
   const totalPages = Math.max(1, Math.min(MAX_PAGE, Math.ceil(total / PAGE_SIZE)));
   const page = Math.min(requestedPage, totalPages);
   const offset = (page - 1) * PAGE_SIZE;
   const result = await env.DB.prepare(
-    `SELECT id, ip_masked, location, visited_at
+    `SELECT id, ip_masked, location, network, risk_level, risk_label, visited_at
        FROM visits
       WHERE visited_at >= ?
       ORDER BY visited_at DESC, id DESC
@@ -341,6 +403,9 @@ async function listVisits(url, env, origin) {
     id: item.id,
     ip: item.ip_masked,
     location: item.location,
+    network: item.network,
+    riskLevel: item.risk_level,
+    riskLabel: item.risk_label,
     visitedAt: item.visited_at
   }));
 
