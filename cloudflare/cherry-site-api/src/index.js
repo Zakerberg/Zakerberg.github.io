@@ -129,7 +129,8 @@ function optionsResponse(origin) {
   return new Response(null, {
     status: 204,
     headers: {
-      "Access-Control-Allow-Headers": "Content-Type",
+      "Access-Control-Allow-Headers":
+        "Content-Type, X-Visitor-Page-Count, X-Visitor-Page-Interval, X-Visitor-Pass",
       "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
       "Access-Control-Allow-Origin": origin,
       "Access-Control-Max-Age": "86400",
