@@ -434,15 +434,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/22/g80/g80-3500/</loc>
-    
-    <lastmod>2026-07-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/07/21/g80/g80-3600/</loc>
     
     <lastmod>2026-07-27</lastmod>
@@ -453,6 +444,15 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/07/20/g80/g80-3700/</loc>
+    
+    <lastmod>2026-07-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/07/22/g80/g80-3500/</loc>
     
     <lastmod>2026-07-27</lastmod>
     
@@ -524,15 +524,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2006/10/03/g2/cherry-g247/</loc>
-    
-    <lastmod>2026-07-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2006/08/09/g2/cherry-g257/</loc>
     
     <lastmod>2026-07-27</lastmod>
@@ -551,7 +542,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2008/02/22/g2/cherry-g260/</loc>
+    <loc>https://zakerberg.github.io/2006/10/03/g2/cherry-g247/</loc>
     
     <lastmod>2026-07-27</lastmod>
     
@@ -578,16 +569,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/23/jd/cherry-jd-857k/</loc>
-    
-    <lastmod>2026-07-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2021/05/26/jd/cherry-jd-856k/</loc>
+    <loc>https://zakerberg.github.io/2008/02/22/g2/cherry-g260/</loc>
     
     <lastmod>2026-07-27</lastmod>
     
@@ -605,7 +587,43 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/2021/05/26/jd/cherry-jd-856k/</loc>
+    
+    <lastmod>2026-07-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/07/23/jd/cherry-jd-857k/</loc>
+    
+    <lastmod>2026-07-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/2020/08/28/jd/cherry-jd-85k/</loc>
+    
+    <lastmod>2026-07-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2023/05/10/jk/cherry-jk-71/</loc>
+    
+    <lastmod>2026-07-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2019/11/20/jk/cherry-jk-a04/</loc>
     
     <lastmod>2026-07-27</lastmod>
     
@@ -623,15 +641,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2010/08/27/jg/cherry-jg-02/</loc>
-    
-    <lastmod>2026-07-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2012/07/16/jg/cherry-jg-03/</loc>
     
     <lastmod>2026-07-27</lastmod>
@@ -641,25 +650,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2012/01/08/jg/cherry-jg-04/</loc>
-    
-    <lastmod>2026-07-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2012/05/25/jg/cherry-jg-05/</loc>
-    
-    <lastmod>2026-07-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2019/03/05/jg/cherry-jg-05rev/</loc>
+    <loc>https://zakerberg.github.io/2010/08/27/jg/cherry-jg-02/</loc>
     
     <lastmod>2026-07-27</lastmod>
     
@@ -677,7 +668,25 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2018/06/07/jg/cherry-jg-07rev/</loc>
+    <loc>https://zakerberg.github.io/2012/05/25/jg/cherry-jg-05/</loc>
+    
+    <lastmod>2026-07-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2012/01/08/jg/cherry-jg-04/</loc>
+    
+    <lastmod>2026-07-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2019/03/05/jg/cherry-jg-05rev/</loc>
     
     <lastmod>2026-07-27</lastmod>
     
@@ -695,7 +704,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2022/10/20/jg/cherry-jg-925/</loc>
+    <loc>https://zakerberg.github.io/2018/06/07/jg/cherry-jg-07rev/</loc>
     
     <lastmod>2026-07-27</lastmod>
     
@@ -713,6 +722,15 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/2021/08/18/jg/cherry-jg-91/</loc>
+    
+    <lastmod>2026-07-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/2025/06/24/jg/cherry-jg-912/</loc>
     
     <lastmod>2026-07-27</lastmod>
@@ -722,7 +740,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2021/08/18/jg/cherry-jg-91/</loc>
+    <loc>https://zakerberg.github.io/2022/10/20/jg/cherry-jg-925/</loc>
     
     <lastmod>2026-07-27</lastmod>
     
@@ -758,33 +776,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2023/05/10/jk/cherry-jk-71/</loc>
-    
-    <lastmod>2026-07-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2019/11/20/jk/cherry-jk-a04/</loc>
-    
-    <lastmod>2026-07-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/1997/09/16/micado/cherry-micado/</loc>
-    
-    <lastmod>2026-07-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2024/11/29/mx/cherry-mx25510/</loc>
     
     <lastmod>2026-07-27</lastmod>
@@ -812,7 +803,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2022/01/12/mx/cherry-mx3882/</loc>
+    <loc>https://zakerberg.github.io/2021/08/09/mx/cherry-mx3872/</loc>
     
     <lastmod>2026-07-27</lastmod>
     
@@ -821,7 +812,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2021/08/09/mx/cherry-mx3872/</loc>
+    <loc>https://zakerberg.github.io/2022/01/12/mx/cherry-mx3882/</loc>
     
     <lastmod>2026-07-27</lastmod>
     
@@ -839,6 +830,15 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/2024/08/26/mx/cherry-mx3960/</loc>
+    
+    <lastmod>2026-07-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/2022/10/04/mx/cherry-mxu-270/</loc>
     
     <lastmod>2026-07-27</lastmod>
@@ -848,7 +848,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2024/08/26/mx/cherry-mx3960/</loc>
+    <loc>https://zakerberg.github.io/1997/09/16/micado/cherry-micado/</loc>
     
     <lastmod>2026-07-27</lastmod>
     
@@ -875,7 +875,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/09/10/g8/g8d-2403/cherry-g8d-2403/</loc>
+    <loc>https://zakerberg.github.io/2025/03/24/g8/g8a/g8a-25100/</loc>
     
     <lastmod>2026-07-27</lastmod>
     
@@ -893,7 +893,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/03/24/g8/g8a/g8a-25100/</loc>
+    <loc>https://zakerberg.github.io/2025/09/10/g8/g8d-2403/cherry-g8d-2403/</loc>
     
     <lastmod>2026-07-27</lastmod>
     
@@ -902,7 +902,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/06/g8/g8e-3885/cherry-g8e-3885/</loc>
+    <loc>https://zakerberg.github.io/1996/10/07/lk/lk401/cherry-lk401/</loc>
     
     <lastmod>2026-07-27</lastmod>
     
@@ -920,7 +920,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/1996/10/07/lk/lk401/cherry-lk401/</loc>
+    <loc>https://zakerberg.github.io/2025/08/06/g8/g8e-3885/cherry-g8e-3885/</loc>
     
     <lastmod>2026-07-27</lastmod>
     
@@ -992,15 +992,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/05/10/ub/ub89/cherry-ub89-0009pp/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/05/10/ub/ub89/cherry-ub89-0009/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -1010,7 +1001,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/05/10/ub/ub88/cherry-ub88-0008/</loc>
+    <loc>https://zakerberg.github.io/2025/05/10/ub/ub89/cherry-ub89-0009pp/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1028,6 +1019,15 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/2025/05/10/ub/ub88/cherry-ub88-0008/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/2025/05/10/ub/ub88/cherry-ub88-0016/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -1037,7 +1037,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/05/10/ub/ub88/cherry-ub88-0003/</loc>
+    <loc>https://zakerberg.github.io/2025/05/10/ub/ub80/cherry-ub80-0071-a/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1046,7 +1046,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/05/10/ub/ub80/cherry-ub80-0071-a/</loc>
+    <loc>https://zakerberg.github.io/2025/05/10/ub/ub88/cherry-ub88-0003/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1118,15 +1118,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/05/18/g86/g86-71401/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/05/20/g86/g86-62431/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -1145,7 +1136,25 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/2025/05/18/g86/g86-71401/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/2025/05/18/g86/g86-71410/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/05/21/g86/g86-61410/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1172,43 +1181,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/05/21/g86/g86-61410/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/05/20/g86/g86-62411/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2025/05/22/g86/g86-22400/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2025/05/22/g86/g86-22000/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2025/05/23/g85/g85-23000/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1226,7 +1199,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/05/23/g85/g85-23200/</loc>
+    <loc>https://zakerberg.github.io/2025/05/23/g85/g85-23000/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1244,7 +1217,43 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/2025/05/23/g85/g85-23200/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/05/22/g86/g86-22000/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/05/22/g86/g86-22400/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/2025/05/29/g84/g84-4701/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/05/27/g84/g84-5400/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1272,15 +1281,6 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/05/25/g84/g84-9021/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2025/05/27/g84/g84-5400/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1352,7 +1352,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/07/g83/g83-6466/</loc>
+    <loc>https://zakerberg.github.io/2025/06/05/g83/g83-6721/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1361,7 +1361,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/05/g83/g83-6721/</loc>
+    <loc>https://zakerberg.github.io/2025/06/07/g83/g83-6466/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1388,7 +1388,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/09/g83/g83-6154/</loc>
+    <loc>https://zakerberg.github.io/2025/06/09/g83/g83-6153/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1397,7 +1397,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/09/g83/g83-6153/</loc>
+    <loc>https://zakerberg.github.io/2025/06/09/g83/g83-6154/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1415,7 +1415,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/11/g83/g83-3222/</loc>
+    <loc>https://zakerberg.github.io/2025/06/12/g83/g83-3077/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1433,7 +1433,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/12/g83/g83-3077/</loc>
+    <loc>https://zakerberg.github.io/2025/06/11/g83/g83-3222/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1478,7 +1478,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/03/g83/g83-13000/</loc>
+    <loc>https://zakerberg.github.io/2025/06/12/g83/g83-3004/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1487,7 +1487,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/12/g83/g83-3004/</loc>
+    <loc>https://zakerberg.github.io/2025/06/03/g83/g83-13000/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1541,15 +1541,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/17/g81/g81-8002/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/06/19/g81/g81-7926/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -1568,7 +1559,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/17/g81/g81-8008/</loc>
+    <loc>https://zakerberg.github.io/2025/06/17/g81/g81-8006/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1577,7 +1568,16 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/17/g81/g81-8006/</loc>
+    <loc>https://zakerberg.github.io/2025/06/17/g81/g81-8002/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/06/17/g81/g81-8008/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1613,15 +1613,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/19/g81/g81-7907/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/06/20/g81/g81-7000/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -1631,7 +1622,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/19/g81/g81-7920/</loc>
+    <loc>https://zakerberg.github.io/2025/06/19/g81/g81-7907/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1641,6 +1632,15 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/06/19/g81/g81-7908/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/06/19/g81/g81-7920/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1667,7 +1667,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/22/g81/g81-3468/</loc>
+    <loc>https://zakerberg.github.io/2025/06/22/g81/g81-3447/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1676,7 +1676,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/22/g81/g81-3447/</loc>
+    <loc>https://zakerberg.github.io/2025/06/22/g81/g81-3468/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1712,15 +1712,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/23/g81/g81-3299/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/06/23/g81/g81-3288/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -1731,6 +1722,15 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/06/23/g81/g81-3293/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/06/23/g81/g81-3299/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1757,7 +1757,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/23/g81/g81-3234/</loc>
+    <loc>https://zakerberg.github.io/2025/06/23/g81/g81-3232/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1766,7 +1766,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/23/g81/g81-3232/</loc>
+    <loc>https://zakerberg.github.io/2025/06/23/g81/g81-3234/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1793,15 +1793,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/23/g81/g81-3246/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/06/23/g81/g81-3283/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -1811,7 +1802,25 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/2025/06/23/g81/g81-3246/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/2025/06/23/g81/g81-3211/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/06/23/g81/g81-3219/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1830,15 +1839,6 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/06/23/g81/g81-3225/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2025/06/23/g81/g81-3219/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1883,6 +1883,15 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/2025/06/24/g81/g81-3100/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/2025/06/24/g81/g81-3116/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -1902,15 +1911,6 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/06/23/g81/g81-3209/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2025/06/24/g81/g81-3100/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1946,6 +1946,15 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/2025/06/25/g81/g81-3081/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/2025/06/25/g81/g81-3079/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -1955,7 +1964,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/25/g81/g81-3081/</loc>
+    <loc>https://zakerberg.github.io/2025/06/25/g81/g81-3027/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -1982,7 +1991,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/25/g81/g81-3031/</loc>
+    <loc>https://zakerberg.github.io/2025/06/25/g81/g81-3054/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2000,16 +2009,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/25/g81/g81-3054/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2025/06/25/g81/g81-3027/</loc>
+    <loc>https://zakerberg.github.io/2025/06/25/g81/g81-3031/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2019,6 +2019,15 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/06/25/g81/g81-3011/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/06/25/g81/g81-3015/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2054,7 +2063,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/25/g81/g81-3015/</loc>
+    <loc>https://zakerberg.github.io/2025/06/25/g81/g81-3006/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2063,7 +2072,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/25/g81/g81-3006/</loc>
+    <loc>https://zakerberg.github.io/2025/06/25/g81/g81-3007/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2090,15 +2099,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/25/g81/g81-3007/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/06/26/g81/g81-1930/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -2117,15 +2117,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/25/g81/g81-3005/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/06/25/g81/g81-3004/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -2135,7 +2126,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/27/g81/g81-1861/</loc>
+    <loc>https://zakerberg.github.io/2025/06/25/g81/g81-3005/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2144,7 +2135,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/26/g81/g81-1902/</loc>
+    <loc>https://zakerberg.github.io/2025/06/27/g81/g81-1861/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2171,16 +2162,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/27/g81/g81-1846/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2025/06/27/g81/g81-1858/</loc>
+    <loc>https://zakerberg.github.io/2025/06/26/g81/g81-1902/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2198,7 +2180,25 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/2025/06/27/g81/g81-1858/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/2025/06/27/g81/g81-1860/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/06/27/g81/g81-1846/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2252,7 +2252,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/27/g81/g81-1815/</loc>
+    <loc>https://zakerberg.github.io/2025/06/28/g81/g81-1600/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2261,7 +2261,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/28/g81/g81-1600/</loc>
+    <loc>https://zakerberg.github.io/2025/06/27/g81/g81-1815/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2279,7 +2279,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/29/g81/g81-1243/</loc>
+    <loc>https://zakerberg.github.io/2025/06/29/g81/g81-1236/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2288,7 +2288,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/29/g81/g81-1236/</loc>
+    <loc>https://zakerberg.github.io/2025/06/29/g81/g81-1243/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2333,15 +2333,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/06/14/g81/g81-12000/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/06/30/g81/g81-1157/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -2352,6 +2343,15 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/06/14/g81/g81-12100/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/06/14/g81/g81-12000/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2414,15 +2414,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/09/g80/g80-9004/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/07/09/g80/g80-9009/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -2432,7 +2423,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/09/g80/g80-9035/</loc>
+    <loc>https://zakerberg.github.io/2025/07/09/g80/g80-9004/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2450,15 +2441,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/09/g80/g80-9039/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/07/09/g80/g80-9033/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -2468,7 +2450,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/10/g80/g80-8955/</loc>
+    <loc>https://zakerberg.github.io/2025/07/09/g80/g80-9035/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2477,7 +2459,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/10/g80/g80-8945/</loc>
+    <loc>https://zakerberg.github.io/2025/07/09/g80/g80-9039/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2495,7 +2477,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/10/g80/g80-8983/</loc>
+    <loc>https://zakerberg.github.io/2025/07/10/g80/g80-8955/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2505,6 +2487,24 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/07/10/g80/g80-8981/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/07/10/g80/g80-8983/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/07/10/g80/g80-8945/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2558,7 +2558,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/15/g80/g80-7009/</loc>
+    <loc>https://zakerberg.github.io/2025/07/16/g80/g80-5700/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2567,7 +2567,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/16/g80/g80-5700/</loc>
+    <loc>https://zakerberg.github.io/2025/07/15/g80/g80-7009/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2612,6 +2612,15 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/2025/07/18/g80/g80-3920/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/2025/07/18/g80/g80-3930/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -2630,34 +2639,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/18/g80/g80-3920/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/07/19/g80/g80-3820/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2025/07/19/g80/g80-3850/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2025/07/19/g80/g80-3838/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2675,7 +2657,34 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/2025/07/19/g80/g80-3838/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/07/19/g80/g80-3850/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/2025/07/19/g80/g80-3870/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/07/19/g80/g80-3801/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2720,7 +2729,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/19/g80/g80-3801/</loc>
+    <loc>https://zakerberg.github.io/2025/07/20/g80/g80-3705/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2729,7 +2738,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/20/g80/g80-3711/</loc>
+    <loc>https://zakerberg.github.io/2025/07/20/g80/g80-3712/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2747,16 +2756,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/20/g80/g80-3705/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2025/07/20/g80/g80-3712/</loc>
+    <loc>https://zakerberg.github.io/2025/07/20/g80/g80-3711/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2792,6 +2792,15 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/2025/07/23/g80/g80-3456/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/2025/07/23/g80/g80-3464/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -2802,15 +2811,6 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/07/23/g80/g80-3471/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2025/07/23/g80/g80-3456/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2846,7 +2846,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/24/g80/g80-3314/</loc>
+    <loc>https://zakerberg.github.io/2025/07/24/g80/g80-3309/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2855,7 +2855,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/24/g80/g80-3309/</loc>
+    <loc>https://zakerberg.github.io/2025/07/24/g80/g80-3314/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2873,7 +2873,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/23/g80/g80-3422/</loc>
+    <loc>https://zakerberg.github.io/2025/07/23/g80/g80-3405/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2882,7 +2882,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/23/g80/g80-3405/</loc>
+    <loc>https://zakerberg.github.io/2025/07/23/g80/g80-3422/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2900,7 +2900,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/26/g80/g80-3190/</loc>
+    <loc>https://zakerberg.github.io/2025/07/26/g80/g80-3191/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2909,7 +2909,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/25/g80/g80-3242/</loc>
+    <loc>https://zakerberg.github.io/2025/07/26/g80/g80-3190/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2927,7 +2927,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/26/g80/g80-3191/</loc>
+    <loc>https://zakerberg.github.io/2025/07/25/g80/g80-3234/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2936,7 +2936,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/25/g80/g80-3234/</loc>
+    <loc>https://zakerberg.github.io/2025/07/25/g80/g80-3242/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -2963,15 +2963,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/26/g80/g80-3108/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/07/26/g80/g80-3112/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -2982,6 +2973,15 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/07/26/g80/g80-3180/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/07/26/g80/g80-3108/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3044,15 +3044,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/27/g80/g80-3049/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/07/27/g80/g80-3036/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -3062,7 +3053,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/28/g80/g80-2515/</loc>
+    <loc>https://zakerberg.github.io/2025/07/27/g80/g80-3049/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3072,6 +3063,15 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/07/28/g80/g80-2514/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/07/28/g80/g80-2515/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3098,15 +3098,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/28/g80/g80-2508/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/07/28/g80/g80-2507/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -3116,7 +3107,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/28/g80/g80-2511/</loc>
+    <loc>https://zakerberg.github.io/2025/07/28/g80/g80-2508/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3135,6 +3126,15 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/07/28/g80/g80-2513/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/07/28/g80/g80-2511/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3197,6 +3197,15 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/2025/08/01/g80/g80-1861/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/2025/08/01/g80/g80-1863/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -3224,7 +3233,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/01/g80/g80-1861/</loc>
+    <loc>https://zakerberg.github.io/2025/08/01/g80/g80-1819/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3242,15 +3251,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/01/g80/g80-1856/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/08/01/g80/g80-1838/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -3260,7 +3260,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/01/g80/g80-1819/</loc>
+    <loc>https://zakerberg.github.io/2025/08/01/g80/g80-1851/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3269,7 +3269,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/01/g80/g80-1851/</loc>
+    <loc>https://zakerberg.github.io/2025/08/01/g80/g80-1856/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3296,6 +3296,15 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/2025/08/01/g80/g80-1818/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/2025/08/01/g80/g80-1814/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -3314,7 +3323,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/01/g80/g80-1818/</loc>
+    <loc>https://zakerberg.github.io/2025/08/01/g80/g80-1803/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3324,15 +3333,6 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/08/01/g80/g80-1804/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2025/08/01/g80/g80-1803/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3359,7 +3359,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/03/g80/g80-1603/</loc>
+    <loc>https://zakerberg.github.io/2025/08/04/g80/g80-1506/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3377,7 +3377,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/04/g80/g80-1506/</loc>
+    <loc>https://zakerberg.github.io/2025/08/03/g80/g80-1603/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3413,7 +3413,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/06/g80/g80-1296/</loc>
+    <loc>https://zakerberg.github.io/2025/08/05/g80/g80-1302/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3422,7 +3422,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/05/g80/g80-1302/</loc>
+    <loc>https://zakerberg.github.io/2025/08/06/g80/g80-1296/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3449,25 +3449,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/06/g80/g80-1254/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/08/06/g80/g80-1246/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2025/08/06/g80/g80-1273/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3486,6 +3468,24 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/08/06/g80/g80-1288/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/08/06/g80/g80-1254/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/08/06/g80/g80-1273/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3557,7 +3557,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/06/g80/g80-1207/</loc>
+    <loc>https://zakerberg.github.io/2025/08/06/g80/g80-1204/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3566,7 +3566,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/06/g80/g80-1204/</loc>
+    <loc>https://zakerberg.github.io/2025/08/06/g80/g80-1207/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3593,15 +3593,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/04/g80/g80-11914/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/07/04/g80/g80-11915/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -3611,7 +3602,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/06/g80/g80-11802/</loc>
+    <loc>https://zakerberg.github.io/2025/07/04/g80/g80-11914/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3620,7 +3611,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/05/g80/g80-11906/</loc>
+    <loc>https://zakerberg.github.io/2025/07/06/g80/g80-11802/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3647,6 +3638,15 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/2025/07/05/g80/g80-11906/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/2025/08/07/g80/g80-1129/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -3656,7 +3656,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/07/g80/g80-1134/</loc>
+    <loc>https://zakerberg.github.io/2025/08/07/g80/g80-1180/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3665,7 +3665,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/07/g80/g80-1180/</loc>
+    <loc>https://zakerberg.github.io/2025/08/07/g80/g80-1134/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3728,7 +3728,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/08/g80/g80-1077/</loc>
+    <loc>https://zakerberg.github.io/2025/07/07/g80/g80-10000/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3737,7 +3737,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/07/07/g80/g80-10000/</loc>
+    <loc>https://zakerberg.github.io/2025/08/08/g80/g80-1077/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3773,7 +3773,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/09/g80/g80-0978/</loc>
+    <loc>https://zakerberg.github.io/2025/08/09/g80/g80-0989/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3782,7 +3782,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/09/g80/g80-0989/</loc>
+    <loc>https://zakerberg.github.io/2025/08/09/g80/g80-0978/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3908,15 +3908,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/09/g80/g80-0915/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/08/09/g80/g80-0910/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -3926,7 +3917,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/10/g80/g80-0879/</loc>
+    <loc>https://zakerberg.github.io/2025/08/09/g80/g80-0915/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3936,6 +3927,15 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/08/10/g80/g80-0832/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/08/10/g80/g80-0879/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -3971,6 +3971,15 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/2025/08/10/g80/g80-0811/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/2025/08/10/g80/g80-0814/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -3980,7 +3989,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/10/g80/g80-0811/</loc>
+    <loc>https://zakerberg.github.io/2025/08/11/g80/g80-0776/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4007,7 +4016,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/11/g80/g80-0776/</loc>
+    <loc>https://zakerberg.github.io/2025/08/11/g80/g80-0734/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4017,15 +4026,6 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/08/11/g80/g80-0739/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2025/08/11/g80/g80-0734/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4052,15 +4052,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/11/g80/g80-0705/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/08/11/g80/g80-0711/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -4070,7 +4061,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/11/g80/g80-0733/</loc>
+    <loc>https://zakerberg.github.io/2025/08/11/g80/g80-0705/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4097,7 +4088,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/12/g80/g80-0690/</loc>
+    <loc>https://zakerberg.github.io/2025/08/11/g80/g80-0733/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4115,6 +4106,15 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/2025/08/12/g80/g80-0690/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/2025/08/12/g80/g80-0694/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -4124,7 +4124,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/12/g80/g80-0695/</loc>
+    <loc>https://zakerberg.github.io/2025/08/12/g80/g80-0693/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4133,7 +4133,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/12/g80/g80-0693/</loc>
+    <loc>https://zakerberg.github.io/2025/08/12/g80/g80-0695/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4196,7 +4196,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/12/g80/g80-0606/</loc>
+    <loc>https://zakerberg.github.io/2025/08/12/g80/g80-0624/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4205,7 +4205,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/12/g80/g80-0624/</loc>
+    <loc>https://zakerberg.github.io/2025/08/12/g80/g80-0606/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4268,7 +4268,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/13/g80/g80-0577/</loc>
+    <loc>https://zakerberg.github.io/2025/08/13/g80/g80-0581/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4286,7 +4286,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/13/g80/g80-0581/</loc>
+    <loc>https://zakerberg.github.io/2025/08/13/g80/g80-0577/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4331,7 +4331,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/13/g80/g80-0535/</loc>
+    <loc>https://zakerberg.github.io/2025/08/13/g80/g80-0537/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4358,7 +4358,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/13/g80/g80-0537/</loc>
+    <loc>https://zakerberg.github.io/2025/08/13/g80/g80-0535/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4368,6 +4368,15 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/08/13/g80/g80-0519/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/08/13/g80/g80-0520/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4394,15 +4403,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/13/g80/g80-0520/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/08/13/g80/g80-0509/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -4413,6 +4413,15 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/08/13/g80/g80-0510/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/08/13/g80/g80-0517/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4439,7 +4448,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/13/g80/g80-0517/</loc>
+    <loc>https://zakerberg.github.io/2025/08/14/g80/g80-0489/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4449,15 +4458,6 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/08/14/g80/g80-0499/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2025/08/14/g80/g80-0489/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4493,15 +4493,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/14/g80/g80-0488/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/08/14/g80/g80-0487/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -4511,7 +4502,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/14/g80/g80-0472/</loc>
+    <loc>https://zakerberg.github.io/2025/08/14/g80/g80-0488/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4521,6 +4512,15 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/08/14/g80/g80-0460/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/08/14/g80/g80-0472/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4547,6 +4547,15 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/2025/08/14/g80/g80-0454/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/2025/08/14/g80/g80-0457/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -4565,7 +4574,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/14/g80/g80-0454/</loc>
+    <loc>https://zakerberg.github.io/2025/08/14/g80/g80-0459/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4574,7 +4583,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/14/g80/g80-0459/</loc>
+    <loc>https://zakerberg.github.io/2025/08/14/g80/g80-0439/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4593,15 +4602,6 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/08/14/g80/g80-0453/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2025/08/14/g80/g80-0439/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4673,6 +4673,15 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/2025/08/15/g80/g80-0362/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/2025/08/15/g80/g80-0363/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -4691,34 +4700,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/15/g80/g80-0362/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/08/14/g80/g80-0410/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2025/08/15/g80/g80-0348/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2025/08/15/g80/g80-0350/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4736,7 +4718,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/15/g80/g80-0347/</loc>
+    <loc>https://zakerberg.github.io/2025/08/15/g80/g80-0350/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4745,7 +4727,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/15/g80/g80-0320/</loc>
+    <loc>https://zakerberg.github.io/2025/08/15/g80/g80-0348/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4764,6 +4746,33 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/08/15/g80/g80-0324/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/08/15/g80/g80-0320/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/08/15/g80/g80-0347/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/08/16/g80/g80-0276/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4799,7 +4808,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/16/g80/g80-0276/</loc>
+    <loc>https://zakerberg.github.io/2025/08/16/g80/g80-0247/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4809,15 +4818,6 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/08/16/g80/g80-0255/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/2025/08/16/g80/g80-0247/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4862,7 +4862,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/16/g80/g80-0227/</loc>
+    <loc>https://zakerberg.github.io/2025/08/16/g80/g80-0218/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4871,7 +4871,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/16/g80/g80-0218/</loc>
+    <loc>https://zakerberg.github.io/2025/08/16/g80/g80-0227/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4889,7 +4889,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/17/g80/g80-0131/</loc>
+    <loc>https://zakerberg.github.io/2025/08/17/g80/g80-0139/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4898,7 +4898,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/17/g80/g80-0139/</loc>
+    <loc>https://zakerberg.github.io/2025/08/17/g80/g80-0131/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4925,15 +4925,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/18/g80/g80-0081/</loc>
-    
-    <lastmod>2026-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/2025/08/18/g80/g80-0084/</loc>
     
     <lastmod>2026-07-24</lastmod>
@@ -4943,7 +4934,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/08/18/g80/g80-0078/</loc>
+    <loc>https://zakerberg.github.io/2025/08/18/g80/g80-0081/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -4953,6 +4944,15 @@
   
   <url>
     <loc>https://zakerberg.github.io/2025/08/18/g80/g80-0077/</loc>
+    
+    <lastmod>2026-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/2025/08/18/g80/g80-0078/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -5528,7 +5528,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/05/15/g99/g99-1428/</loc>
+    <loc>https://zakerberg.github.io/2025/05/16/g99/g99-1180/</loc>
     
     <lastmod>2026-07-21</lastmod>
     
@@ -5537,7 +5537,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/2025/05/16/g99/g99-1180/</loc>
+    <loc>https://zakerberg.github.io/2025/05/15/g99/g99-1428/</loc>
     
     <lastmod>2026-07-21</lastmod>
     
@@ -5589,14 +5589,21 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/M6/</loc>
+    <loc>https://zakerberg.github.io/tags/NCR/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/NCR/</loc>
+    <loc>https://zakerberg.github.io/tags/%E7%94%B5%E5%AE%B9%E5%BC%8F/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/tags/M6/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5611,13 +5618,6 @@
   
   <url>
     <loc>https://zakerberg.github.io/tags/M11/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/tags/%E7%94%B5%E5%AE%B9%E5%BC%8F/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5659,7 +5659,42 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/SIEMENS/</loc>
+    <loc>https://zakerberg.github.io/tags/PEACOCK/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/tags/SABRE/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/tags/AT-T/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/tags/ESCOM/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/tags/MANHATTAN/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/tags/Panasonic/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5673,14 +5708,14 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/TANDEBERG-DISPLAY/</loc>
+    <loc>https://zakerberg.github.io/tags/SIEMENS/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/Goupil/</loc>
+    <loc>https://zakerberg.github.io/tags/TANDEBERG-DISPLAY/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5694,7 +5729,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/PEACOCK/</loc>
+    <loc>https://zakerberg.github.io/tags/Goupil/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5751,20 +5786,6 @@
   
   <url>
     <loc>https://zakerberg.github.io/tags/BOSCH/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/tags/SEIMENS-NIXDORF/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/tags/SABRE/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5841,6 +5862,13 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/tags/SEIMENS-NIXDORF/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/tags/ALTAIR/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -5911,13 +5939,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/XERIUS/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/tags/SUN/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -5925,7 +5946,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/REUTERS/</loc>
+    <loc>https://zakerberg.github.io/tags/XERIUS/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5933,6 +5954,13 @@
   
   <url>
     <loc>https://zakerberg.github.io/tags/Diamond-Computers/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/tags/REUTERS/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5967,14 +5995,14 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/VIG-keys/</loc>
+    <loc>https://zakerberg.github.io/tags/Qume/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/Qume/</loc>
+    <loc>https://zakerberg.github.io/tags/VIG-keys/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5995,34 +6023,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/ESCOM/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/tags/AT-T/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/tags/MANHATTAN/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/tags/Panasonic/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/tags/Berthold/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -6037,14 +6037,14 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/BLAUPUNKT/</loc>
+    <loc>https://zakerberg.github.io/tags/TAYLORIX-SYSTEM-8/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/TAYLORIX-SYSTEM-8/</loc>
+    <loc>https://zakerberg.github.io/tags/BLAUPUNKT/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6072,14 +6072,14 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/Commodore/</loc>
+    <loc>https://zakerberg.github.io/tags/THOMSON/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/THOMSON/</loc>
+    <loc>https://zakerberg.github.io/tags/Commodore/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6093,21 +6093,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/APMEX-220/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/tags/IAS/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/tags/Bull/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6121,7 +6107,21 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/tags/Bull/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/tags/DICIPLAN/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/tags/APMEX-220/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6170,14 +6170,14 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/VISX/</loc>
+    <loc>https://zakerberg.github.io/tags/Rohde-Schwarz/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/Rohde-Schwarz/</loc>
+    <loc>https://zakerberg.github.io/tags/VISX/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6226,13 +6226,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/VIDEONICS/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/tags/Telco/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -6255,6 +6248,13 @@
   
   <url>
     <loc>https://zakerberg.github.io/tags/LAUER-FISCHER/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/tags/VIDEONICS/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6289,14 +6289,14 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/DCA/</loc>
+    <loc>https://zakerberg.github.io/tags/Nixdorf/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/Nixdorf/</loc>
+    <loc>https://zakerberg.github.io/tags/DCA/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6373,6 +6373,13 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/tags/PRE-PRODUCTION/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/tags/dakota/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -6387,7 +6394,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/tags/PRE-PRODUCTION/</loc>
+    <loc>https://zakerberg.github.io/tags/Das-keyboard/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6395,13 +6402,6 @@
   
   <url>
     <loc>https://zakerberg.github.io/tags/%E6%B8%B8%E7%A0%94%E7%A4%BE/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/tags/Das-keyboard/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6445,13 +6445,6 @@
 
   
   <url>
-    <loc>https://zakerberg.github.io/categories/M7/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/categories/Cherry/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -6459,56 +6452,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/categories/B25/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/categories/M7/0B70/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/categories/B4TE/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/categories/B21E/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/categories/B4VB/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/categories/B4VE/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/categories/B65/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/categories/B5AB/</loc>
+    <loc>https://zakerberg.github.io/categories/M7/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6522,7 +6466,56 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/categories/BCZN/</loc>
+    <loc>https://zakerberg.github.io/categories/B4TE/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/categories/M7/0B70/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/categories/B25/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/categories/B4VB/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/categories/B21E/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/categories/B4VE/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/categories/B5AB/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/categories/B65/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6543,7 +6536,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/categories/B65/M7/</loc>
+    <loc>https://zakerberg.github.io/categories/BCZN/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6557,42 +6550,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/categories/CB80/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/categories/BXN3/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/categories/BX1A/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/categories/Cherry-%E8%B5%84%E6%96%99/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/categories/BXNA/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/categories/BXNZ/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6606,7 +6564,35 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/categories/B65/M7/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/categories/BXNA/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/categories/BXN3/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/categories/BXND/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/categories/BXNZ/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6620,14 +6606,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/categories/DCA/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/categories/ESA-3000/</loc>
+    <loc>https://zakerberg.github.io/categories/CB80/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6641,6 +6620,27 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/categories/ESA-3000/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/categories/DCA/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/categories/Cherry-%E8%B5%84%E6%96%99/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/categories/G82/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -6648,7 +6648,28 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/categories/G83/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/categories/G84/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/categories/G85/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/categories/G99/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6676,70 +6697,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/categories/G99/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/categories/JD/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/categories/G83/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/categories/JG/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/categories/G85/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/categories/KU/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/categories/G80/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/categories/G80/M7/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/categories/G80/M8/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zakerberg.github.io/categories/G80/M9/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6753,13 +6711,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/categories/KC/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/categories/K3000-Plus/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -6767,7 +6718,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/categories/KFN3/</loc>
+    <loc>https://zakerberg.github.io/categories/JG/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6781,7 +6732,49 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/categories/MXU/</loc>
+    <loc>https://zakerberg.github.io/categories/KXN3/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/categories/G80/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/categories/KC/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/categories/G80/M8/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/categories/G80/M7/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/categories/G80/M9/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/categories/KFN3/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6795,7 +6788,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/categories/KXN3/</loc>
+    <loc>https://zakerberg.github.io/categories/MXU/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6823,7 +6816,7 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/categories/Stream-keyboard/</loc>
+    <loc>https://zakerberg.github.io/categories/KU/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6844,6 +6837,13 @@
   </url>
   
   <url>
+    <loc>https://zakerberg.github.io/categories/Stream-keyboard/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zakerberg.github.io/categories/V81/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -6858,14 +6858,14 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/categories/G8D/</loc>
+    <loc>https://zakerberg.github.io/categories/G8A/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/categories/G8A/</loc>
+    <loc>https://zakerberg.github.io/categories/G8D/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -6879,13 +6879,6 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/categories/UB89/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zakerberg.github.io/categories/UB70/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -6893,14 +6886,21 @@
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/categories/UB88/</loc>
+    <loc>https://zakerberg.github.io/categories/UB80/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zakerberg.github.io/categories/UB80/</loc>
+    <loc>https://zakerberg.github.io/categories/UB89/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zakerberg.github.io/categories/UB88/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
