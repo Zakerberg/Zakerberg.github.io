@@ -89,7 +89,7 @@ const CITY_NAMES = {
 
 const BOT_PATTERN = /bot|crawler|spider|slurp|bingpreview|facebookexternalhit|headless|preview/i;
 const VPN_OR_PROXY_PATTERN = /\b(vpn|proxy|tor exit|anonymi[sz]er|mullvad|nordvpn|expressvpn|surfshark|proton vpn|windscribe|private internet access|cyberghost|hotspot shield|tunnelbear|ivacy|astrill|strongvpn)\b/i;
-const DATA_CENTER_PATTERN = /\b(amazon|aws|google cloud|microsoft azure|digitalocean|linode|akamai connected cloud|vultr|choopa|ovh|hetzner|leaseweb|m247|datacamp|contabo|scaleway|rackspace|oracle cloud|alibaba cloud|tencent cloud|cloudflare|server|hosting|datacenter|data center|colo(?:cation)?)\b/i;
+const DATA_CENTER_PATTERN = /\b(amazon|aws|google cloud|microsoft azure|digitalocean|linode|akamai connected cloud|vultr|choopa|ovh|hetzner|leaseweb|m247|datacamp|contabo|scaleway|rackspace|oracle cloud|alibaba cloud|tencent cloud|aceville|server|hosting|datacenter|data center|colo(?:cation)?)\b/i;
 
 function json(data, status = 200, origin = null) {
   const headers = new Headers({
@@ -248,6 +248,21 @@ function numericSetting(value, fallback, min, max) {
   return Math.min(max, Math.max(min, parsed));
 }
 
+function configuredList(value) {
+  return String(value || "")
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
+export function isBlockedNetwork(ip, asn, env = {}) {
+  const blockedIps = configuredList(env.BLOCKED_IPS);
+  const blockedAsns = configuredList(env.BLOCKED_ASNS).map((item) => item.replace(/^AS/i, ""));
+  const normalizedAsn = Number.parseInt(asn, 10);
+  return blockedIps.includes(String(ip || "").trim())
+    || (Number.isFinite(normalizedAsn) && blockedAsns.includes(String(normalizedAsn)));
+}
+
 export function visitAction(lastVisitedAt, now) {
   if (!Number.isFinite(lastVisitedAt)) return "insert";
 
@@ -293,6 +308,10 @@ async function recordVisit(request, env, origin) {
   const ip = request.headers.get("CF-Connecting-IP");
   if (!ip) return json({ error: "无法识别访问来源" }, 400, origin);
 
+  if (isBlockedNetwork(ip, request.cf?.asn, env)) {
+    return json({ recorded: false, blocked: true }, 403, origin);
+  }
+
   const now = Math.floor(Date.now() / 1000);
   const ipHash = await hashIp(ip, env.IP_HASH_SECRET);
   const duplicate = await env.DB.prepare(
@@ -317,13 +336,15 @@ async function recordVisit(request, env, origin) {
     request.cf?.postalCode
   );
   const network = networkMetadata(request.cf?.asn, request.cf?.asOrganization);
+  const asnValue = Number.parseInt(request.cf?.asn, 10);
+  const asn = Number.isFinite(asnValue) && asnValue > 0 ? asnValue : 0;
   const maskedIp = maskIp(ip);
 
   if (action === "update") {
     await env.DB.batch([
       env.DB.prepare(
         `UPDATE visits
-            SET ip_masked = ?, country = ?, region = ?, location = ?, network = ?,
+            SET ip_masked = ?, country = ?, region = ?, location = ?, network = ?, asn = ?,
                 risk_level = ?, risk_label = ?, page_path = ?, visited_at = ?
           WHERE id = ?`
       ).bind(
@@ -332,6 +353,7 @@ async function recordVisit(request, env, origin) {
         location.region,
         location.location,
         network.network,
+        asn,
         network.riskLevel,
         network.riskLabel,
         pagePath,
@@ -348,8 +370,8 @@ async function recordVisit(request, env, origin) {
 
   const inserted = await env.DB.prepare(
     `INSERT INTO visits
-      (ip_masked, ip_hash, country, region, location, network, risk_level, risk_label, page_path, visited_at)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+      (ip_masked, ip_hash, country, region, location, network, asn, risk_level, risk_label, page_path, visited_at)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
   )
     .bind(
       maskedIp,
@@ -358,6 +380,7 @@ async function recordVisit(request, env, origin) {
       location.region,
       location.location,
       network.network,
+      asn,
       network.riskLevel,
       network.riskLabel,
       pagePath,
@@ -425,6 +448,10 @@ async function handleRequest(request, env) {
 
   if (request.method === "OPTIONS") {
     return origin ? optionsResponse(origin) : json({ error: "来源不被允许" }, 403);
+  }
+
+  if (isBlockedNetwork(request.headers.get("CF-Connecting-IP"), request.cf?.asn, env)) {
+    return json({ error: "访问来源已被限制" }, 403, origin || null);
   }
 
   if (url.pathname === "/health" && request.method === "GET") {

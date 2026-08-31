@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS visits (
   region TEXT NOT NULL,
   location TEXT NOT NULL,
   network TEXT NOT NULL DEFAULT '',
+  asn INTEGER NOT NULL DEFAULT 0,
   risk_level TEXT NOT NULL DEFAULT '',
   risk_label TEXT NOT NULL DEFAULT '',
   page_path TEXT NOT NULL,

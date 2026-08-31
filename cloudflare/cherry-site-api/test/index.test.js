@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { formatLocation, maskIp, networkMetadata, sanitizePath, visitAction } from "../src/index.js";
+import { formatLocation, isBlockedNetwork, maskIp, networkMetadata, sanitizePath, visitAction } from "../src/index.js";
 
 test("masks IPv4 without retaining the middle octets", () => {
   assert.equal(maskIp("120.34.56.31"), "120.***.***.31");
@@ -71,6 +71,12 @@ test("does not mark ordinary access networks as VPN traffic", () => {
     riskLevel: "",
     riskLabel: ""
   });
+});
+
+test("blocks a configured ASN even when the source IP changes", () => {
+  assert.equal(isBlockedNetwork("43.***.***.224", 132203, { BLOCKED_ASNS: "132203" }), true);
+  assert.equal(isBlockedNetwork("43.***.***.70", 132203, { BLOCKED_ASNS: "AS132203" }), true);
+  assert.equal(isBlockedNetwork("43.***.***.70", 4134, { BLOCKED_ASNS: "132203" }), false);
 });
 
 test("ignores rapid refreshes from the same IP", () => {
