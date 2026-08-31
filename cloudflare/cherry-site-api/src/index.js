@@ -3,6 +3,8 @@ const PAGE_SIZE = 10;
 const MAX_PAGE = 20;
 const DEDUPE_WINDOW_SECONDS = 6 * 60 * 60;
 const MIN_UPDATE_INTERVAL_SECONDS = 60;
+const HUMAN_PASS_TTL_SECONDS = 30 * 60;
+const HUMAN_CHECK_PAGE = 6;
 
 const CHINA_REGIONS = {
   Anhui: "安徽",
@@ -104,6 +106,11 @@ function json(data, status = 200, origin = null) {
   }
 
   return new Response(JSON.stringify(data), { status, headers });
+}
+
+function turnstileEnabled(env) {
+  return String(env.TURNSTILE_ENABLED || "false").toLowerCase() === "true"
+    && Boolean(env.TURNSTILE_SECRET_KEY);
 }
 
 function allowedOrigin(request, env) {
@@ -240,6 +247,75 @@ async function hashIp(ip, secret) {
   return [...new Uint8Array(signature)]
     .map((byte) => byte.toString(16).padStart(2, "0"))
     .join("");
+}
+
+async function signValue(value, secret) {
+  const encoder = new TextEncoder();
+  const key = await crypto.subtle.importKey(
+    "raw",
+    encoder.encode(secret),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"]
+  );
+  const signature = await crypto.subtle.sign("HMAC", key, encoder.encode(value));
+  return [...new Uint8Array(signature)]
+    .map((byte) => byte.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+function randomTokenPart() {
+  const bytes = new Uint8Array(16);
+  crypto.getRandomValues(bytes);
+  return [...bytes].map((byte) => byte.toString(16).padStart(2, "0")).join("");
+}
+
+async function issueHumanPass(ip, env, now) {
+  const expiresAt = now + HUMAN_PASS_TTL_SECONDS;
+  const nonce = randomTokenPart();
+  const ipHash = await hashIp(ip, env.IP_HASH_SECRET);
+  const signature = await signValue(`${expiresAt}.${nonce}|${ipHash}`, env.IP_HASH_SECRET);
+  return `${expiresAt}.${nonce}.${signature}`;
+}
+
+async function isValidHumanPass(token, ip, env, now) {
+  if (!token || !env.IP_HASH_SECRET) return false;
+
+  const parts = String(token).split(".");
+  if (parts.length !== 3) return false;
+
+  const expiresAt = Number.parseInt(parts[0], 10);
+  if (!Number.isFinite(expiresAt) || expiresAt < now || !/^[a-f0-9]{32}$/.test(parts[1])) {
+    return false;
+  }
+
+  const ipHash = await hashIp(ip, env.IP_HASH_SECRET);
+  const expected = await signValue(`${expiresAt}.${parts[1]}|${ipHash}`, env.IP_HASH_SECRET);
+  return parts[2] === expected;
+}
+
+async function validateTurnstile(token, env) {
+  if (!turnstileEnabled(env) || typeof token !== "string" || token.length > 2048) {
+    return false;
+  }
+
+  const form = new URLSearchParams();
+  form.set("secret", env.TURNSTILE_SECRET_KEY);
+  form.set("response", token);
+
+  const response = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: form
+  });
+  if (!response.ok) return false;
+
+  const result = await response.json();
+  if (!result.success) return false;
+
+  const hostname = String(result.hostname || "");
+  const expectedHostnames = configuredList(env.TURNSTILE_HOSTNAME || "zakerberg.github.io");
+  return expectedHostnames.includes(hostname);
 }
 
 function numericSetting(value, fallback, min, max) {
@@ -401,6 +477,57 @@ async function recordVisit(request, env, origin) {
   return json({ recorded: true, updated: false }, 201, origin);
 }
 
+async function verifyHuman(request, env, origin) {
+  if (!turnstileEnabled(env)) {
+    return json({ error: "人类检测尚未配置" }, 503, origin);
+  }
+
+  const ip = request.headers.get("CF-Connecting-IP");
+  if (!ip) return json({ error: "无法识别访问来源" }, 400, origin);
+
+  let body;
+  try {
+    body = await request.json();
+  } catch (_error) {
+    return json({ error: "请求内容不是有效 JSON" }, 400, origin);
+  }
+
+  const valid = await validateTurnstile(body.token, env);
+  if (!valid) return json({ verified: false }, 403, origin);
+
+  return json({ verified: true, pass: await issueHumanPass(ip, env, Math.floor(Date.now() / 1000)) }, 200, origin);
+}
+
+async function shouldChallenge(request, url, env, now) {
+  const page = numericSetting(url.searchParams.get("page"), 1, 1, MAX_PAGE);
+  if (!turnstileEnabled(env) || page < HUMAN_CHECK_PAGE) return false;
+
+  const metadata = networkMetadata(request.cf?.asn, request.cf?.asOrganization);
+  if (metadata.riskLevel) return true;
+
+  const asn = Number.parseInt(request.cf?.asn, 10);
+  if (!Number.isFinite(asn) || asn <= 0) return false;
+
+  const networkActivity = await env.DB.prepare(
+    `SELECT COUNT(DISTINCT ip_hash) AS unique_ips, COUNT(*) AS total
+       FROM visits
+      WHERE asn = ? AND visited_at >= ?`
+  )
+    .bind(asn, now - DEDUPE_WINDOW_SECONDS)
+    .first();
+
+  const uniqueIps = Number(networkActivity?.unique_ips || 0);
+  const total = Number(networkActivity?.total || 0);
+  const clientPageCount = numericSetting(request.headers.get("X-Visitor-Page-Count"), 0, 0, 100);
+  const clientInterval = Number.parseInt(request.headers.get("X-Visitor-Page-Interval"), 10);
+  const fixedFastNavigation = clientPageCount >= HUMAN_CHECK_PAGE
+    && Number.isFinite(clientInterval)
+    && clientInterval >= 0
+    && clientInterval <= 20;
+
+  return (uniqueIps >= 4 && total >= 4) || fixedFastNavigation;
+}
+
 async function listVisits(url, env, origin) {
   const requestedPage = numericSetting(url.searchParams.get("page"), 1, 1, MAX_PAGE);
   const retentionDays = numericSetting(env.RETENTION_DAYS, 7, 1, 30);
@@ -465,7 +592,20 @@ async function handleRequest(request, env) {
     return recordVisit(request, env, origin);
   }
 
+  if (url.pathname === "/api/verify-human" && request.method === "POST") {
+    return verifyHuman(request, env, origin);
+  }
+
   if (url.pathname === "/api/visits" && request.method === "GET") {
+    const ip = request.headers.get("CF-Connecting-IP");
+    if (!ip) return json({ error: "无法识别访问来源" }, 400, origin);
+
+    const pass = request.headers.get("X-Visitor-Pass");
+    const now = Math.floor(Date.now() / 1000);
+    if (await shouldChallenge(request, url, env, now)
+      && !(await isValidHumanPass(pass, ip, env, now))) {
+      return json({ challengeRequired: true }, 403, origin);
+    }
     return listVisits(url, env, origin);
   }
 

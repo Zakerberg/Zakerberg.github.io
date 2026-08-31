@@ -421,6 +421,7 @@ busuanziStatistics:
 recentVisitors:
   enable: true
   endpoint: https://cherry-site-api.blm1129mobil1.workers.dev
+  turnstileSiteKey:
 
 # 添加 Google Analytics 配置
 googleAnalytics:

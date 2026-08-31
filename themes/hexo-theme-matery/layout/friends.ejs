@@ -253,6 +253,16 @@
                     <i class="fas fa-user-shield" aria-hidden="true"></i>
                     <span>本站仅处理经脱敏的访问 IP 所对应的粗略地区和网络信息，用于展示站点访问地域；不保存或公开完整 IP，记录将在 7 天内自动删除。代理/VPN 标识依据网络运营商及数据中心特征推测，不代表确定结论。</span>
                 </p>
+
+                <div id="recent-visitors-challenge" class="recent-visitors-challenge" hidden>
+                    <div class="recent-visitors-challenge-dialog" role="dialog" aria-modal="true" aria-labelledby="recent-visitors-challenge-title">
+                        <button type="button" class="recent-visitors-challenge-close" aria-label="关闭人类检测">&times;</button>
+                        <h2 id="recent-visitors-challenge-title">请完成简单验证</h2>
+                        <p>为了减少自动化扫描，请完成验证后继续查看访问记录。</p>
+                        <div id="recent-visitors-turnstile"></div>
+                        <p id="recent-visitors-challenge-status" class="recent-visitors-challenge-status" aria-live="polite"></p>
+                    </div>
+                </div>
             </div>
         </section>
         <% } %>

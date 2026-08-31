@@ -23,6 +23,8 @@
   "vars": {
     "ALLOWED_ORIGINS": "https://zakerberg.github.io,http://localhost:4000,http://127.0.0.1:4000",
     "BLOCKED_ASNS": "132203",
+    "TURNSTILE_ENABLED": "false",
+    "TURNSTILE_HOSTNAME": "zakerberg.github.io",
     "MAX_VISITS": "200",
     "RETENTION_DAYS": "7"
   }
