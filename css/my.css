@@ -1243,6 +1243,82 @@ body.DarkMode .tag-marquee-item:focus-visible {
     color: #0f9d58;
 }
 
+.recent-visitors-challenge[hidden] {
+    display: none;
+}
+
+.recent-visitors-challenge {
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    background: rgba(22, 38, 30, 0.38);
+}
+
+.recent-visitors-challenge-dialog {
+    position: relative;
+    width: min(100%, 420px);
+    padding: 2rem;
+    border: 1px solid rgba(15, 157, 88, 0.16);
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 20px 60px rgba(24, 54, 38, 0.24);
+    text-align: center;
+}
+
+.recent-visitors-challenge-dialog h2 {
+    margin: 0 0 0.65rem;
+    color: #405166;
+    font-size: 1.35rem;
+}
+
+.recent-visitors-challenge-dialog p {
+    color: #718278;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.recent-visitors-challenge-close {
+    position: absolute;
+    top: 0.65rem;
+    right: 0.8rem;
+    width: 2rem;
+    height: 2rem;
+    border: 0;
+    border-radius: 50%;
+    color: #718278;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.recent-visitors-challenge-close:hover,
+.recent-visitors-challenge-close:focus-visible {
+    color: #0f9d58;
+    background: rgba(15, 157, 88, 0.08);
+}
+
+.recent-visitors-challenge-status {
+    min-height: 1.5em;
+    margin-bottom: 0;
+}
+
+body.DarkMode .recent-visitors-challenge-dialog {
+    border-color: rgba(99, 214, 157, 0.18);
+    background: #26332d;
+}
+
+body.DarkMode .recent-visitors-challenge-dialog h2 {
+    color: #d0d9d4;
+}
+
+body.DarkMode .recent-visitors-challenge-dialog p {
+    color: #bdcbc3;
+}
+
 body.DarkMode .recent-visitors-title i,
 body.DarkMode .recent-visitors-privacy i {
     color: #63d69d;

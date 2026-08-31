@@ -5,7 +5,13 @@
     var endpoint = String(config.endpoint || '').replace(/\/$/, '');
     var listElement = document.getElementById('recent-visitors-list');
     var paginationElement = document.getElementById('recent-visitors-pagination');
+    var challengeElement = document.getElementById('recent-visitors-challenge');
+    var challengeContainer = document.getElementById('recent-visitors-turnstile');
+    var challengeStatus = document.getElementById('recent-visitors-challenge-status');
+    var challengeClose = document.querySelector('.recent-visitors-challenge-close');
     var requestTimeout = 6500;
+    var lastPageRequestAt = 0;
+    var pendingChallengePage = 0;
 
     if (!endpoint || !/^https:\/\//.test(endpoint)) {
         showStatus('页面访问服务暂时不可用，请稍后再试。', 'error');
@@ -24,10 +30,14 @@
         }, options || {});
 
         return fetch(endpoint + path, requestOptions).then(function (response) {
-            if (!response.ok) {
-                throw new Error('Visitor API returned ' + response.status);
-            }
-            return response.json();
+            return response.json().catch(function () { return {}; }).then(function (payload) {
+                if (!response.ok) {
+                    var error = new Error('Visitor API returned ' + response.status);
+                    error.payload = payload;
+                    throw error;
+                }
+                return payload;
+            });
         }).finally(function () {
             window.clearTimeout(timeout);
         });
@@ -81,6 +91,100 @@
 
         if (paginationElement) paginationElement.hidden = true;
     }
+
+    function visitorPass() {
+        try {
+            return sessionStorage.getItem('cherry-human-pass') || '';
+        } catch (_error) {
+            return '';
+        }
+    }
+
+    function rememberHumanPass(pass) {
+        try {
+            sessionStorage.setItem('cherry-human-pass', pass);
+        } catch (_error) {
+            // The pass is optional; the visitor can verify again if storage is unavailable.
+        }
+    }
+
+    function pageRequestHeaders(page) {
+        var now = Date.now();
+        var interval = lastPageRequestAt ? Math.round((now - lastPageRequestAt) / 1000) : 0;
+        lastPageRequestAt = now;
+        return {
+            'X-Visitor-Pass': visitorPass(),
+            'X-Visitor-Page-Count': String(Math.max(Number(page) || 1, 1)),
+            'X-Visitor-Page-Interval': String(interval)
+        };
+    }
+
+    function closeChallenge() {
+        pendingChallengePage = 0;
+        if (challengeElement) challengeElement.hidden = true;
+        if (challengeContainer && window.turnstile) {
+            challengeContainer.replaceChildren();
+        }
+    }
+
+    function openChallenge(page) {
+        pendingChallengePage = page;
+        if (!challengeElement || !challengeContainer || !config.turnstileSiteKey) {
+            showStatus('当前访问记录需要验证，但验证服务尚未配置。', 'error');
+            return Promise.reject(new Error('Turnstile is not configured'));
+        }
+
+        challengeElement.hidden = false;
+        challengeStatus.textContent = '正在加载验证...';
+
+        return new Promise(function (resolve, reject) {
+            var startedAt = Date.now();
+            var renderWhenReady = function () {
+                if (!window.turnstile) {
+                    if (Date.now() - startedAt > 7000) {
+                        challengeStatus.textContent = '验证服务加载失败，请稍后重试。';
+                        reject(new Error('Turnstile did not load'));
+                        return;
+                    }
+                    window.setTimeout(renderWhenReady, 100);
+                    return;
+                }
+
+                challengeContainer.replaceChildren();
+                window.turnstile.render(challengeContainer, {
+                    sitekey: config.turnstileSiteKey,
+                    theme: 'auto',
+                    action: 'visitor_pagination',
+                    callback: function (token) {
+                        challengeStatus.textContent = '验证成功，正在继续加载...';
+                        apiRequest('/api/verify-human', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ token: token })
+                        }).then(function (payload) {
+                            if (!payload.verified || !payload.pass) throw new Error('Human verification failed');
+                            rememberHumanPass(payload.pass);
+                            closeChallenge();
+                            resolve(page);
+                        }).catch(function () {
+                            challengeStatus.textContent = '验证未通过，请重新尝试。';
+                            reject(new Error('Human verification failed'));
+                        });
+                    },
+                    'error-callback': function () {
+                        challengeStatus.textContent = '验证加载失败，请重新尝试。';
+                        reject(new Error('Turnstile error'));
+                    },
+                    'expired-callback': function () {
+                        challengeStatus.textContent = '验证已过期，请重新尝试。';
+                    }
+                });
+            };
+            renderWhenReady();
+        });
+    }
+
+    if (challengeClose) challengeClose.addEventListener('click', closeChallenge);
 
     function formatTime(timestamp) {
         var date = new Date(Number(timestamp) * 1000);
@@ -212,13 +316,21 @@
         renderPagination(payload.pagination || {});
     }
 
-    function loadVisits(page) {
+    function loadVisits(page, afterChallenge) {
         if (!listElement) return Promise.resolve();
 
         showStatus('正在加载访问记录...', 'loading');
-        return apiRequest('/api/visits?page=' + encodeURIComponent(page || 1))
+        var requestedPage = page || 1;
+        return apiRequest('/api/visits?page=' + encodeURIComponent(requestedPage), {
+            headers: pageRequestHeaders(requestedPage)
+        })
             .then(renderVisits)
-            .catch(function () {
+            .catch(function (error) {
+                if (!afterChallenge && error.payload && error.payload.challengeRequired) {
+                    return openChallenge(requestedPage).then(function () {
+                        return loadVisits(requestedPage, true);
+                    });
+                }
                 showStatus('页面访问记录暂时无法加载，请稍后再试。', 'error');
             });
     }
