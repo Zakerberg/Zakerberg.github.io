@@ -1172,6 +1172,7 @@ body.DarkMode .tag-marquee-item:focus-visible {
     width: 100%;
     height: auto;
     margin-top: 1.25rem;
+    margin-bottom: 1.5rem;
     padding: 0;
     background: transparent;
     box-shadow: none;
