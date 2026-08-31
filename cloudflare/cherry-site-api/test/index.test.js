@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { formatLocation, isBlockedNetwork, maskIp, networkMetadata, sanitizePath, visitAction } from "../src/index.js";
+import { formatLocation, isBlockedNetwork, maskIp, networkMetadata, sanitizePath, shouldChallengeRequest, verifyAttemptCount, verifyAttemptWindow, visitAction } from "../src/index.js";
 
 test("masks IPv4 without retaining the middle octets", () => {
   assert.equal(maskIp("120.34.56.31"), "120.***.***.31");
@@ -90,4 +90,65 @@ test("updates the existing row within the rolling six-hour window", () => {
 
 test("inserts a new row after the six-hour window", () => {
   assert.equal(visitAction(12 * 60 * 60, 18 * 60 * 60 + 1), "insert");
+});
+
+const TURNSTILE_ON = { TURNSTILE_ENABLED: "true", TURNSTILE_SECRET_KEY: "secret" };
+
+test("challenges risky networks on the first page", () => {
+  assert.equal(shouldChallengeRequest({ page: 1, riskLevel: "high" }, TURNSTILE_ON), true);
+});
+
+test("challenges risky networks regardless of the page number", () => {
+  assert.equal(shouldChallengeRequest({ page: 5, riskLevel: "medium" }, TURNSTILE_ON), true);
+});
+
+test("does not challenge clean networks before the deep pages", () => {
+  assert.equal(shouldChallengeRequest({ page: 1, riskLevel: "", uniqueIps: 20, total: 20 }, TURNSTILE_ON), false);
+  assert.equal(shouldChallengeRequest({ page: 5, riskLevel: "", uniqueIps: 20, total: 20 }, TURNSTILE_ON), false);
+});
+
+test("challenges busy networks on deep pages", () => {
+  assert.equal(shouldChallengeRequest({ page: 6, riskLevel: "", uniqueIps: 4, total: 4 }, TURNSTILE_ON), true);
+  assert.equal(shouldChallengeRequest({ page: 6, riskLevel: "", uniqueIps: 3, total: 3 }, TURNSTILE_ON), false);
+});
+
+test("challenges fast page flipping on deep pages even with low network activity", () => {
+  assert.equal(shouldChallengeRequest({
+    page: 6, riskLevel: "", uniqueIps: 1, total: 1, clientPageCount: 6, clientInterval: 5
+  }, TURNSTILE_ON), true);
+});
+
+test("ignores fast page flipping signals that are not numeric", () => {
+  assert.equal(shouldChallengeRequest({
+    page: 6, riskLevel: "", uniqueIps: 1, total: 1, clientPageCount: 6, clientInterval: "abc"
+  }, TURNSTILE_ON), false);
+});
+
+test("never challenges when Turnstile is disabled", () => {
+  assert.equal(shouldChallengeRequest({ page: 6, riskLevel: "high" }, { TURNSTILE_ENABLED: "false" }), false);
+  assert.equal(shouldChallengeRequest({ page: 6, riskLevel: "high" }, {}), false);
+});
+
+test("windows verify attempts into fixed hourly buckets", () => {
+  assert.deepEqual(verifyAttemptWindow({}, 3_599), {
+    windowSeconds: 3600,
+    maxAttempts: 10,
+    windowStart: 0
+  });
+  assert.deepEqual(verifyAttemptWindow({}, 3_600), {
+    windowSeconds: 3600,
+    maxAttempts: 10,
+    windowStart: 3600
+  });
+});
+
+test("clamps verify limit settings into sane ranges", () => {
+  assert.equal(verifyAttemptWindow({ VERIFY_MAX_ATTEMPTS: "999", VERIFY_WINDOW_SECONDS: "1" }, 0).maxAttempts, 100);
+  assert.equal(verifyAttemptWindow({ VERIFY_MAX_ATTEMPTS: "999", VERIFY_WINDOW_SECONDS: "1" }, 0).windowSeconds, 300);
+});
+
+test("counts only attempts within the current window", () => {
+  assert.equal(verifyAttemptCount({ window_start: 3600, count: 9 }, 3600), 9);
+  assert.equal(verifyAttemptCount({ window_start: 0, count: 9 }, 3600), 0);
+  assert.equal(verifyAttemptCount(null, 3600), 0);
 });

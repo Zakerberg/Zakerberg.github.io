@@ -358,7 +358,8 @@ async function cleanupVisits(env, now) {
     env.DB.prepare("DELETE FROM visits WHERE visited_at < ?").bind(cutoff),
     env.DB.prepare(
       "DELETE FROM visits WHERE id NOT IN (SELECT id FROM visits ORDER BY visited_at DESC, id DESC LIMIT ?)"
-    ).bind(maxVisits)
+    ).bind(maxVisits),
+    env.DB.prepare("DELETE FROM verify_attempts WHERE window_start < ?").bind(now - 2 * 24 * 60 * 60)
   ]);
 }
 
@@ -478,6 +479,21 @@ async function recordVisit(request, env, origin) {
   return json({ recorded: true, updated: false }, 201, origin);
 }
 
+export function verifyAttemptWindow(env = {}, now) {
+  const windowSeconds = numericSetting(env.VERIFY_WINDOW_SECONDS, 3600, 300, 86400);
+  const maxAttempts = numericSetting(env.VERIFY_MAX_ATTEMPTS, 10, 1, 100);
+  return {
+    windowSeconds,
+    maxAttempts,
+    windowStart: Math.floor(now / windowSeconds) * windowSeconds
+  };
+}
+
+export function verifyAttemptCount(row, windowStart) {
+  if (!row) return 0;
+  return Number(row.window_start) === windowStart ? Number(row.count || 0) : 0;
+}
+
 async function verifyHuman(request, env, origin) {
   if (!turnstileEnabled(env)) {
     return json({ error: "人类检测尚未配置" }, 503, origin);
@@ -485,6 +501,43 @@ async function verifyHuman(request, env, origin) {
 
   const ip = request.headers.get("CF-Connecting-IP");
   if (!ip) return json({ error: "无法识别访问来源" }, 400, origin);
+
+  if (!env.IP_HASH_SECRET) {
+    return json({ error: "服务配置未完成" }, 503, origin);
+  }
+
+  const now = Math.floor(Date.now() / 1000);
+  const { maxAttempts, windowStart } = verifyAttemptWindow(env, now);
+  const ipHash = await hashIp(ip, env.IP_HASH_SECRET);
+  const attempt = await env.DB.prepare(
+    "SELECT window_start, count FROM verify_attempts WHERE ip_hash = ?"
+  )
+    .bind(ipHash)
+    .first();
+  const attempts = verifyAttemptCount(attempt, windowStart);
+  if (attempts >= maxAttempts) {
+    return json({ error: "验证尝试过于频繁，请稍后再试" }, 429, origin);
+  }
+
+  if (!attempt) {
+    await env.DB.prepare(
+      "INSERT INTO verify_attempts (ip_hash, window_start, count) VALUES (?, ?, 1)"
+    )
+      .bind(ipHash, windowStart)
+      .run();
+  } else if (attempts === 0) {
+    await env.DB.prepare(
+      "UPDATE verify_attempts SET window_start = ?, count = 1 WHERE ip_hash = ?"
+    )
+      .bind(windowStart, ipHash)
+      .run();
+  } else {
+    await env.DB.prepare(
+      "UPDATE verify_attempts SET count = count + 1 WHERE ip_hash = ?"
+    )
+      .bind(ipHash)
+      .run();
+  }
 
   let body;
   try {
@@ -496,15 +549,37 @@ async function verifyHuman(request, env, origin) {
   const valid = await validateTurnstile(body.token, env);
   if (!valid) return json({ verified: false }, 403, origin);
 
-  return json({ verified: true, pass: await issueHumanPass(ip, env, Math.floor(Date.now() / 1000)) }, 200, origin);
+  return json({ verified: true, pass: await issueHumanPass(ip, env, now) }, 200, origin);
+}
+
+export function shouldChallengeRequest(activity, env = {}) {
+  if (!turnstileEnabled(env)) return false;
+
+  const page = numericSetting(activity.page, 1, 1, MAX_PAGE);
+  if (activity.riskLevel) return true;
+
+  if (page < HUMAN_CHECK_PAGE) return false;
+
+  const uniqueIps = Number(activity.uniqueIps || 0);
+  const total = Number(activity.total || 0);
+  const clientPageCount = numericSetting(activity.clientPageCount, 0, 0, 100);
+  const clientInterval = Number.parseInt(activity.clientInterval, 10);
+  const fixedFastNavigation = clientPageCount >= HUMAN_CHECK_PAGE
+    && Number.isFinite(clientInterval)
+    && clientInterval >= 0
+    && clientInterval <= 20;
+
+  return (uniqueIps >= 4 && total >= 4) || fixedFastNavigation;
 }
 
 async function shouldChallenge(request, url, env, now) {
-  const page = numericSetting(url.searchParams.get("page"), 1, 1, MAX_PAGE);
-  if (!turnstileEnabled(env) || page < HUMAN_CHECK_PAGE) return false;
+  if (!turnstileEnabled(env)) return false;
 
   const metadata = networkMetadata(request.cf?.asn, request.cf?.asOrganization);
   if (metadata.riskLevel) return true;
+
+  const page = numericSetting(url.searchParams.get("page"), 1, 1, MAX_PAGE);
+  if (page < HUMAN_CHECK_PAGE) return false;
 
   const asn = Number.parseInt(request.cf?.asn, 10);
   if (!Number.isFinite(asn) || asn <= 0) return false;
@@ -517,16 +592,14 @@ async function shouldChallenge(request, url, env, now) {
     .bind(asn, now - DEDUPE_WINDOW_SECONDS)
     .first();
 
-  const uniqueIps = Number(networkActivity?.unique_ips || 0);
-  const total = Number(networkActivity?.total || 0);
-  const clientPageCount = numericSetting(request.headers.get("X-Visitor-Page-Count"), 0, 0, 100);
-  const clientInterval = Number.parseInt(request.headers.get("X-Visitor-Page-Interval"), 10);
-  const fixedFastNavigation = clientPageCount >= HUMAN_CHECK_PAGE
-    && Number.isFinite(clientInterval)
-    && clientInterval >= 0
-    && clientInterval <= 20;
-
-  return (uniqueIps >= 4 && total >= 4) || fixedFastNavigation;
+  return shouldChallengeRequest({
+    page,
+    riskLevel: metadata.riskLevel,
+    uniqueIps: networkActivity?.unique_ips,
+    total: networkActivity?.total,
+    clientPageCount: request.headers.get("X-Visitor-Page-Count"),
+    clientInterval: request.headers.get("X-Visitor-Page-Interval")
+  }, env);
 }
 
 async function listVisits(url, env, origin) {
