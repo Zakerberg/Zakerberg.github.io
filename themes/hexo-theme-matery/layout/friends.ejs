@@ -205,7 +205,7 @@
                             <div class="card frind-card<%- ((i % 10) +1) %>">
                                 <div class="frind-ship">
                                     <div class="title">
-                                        <img src="<%- url_for(friend.avatar) %>" alt="img">
+                                        <img src="<%- url_for(friend.avatar) %>" alt="<%= friend.name %>" loading="lazy">
                                         <div>
                                             <h1 class="friend-name"><%= friend.name %></h1>
                                             <p style="position: relative;top: -35px;"><%= friend.introduction %></p>
