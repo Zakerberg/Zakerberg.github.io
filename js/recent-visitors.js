@@ -222,10 +222,20 @@
 
         var location = document.createElement('span');
         location.className = 'recent-visitor-location';
+        var locationParts = String(item.location || '未知地区').split(' · ');
+        var lastPart = locationParts[locationParts.length - 1];
+        var postalText = /^邮编\s+/.test(lastPart) ? locationParts.pop() : '';
         var locationText = document.createElement('span');
         locationText.className = 'recent-visitor-location-text';
-        locationText.textContent = item.location || '未知地区';
+        locationText.textContent = locationParts.join(' · ') || '未知地区';
         location.appendChild(locationText);
+
+        if (postalText) {
+            var postal = document.createElement('small');
+            postal.className = 'recent-visitor-postal';
+            postal.textContent = postalText;
+            location.appendChild(postal);
+        }
 
         if (item.network) {
             var network = document.createElement('small');

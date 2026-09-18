@@ -1107,7 +1107,7 @@ body.DarkMode .tag-marquee-item:focus-visible {
 
 .recent-visitor-location {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
     min-width: 0;
 }
@@ -1115,22 +1115,28 @@ body.DarkMode .tag-marquee-item:focus-visible {
 .recent-visitor-location::before {
     grid-row: 1;
     grid-column: 1;
+    align-self: start;
+    margin-top: 0.55em;
 }
 
 .recent-visitor-location-text {
     grid-row: 1;
     grid-column: 2;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    white-space: normal;
 }
 
+.recent-visitor-postal,
 .recent-visitor-network {
     grid-column: 2;
-    overflow: hidden;
+    min-width: 0;
     margin-top: 0.22rem;
     color: #718278;
     font-size: 0.76rem;
     line-height: 1.45;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    overflow-wrap: anywhere;
+    white-space: normal;
 }
 
 .recent-visitor-risk {
@@ -1351,6 +1357,7 @@ body.DarkMode .recent-visitor-ip {
     color: #b9d8c8;
 }
 
+body.DarkMode .recent-visitor-postal,
 body.DarkMode .recent-visitor-network {
     color: #93a99e;
 }
@@ -1389,7 +1396,7 @@ body.DarkMode .recent-visitors-privacy {
     }
 
     .recent-visitor-row {
-        grid-template-columns: 1fr auto;
+        grid-template-columns: auto minmax(0, 1fr);
         gap: 0.35rem 0.8rem;
         padding: 0.85rem 1rem;
     }
