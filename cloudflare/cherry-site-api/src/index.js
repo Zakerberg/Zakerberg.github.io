@@ -1,3 +1,5 @@
+import { GLOBAL_PLACES } from "./places.js";
+
 const DEFAULT_ALLOWED_ORIGINS = ["https://zakerberg.github.io"];
 const PAGE_SIZE = 10;
 const MAX_PAGE = 20;
@@ -107,9 +109,15 @@ const CITY_NAMES = {
   Astrakhan: "阿斯特拉罕",
   "Astrakhan Oblast": "阿斯特拉罕州",
   "Baden-Wurttemberg": "巴登-符腾堡",
+  Barquisimeto: "巴基西梅托",
   Bavaria: "巴伐利亚",
   Beijing: "北京",
   Berlin: "柏林",
+  Bogota: "波哥大",
+  "Bogota D.C.": "波哥大首都区",
+  "Bogotá": "波哥大",
+  "Bogotá D.C.": "波哥大首都区",
+  Cali: "卡利",
   Chengdu: "成都",
   Chicago: "芝加哥",
   Chongqing: "重庆",
@@ -126,22 +134,32 @@ const CITY_NAMES = {
   Hamburg: "汉堡",
   Hangzhou: "杭州",
   Helsinki: "赫尔辛基",
+  Hesse: "黑森州",
+  Hessen: "黑森州",
+  "Ho Chi Minh City": "胡志明市",
+  "Ho Chi Minh City (HCMC)": "胡志明市",
   "Hong Kong": "香港",
   Lancaster: "兰卡斯特",
+  Lara: "拉腊州",
   London: "伦敦",
   "Los Angeles": "洛杉矶",
   Madrid: "马德里",
   Melbourne: "墨尔本",
+  Merida: "梅里达",
+  "Mérida": "梅里达",
   "Mexico City": "墨西哥城",
   Munich: "慕尼黑",
   Nanjing: "南京",
   "New York": "纽约",
+  "North Holland": "北荷兰省",
   Osaka: "大阪",
   Paris: "巴黎",
   Ploiesti: "普洛耶什蒂",
   "Ploieşti": "普洛耶什蒂",
   "Ploiești": "普洛耶什蒂",
+  "Porto Alegre": "阿雷格里港",
   Prahova: "普拉霍瓦县",
+  "Rio Grande do Sul": "南里奥格兰德州",
   Seoul: "首尔",
   Shanghai: "上海",
   Shenzhen: "深圳",
@@ -151,6 +169,7 @@ const CITY_NAMES = {
   Taipei: "台北",
   Tokyo: "东京",
   Toronto: "多伦多",
+  "Valle del Cauca Department": "考卡山谷省",
   Vancouver: "温哥华",
   Vienna: "维也纳",
   Wuhan: "武汉",
@@ -247,14 +266,88 @@ function countryName(countryCode) {
 
 function translatedPlace(value, countryCode = "", isRegion = false) {
   const name = String(value || "").trim();
+  if (!name) return name;
+
+  // 1. Try country-specific region dictionaries first when looking for a region
   const regions = countryCode === "CN" ? CHINA_REGIONS : countryCode === "US" ? US_REGIONS : {};
-  const translation = (isRegion && regions[name]) || CITY_NAMES[name];
-  return typeof translation === "string" ? translation : name;
+  if (isRegion && regions[name]) return regions[name];
+
+  // 2. Try legacy CITY_NAMES (for curated translations and special cases)
+  if (CITY_NAMES[name]) return CITY_NAMES[name];
+
+  // 3. Try global places dictionary (country-scoped)
+  if (countryCode && GLOBAL_PLACES[countryCode]?.[name]) {
+    return GLOBAL_PLACES[countryCode][name];
+  }
+
+  return name;
 }
+
+const COUNTRY_CODE_BY_NAME = {
+  "中国": "CN",
+  "美国": "US",
+  "日本": "JP",
+  "韩国": "KR",
+  "德国": "DE",
+  "法国": "FR",
+  "英国": "GB",
+  "加拿大": "CA",
+  "澳大利亚": "AU",
+  "俄罗斯": "RU",
+  "巴西": "BR",
+  "印度": "IN",
+  "意大利": "IT",
+  "西班牙": "ES",
+  "墨西哥": "MX",
+  "印度尼西亚": "ID",
+  "土耳其": "TR",
+  "荷兰": "NL",
+  "瑞士": "CH",
+  "瑞典": "SE",
+  "波兰": "PL",
+  "比利时": "BE",
+  "奥地利": "AT",
+  "挪威": "NO",
+  "丹麦": "DK",
+  "芬兰": "FI",
+  "葡萄牙": "PT",
+  "希腊": "GR",
+  "捷克": "CZ",
+  "罗马尼亚": "RO",
+  "匈牙利": "HU",
+  "以色列": "IL",
+  "阿根廷": "AR",
+  "智利": "CL",
+  "哥伦比亚": "CO",
+  "秘鲁": "PE",
+  "委内瑞拉": "VE",
+  "厄瓜多尔": "EC",
+  "南非": "ZA",
+  "埃及": "EG",
+  "尼日利亚": "NG",
+  "肯尼亚": "KE",
+  "泰国": "TH",
+  "越南": "VN",
+  "菲律宾": "PH",
+  "马来西亚": "MY",
+  "新加坡": "SG",
+  "孟加拉国": "BD",
+  "巴基斯坦": "PK",
+  "伊朗": "IR",
+  "伊拉克": "IQ",
+  "沙特阿拉伯": "SA",
+  "阿联酋": "AE",
+  "新西兰": "NZ",
+  "乌克兰": "UA",
+  "爱尔兰": "IE",
+  "中国香港": "HK",
+  "中国澳门": "MO",
+  "中国台湾": "TW"
+};
 
 export function translateLocation(value) {
   const [country, ...details] = String(value || "").split(" · ");
-  const code = country === "中国" ? "CN" : country === "美国" ? "US" : "";
+  const code = COUNTRY_CODE_BY_NAME[country] || "";
   return [country, ...details.map((name, index) => {
     const translation = translatedPlace(name, code, index === 0);
     return code === "CN" || translation === name ? translation : `${name}（${translation}）`;

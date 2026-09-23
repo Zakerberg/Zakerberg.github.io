@@ -147,13 +147,61 @@ test("translates the remaining foreign addresses in the public visitor list", ()
     ["US", "Texas", "Dallas", "75201", "美国 · Texas（得克萨斯州） · Dallas（达拉斯） · 邮编 75201"],
     ["US", "Iowa", "Council Bluffs", "51503", "美国 · Iowa（艾奥瓦州） · Council Bluffs（康瑟尔布拉夫斯） · 邮编 51503"],
     ["RU", "Astrakhan Oblast", "Astrakhan", "414000", "俄罗斯 · Astrakhan Oblast（阿斯特拉罕州） · Astrakhan（阿斯特拉罕） · 邮编 414000"],
-    ["RO", "Prahova", "Ploieşti", "100001", "罗马尼亚 · Prahova（普拉霍瓦县） · Ploieşti（普洛耶什蒂） · 邮编 100001"]
+    ["RO", "Prahova", "Ploieşti", "100001", "罗马尼亚 · Prahova（普拉霍瓦县） · Ploieşti（普洛耶什蒂） · 邮编 100001"],
+    ["BR", "Rio Grande do Sul", "Porto Alegre", "90000-000", "巴西 · Rio Grande do Sul（南里奥格兰德州） · Porto Alegre（阿雷格里港） · 邮编 90000-000"],
+    ["VE", "Lara", "Barquisimeto", "3001", "委内瑞拉 · Lara（拉腊州） · Barquisimeto（巴基西梅托） · 邮编 3001"],
+    ["VE", "Mérida", "Mérida", "5101", "委内瑞拉 · Mérida（梅里达） · 邮编 5101"],
+    ["CO", "Valle del Cauca Department", "Cali", "760001", "哥伦比亚 · Valle del Cauca Department（考卡山谷省） · Cali（卡利） · 邮编 760001"],
+    ["CO", "Bogota D.C.", "Bogotá", "111411", "哥伦比亚 · Bogota D.C.（波哥大首都区） · Bogotá（波哥大） · 邮编 111411"],
+    ["DE", "Hesse", "Frankfurt", "60306", "德国 · Hesse（黑森州） · Frankfurt（法兰克福） · 邮编 60306"],
+    ["NL", "North Holland", "Amsterdam", "1012", "荷兰 · North Holland（北荷兰省） · Amsterdam（阿姆斯特丹） · 邮编 1012"]
   ];
   for (const [code, region, city, postalCode, expected] of cases) {
     const formatted = formatLocation(code, region, city, postalCode);
     assert.equal(formatted.location, expected);
     const legacy = [formatted.country, ...new Set([region, city]), `邮编 ${postalCode}`].join(" · ");
     assert.equal(translateLocation(legacy), expected);
+  }
+});
+
+test("translates Ho Chi Minh City without mistaking its abbreviation for a translation", () => {
+  const legacy = "越南 · Ho Chi Minh City (HCMC) · Ho Chi Minh City · 邮编 71606";
+  const expected = "越南 · Ho Chi Minh City (HCMC)（胡志明市） · Ho Chi Minh City（胡志明市） · 邮编 71606";
+  assert.equal(translateLocation(legacy), expected);
+  assert.equal(translateLocation(expected), expected);
+  assert.deepEqual(formatLocation("VN", "Ho Chi Minh City (HCMC)", "Ho Chi Minh City", "71606"), {
+    country: "越南",
+    region: "胡志明市",
+    location: "越南 · Ho Chi Minh City (HCMC)（胡志明市） · 邮编 71606"
+  });
+});
+
+test("translates accented and alternate place names without changing their spelling", () => {
+  for (const [country, name, translation] of [
+    ["哥伦比亚", "Bogota", "波哥大"],
+    ["哥伦比亚", "Bogotá", "波哥大"],
+    ["哥伦比亚", "Bogota D.C.", "波哥大首都区"],
+    ["哥伦比亚", "Bogotá D.C.", "波哥大首都区"],
+    ["委内瑞拉", "Merida", "梅里达"],
+    ["委内瑞拉", "Mérida", "梅里达"],
+    ["德国", "Hesse", "黑森州"],
+    ["德国", "Hessen", "黑森州"]
+  ]) {
+    const expected = `${country} · ${name}（${translation}）`;
+    assert.equal(translateLocation(`${country} · ${name}`), expected);
+    assert.equal(translateLocation(expected), expected);
+  }
+});
+
+test("fills translation gaps in mixed-language historical records without requiring postal codes", () => {
+  for (const [legacy, expected] of [
+    ["德国 · Hesse · 法兰克福 · 邮编 60306", "德国 · Hesse（黑森州） · 法兰克福 · 邮编 60306"],
+    ["荷兰 · North Holland · 阿姆斯特丹 · 邮编 1012", "荷兰 · North Holland（北荷兰省） · 阿姆斯特丹 · 邮编 1012"],
+    ["委内瑞拉 · Mérida", "委内瑞拉 · Mérida（梅里达）"],
+    ["委内瑞拉 · Lara · Barquisimeto", "委内瑞拉 · Lara（拉腊州） · Barquisimeto（巴基西梅托）"]
+  ]) {
+    assert.equal(translateLocation(legacy), expected);
+    assert.equal(translateLocation(expected), expected);
   }
 });
 
@@ -248,6 +296,45 @@ test("translates historical locations with missing regions or cities", () => {
   ]) {
     assert.equal(translateLocation(location), expected);
   }
+});
+
+test("translates places from the global GeoNames dictionary", () => {
+  // Las Vegas - previously untranslated
+  assert.deepEqual(formatLocation("US", "Nevada", "Las Vegas", "89158"), {
+    country: "美国",
+    region: "内华达州",
+    location: "美国 · Nevada（内华达州） · Las Vegas（拉斯维加斯） · 邮编 89158"
+  });
+
+  // Buenos Aires and Zárate - Argentina
+  assert.deepEqual(formatLocation("AR", "Buenos Aires", "Zárate", "2800"), {
+    country: "阿根廷",
+    region: "布宜诺斯艾利斯",
+    location: "阿根廷 · Buenos Aires（布宜诺斯艾利斯） · Zárate（萨拉特） · 邮编 2800"
+  });
+
+  // Brazilian states and cities
+  assert.deepEqual(formatLocation("BR", "Mato Grosso", "Cuiabá", "78000-000"), {
+    country: "巴西",
+    region: "马托格罗索州",
+    location: "巴西 · Mato Grosso（马托格罗索州） · Cuiabá（库亚巴） · 邮编 78000-000"
+  });
+
+  assert.deepEqual(formatLocation("BR", "Santa Catarina", "Florianópolis", "88000-000"), {
+    country: "巴西",
+    region: "圣卡塔琳娜州",
+    location: "巴西 · Santa Catarina（圣卡塔琳娜州） · Florianópolis（弗洛里亚诺波利斯） · 邮编 88000-000"
+  });
+
+  // Historical translation also works
+  assert.equal(
+    translateLocation("美国 · Nevada · Las Vegas · 邮编 89158"),
+    "美国 · Nevada（内华达州） · Las Vegas（拉斯维加斯） · 邮编 89158"
+  );
+  assert.equal(
+    translateLocation("阿根廷 · Buenos Aires · Zárate · 邮编 2800"),
+    "阿根廷 · Buenos Aires（布宜诺斯艾利斯） · Zárate（萨拉特） · 邮编 2800"
+  );
 });
 
 test("GET visits translates stored US locations using only read-only D1 queries", async () => {
