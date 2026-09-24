@@ -2,13 +2,14 @@
 <div class="row">
     <div class="<%= isHomeHero ? 'col s12 m12 l12' : 'col s10 offset-s1 m8 offset-m2 l8 offset-l2' %>">
         <div class="brand">
-            <h1 class="title center-align home-hero-title<%= isHomeHero ? ' home-hero-title--home' : '' %>">
+            <% var heroHeading = !isHomeHero && typeof hasPageHeading !== 'undefined' && hasPageHeading ? 'div' : 'h1'; %>
+            <<%= heroHeading %> class="title center-align home-hero-title<%= isHomeHero ? ' home-hero-title--home' : '' %>">
                 <% if (isHomeHero) { %>
                 <%= config.seo && config.seo.home_h1 ? config.seo.home_h1 : config.title %>
                 <% } else { %>
                 <%= config.seo && config.seo.cover_h1 ? config.seo.cover_h1 : config.title %>
                 <% } %>
-            </h1>
+            </<%= heroHeading %>>
 
             <% if (!isHomeHero) { %>
             <div class="description center-align">

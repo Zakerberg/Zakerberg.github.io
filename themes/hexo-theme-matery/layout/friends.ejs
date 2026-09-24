@@ -1,4 +1,4 @@
-<%- partial('_partial/bg-cover') %>
+<%- partial('_partial/bg-cover', { hasPageHeading: true }) %>
 <style>
     .friends-container {
         margin-top: -100px;
@@ -6,6 +6,7 @@
     }
 
     .friends-container .tag-title {
+        margin-top: 0;
         margin-bottom: 10px;
         color: #3C4858;
         font-size: 1.75rem;
@@ -38,7 +39,10 @@
         flex-shrink: 0;
     }
 
-    .frind-ship .title h1 {
+    .frind-ship .title h2 {
+        margin: 48px 0 22px -5px;
+        font-size: 2rem;
+        line-height: 2rem;
         padding-bottom: 5px;
         border-bottom: 2px solid #fff;
         position: relative;
@@ -192,9 +196,9 @@
     <div class="container friends-container">
         <div class="card">
             <div class="card-content">
-                <div class="tag-title center-align">
-                    <i class="fas fa-address-book"></i>&nbsp;&nbsp;<%= __('friends') %>
-                </div>
+                <h1 class="tag-title center-align">
+                    <i class="fas fa-address-book" aria-hidden="true"></i>&nbsp;&nbsp;<%= __('friends') %>
+                </h1>
                 <article id="friends-link">
                     <% if (site.data && site.data.friends) { %>
                     <% var friends = site.data.friends; %>
@@ -207,12 +211,12 @@
                                     <div class="title">
                                         <img src="<%- url_for(friend.avatar) %>" alt="<%= friend.name %>" loading="lazy">
                                         <div>
-                                            <h1 class="friend-name"><%= friend.name %></h1>
+                                            <h2 class="friend-name"><%= friend.name %></h2>
                                             <p style="position: relative;top: -35px;"><%= friend.introduction %></p>
                                         </div>
                                     </div>
                                     <div class="friend-button">
-                                        <a href="<%- url_for(friend.url) %>" target="_blank"
+                                        <a href="<%- url_for(friend.url) %>" target="_blank" rel="noopener noreferrer"
                                             class="button button-glow button-rounded button-caution">
                                             <%= friend.title %>
                                         </a>
@@ -230,10 +234,10 @@
         <% if (theme.recentVisitors && theme.recentVisitors.enable) { %>
         <section class="card recent-visitors-card" id="recent-visitors" data-aos="fade-up">
             <div class="card-content">
-                <div class="tag-title center-align recent-visitors-title">
+                <h2 class="tag-title center-align recent-visitors-title">
                     <i class="fas fa-map-marked-alt" aria-hidden="true"></i>
                     <span>页面访问</span>
-                </div>
+                </h2>
 
                 <div class="recent-visitors-table">
                     <div class="recent-visitors-head" aria-hidden="true">

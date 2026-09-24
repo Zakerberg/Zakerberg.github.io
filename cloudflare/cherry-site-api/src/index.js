@@ -1,4 +1,4 @@
-import { GLOBAL_PLACES } from "./places.js";
+import { COUNTRY_CODE_BY_NAME, GLOBAL_PLACES, GLOBAL_REGIONS } from "./places.js";
 
 const DEFAULT_ALLOWED_ORIGINS = ["https://zakerberg.github.io"];
 const PAGE_SIZE = 10;
@@ -7,6 +7,7 @@ const DEDUPE_WINDOW_SECONDS = 6 * 60 * 60;
 const MIN_UPDATE_INTERVAL_SECONDS = 60;
 const HUMAN_PASS_TTL_SECONDS = 30 * 60;
 const HUMAN_CHECK_PAGE = 6;
+const MAX_VISIT_BODY_BYTES = 4096;
 
 const CHINA_REGIONS = {
   Anhui: "安徽",
@@ -275,6 +276,8 @@ function translatedPlace(value, countryCode = "", isRegion = false) {
   // 2. Try legacy CITY_NAMES (for curated translations and special cases)
   if (CITY_NAMES[name]) return CITY_NAMES[name];
 
+  if (isRegion && GLOBAL_REGIONS[countryCode]?.[name]) return GLOBAL_REGIONS[countryCode][name];
+
   // 3. Try global places dictionary (country-scoped)
   if (countryCode && GLOBAL_PLACES[countryCode]?.[name]) {
     return GLOBAL_PLACES[countryCode][name];
@@ -282,68 +285,6 @@ function translatedPlace(value, countryCode = "", isRegion = false) {
 
   return name;
 }
-
-const COUNTRY_CODE_BY_NAME = {
-  "中国": "CN",
-  "美国": "US",
-  "日本": "JP",
-  "韩国": "KR",
-  "德国": "DE",
-  "法国": "FR",
-  "英国": "GB",
-  "加拿大": "CA",
-  "澳大利亚": "AU",
-  "俄罗斯": "RU",
-  "巴西": "BR",
-  "印度": "IN",
-  "意大利": "IT",
-  "西班牙": "ES",
-  "墨西哥": "MX",
-  "印度尼西亚": "ID",
-  "土耳其": "TR",
-  "荷兰": "NL",
-  "瑞士": "CH",
-  "瑞典": "SE",
-  "波兰": "PL",
-  "比利时": "BE",
-  "奥地利": "AT",
-  "挪威": "NO",
-  "丹麦": "DK",
-  "芬兰": "FI",
-  "葡萄牙": "PT",
-  "希腊": "GR",
-  "捷克": "CZ",
-  "罗马尼亚": "RO",
-  "匈牙利": "HU",
-  "以色列": "IL",
-  "阿根廷": "AR",
-  "智利": "CL",
-  "哥伦比亚": "CO",
-  "秘鲁": "PE",
-  "委内瑞拉": "VE",
-  "厄瓜多尔": "EC",
-  "南非": "ZA",
-  "埃及": "EG",
-  "尼日利亚": "NG",
-  "肯尼亚": "KE",
-  "泰国": "TH",
-  "越南": "VN",
-  "菲律宾": "PH",
-  "马来西亚": "MY",
-  "新加坡": "SG",
-  "孟加拉国": "BD",
-  "巴基斯坦": "PK",
-  "伊朗": "IR",
-  "伊拉克": "IQ",
-  "沙特阿拉伯": "SA",
-  "阿联酋": "AE",
-  "新西兰": "NZ",
-  "乌克兰": "UA",
-  "爱尔兰": "IE",
-  "中国香港": "HK",
-  "中国澳门": "MO",
-  "中国台湾": "TW"
-};
 
 export function translateLocation(value) {
   const [country, ...details] = String(value || "").split(" · ");
@@ -505,6 +446,35 @@ function numericSetting(value, fallback, min, max) {
   return Math.min(max, Math.max(min, parsed));
 }
 
+export function visitRateWindow(env = {}, now) {
+  const windowSeconds = numericSetting(env.VISIT_RATE_WINDOW_SECONDS, 600, 60, 86400);
+  const maxAttempts = numericSetting(env.VISIT_RATE_MAX_ATTEMPTS, 12, 1, 100);
+  return {
+    windowSeconds,
+    maxAttempts,
+    windowStart: Math.floor(now / windowSeconds) * windowSeconds
+  };
+}
+
+async function consumeVisitAttempt(env, ipHash, now) {
+  const { maxAttempts, windowStart } = visitRateWindow(env, now);
+  const row = await env.DB.prepare(
+    `INSERT INTO visit_rate_limits (ip_hash, window_start, count, updated_at)
+     VALUES (?, ?, 1, ?)
+     ON CONFLICT (ip_hash) DO UPDATE SET
+       window_start = excluded.window_start,
+       count = CASE WHEN visit_rate_limits.window_start = excluded.window_start
+         THEN visit_rate_limits.count + 1 ELSE 1 END,
+       updated_at = excluded.updated_at
+     WHERE (visit_rate_limits.window_start = excluded.window_start AND visit_rate_limits.count < ?)
+        OR visit_rate_limits.window_start < excluded.window_start
+     RETURNING count`
+  )
+    .bind(ipHash, windowStart, now, maxAttempts)
+    .first();
+  return Boolean(row);
+}
+
 function configuredList(value) {
   return String(value || "")
     .split(",")
@@ -559,6 +529,7 @@ async function cleanupVisits(env, now) {
       "DELETE FROM visits WHERE id NOT IN (SELECT id FROM visits ORDER BY visited_at DESC, id DESC LIMIT ?)"
     ).bind(maxVisits),
     env.DB.prepare("DELETE FROM verify_attempts WHERE window_start < ?").bind(now - 2 * 24 * 60 * 60),
+    env.DB.prepare("DELETE FROM visit_rate_limits WHERE updated_at < ?").bind(now - 2 * 24 * 60 * 60),
     env.DB.prepare("DELETE FROM blocked_requests WHERE blocked_at < ?").bind(cutoff),
     env.DB.prepare(
       "DELETE FROM blocked_requests WHERE id NOT IN (SELECT id FROM blocked_requests ORDER BY blocked_at DESC, id DESC LIMIT 2000)"
@@ -577,11 +548,40 @@ async function recordVisit(request, env, origin) {
     return json({ recorded: false, reason: "automated-client" }, 200, origin);
   }
 
+  const contentType = request.headers.get("Content-Type") || "";
+  if (contentType.split(";", 1)[0].trim().toLowerCase() !== "application/json") {
+    return json({ error: "请求类型无效" }, 415, origin);
+  }
+
   let body;
   try {
-    body = await request.json();
+    const bytes = new Uint8Array(MAX_VISIT_BODY_BYTES);
+    let length = 0;
+    const reader = request.body?.getReader();
+    if (reader) {
+      try {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          if (length + value.byteLength > MAX_VISIT_BODY_BYTES) {
+            // Do not wait for an untrusted stream to finish cancelling.
+            void reader.cancel().catch(() => {});
+            return json({ error: "请求内容过大" }, 413, origin);
+          }
+          bytes.set(value, length);
+          length += value.byteLength;
+        }
+      } finally {
+        reader.releaseLock();
+      }
+    }
+    body = JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes.subarray(0, length)));
   } catch (_error) {
     return json({ error: "请求内容不是有效 JSON" }, 400, origin);
+  }
+
+  if (!body || typeof body !== "object" || Array.isArray(body)) {
+    return json({ error: "请求内容无效" }, 400, origin);
   }
 
   const pagePath = sanitizePath(body.path);
@@ -596,6 +596,13 @@ async function recordVisit(request, env, origin) {
 
   const now = Math.floor(Date.now() / 1000);
   const ipHash = await hashIp(ip, env.IP_HASH_SECRET);
+  if (!(await consumeVisitAttempt(env, ipHash, now))) {
+    const { windowStart, windowSeconds } = visitRateWindow(env, now);
+    const response = json({ error: "访问记录请求过于频繁，请稍后再试" }, 429, origin);
+    response.headers.set("Retry-After", String(windowStart + windowSeconds - now));
+    return response;
+  }
+
   const duplicate = await env.DB.prepare(
     `SELECT id, visited_at
        FROM visits
@@ -679,7 +686,6 @@ async function recordVisit(request, env, origin) {
       .run();
   }
 
-  await cleanupVisits(env, now);
   return json({ recorded: true, updated: false }, 201, origin);
 }
 
@@ -958,8 +964,13 @@ async function pushAlert(env, alert, now) {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: form
     });
-    return response.ok;
+    if (!response.ok) {
+      console.error("Alert delivery failed");
+      return false;
+    }
+    return true;
   } catch (_error) {
+    console.error("Alert delivery failed");
     return false;
   }
 }
@@ -1011,8 +1022,15 @@ async function handleRequest(request, env) {
   }
 
   if (url.pathname === "/health" && request.method === "GET") {
-    const database = await env.DB.prepare("SELECT 1 AS ok").first();
-    return json({ ok: database?.ok === 1 }, 200, origin || null);
+    try {
+      const database = await env.DB.prepare("SELECT 1 AS ok").first();
+      const ok = database?.ok === 1;
+      if (!ok) console.error("Health check failed");
+      return json({ ok }, ok ? 200 : 503, origin || null);
+    } catch (_error) {
+      console.error("Health check failed");
+      return json({ ok: false }, 503, origin || null);
+    }
   }
 
   if (!origin) return json({ error: "来源不被允许" }, 403);
@@ -1043,12 +1061,27 @@ async function handleRequest(request, env) {
 
 export default {
   fetch(request, env) {
-    return handleRequest(request, env).catch(() => json({ error: "服务暂时不可用" }, 500));
+    return handleRequest(request, env).catch(() => {
+      const path = new URL(request.url).pathname;
+      console.error("Worker request failed", {
+        method: ["GET", "POST", "OPTIONS", "HEAD", "PUT", "PATCH", "DELETE"].includes(request.method)
+          ? request.method : "other",
+        path: ["/health", "/api/visit", "/api/verify-human", "/api/visits"].includes(path)
+          ? path : "other"
+      });
+      return json({ error: "服务暂时不可用" }, 500, allowedOrigin(request, env) || null);
+    });
   },
 
   scheduled(_controller, env, ctx) {
     const now = Math.floor(Date.now() / 1000);
-    ctx.waitUntil(cleanupVisits(env, now));
-    ctx.waitUntil(runAlertChecks(env, now));
+    ctx.waitUntil(cleanupVisits(env, now).catch(() => {
+      console.error("Visit cleanup failed");
+      throw new Error("Visit cleanup failed");
+    }));
+    ctx.waitUntil(runAlertChecks(env, now).catch(() => {
+      console.error("Alert check failed");
+      throw new Error("Alert check failed");
+    }));
   }
 };

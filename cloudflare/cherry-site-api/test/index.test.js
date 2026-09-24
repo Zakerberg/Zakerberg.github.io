@@ -1,7 +1,106 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { DatabaseSync } from "node:sqlite";
 
-import worker, { alertInCooldown, alertSettings, detectAlerts, formatLocation, isBlockedNetwork, maskIp, networkMetadata, sanitizePath, shouldChallengeRequest, translateLocation, verifyAttemptCount, verifyAttemptWindow, visitAction } from "../src/index.js";
+import worker, {
+  alertInCooldown,
+  alertSettings,
+  detectAlerts,
+  formatLocation,
+  isBlockedNetwork,
+  maskIp,
+  networkMetadata,
+  sanitizePath,
+  shouldChallengeRequest,
+  translateLocation,
+  verifyAttemptCount,
+  verifyAttemptWindow,
+  visitAction,
+  visitRateWindow
+} from "../src/index.js";
+
+const ORIGIN = "https://zakerberg.github.io";
+const CANARY = "canary-serverchan-secret";
+
+function captureLogs(t) {
+  const logs = [];
+  for (const method of ["error", "warn", "log", "info", "debug"]) {
+    t.mock.method(console, method, (...args) => logs.push(args));
+  }
+  t.after(() => assert.equal(JSON.stringify(logs).includes(CANARY), false));
+  return logs;
+}
+
+function visitRequest(body = JSON.stringify({ path: "/friends/" }), headers = {}) {
+  return new Request("https://cherry-api.example/api/visit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Origin: ORIGIN,
+      "CF-Connecting-IP": "203.0.113.1",
+      ...headers
+    },
+    body,
+    duplex: "half"
+  });
+}
+
+function unusedVisitEnv(t) {
+  const prepare = t.mock.fn(() => { throw new Error("D1 must not be called"); });
+  t.after(() => assert.equal(prepare.mock.callCount(), 0));
+  return { DB: { prepare }, IP_HASH_SECRET: "test-secret" };
+}
+
+function sqliteVisitEnv(t, settings = {}) {
+  const sqlite = new DatabaseSync(":memory:");
+  sqlite.exec(readFileSync(new URL("../schema.sql", import.meta.url), "utf8"));
+  t.after(() => sqlite.close());
+  const queries = [];
+  function execute(sql, values, first = false) {
+    queries.push(sql);
+    const statement = sqlite.prepare(sql);
+    if (first) return statement.get(...values) || null;
+    const result = statement.run(...values);
+    return { meta: { last_row_id: Number(result.lastInsertRowid), changes: Number(result.changes) } };
+  }
+  const DB = {
+    prepare(sql) {
+      let values = [];
+      return {
+        bind(...args) {
+          values = args;
+          return this;
+        },
+        async first() {
+          // Yield like D1 so overlapping requests can interleave between statements.
+          await new Promise(setImmediate);
+          return execute(sql, values, true);
+        },
+        async run() {
+          await new Promise(setImmediate);
+          return execute(sql, values);
+        },
+        runSync() {
+          return execute(sql, values);
+        }
+      };
+    },
+    async batch(statements) {
+      await new Promise(setImmediate);
+      sqlite.exec("BEGIN");
+      try {
+        const results = statements.map((statement) => statement.runSync());
+        sqlite.exec("COMMIT");
+        return results;
+      } catch (error) {
+        sqlite.exec("ROLLBACK");
+        throw error;
+      }
+    }
+  };
+  return { env: { IP_HASH_SECRET: "test-secret", ...settings, DB }, sqlite, queries };
+}
 
 test("masks IPv4 without retaining the middle octets", () => {
   assert.equal(maskIp("120.34.56.31"), "120.***.***.31");
@@ -309,8 +408,8 @@ test("translates places from the global GeoNames dictionary", () => {
   // Buenos Aires and Zárate - Argentina
   assert.deepEqual(formatLocation("AR", "Buenos Aires", "Zárate", "2800"), {
     country: "阿根廷",
-    region: "布宜诺斯艾利斯",
-    location: "阿根廷 · Buenos Aires（布宜诺斯艾利斯） · Zárate（萨拉特） · 邮编 2800"
+    region: "布宜诺斯艾利斯省",
+    location: "阿根廷 · Buenos Aires（布宜诺斯艾利斯省） · Zárate（萨拉特） · 邮编 2800"
   });
 
   // Brazilian states and cities
@@ -333,7 +432,7 @@ test("translates places from the global GeoNames dictionary", () => {
   );
   assert.equal(
     translateLocation("阿根廷 · Buenos Aires · Zárate · 邮编 2800"),
-    "阿根廷 · Buenos Aires（布宜诺斯艾利斯） · Zárate（萨拉特） · 邮编 2800"
+    "阿根廷 · Buenos Aires（布宜诺斯艾利斯省） · Zárate（萨拉特） · 邮编 2800"
   );
 });
 
@@ -389,6 +488,77 @@ test("GET visits translates stored US locations using only read-only D1 queries"
   assert.deepEqual(reads, ["count", "items"]);
 });
 
+test("health reports success, non-ok results and thrown D1 errors safely", async (t) => {
+  for (const [name, result, status] of [
+    ["healthy", { ok: 1 }, 200],
+    ["non-ok", { ok: 0 }, 503],
+    ["missing result", null, 503],
+    ["query failure", new Error(`D1 failed at /private/${CANARY}`), 503]
+  ]) {
+    await t.test(name, async (t) => {
+      const logs = captureLogs(t);
+      const request = new Request(`https://cherry-api.example/health?secret=${CANARY}`, {
+        headers: { Origin: ORIGIN }
+      });
+      const response = await worker.fetch(request, {
+        DB: {
+          prepare(sql) {
+            assert.equal(sql, "SELECT 1 AS ok");
+            return {
+              async first() {
+                if (result instanceof Error) throw result;
+                return result;
+              }
+            };
+          }
+        }
+      });
+      assert.equal(response.status, status);
+      assert.equal(response.headers.get("Access-Control-Allow-Origin"), ORIGIN);
+      assert.deepEqual(await response.json(), { ok: status === 200 });
+      assert.deepEqual(logs, status === 200 ? [] : [["Health check failed"]]);
+    });
+  }
+});
+
+test("request failures retain allowed CORS and log only allowlisted context", async (t) => {
+  for (const [name, method, path, origin, expectedOrigin] of [
+    ["visits", "GET", "/api/visits", ORIGIN, ORIGIN],
+    ["visit", "POST", "/api/visit", ORIGIN, ORIGIN],
+    ["verification", "POST", "/api/verify-human", ORIGIN, ORIGIN],
+    ["health", "GET", "/health", ORIGIN, ORIGIN],
+    ["unknown path and configured origin", "GET", `/private/${CANARY}`, "https://custom.example", "https://custom.example"],
+    ["unknown method and disallowed origin", CANARY, `/api/visits/${CANARY}`, "https://untrusted.example", null],
+    ["missing origin", "GET", `/private/${CANARY}`, null, null]
+  ]) {
+    await t.test(name, async (t) => {
+      const logs = captureLogs(t);
+      const headers = new Headers({
+        "CF-Connecting-IP": "203.0.113.1",
+        "X-Visitor-Pass": CANARY,
+        Authorization: `Bearer ${CANARY}`
+      });
+      if (origin) headers.set("Origin", origin);
+      const response = await worker.fetch(new Request(`https://cherry-api.example${path}?secret=${CANARY}`, {
+        method,
+        headers
+      }), {
+        ALLOWED_ORIGINS: `${ORIGIN},https://custom.example`,
+        BLOCKED_IPS: "203.0.113.1",
+        DB: { prepare() { throw new Error(`https://sctapi.ftqq.com/${CANARY}.send`); } }
+      });
+      assert.equal(response.status, 500);
+      assert.equal(response.headers.get("Access-Control-Allow-Origin"), expectedOrigin);
+      assert.equal(response.headers.get("Vary"), expectedOrigin ? "Origin" : null);
+      assert.deepEqual(await response.json(), { error: "服务暂时不可用" });
+      assert.deepEqual(logs, [["Worker request failed", {
+        method: method === CANARY ? "other" : method,
+        path: path.includes(CANARY) ? "other" : path
+      }]]);
+    });
+  }
+});
+
 test("marks explicit VPN networks as suspected proxy or VPN traffic", () => {
   assert.deepEqual(networkMetadata(9009, "M247 Europe SRL VPN"), {
     network: "M247 Europe SRL VPN · AS9009",
@@ -430,6 +600,228 @@ test("updates the existing row within the rolling six-hour window", () => {
 
 test("inserts a new row after the six-hour window", () => {
   assert.equal(visitAction(12 * 60 * 60, 18 * 60 * 60 + 1), "insert");
+});
+
+test("windows visit recording attempts into fixed windows", () => {
+  assert.deepEqual(visitRateWindow({}, 599), {
+    windowSeconds: 600,
+    maxAttempts: 12,
+    windowStart: 0
+  });
+  assert.deepEqual(visitRateWindow({}, 600), {
+    windowSeconds: 600,
+    maxAttempts: 12,
+    windowStart: 600
+  });
+  assert.equal(visitRateWindow({ VISIT_RATE_MAX_ATTEMPTS: "999" }, 0).maxAttempts, 100);
+  assert.equal(visitRateWindow({ VISIT_RATE_WINDOW_SECONDS: "1" }, 0).windowSeconds, 60);
+});
+
+test("SQLite rate limiting rejects without writes or visits queries and resets at rollover", async (t) => {
+  let now = 600_001;
+  t.mock.method(Date, "now", () => now * 1000);
+  const { env, sqlite, queries } = sqliteVisitEnv(t, {
+    VISIT_RATE_MAX_ATTEMPTS: "2",
+    VISIT_RATE_WINDOW_SECONDS: "120"
+  });
+  const rate = () => ({ ...sqlite.prepare("SELECT * FROM visit_rate_limits").get() });
+  const changes = () => sqlite.prepare("SELECT total_changes() AS total").get().total;
+
+  assert.equal((await worker.fetch(visitRequest(), env)).status, 201);
+  assert.equal(rate().count, 1);
+  assert.match(rate().ip_hash, /^[a-f0-9]{64}$/);
+  now += 1;
+  assert.equal((await worker.fetch(visitRequest(), env)).status, 200);
+  const fullRate = rate();
+  assert.equal(fullRate.count, 2);
+  assert.equal(fullRate.updated_at, now);
+
+  for (const [time, retryAfter] of [[600_005, "115"], [600_119, "1"]]) {
+    now = time;
+    const before = changes();
+    const queryCount = queries.length;
+    const response = await worker.fetch(visitRequest(), env);
+    assert.equal(response.status, 429);
+    assert.equal(response.headers.get("Retry-After"), retryAfter);
+    assert.equal(response.headers.get("Access-Control-Allow-Origin"), ORIGIN);
+    assert.equal(queries.length, queryCount + 1, "rejection only executes the atomic limiter statement");
+    assert.match(queries.at(-1), /^INSERT INTO visit_rate_limits/);
+    assert.equal(changes(), before, "rejection must not write any rows");
+    assert.deepEqual(rate(), fullRate, "rejection must not update count or updated_at");
+  }
+
+  now = 600_120;
+  const rollover = await worker.fetch(visitRequest(), env);
+  assert.equal(rollover.status, 200);
+  assert.deepEqual(await rollover.json(), { recorded: true, updated: true });
+  assert.deepEqual(rate(), { ...fullRate, count: 1, window_start: now, updated_at: now });
+  assert.equal((await worker.fetch(visitRequest(), env)).status, 200);
+  const fullWindow = await worker.fetch(visitRequest(), env);
+  assert.equal(fullWindow.status, 429);
+  assert.equal(fullWindow.headers.get("Retry-After"), "120");
+
+  const otherIp = await worker.fetch(visitRequest(undefined, { "CF-Connecting-IP": "203.0.113.2" }), env);
+  assert.equal(otherIp.status, 201, "a first-time IP has its own allowance");
+  assert.deepEqual(sqlite.prepare("SELECT count FROM visit_rate_limits ORDER BY count").all().map((row) => row.count), [1, 2]);
+  assert.ok(queries.filter((sql) => sql.includes("visit_rate_limits")).every((sql) =>
+    /^INSERT INTO visit_rate_limits/.test(sql) && sql.includes("ON CONFLICT") && sql.includes("RETURNING")));
+  assert.ok(queries.every((sql) => !sql.includes("DELETE FROM visits WHERE visited_at")), "cleanup remains scheduled only");
+});
+
+test("delayed attempts cannot roll a newer rate window backwards", async (t) => {
+  let now = 600_601;
+  t.mock.method(Date, "now", () => now * 1000);
+  const { env, sqlite } = sqliteVisitEnv(t);
+  assert.equal((await worker.fetch(visitRequest(), env)).status, 201);
+  const before = sqlite.prepare("SELECT * FROM visit_rate_limits").get();
+  now = 600_599;
+  assert.equal((await worker.fetch(visitRequest(), env)).status, 429);
+  assert.deepEqual(sqlite.prepare("SELECT * FROM visit_rate_limits").get(), before);
+});
+
+test("real SQLite admits only the default allowance under parallel visit requests", async (t) => {
+  for (const [name, initialAttempts, rollover, admitted] of [
+    ["first-time IP", 0, false, 12],
+    ["existing IP near limit", 10, false, 2],
+    ["expired full window", 12, true, 12]
+  ]) {
+    await t.test(name, async (t) => {
+      let now = 600_001;
+      t.mock.method(Date, "now", () => now * 1000);
+      const { env, sqlite, queries } = sqliteVisitEnv(t);
+      for (let i = 0; i < initialAttempts; i += 1) {
+        assert.ok((await worker.fetch(visitRequest(), env)).ok);
+      }
+      if (rollover) now = 600_600;
+      const queryCount = queries.length;
+      const responses = await Promise.all(Array.from({ length: 40 }, () => worker.fetch(visitRequest(), env)));
+      assert.equal(responses.filter((response) => response.ok).length, admitted);
+      assert.equal(responses.filter((response) => response.status === 429).length, 40 - admitted);
+      const rateRows = sqlite.prepare("SELECT count, window_start, updated_at FROM visit_rate_limits").all();
+      assert.equal(rateRows.length, 1, "concurrent first-time requests share one limiter row");
+      assert.deepEqual({ ...rateRows[0] }, {
+        count: 12,
+        window_start: rollover ? 600_600 : 600_000,
+        updated_at: now
+      });
+      const concurrentQueries = queries.slice(queryCount);
+      assert.equal(concurrentQueries.filter((sql) => sql.includes("visit_rate_limits")).length, 40);
+      assert.equal(concurrentQueries.filter((sql) => /SELECT[\s\S]*FROM visits\b/.test(sql)).length, admitted,
+        "only admitted attempts may query visits");
+      for (const response of responses.filter((response) => response.status === 429)) {
+        assert.equal(response.headers.get("Retry-After"), rollover ? "600" : "599");
+      }
+    });
+  }
+});
+
+test("rejects non-JSON and prefix-lookalike MIME types before accessing D1", async (t) => {
+  const env = unusedVisitEnv(t);
+  for (const type of [null, "text/plain", "application/jsonp", "application/json-patch+json", "application/jsonx; charset=utf-8", "application/json, text/plain"]) {
+    const request = visitRequest(undefined, { "Content-Type": type || "" });
+    if (type === null) request.headers.delete("Content-Type");
+    const response = await worker.fetch(request, env);
+    assert.equal(response.status, 415, type || "missing MIME type");
+    assert.equal(response.headers.get("Access-Control-Allow-Origin"), ORIGIN);
+    assert.equal(request.bodyUsed, false);
+  }
+});
+
+test("rejects malformed JSON, invalid shapes and invalid paths without D1", async (t) => {
+  const env = unusedVisitEnv(t);
+  for (const body of [
+    null, "", "{", '{"path":"/",}', "null", "[]", "true", "42", '"/friends/"', "{}",
+    ...[null, 42, [], "", "//example.com/", "https://example.com/", "/bad\u0000path", "/" + "x".repeat(300)]
+      .map((path) => JSON.stringify({ path }))
+  ]) {
+    const response = await worker.fetch(visitRequest(body), env);
+    assert.equal(response.status, 400, String(body));
+    assert.equal(response.headers.get("Access-Control-Allow-Origin"), ORIGIN);
+  }
+  assert.equal((await worker.fetch(visitRequest(undefined, { "CF-Connecting-IP": "" }), env)).status, 400);
+});
+
+test("limits actual bytes with absent, misleading or invalid Content-Length", async (t) => {
+  const env = unusedVisitEnv(t);
+  for (const contentLength of [null, "1", "4096", "not-a-number"]) {
+    const headers = contentLength === null ? {} : { "Content-Length": contentLength };
+    const response = await worker.fetch(visitRequest(JSON.stringify({ path: "/", extra: "x".repeat(4096) }), headers), env);
+    assert.equal(response.status, 413);
+    assert.equal(response.headers.get("Access-Control-Allow-Origin"), ORIGIN);
+  }
+  const unicodeBody = JSON.stringify({ path: "/", extra: "界".repeat(1400) });
+  assert.ok(unicodeBody.length < 4096);
+  assert.ok(new TextEncoder().encode(unicodeBody).byteLength > 4096);
+  assert.equal((await worker.fetch(visitRequest(unicodeBody), env)).status, 413);
+});
+
+test("stops oversized streams at the byte limit even if cancellation fails", async (t) => {
+  const logs = captureLogs(t);
+  const env = unusedVisitEnv(t);
+  const bytes = new TextEncoder().encode(JSON.stringify({ path: "/friends/" }).padEnd(4097, " "));
+  const chunks = [bytes.subarray(0, 1000), bytes.subarray(1000, 4096), bytes.subarray(4096)];
+  let pulls = 0;
+  let cancelled = false;
+  const stream = new ReadableStream({
+    pull(controller) {
+      controller.enqueue(chunks[pulls++] || new Uint8Array(1000));
+    },
+    cancel() {
+      cancelled = true;
+      return Promise.reject(new Error(CANARY));
+    }
+  }, { highWaterMark: 0 });
+  const request = visitRequest(stream, { "Content-Length": "1" });
+  const response = await worker.fetch(request, env);
+  assert.equal(response.status, 413);
+  assert.equal(pulls, 3, "must not drain the remaining stream");
+  assert.equal(cancelled, true);
+  assert.equal(request.body.locked, false);
+  assert.deepEqual(logs, []);
+});
+
+test("body stream failures and invalid UTF-8 return 400 without D1 or raw logs", async (t) => {
+  const logs = captureLogs(t);
+  const env = unusedVisitEnv(t);
+  let pulls = 0;
+  const stream = new ReadableStream({
+    pull(controller) {
+      if (pulls++ === 0) controller.enqueue(new TextEncoder().encode('{"path":"/'));
+      else controller.error(new Error(CANARY));
+    }
+  }, { highWaterMark: 0 });
+  const request = visitRequest(stream);
+  assert.equal((await worker.fetch(request, env)).status, 400);
+  assert.equal(request.body.locked, false);
+  const invalidUtf8 = new Uint8Array([...new TextEncoder().encode('{"path":"/'), 0xff, ...new TextEncoder().encode('"}')]);
+  assert.equal((await worker.fetch(visitRequest(invalidUtf8), env)).status, 400);
+  assert.deepEqual(logs, []);
+});
+
+test("accepts JSON MIME parameters and 300-character Unicode paths across byte chunks", async (t) => {
+  const { env, sqlite } = sqliteVisitEnv(t);
+  const path = "/" + "界".repeat(299);
+  const bytes = new TextEncoder().encode(JSON.stringify({ path }));
+  assert.ok(bytes.length > 512);
+  let offset = 0;
+  const stream = new ReadableStream({
+    pull(controller) {
+      if (offset === bytes.length) controller.close();
+      else controller.enqueue(bytes.subarray(offset, ++offset));
+    }
+  });
+  const response = await worker.fetch(visitRequest(stream, { "Content-Type": "Application/JSON ; charset=utf-8" }), env);
+  assert.equal(response.status, 201);
+  assert.equal(sqlite.prepare("SELECT page_path FROM visits").get().page_path, path);
+});
+
+test("accepts exactly 4096 actual bytes regardless of claimed Content-Length", async (t) => {
+  const { env } = sqliteVisitEnv(t);
+  const body = JSON.stringify({ path: "/friends/" }).padEnd(4096, " ");
+  for (const contentLength of [null, "1", "4096", "9000"]) {
+    const headers = contentLength === null ? {} : { "Content-Length": contentLength };
+    assert.ok((await worker.fetch(visitRequest(body, headers), env)).ok);
+  }
 });
 
 const TURNSTILE_ON = { TURNSTILE_ENABLED: "true", TURNSTILE_SECRET_KEY: "secret" };
@@ -588,4 +980,99 @@ test("cooldown only blocks alerts sent within the window", () => {
   assert.equal(alertInCooldown(null, 1000, 7200), false);
   assert.equal(alertInCooldown({ alerted_at: 999 }, 1000, 7200), true);
   assert.equal(alertInCooldown({ alerted_at: 1000 - 7200 }, 1000, 7200), false);
+});
+
+function scheduledResults(env) {
+  const pending = [];
+  worker.scheduled({}, env, { waitUntil(promise) { pending.push(promise); } });
+  assert.equal(pending.length, 2);
+  return Promise.allSettled(pending);
+}
+
+test("scheduled failures log static context and reject with sanitized errors", async (t) => {
+  for (const [name, failCleanup, failAlerts] of [
+    ["cleanup", true, false],
+    ["alert checks", false, true],
+    ["both tasks", true, true]
+  ]) {
+    await t.test(name, async (t) => {
+      const logs = captureLogs(t);
+      const fetch = t.mock.method(globalThis, "fetch", async () => assert.fail("must not send an alert"));
+      const rawError = new Error(`https://sctapi.ftqq.com/${CANARY}.send /private/path 203.0.113.1`);
+      const results = await scheduledResults({
+        SERVERCHAN_KEY: CANARY,
+        DB: {
+          prepare() {
+            return {
+              bind() { return this; },
+              async first() {
+                if (failAlerts) throw rawError;
+                return { total: 0, ips: 0 };
+              }
+            };
+          },
+          async batch() {
+            if (failCleanup) throw rawError;
+            return [];
+          }
+        }
+      });
+      const expectedLogs = [];
+      for (const [index, failed, message] of [
+        [0, failCleanup, "Visit cleanup failed"],
+        [1, failAlerts, "Alert check failed"]
+      ]) {
+        const result = results[index];
+        assert.equal(result.status, failed ? "rejected" : "fulfilled");
+        if (failed) {
+          expectedLogs.push([message]);
+          assert.ok(result.reason instanceof Error);
+          assert.equal(result.reason.message, message);
+          assert.notEqual(result.reason, rawError);
+          assert.equal(result.reason.cause, undefined);
+          assert.equal(result.reason.stack.includes(CANARY), false);
+        }
+      }
+      assert.deepEqual(logs.sort(), expectedLogs.sort());
+      assert.equal(fetch.mock.callCount(), 0);
+    });
+  }
+});
+
+test("successful scheduled cleanup removes only expired rate-limit rows", async (t) => {
+  const logs = captureLogs(t);
+  const now = 600_000;
+  t.mock.method(Date, "now", () => now * 1000);
+  const { env, sqlite } = sqliteVisitEnv(t);
+  const insert = sqlite.prepare("INSERT INTO visit_rate_limits (ip_hash, window_start, count, updated_at) VALUES (?, ?, 12, ?)");
+  insert.run("old", now - 172_801, now - 172_801);
+  insert.run("recent", now, now);
+  const results = await scheduledResults(env);
+  assert.deepEqual(results.map((result) => result.status), ["fulfilled", "fulfilled"]);
+  assert.deepEqual(sqlite.prepare("SELECT ip_hash FROM visit_rate_limits").all().map((row) => row.ip_hash), ["recent"]);
+  assert.deepEqual(logs, []);
+});
+
+test("alert delivery logs no secrets and retains existing HTTP success behavior", async (t) => {
+  for (const outcome of ["throws", "non-ok", "ok"]) {
+    await t.test(outcome, async (t) => {
+      const logs = captureLogs(t);
+      const now = 600_000;
+      t.mock.method(Date, "now", () => now * 1000);
+      const { env, sqlite } = sqliteVisitEnv(t, { SERVERCHAN_KEY: CANARY });
+      sqlite.prepare("INSERT INTO verify_attempts (ip_hash, window_start, count) VALUES (?, ?, 15)")
+        .run("test-ip-hash", now);
+      const fetch = t.mock.method(globalThis, "fetch", async (url, options) => {
+        assert.equal(url, `https://sctapi.ftqq.com/${CANARY}.send`);
+        assert.equal(options.method, "POST");
+        if (outcome === "throws") throw new Error(`Failed to fetch ${url}`);
+        return new Response("{}", { status: outcome === "ok" ? 200 : 503 });
+      });
+      const results = await scheduledResults(env);
+      assert.deepEqual(results.map((result) => result.status), ["fulfilled", "fulfilled"]);
+      assert.equal(fetch.mock.callCount(), 1);
+      assert.equal(sqlite.prepare("SELECT COUNT(*) AS total FROM alerts").get().total, outcome === "ok" ? 1 : 0);
+      assert.deepEqual(logs, outcome === "ok" ? [] : [["Alert delivery failed"]]);
+    });
+  }
 });
