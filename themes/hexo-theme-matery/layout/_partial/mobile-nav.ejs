@@ -6,7 +6,7 @@ configRoot = (configRoot === null || configRoot === undefined || configRoot === 
 
     <div class="mobile-head bg-color">
         <% if (theme.logo !== undefined && theme.logo.length > 0) { %>
-        <img src="<%- theme.jsDelivr.url %><%- url_for(theme.logo) %>" class="logo-img circle responsive-img" loading="lazy">
+        <img src="<%- theme.jsDelivr.url %><%- url_for(theme.logo) %>" class="logo-img circle responsive-img" loading="lazy" alt="<%= config.title %>">
         <% } %>
         <div class="logo-name"><%= config.title %></div>
         <div class="logo-desc">
@@ -31,14 +31,14 @@ configRoot = (configRoot === null || configRoot === undefined || configRoot === 
 			<%- __(key) %>
 		</a>
           <% } else { %>
-		<a href="javascript:;">
+		<a href="javascript:;" aria-expanded="false" aria-haspopup="true">
 			<% if (theme.menu[key].icon && theme.menu[key].icon.length > 0) { %>
 				<i class="fa-fw <%- theme.menu[key].icon %>"></i>
 			<% } else { %>
 				<i class="fas fa-fw fa-link"></i>
 			<% } %>
 			<%- __(key) %>
-			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+			<span class="m-icon"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
 		</a>
             <ul <%if(theme.navMenu&&theme.navMenu.bgColor){%> style="background: <%-theme.navMenu.bgColor%>;"<%}%> >
               <% for(let childrenLink of theme.menu[key].children){ %>

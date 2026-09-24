@@ -38,17 +38,17 @@
 <div class="<% if(!theme.music.fixed) { %>music-player<% } %>">
     <% if (!theme.music.fixed && theme.music.title.enable && !lazyLoadMusic) { %>
         <div class="title center-align">
-            <i class="fas fa-music"></i>&nbsp;&nbsp;<%- theme.music.title.show %>
+            <i class="fas fa-music" aria-hidden="true"></i>&nbsp;&nbsp;<%- theme.music.title.show %>
         </div>
     <% } %>
     <% if (lazyLoadMusic) { %>
     <div id="<%- musicShellId %>" class="music-lazy-trigger<% if (theme.music.fixed) { %> music-lazy-trigger--fixed<% } %>">
         <% if (!theme.music.fixed && theme.music.title.enable) { %>
         <div class="title center-align">
-            <i class="fas fa-music"></i>&nbsp;&nbsp;<%- theme.music.title.show %>
+            <i class="fas fa-music" aria-hidden="true"></i>&nbsp;&nbsp;<%- theme.music.title.show %>
         </div>
         <% } %>
-        <button type="button" class="btn waves-effect waves-light">
+        <button type="button" class="btn waves-effect waves-light" aria-controls="<%- musicTargetId %>">
             <span><%- theme.music.loadButtonText || '打开音乐播放器' %></span>
         </button>
         <div id="<%- musicTargetId %>"></div>

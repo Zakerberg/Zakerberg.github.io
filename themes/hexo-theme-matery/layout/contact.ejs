@@ -47,18 +47,18 @@
                             <div class="col-md-5">
                                 <form class="form-inline">
                                     <div class="form-group">
-                                        文字：<input class="form-control" name="info" type="text" placeholder="hello, world"/>
+                                        <label for="barrage-info">文字：</label><input id="barrage-info" class="form-control" name="info" type="text" placeholder="hello, world"/>
                                     </div>
                                     <div class="form-group">
-                                        链接：<input class="form-control" name="href" type="text" placeholder="https://github.com/blinkfox/hexo-theme-matery"/>
+                                        <label for="barrage-href">链接：</label><input id="barrage-href" class="form-control" name="href" type="text" placeholder="https://github.com/blinkfox/hexo-theme-matery"/>
                                     </div>
                                     <div class="form-group">
-                                        速度：<input  class="form-control"  name="speed" type="text" placeholder="5~20" value="16" />
+                                        <label for="barrage-speed">速度：</label><input id="barrage-speed" class="form-control" name="speed" type="text" placeholder="5~20" value="16" />
                                     </div>
                                 </form>
                                 <div class="form-group">
-                                    <button id="send"  class="btn" onclick="run()">留言</button>
-                                    <button id="clear" class="btn " onclick="clear_barrage()"> 清除</button>
+                                    <button id="send" type="button" class="btn" onclick="run()">留言</button>
+                                    <button id="clear" type="button" class="btn " onclick="clear_barrage()"> 清除</button>
                                 </div>
                             </div>
                         </div>

@@ -12,7 +12,9 @@
     "sync:commons-switches": "node tools/sync-commons-switch-media.js",
     "sync:fcc-keyboards": "node tools/import-fcc-keyboards.js",
     "generate:geonames-places": "node tools/generate-geonames-places.mjs",
-    "test:geonames": "node --test tools/generate-geonames-places.test.mjs"
+    "test:geonames": "node --test tools/generate-geonames-places.test.mjs",
+    "deploy:api": "npm --prefix cloudflare/cherry-site-api run deploy",
+    "deploy:all": "npm run deploy:api && npm run deploy"
   },
   "hexo": {
     "version": "7.3.0"
