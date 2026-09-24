@@ -12,7 +12,7 @@
     <meta name="description" content="G99-1180 的图片、资料与整理记录。">
     <link rel="canonical" href="https://zakerberg.github.io/2025/05/16/g99/g99-1180/">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
@@ -1056,7 +1056,7 @@
         <div class="search-header">
             <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
             <input type="search" id="searchInput" name="s" placeholder="快来搜索你想看的键盘~"
-                   class="search-input">
+                   class="search-input" aria-label="搜索">
         </div>
         <div id="searchResult"></div>
     </div>
@@ -1180,8 +1180,8 @@ $(function () {
 
     <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fas fa-arrow-up"></i>
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!" aria-label="回到顶部">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </a>
 </div>
 
