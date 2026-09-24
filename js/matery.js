@@ -157,12 +157,16 @@ $(function () {
 	})
 	
     $('.m-nav-item>a').on('click',function(){
+            var menuLink = $(this);
             if ($(this).next('ul').css('display') == "none") {
                 $('.m-nav-item').children('ul').slideUp(300);
+                $('.m-nav-item>a[aria-expanded="true"]').attr('aria-expanded', 'false');
                 $(this).next('ul').slideDown(100);
+                menuLink.attr('aria-expanded', 'true');
                 $(this).parent('li').addClass('m-nav-show').siblings('li').removeClass('m-nav-show');
             }else{
                 $(this).next('ul').slideUp(100);
+                menuLink.attr('aria-expanded', 'false');
                 $('.m-nav-item.m-nav-show').removeClass('m-nav-show');
             }
     });
