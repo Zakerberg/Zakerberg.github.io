@@ -29,4 +29,4 @@ Walter·L·Cherry 先生创立的事业，以及后来留下的开关、键盘�
 
 感谢曾经分享实物照片、文档和线索的收藏者与卖家，也感谢<strong class="about-contributor-emphasis">闲鱼@玖释阝気、微博@我可以闪现来抱你、闲鱼@sunmannan、闲鱼@水煮榴弹炮、闲鱼@忘掉了的人只是泡沫、闲鱼@laml、闲鱼@[SpearofAdun]</strong> 等朋友提供过的帮助。
 
-本站是非官方民间档案，与 CHERRY 公司不存在授权、隶属或合作关系。资料来源、权利归属、使用边界以及权利人联系和快速下架流程，请查看[版权与资料使用说明](/copyright/)。如发现型号错误、来源漏标或资料归属问题，也欢迎通过邮箱:blmichael1129@ilcoud.com 或闲鱼@扎克博格 联系我。
+本站是非官方民间档案，与 CHERRY 公司不存在授权、隶属或合作关系。资料来源、权利归属、使用边界以及权利人联系和快速下架流程，请查看<strong>[版权与资料使用说明](/copyright/)</strong>。如发现型号错误、来源漏标或资料归属问题，也欢迎通过邮箱:<strong class="about-contributor-emphasis"><a href="mailto:blmichael1129@ilcoud.com">blmichael1129@ilcoud.com</a></strong> 或<strong class="about-contributor-emphasis">闲鱼@扎克博格</strong> 联系我。
